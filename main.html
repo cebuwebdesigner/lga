@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<script src="js/jquery.min.js"></script>
+<script src="jquery.touchslider.min.js"></script>
+<script>
+jQuery(function($) {
+    $(".touchslider").touchSlider({/*options*/});
+});
+</script>
+<style>
+		/* demo slider*/
+		.touchslider .touchslider-viewport {
+			border: 5px solid #fff1e0;
+			background: #fff1e0;
+			-webkit-border-radius: 6px;
+			        border-radius: 6px;
+		}
+		.touchslider .touchslider-item {
+			height: 345px;
+			overflow: hidden;
+		}
+		.touchslider .touchslider-nav {
+			text-align: center;
+			margin-top: 16px;
+		}
+		.touchslider .touchslider-nav a {
+			cursor: pointer;
+			color: #000;
+		}
+		.touchslider .touchslider-nav a:active {
+			background: #689db2;
+		}
+
+		.touchslider-nav {
+			font: bold 16px/16px Georgia;
+		}
+		
+		.touchslider .touchslider-next-in {
+			position: absolute; /* fix safari render font */
+			right: 10px;
+		}
+		.touchslider .touchslider-prev-in {
+			position: absolute;
+			left: 10px;
+		}
+		.touchslider .touchslider-nav-item {
+			width: 16px;
+			height: 16px;
+			background: #fff;
+			margin: 0 16px;
+			display: inline-block;
+			-webkit-border-radius: 12px;
+			        border-radius: 12px;
+			}
+		.touchslider .touchslider-nav-item-current {
+			background: #cff0ff;
+		}
+
+#page{padding:15px 0 0;border:1px solid #FFFFFF;}
+#content{width:320px;}
+.inner{width:320px;margin:0 auto;text-align:left;}
+.layout-1col #content{float:none;}
+.layout-1col #content.wide{width:auto;}
+
+	</style>
+
+ <script type="text/javascript" src="jquery.qtip-1.0.0-rc3.min.js"></script>    
+        
+        <script type="text/javascript">
+// Create the tooltips only when document ready
+$(document).ready(function()
+{
+   // Use the each() method to gain access to each elements attributes
+   $('area').each(function()
+   {
+      $(this).qtip(
+      {
+         content: $(this).attr('alt'), // Use the ALT attribute of the area map
+         style: {
+            name: 'dark', // Give it the preset dark style
+            border: {
+               width: 0, 
+               radius: 4 
+            }, 
+            tip: true // Apply a tip at the default tooltip corner
+         }
+      });
+   });
+});
+</script>
+
+</head>
+
+<body>
+
+<div id="page" class="inner layout-1col"><div id="content">
+
+
+
+				
+                
+                
+                
+<div class="touchslider">  
+
+
+
+<img src="images/logo.jpg" width="114" height="129" style="float:left">
+
+                
+<div style="width:200px; float:left; padding-top:10px">
+     <img src="left.png" width="107" height="42" class="touchslider-prev"  />
+     <img src="right.png" width="72" height="42" class="touchslider-next" />
+   
+<br/><img src="images/icon.jpg" width="93" height="50" style="float:left" >
+ </div>
+
+<br style="clear:both"/>
+
+<div style="text-align:right; width:500px;"><!--<a href="index.php" style="font-size:10px; color:#000; font-family:Arial, Helvetica, sans-serif" > [ back to all brands ] </a>--></div>
+<div class="touchslider-viewport" style="width:315px; height:357px; overflow:hidden">
+  <div>
+    <div class="touchslider-item"><img src="photos/lady-cut.jpg" alt="[code:lady-cut]" /></div>
+    <div class="touchslider-item"><img src="photos/princess.jpg" alt="[code:princess]" /></div>
+    <div class="touchslider-item"><img src="photos/fairy.jpg" alt="[code:fairy]" /></div>
+    <div class="touchslider-item"><img src="photos/bloody-girl.jpg" alt="[code:bloody-girl]" /></div>
+    <div class="touchslider-item"><img src="photos/zombi.jpg" alt="[code:zombi]" /></div>
+    <div class="touchslider-item"><img src="photos/devil.jpg" alt="[code:devil]" /></div>
+    <div class="touchslider-item"><img src="photos/witch.jpg" alt="[code:witch]" /></div>
+    <div class="touchslider-item"><img src="photos/vampire.jpg" alt="[code:vampire]" /></div>
+    <div class="touchslider-item"><img src="photos/doll.jpg" alt="[code:doll]" /></div>
+    <div class="touchslider-item"><img src="photos/bloody-doc.jpg" alt="[code:bloody-doc]" /></div>
+  </div>
+</div>
+<div style="text-align:center; margin-top:-15px; position:relative; font-family:Arial, Helvetica, sans-serif; font-size:9px; z-index:999"> *you may swipe(for touch screen) or drag(via mouse) </div>
+</div>
+
+
+
+
+
+</div></div>
+<map name="Map">
+  <area shape="rect" coords="274,93,308,118" href="#" alt="price">
+</map>
+
+</body>
+</html>
