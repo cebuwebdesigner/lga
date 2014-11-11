@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>stumblelegalapp</title>
+	<link rel="stylesheet" href="themes/stumblelegal.min.css" />
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+	<link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css" />
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+
+
+	<style>
+        table { width:100%; border-spacing: 0; }
+        th { text-align:left; }
+        th h3 { margin:.6em 0 .6em .5em; }
+        th, td { vertical-align:top; border-top:1px solid #eee; padding: 1px 3px; background-color:#fcfcfc; }
+        td .ui-btn { margin:.4em 0 .5em 0; }
+        td .ui-btn-inner { padding: .4em 15px; }
+		
+		.ui-icon-logo {
+		background-image: url("images/toplogo.png");
+		background-size: 28px 28px; width:15px; 
+		background-color: transparent !important;
+		border:none;
+		background-repeat:no-repeat;
+		box-shadow: none;
+		-webkit-box-shadow: none;
+
+	}
+	.whitetext{text-decoration:none; color:#FFF}
+	.whitetext:active{text-decoration:none; color:#FFF}
+    </style>
+</head>
+<body>
+
+<div data-role="header" data-position="fixed" role="banner" class="ui-header ui-bar-inherit">
+			
+           
+            <a href="#" style="position: fixed; background-image: url("images/toplogo.png");
+		 width:15px;" class="ui-btn ui-nodisc-icon ui-corner-all ui-btn-icon-left ui-icon-logo
+        
+         ">&nbsp;</a>
+            
+            <h1 class="ui-title" role="heading" aria-level="1">Stumble <span style="font-weight:lighter">legal</span></h1>
+		</div>
+        
+        
+<h2 style=" width:100%; text-align:center">Registration</h2>
+<form style="padding:20px" action="selection.html" target="_parent">
+<input type="text" name="name" id="name" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Username">
+
+<input type="text" name="position" id="name" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Position">
+<input type="text" name="firm" id="name" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Law Firm">
+<input type="text" name="associationid" id="name" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Association Number">
+
+
+<input type="text" name="associationid" id="name" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" maxlength="5" placeholder="Law Society Number" onkeydown="return isNumber(event);">
+
+<script>
+  function isNumber(event) {
+  if (event) {
+    var charCode = (event.which) ? event.which : event.keyCode;
+    if (charCode != 190 && charCode > 31 && 
+       (charCode < 48 || charCode > 57) && 
+       (charCode < 96 || charCode > 105) && 
+       (charCode < 37 || charCode > 40) && 
+        charCode != 110 && charCode != 8 && charCode != 46 )
+       return false;
+  }
+  return true;
+}
+</script>
+
+<input type="email" name="email" id="name" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Email Address">
+<input type="text" name="phone" id="name" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Phone">
+ 
+
+<input type="password" name="password" id="name" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Password"> 
+<input type="password" name="vpassword" id="name" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Retype Password">
+
+
+<input name="" type="submit" value="Submit" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
+	
+    <br />
+   <div style="width:100%; text-align:center">  <a href="form.html"   data-transition="flip" class="whitetext">already register?</a></div>
+    	
+        
+        
+        <div style="text-align:center">
+        
+    
+        
+        </div>
+        
+        
+		</form>
+
+
+<!--<div data-role="footer" data-theme="a" data-position="fixed" class="ui-footer ui-bar-a ui-footer-fixed slideup" role="contentinfo">
+					<a href="index.html" data-role="button" data-icon="plus">Add</a>
+	<a href="index.html" data-role="button" data-icon="arrow-u">Up</a>
+	<a href="index.html" data-role="button" data-icon="arrow-d">Down</a>
+			</div>-->
+
+</body>
+</html>
