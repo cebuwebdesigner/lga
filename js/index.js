@@ -1,18 +1,3 @@
-Skip to content
- This repository
-Explore
-Gist
-Blog
-Help
-Cebu Web Design cebuwebdesigner
- 
-34  Watch 
-  Star 222
- Fork 72christocracy/cordova-plugin-background-geolocation
- branch: master  cordova-plugin-background-geolocation / example / www / js / index.js
-Chris Scottchristocracy on Jul 29 conflicts merging old re-factor branch for ios after accepting a few …
-2 contributors Chris ScottM165437
-118 lines (105 sloc)  4.945 kb RawBlameHistory   
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -130,5 +115,3 @@ var app = {
     }
 
 };
-Status API Training Shop Blog About
-© 2014 GitHub, Inc. Terms Privacy Security Contact
