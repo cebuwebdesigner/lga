@@ -22,5 +22,8 @@
 	
 	<feature name="http://api.phonegap.com/1.0/geolocation"/>
 	
+	<uses-permission   android:name = "android.permission.ACCESS_FINE_LOCATION"   /> 
+	<preference name="orientation" value="portrait" />
+	
 	
 </widget>
