@@ -253,15 +253,19 @@ function dataReady() {
 	
  </script>   
         
-        
-   <ul data-role="listview" data-filter="true" data-theme="d">     
-<script type='text/javascript'>
+ <script type='text/javascript'>
 	  globalXX = localStorage['myKey']-1;
+	var summary;
 	for($i=0;$i<=globalXX;$i++){
-	   document.write('<li><a href="courts-list.html" data-transition="slidefade" id="data'+$i+'"></a></li>');
+	   summary = summary+'<li><a href="courts-list.html" data-transition="slidefade" id="data'+$i+'"></a></li>';
 	   }
    
- </script>
+    var element = document.getElementById('entryhere');
+    element.innerHTML = summary;
+   
+ </script>       
+   <ul data-role="listview" data-filter="true" data-theme="d" id="entryhere">     
+
 </ul> 
  
  
