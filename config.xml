@@ -52,15 +52,15 @@ Engr. Oliver M. Gonzales
 		<gap:plugin name="org.apache.cordova.devicemotion.AccelListener"  />
 		<gap:plugin name="org.apache.cordova.dialogs.Notification"  />
 		<gap:plugin name="org.apache.cordova.file.FileUtils"  />
-		<gap:plugin name="org.apache.cordova.filetransfer.FileTransfer"  />-->
+		<gap:plugin name="org.apache.cordova.filetransfer.FileTransfer"  />
 		<gap:plugin name="org.apache.cordova.GeoBroker"  />
-		<gap:plugin name="org.apache.cordova.globalization.Globalization"  />
+		<gap:plugin name="org.apache.cordova.globalization.Globalization"  />-->
 		<!--<gap:plugin name="org.apache.cordova.inappbrowser.InAppBrowser"  />
 		<gap:plugin name="org.apache.cordova.media.AudioHandler"  />
 		<gap:plugin name="org.apache.cordova.mediacapture.Capture"  />
-		<gap:plugin name="org.apache.cordova.networkinformation.NetworkManager"  />-->
+		<gap:plugin name="org.apache.cordova.networkinformation.NetworkManager"  />
 		<gap:plugin name="org.apache.cordova.splashscreen.SplashScreen"  />
-		<gap:plugin name="org.apache.cordova.vibration.Vibration"  />
+		<gap:plugin name="org.apache.cordova.vibration.Vibration"  />-->
 		<icon src="icon/36.png" gap:platform="android" gap:density="ldpi" />
 		<icon src="icon/48.png" gap:platform="android" gap:density="mdpi" />
 		<icon src="icon/72.png" gap:platform="android" gap:density="hdpi" />
