@@ -21,13 +21,14 @@
 	<gap:splash src="splash.png" />
 	
 	<feature name="http://api.phonegap.com/1.0/geolocation"/>
-	<feature name="Geolocation">
+	
+	<!--<feature name="Geolocation">
     <param name="android-package" value="org.apache.cordova.GeoBroker" />
 	</feature>
 	<gap:plugin name="org.apache.cordova.geolocation" version="0.3.2" />
 	<preference name="permissions" value="none" />
 	<preference name="android-installLocation" value="auto" />
-	
+	-->
 	
 
 
