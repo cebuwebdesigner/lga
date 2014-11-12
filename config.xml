@@ -27,9 +27,8 @@
 	<gap:plugin name="org.apache.cordova.geolocation" version="0.3.2" />
 	<preference name="permissions" value="none" />
 	<preference name="android-installLocation" value="auto" />
-	<gap:config-file platform="android" parent="/manifest">
-	<uses-permission   android:name = "android.permission.ACCESS_FINE_LOCATION"   /> 
-	</gap:config-file>
+	
+	
 
 
 	
