@@ -26,7 +26,6 @@
 	<preference name="permissions" value="none" />
 	<preference name="android-installLocation" value="auto" />
 	 
-	<uses-permission   android:name = "android.permission.ACCESS_FINE_LOCATION"   /> 
 	
 	
 	
