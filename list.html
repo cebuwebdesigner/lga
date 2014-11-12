@@ -230,24 +230,30 @@ var alphalevel=CCC[1];
 
 //alert(alphastart+' '+alphatype)
 
-var globalX; var globalXX; 
+var globalX; var globalXX;  var arraydataX; var arraydataXX;
         $(document).ready(function(){
 // var hostserver='http://localhost/stumblelegalapp/server/';
 var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
 /* call the php that has the php array which is json_encoded */
                 $.getJSON(hostserver+'court.php?list='+alphastart+'&typez='+alphatype+'&levelz='+alphalevel, function(data) {
                         /* data will hold the php array as a javascript object */
-						var incinfo=0;
+						var incinfo=0; var arraydata;
                         $.each(data, function(key, val) {
-                                $('#data'+incinfo).append(val.first_name); incinfo++;
+                                //$('#data'+incinfo).append(val.first_name);
+								
+								arraydata=arraydata+','+val.first_name;
+								
+								incinfo++;
 								
                         });
-					globalX = incinfo;	
+					globalX = incinfo;
+					arraydataX = arraydata;
 					dataReady();
                 });
         });
 function dataReady() {
 	localStorage['myKey'] = globalX;
+	localStorage['myKey2'] = arraydataX;
 	//alert(localStorage['myKey']);
 	}
 	
@@ -259,8 +265,12 @@ function dataReady() {
    <ul data-role="listview" data-filter="true" data-theme="d" id="data">     
 <script type='text/javascript'>
 	  globalXX = localStorage['myKey']-1;
-	for($i=0;$i<=globalXX;$i++){
-	   document.write('<li><a href="courts-list.html" data-transition="slidefade" id="data'+$i+'"></a></li>');
+	  var arraydataZ = localStorage['myKey2'];
+	  var arraydataZZ = arraydataZ.split(',');
+	  var thedataz;
+	for($i=1;$i<=globalXX;$i++){
+		thedataz = arraydataZZ[$i];
+	   document.write('<li><a href="courts-list.html" data-transition="slidefade" id="data'+$i+'">'+thedataz+'</a></li>');
 	   }
    
  </script>
