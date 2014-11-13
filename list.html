@@ -268,8 +268,8 @@ var alphalevel=CCC[1];
 
 var globalX; var globalXX;  var arraydataX; var arraydataXX;
         $(document).ready(function(){
- var hostserver='http://localhost/stumblelegalapp/server/';
-//var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
+// var hostserver='http://localhost/stumblelegalapp/server/';
+var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
 /* call the php that has the php array which is json_encoded */
                 $.getJSON(hostserver+'court.php?list='+alphastart+'&typez='+alphatype+'&levelz='+alphalevel, function(data) {
                         /* data will hold the php array as a javascript object */
