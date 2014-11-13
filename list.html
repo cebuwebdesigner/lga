@@ -154,6 +154,39 @@
 	
 	
     </style>
+    
+<script>
+function editbck()
+{   
+
+var url = window.location.href;
+var params = url.split('?');
+//alert(params[1]);
+var ABC=params[1];
+
+
+var AABBCC = ABC.split('&amp;');
+
+
+var AA = AABBCC[1];
+var AAA = AA.split('=');
+var alphatyp=AAA[1];
+
+
+
+var BB = AABBCC[2];
+var BBB = BB.split('=');
+var alphalvl=BBB[1];
+
+//courts.html?type=Criminal&amp;lvl=Local
+//type.html?lvl=Criminal
+window.top.location.href = "courts.html?type="+alphatyp+"&amp;lvl="+alphalvl; 
+
+}
+</script>
+
+
+
 </head>
 <body>
 
@@ -161,11 +194,14 @@
 			
            
         
-           <a href="selection.html" data-transition="flip" style="position: fixed; background-image: url('images/toplogo.png');
-		 width:15px;" class="ui-btn ui-nodisc-icon ui-corner-all ui-btn-icon-left ui-icon-logo">&nbsp;</a>
+           <a href="#" onclick="editbck()" data-transition="flip" style="position: fixed; background-image: url('images/back.png');
+		 width:15px;" class="ui-btn ui-nodisc-icon ui-corner-all ui-btn-icon-left ui-icon-logo" >&nbsp;</a>
             
             <h1 class="ui-title" role="heading" aria-level="1">Stumble <span style="font-weight:lighter">legal</span></h1>
 		
+        
+        <a href="selection.html" data-transition="flip" style="position: fixed; background-image: url('images/toplogo.png');
+		 width:15px; margin-right:-10px" class="ui-btn ui-nodisc-icon ui-corner-all ui-btn-icon-right ui-icon-logo">&nbsp;</a>
         
         
         </div>
@@ -232,12 +268,12 @@ var alphalevel=CCC[1];
 
 var globalX; var globalXX;  var arraydataX; var arraydataXX;
         $(document).ready(function(){
-// var hostserver='http://localhost/stumblelegalapp/server/';
-var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
+ var hostserver='http://localhost/stumblelegalapp/server/';
+//var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
 /* call the php that has the php array which is json_encoded */
                 $.getJSON(hostserver+'court.php?list='+alphastart+'&typez='+alphatype+'&levelz='+alphalevel, function(data) {
                         /* data will hold the php array as a javascript object */
-						var incinfo=0; var arraydata;
+						var incinfo=0; var arraydata='';
                         $.each(data, function(key, val) {
                                 //$('#data'+incinfo).append(val.first_name);
 								
@@ -295,7 +331,7 @@ function dataReady() {
        <div style="width:25%; text-align:center; float:left; font-size:12px"><a href="requests.html" data-transition="slideup"><button id="saveFileBtn" data-iconpos="center" data-icon="requests" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
      
     
-    <div style="width:25%; text-align:center; float:left; font-size:12px"><button id="saveFileBtn" data-iconpos="center" data-icon="settings" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></div>
+    <div style="width:25%; text-align:center; float:left; font-size:12px"><a href="settings.html" data-transition="slideup"><button id="saveFileBtn" data-iconpos="center" data-icon="settings" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
     
     
     	</div>
