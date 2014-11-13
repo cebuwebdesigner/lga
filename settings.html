@@ -194,6 +194,10 @@ function editbck() {
     window.history.back()
 }
 </script>
+
+ <script type="text/javascript">
+        document.write( '<style>#footer{visibility:hidden}@media(min-height:' + ($( window ).height() - 10) + 'px){#footer{visibility:visible}}</style>' );
+    </script>
 </head>
 <body>
  <div class="pull-demo-page" data-role="page">
@@ -281,7 +285,7 @@ function editbck() {
 
 
 
-<div data-role="footer" data-position="fixed" class="ui-footer ui-bar-a ui-footer-fixed" role="banner" style="height:65px; font-size:27px; background:url(images/footerbg.png)">
+<div data-role="footer" id="footer" data-position="fixed" class="ui-footer ui-bar-a ui-footer-fixed" role="banner" style="height:65px; font-size:27px; background:url(images/footerbg.png)">
 	
     
     
@@ -296,6 +300,9 @@ function editbck() {
     
      </div>
     	</div>
+        
+        
+       
 
 </body>
 </html>
