@@ -177,6 +177,7 @@ window.top.location.href = "calendar.html";
 </script>
 </head>
 <body>
+
 <div data-role="header" data-position="fixed" role="banner" class="ui-header ui-bar-inherit">
 			
            
@@ -193,10 +194,10 @@ window.top.location.href = "calendar.html";
         
         </div>
         
-        
+         <br />
 
 
-<h3 style="width:100%; text-align:center">NSW Courts</h3>
+
 
 <!--<div style="width:40%; margin-left:10%; float:left; text-align:center">Close by</div>
 <div style="width:40%; margin-right:10%; float:left; text-align:center"><a href="calendar.html" data-transition="slide">Calendar</a></div>-->
@@ -209,7 +210,7 @@ window.top.location.href = "calendar.html";
                     
                      <label for="radio-choice-h-6a" style="background-color:#09F; border-color:#09F; color:#fff; box-shadow: none; -webkit-box-shadow: none;">Close by</label>
                     
-                    <label for="radio-choice-h-6b" style="background-color:#0157a3; border-color:#09F; color:#09F; box-shadow: none; -webkit-box-shadow: none; text-shadow: 0 1px 0 #0157a3">Calendar</label>
+                    <label for="radio-choice-h-6b" onClick="calendar()"  style="background-color:#0157a3; border-color:#09F; color:#09F; box-shadow: none; -webkit-box-shadow: none; text-shadow: 0 1px 0 #0157a3"><a href="calendar.html" target="_parent" style="text-decoration:none">Calendar</a></label>
                     <input type="radio" onClick="calendar()" name="radio-choice-h-6" id="radio-choice-h-6b" value="off" class="outlineswitch">
                    
                  </fieldset>

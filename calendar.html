@@ -221,7 +221,7 @@ $(document).on('pageinit', '#index', function(){
            <a href="#" onclick="editbck()" data-transition="flip" style="position: fixed; background-image: url('images/back.png');
 		 width:15px;" class="ui-btn ui-nodisc-icon ui-corner-all ui-btn-icon-left ui-icon-logo" >&nbsp;</a>
             
-            <h1 class="ui-title" role="heading" aria-level="1">Stumble <span style="font-weight:lighter">legal</span></h1>
+            <h1 class="ui-title" role="heading" aria-level="1">Calendar<!--Stumble <span style="font-weight:lighter">legal</span>--></h1>
 		
         
         <a href="selection.html" data-transition="flip" style="position: fixed; background-image: url('images/toplogo.png');
@@ -232,6 +232,30 @@ $(document).on('pageinit', '#index', function(){
         
         
         
+        
+        <div style="width:300px; margin: 0 auto;  text-align:center">
+
+                <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+              
+              
+                <label for="radio-choice-h-6a" onClick="calendar()"  style="background-color:#0157a3; border-color:#09F; color:#09F; box-shadow: none; -webkit-box-shadow: none; text-shadow: 0 1px 0 #0157a3"><a href="courts-list.html" target="_parent" style="text-decoration:none">Close by</a></label>
+                    <input type="radio" onClick="calendar()" name="radio-choice-h-6" id="radio-choice-h-6a" value="off" class="outlineswitch">  
+                    
+                    
+                    
+                      <input type="radio" name="radio-choice-h-6" id="radio-choice-h-6b" value="on" checked="checked" class="outlineswitch">
+                    
+                     <label for="radio-choice-h-6b" style="background-color:#09F; border-color:#09F; color:#fff; box-shadow: none; -webkit-box-shadow: none;">Calendar</label>
+                    
+                    
+                   
+                 </fieldset>
+       
+</div>
+
+
+
+<br style="clear:both" />
             
             <div data-role="content">
                 <div id="calendar"></div>
