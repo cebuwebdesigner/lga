@@ -36,13 +36,14 @@ Engr. Oliver M. Gonzales
 		<preference name="ErrorUrl" value=""/>
 		<preference name="BackgroundColor" value="0x000000"/>
 		<preference name="KeepRunning" value="true"/>
-		<preference name="DisallowOverscroll" value="false"/>
+		<preference name="DisallowOverscroll" value="true"/>
 		<preference name="LoadingDialog" value=","/> 
 		<preference name="LoadUrlTimeoutValue" value="20000" />
 		<preference name="disable-cursor" value="false" />
 		<gap:platform name="android" />
 		<feature name="http://api.phonegap.com/1.0/geolocation"/>
-		<feature name="http://api.phonegap.com/1.0/notification"/><!--
+		<feature name="http://api.phonegap.com/1.0/notification"/>
+		<!--
 		<gap:plugin name="org.apache.cordova.batterystatus.BatteryListener"  />
 		<gap:plugin name="org.apache.cordova.camera.CameraLauncher"  />
 		<gap:plugin name="org.apache.cordova.console"  />
