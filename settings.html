@@ -198,40 +198,15 @@ function editbck() {
 }
 </script>
 
-<!--<style>
+<style>
 #footer{visibility:hidden}
 @media(min-height:' + ($( window ).height() - 10) + 'px){
 	#footer{visibility:visible}
 	}
 </style>
--->
-
-<script type="text/javascript">
-window.addEventListener("orientationchange", function() {
-    // rewrite CSS when the user rotates the device                
-    setFooterVisibility();
-}, false);
-
-$(document).ready(function(){
-    // write CSS for the first time when the browser is ready
-    setFooterVisibility();
-});
-
-function setFooterVisibility()
-{
-    var win     = $(window),
-        height  = win.height(),
-        width   = win.width();
-    $('#styles').html("<style>#footer{visibility: hidden;}@media screen and (orientation: portrait) and (min-height: " + (Math.max(width, height) - 10) + "px){ #footer { visibility: visible; } }@media screen and (orientation: landscape) and (min-height: " + (Math.min(width, height) - 30) + "px){ #footer { visibility: visible; } }</style>");
-}
-</script>
-
 
 </head>
 <body>
-
-<div id='styles'></div>
-
  <div class="pull-demo-page" data-role="page">
 <div data-role="header" data-position="fixed" role="banner" class="ui-header ui-bar-inherit">
 			
