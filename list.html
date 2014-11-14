@@ -335,9 +335,13 @@ function dataReady() {
 	 if(alphaz!=alphastart){
 
 		//alert(alphastart);
-	 setTimeout(function() {
+	
+	if(localStorage['counterz']!=2){
+	setTimeout(function() {
 	  parent.location.reload();
 	  }, 1500);
+	}
+	 localStorage['counterz']++;
 	//parent.window.location = "list.html?s="+alphastart+"&amp;typez="+alphatype+"&amp;lvl="+alphalevel;  
 		
 		
