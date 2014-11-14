@@ -134,6 +134,7 @@
         background-color: rgba(0, 0, 0, 0); !important;
         background-position: center 0%; !important;
 		background-color: transparent !important;
+
         background-size: 70px 59px;
     }
     .ui-btn.ui-icon-settings:hover
@@ -267,11 +268,12 @@ var alphalevel=CCC[1];
 //alert(alphastart+' '+alphatype)
 
 var globalX; var globalXX;  var arraydataX; var arraydataXX;
-        $(document).ready(function(){
+        //$(document).ready(function(){
+		function loadit(){
 // var hostserver='http://localhost/stumblelegalapp/server/';
 var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
 /* call the php that has the php array which is json_encoded */
-                $.getJSON(hostserver+'court.php?list='+alphastart+'&typez='+alphatype+'&levelz='+alphalevel, function(data) {
+                $.getJSON(hostserver+'court.php?list='+alphastart+'&typez='+alphatype+'&levelz='+alphalevel+'&r=1', function(data) {
                         /* data will hold the php array as a javascript object */
 						var incinfo=0; var arraydata='';
                         $.each(data, function(key, val) {
@@ -286,12 +288,18 @@ var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
 					arraydataX = arraydata;
 					dataReady();
                 });
-        });
+        };
+		
+	loadit();	
+		
 function dataReady() {
 	localStorage['myKey'] = globalX;
 	localStorage['myKey2'] = arraydataX;
 	//alert(localStorage['myKey']);
 	}
+	
+	
+	
 	
 
 		
@@ -304,11 +312,43 @@ function dataReady() {
 	  var arraydataZ = localStorage['myKey2'];
 	  var arraydataZZ = arraydataZ.split(',');
 	  var thedataz;
+	  
+	  
+///////////////////////////////////////////
+	  
+	var alphaz = arraydataZZ[1].charAt(0);
+	var url = window.location.href;
+	
+	var params = url.split('?');
+	//alert(params[1]);
+	var ABC=params[1];
+	
+	var AABBCC = ABC.split('&amp;');
+	
+	var AA = AABBCC[0];
+	var AAA = AA.split('=');
+	var alphastart=AAA[1];
+	
+
+	  
+///////////////////////////////////////////////	  
+	 if(alphaz!=alphastart){
+
+		//alert(alphastart);
+	 setTimeout(function() {
+	  parent.location.reload();
+	  }, 500);
+	//parent.window.location = "list.html?s="+alphastart+"&amp;typez="+alphatype+"&amp;lvl="+alphalevel;  
+		
+		
+		}else{
+	 
+ 
 	for($i=1;$i<=globalXX;$i++){
 		thedataz = arraydataZZ[$i];
 	   document.write('<li><a href="courts-list.html" data-transition="slidefade" id="data'+$i+'">'+thedataz+'</a></li>');
 	   }
-   
+		 }
  </script>
 </ul> 
  
