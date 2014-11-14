@@ -134,6 +134,7 @@
         background-color: rgba(0, 0, 0, 0); !important;
         background-position: center 0%; !important;
 		background-color: transparent !important;
+
         background-size: 70px 59px;
     }
     .ui-btn.ui-icon-settings:hover
@@ -156,6 +157,8 @@
     </style>
     
     <script>
+	
+	localStorage['counterz'] = 0;
 function edit(target)
 {   
 
@@ -181,7 +184,7 @@ var alphalvl=BBB[1];
 //courts.html?lvl=criminal&amp;type=district
 //list.html?s=B&amp;t=Civil&amp;l=Local
 //http://localhost/stumblelegalapp/list.html?s=A&amp;lvl=Civil&amp;lvl=Local
-window.top.location.href = "list.html?s="+target+"&amp;lvl="+alphatyp+"&amp;lvl="+alphalvl; 
+window.top.location.href = "list.html?s="+target+"&amp;typez="+alphatyp+"&amp;lvl="+alphalvl; 
 
 
 }
@@ -231,7 +234,7 @@ window.top.location.href = "type.html?lvl="+alphatyp;
            <a href="#" onclick="editbck()" data-transition="flip" style="position: fixed; background-image: url('images/back.png');
 		 width:15px;" class="ui-btn ui-nodisc-icon ui-corner-all ui-btn-icon-left ui-icon-logo" >&nbsp;</a>
             
-            <h1 class="ui-title" role="heading" aria-level="1">Stumble <span style="font-weight:lighter">legal</span></h1>
+            <h1 class="ui-title" role="heading" aria-level="1">NSW Courts<!--Stumble <span style="font-weight:lighter">legal</span>--></h1>
 		
         
         <a href="selection.html" data-transition="flip" style="position: fixed; background-image: url('images/toplogo.png');
@@ -242,8 +245,7 @@ window.top.location.href = "type.html?lvl="+alphatyp;
         
         
 
-
-<h3 style="width:100%; text-align:center">NSW Courts</h3>
+<!--<h3 style="width:100%; text-align:center">NSW Courts</h3>-->
 
 
 <div data-role="content">
