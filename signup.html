@@ -41,7 +41,7 @@ var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
 //var hostserver='http://localhost/stumblelegalapp/server/';
 
 function editsave()
-{ 
+{
 
  var vname = document.getElementById("vname").value;
  var vposition = document.getElementById("vposition").value;
@@ -66,8 +66,14 @@ function editsave()
 	password:vpassword
   },
   function(data,status){
-    alert("Data: " + vname + "\nStatus: " + status);
+    //alert("Data: " + vname + "\nStatus: " + status);
+	if(vname!=""){
+	alert("Successfully Registered");
+	}
+	window.top.location.href = "form.html"; 
   });
+	
+	
 	
 }
 	
@@ -121,7 +127,9 @@ function editsave()
 <input type="password" name="password" id="vpassword" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Password"> 
 <input type="password" name="vpassword" id="name" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Retype Password">
 
- <a href="#" data-role="button"  onclick="editsave()" >SUBMIT</a>
+<div style="width:100%; text-align:center">
+  <br /><a href="#" onclick="editsave()" style="padding:0px; color:#FFF; text-decoration:none; margin:10px auto; width:200px; text-align:center;">SUBMIT</a>
+<br /><br /></div>
 <!--<input name=""    type="submit" value="Submit"  class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">-->
 	
     <br />
