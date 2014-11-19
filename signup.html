@@ -34,7 +34,7 @@
 	.whitetext:active{text-decoration:none; color:#FFF}
     </style>
     
-    <script>
+<script type='text/javascript'>
 	
 	
 var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
@@ -65,12 +65,13 @@ function editsave()
 	phone:vphone,
 	password:vpassword
   },
-  function(data,status){
-    //alert("Data: " + vname + "\nStatus: " + status);
-	if(vname!=""){
-	alert("Successfully Registered");
-	}
+   function(data,status){
+    if(status=="success"){
+	alert("Hi " + vname+", Your "+status+"fully registered");
 	window.top.location.href = "form.html"; 
+	}else{
+		alert("Please check your connection and try again");
+		}
   });
 	
 	
