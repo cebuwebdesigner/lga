@@ -153,38 +153,65 @@
 		-webkit-box-shadow: none;
 
     }
-	
+	#list-navigation {
+    color:#696969;
+    
+    position:absolute;
+    right:0px;
+    top:0px;
+    z-index:200; font-size:10px;
+}
 	
     </style>
+    <script type='text/javascript'>//<![CDATA[ 
+$(window).load(function(){
+$('.scrollToSelected').bind('click', function() {
+    var view = $(this).attr('id');
+    var list = view.split('-');
+    var elem = $("#"+list[1]);
     
+    // not sure if this is offset or position
+    var position = elem.position(); 
+    var offset   = elem.offset();
+    
+    //alert('left: '+position.left + ", top: " + position.top);
+    //alert('left: '+offset.left + ", top: " + offset.top);
+    
+    $.mobile.silentScroll(position.top);
+    //$.mobile.silentScroll(offset.top);
+    
+});
+
+$('.showDetails').bind('click', function() {
+    $.mobile.changePage( "#details", { transition: "slideup"} );
+});
+});//]]>  
+
+</script>
+
+
 <script>
-function editbck()
+function editbck() {
+    window.history.back()
+}
+</script>
+
+  <script>
+function associates()
 {   
 
-var url = window.location.href;
-var params = url.split('?');
-//alert(params[1]);
-var ABC=params[1];
+window.top.location.href = "associates.html"; 
 
-
-var AABBCC = ABC.split('&amp;');
-
-
-var AA = AABBCC[1];
-var AAA = AA.split('=');
-var alphatyp=AAA[1];
-
-
-
-var BB = AABBCC[2];
-var BBB = BB.split('=');
-var alphalvl=BBB[1];
-
-//courts.html?type=Criminal&amp;lvl=Local
-//type.html?lvl=Criminal
-window.top.location.href = "courts.html?type="+alphatyp+"&amp;lvl="+alphalvl; 
 
 }
+
+
+
+function editcal(){
+		
+		window.top.location.href = "calendar.html?id="+theid; 
+		
+		}
 </script>
 
 
@@ -192,14 +219,14 @@ window.top.location.href = "courts.html?type="+alphatyp+"&amp;lvl="+alphalvl;
 </head>
 <body>
 
-<div data-role="header" data-tap-toggle="false" data-position="fixed" role="banner" class="ui-header ui-bar-inherit">
+<div data-role="header" data-position="fixed" role="banner" class="ui-header ui-bar-inherit">
 			
            
         
            <a href="#" onclick="editbck()" data-transition="flip" style="position: fixed; background-image: url('images/back.png');
 		 width:15px;" class="ui-btn ui-nodisc-icon ui-corner-all ui-btn-icon-left ui-icon-logo" >&nbsp;</a>
             
-            <h1 class="ui-title" role="heading" aria-level="1">Stumble <span style="font-weight:lighter">legal</span></h1>
+            <h1 class="ui-title" role="heading" aria-level="1">Associates</h1>
 		
         
         <a href="selection.html" data-transition="flip" style="position: fixed; background-image: url('images/toplogo.png');
@@ -211,171 +238,134 @@ window.top.location.href = "courts.html?type="+alphatyp+"&amp;lvl="+alphalvl;
         
 
 
-<h3 style="width:100%; text-align:center">NSW Courts</h3>
+
+
+<div style="width:300px; margin: 0 auto;  text-align:center">
+
+                <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+                    <input type="radio" name="radio-choice-h-6" onClick="associates()" id="radio-choice-h-6b" value="on" checked="checked" class="outlineswitch">
+                    
+                    
+                    
+                    <label for="radio-choice-h-6b"   style="background-color:#0157a3; border-color:#09F; color:#09F; box-shadow: none; -webkit-box-shadow: none; text-shadow: 0 1px 0 #0157a3">All</label>
+                    
+                    
+                    
+                    
+                     <label for="radio-choice-h-6a" style="background-color:#09F; border-color:#09F; color:#fff; box-shadow: none; -webkit-box-shadow: none;">Favorites</label>
+                    
+                    
+                    <input type="radio"  name="radio-choice-h-6" id="radio-choice-h-6a" value="off" class="outlineswitch">
+                   
+                 </fieldset>
+       
+</div>
+<!--<h3 style="width:100%; text-align:center">Associates</h3>-->
 
 
 <div data-role="content">
-		<div class="content-primary">
-			<!--<ul data-role="listview" data-filter="true" data-theme="d">
-				<li><a href="courts-list.html" data-transition="slidefade">Acura</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Audi</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">BMW</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Cadillac</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Chrysler</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Dodge</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Ferrari</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Ford</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">GMC</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Honda</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Hyundai</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Infiniti</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Jeep</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Kia</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Lexus</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Mini</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Nissan</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Porsche</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Subaru</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Toyota</a></li>
-				
-		</ul>-->
-        
-     <script type='text/javascript'>
-
-var url = window.location.href;
-var params = url.split('?');
-//alert(params[1]);
-var ABC=params[1];
-
-
-var AABBCC = ABC.split('&amp;');
-
-
-var AA = AABBCC[0];
-var AAA = AA.split('=');
-var alphastart=AAA[1];
-
-
-var BB = AABBCC[1];
-var BBB = BB.split('=');
-var alphatype=BBB[1];
-
-
-var CC = AABBCC[2];
-var CCC = CC.split('=');
-var alphalevel=CCC[1];
-
-//alert(alphastart+' '+alphatype)
-
-var globalX; var globalXX;  var arraydataX; var arraydataXX;
-        //$(document).ready(function(){
-		function loadit(){
-// var hostserver='http://localhost/stumblelegalapp/server/';
-var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
-/* call the php that has the php array which is json_encoded */
-                $.getJSON(hostserver+'court.php?list='+alphastart+'&typez='+alphatype+'&levelz='+alphalevel+'&r=1', function(data) {
-                        /* data will hold the php array as a javascript object */
-						var incinfo=0; var arraydata='';
-                        $.each(data, function(key, val) {
-                                //$('#data'+incinfo).append(val.first_name);
-								
-								arraydata=arraydata+','+val.first_name;
-								
-								incinfo++;
-								
-                        });
-					globalX = incinfo;
-					arraydataX = arraydata;
-					dataReady();
-                });
-        };
+			<div class="content-primary">
 		
-	loadit();	
-		
-function dataReady() {
-	localStorage['myKey'] = globalX;
-	localStorage['myKey2'] = arraydataX;
-	//alert(localStorage['myKey']);
-	}
-	
-	
-	
-	
+<script>
 
-		
- </script>   
-        
-        
-   <ul data-role="listview" data-filter="true" data-theme="d" id="data">     
-<script type='text/javascript'>
-	  globalXX = localStorage['myKey']-1;
-	  var arraydataZ = localStorage['myKey2'];
-	  var arraydataZZ = arraydataZ.split(',');
-	  var thedataz;
-	  
-	  
-///////////////////////////////////////////
-	  
-	var alphaz = arraydataZZ[1].charAt(0);
 	var url = window.location.href;
 	
 	var params = url.split('?');
 	//alert(params[1]);
 	var ABC=params[1];
+	var AAA = ABC.split('=');
+	//alert(AAA[1]);
+	var theid = AAA[1];
+	//var AABBCC = ABC.split('&amp;');
 	
-	var AABBCC = ABC.split('&amp;');
+	//var AA = AABBCC[0];
+	//var AAA = AA.split('=');
+	//var alphastart=AAA[1];
 	
-	var AA = AABBCC[0];
-	var AAA = AA.split('=');
-	var alphastart=AAA[1];
 	
+	function loadit(){
+			
+ var hostserver='http://localhost/stumblelegalapp/server/';
+//var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
+/* call the php that has the php array which is json_encoded */
+//?list='+alphastart+'&typez='+alphatype+'&levelz='+alphalevel+'&r=1'
+//alert(theid);
+                $.getJSON(hostserver+'associates-id.php?id='+theid, function(data) {
+                        /* data will hold the php array as a javascript object */
+						var incinfo=0; var arraydata='';var arraydataid='';
+                        $.each(data, function(key, val) {	
+                                //$('#data'+incinfo).append(val.first_name);
+								if(val.first_name!=""){
+								/*arraydata=arraydata+','+val.first_name;
+								arraydata2=arraydata2+','+val.law_frm;
+								arraydata3=arraydata3+','+val.user_email;
+								arraydata4=arraydata4+','+val.phonenumber;
+								*/
+								
+								$('#first_name').append(val.first_name);
+								$('#law_frm').append(val.law_frm);
+								
+								$('#user_email').append(val.user_email);
+								$('#phonenumber').append(val.phonenumber);
+							
+								
+								//alert(val.first_name);
+								incinfo++;}
+                        });
+					globalX = incinfo;
+					
+					arraydataX = arraydata;
+					arraydataidX = arraydataid;
+					dataReady();
+                });
+        }
+		
+	loadit();	
+		
+function dataReady() {
+	localStorage['myaKey'] = globalX;
+	localStorage['myaKey2'] = arraydataX;
+	localStorage['myaKey3'] = arraydataidX;
 
-	  
-///////////////////////////////////////////////	  
-	 if(alphaz!=alphastart){
-
-		//alert(alphastart);
+	}
 	
-	if(localStorage['counterz']!=2){
-	setTimeout(function() {
-	  parent.location.reload();
-	  }, 1500);
-	}else{
-		
-		document.write('<li><a href="#" data-transition="slidefade" id="data0">no entry found</a></li>');
-		
-		
-		}
-	 localStorage['counterz']++;
-	//parent.window.location = "list.html?s="+alphastart+"&amp;typez="+alphatype+"&amp;lvl="+alphalevel;  
-		
-		
-		}else{
-	 
- 
-	for($i=1;$i<=globalXX;$i++){
-		thedataz = arraydataZZ[$i];
-	   document.write('<li><a href="courts-list.html" data-transition="slidefade" id="data'+$i+'">'+thedataz+'</a></li>');
-	   }
-		 }
- </script>
-</ul> 
- 
- 
+</script>
+     
+     <div style="padding:20%; background-color:#FFF; color:#999; font-size:12px">
+     <div style="float:left; width:30%; "><img src="images/star.png" width="30px" /></div>
+     <div style="float:left; width:50%">
+     <div id="first_name" style="font-size:16px;padding-top:5px; color:#000"></div>
+     <div id="law_frm" style="padding-top:15px"></div>
+     <div id="user_email"></div>
+     <div id="phonenumber"></div>
+     </div>
+     <br style="clear:both" /><br style="clear:both" /><br style="clear:both" /><br style="clear:both" />
+     
+     <a href="#" data-role="button" onclick="editcal()" >View Calendar</a>
+	</div>							
+     
+     
+			</div><!--/content-primary -->		
+            
+            
+            
+            
+            
+            
+</div>
 
 <br style="clear:both">
 
-</div>
-</div>
+
 
 
 <div data-role="footer" data-position="fixed" class="ui-footer ui-bar-a ui-footer-fixed slideup" role="banner" style="height:65px; font-size:27px;  background:url(images/footerbg.png)">
 	
     
     
-     <div style="width:25%; text-align:center; float:left; padding-top:2px; font-size:12px; background:url(images/footeractive.png) no-repeat center top"><a href="courts.html" data-transition="slideup"><button id="saveFileBtn" data-iconpos="center" data-icon="courts" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+    <div style="width:25%; text-align:center; float:left; font-size:12px"><a href="courts.html" data-transition="slideup"><button id="saveFileBtn" data-iconpos="center" data-icon="courts" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
      
-      <div style="width:25%; text-align:center; float:left; font-size:12px"><a href="associates.html" data-transition="slideup"><button id="saveFileBtn" data-iconpos="center" data-icon="associates" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+      <div style="width:25%; text-align:center; float:left; padding-top:2px; font-size:12px; background:url(images/footeractive.png) no-repeat center top"><a href="associates.html" data-transition="slideup"><button id="saveFileBtn" data-iconpos="center" data-icon="associates" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
       
        <div style="width:25%; text-align:center; float:left; font-size:12px"><a href="requests.html" data-transition="slideup"><button id="saveFileBtn" data-iconpos="center" data-icon="requests" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
      

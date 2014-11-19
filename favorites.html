@@ -134,8 +134,6 @@
         background-color: rgba(0, 0, 0, 0); !important;
         background-position: center 0%; !important;
 		background-color: transparent !important;
-
-
         background-size: 70px 59px;
     }
     .ui-btn.ui-icon-settings:hover
@@ -153,53 +151,70 @@
 		-webkit-box-shadow: none;
 
     }
-	
+	#list-navigation {
+    color:#696969;
+    
+    position:absolute;
+    right:0px;
+    top:0px;
+    z-index:200; font-size:10px;
+}
 	
     </style>
+    <script type='text/javascript'>//<![CDATA[ 
+$(window).load(function(){
+$('.scrollToSelected').bind('click', function() {
+    var view = $(this).attr('id');
+    var list = view.split('-');
+    var elem = $("#"+list[1]);
     
+    // not sure if this is offset or position
+    var position = elem.position(); 
+    var offset   = elem.offset();
+    
+    //alert('left: '+position.left + ", top: " + position.top);
+    //alert('left: '+offset.left + ", top: " + offset.top);
+    
+    $.mobile.silentScroll(position.top);
+    //$.mobile.silentScroll(offset.top);
+    
+});
+
+$('.showDetails').bind('click', function() {
+    $.mobile.changePage( "#details", { transition: "slideup"} );
+});
+});//]]>  
+
+</script>
+
+
 <script>
-function editbck()
+function editbck() {
+    window.history.back()
+}
+</script>
+
+  <script>
+function associates()
 {   
 
-var url = window.location.href;
-var params = url.split('?');
-//alert(params[1]);
-var ABC=params[1];
+window.top.location.href = "associates.html"; 
 
-
-var AABBCC = ABC.split('&amp;');
-
-
-var AA = AABBCC[1];
-var AAA = AA.split('=');
-var alphatyp=AAA[1];
-
-
-
-var BB = AABBCC[2];
-var BBB = BB.split('=');
-var alphalvl=BBB[1];
-
-//courts.html?type=Criminal&amp;lvl=Local
-//type.html?lvl=Criminal
-window.top.location.href = "courts.html?type="+alphatyp+"&amp;lvl="+alphalvl; 
 
 }
 </script>
 
-
-
 </head>
 <body>
 
-<div data-role="header" data-tap-toggle="false" data-position="fixed" role="banner" class="ui-header ui-bar-inherit">
+<div data-role="header" data-position="fixed" role="banner" class="ui-header ui-bar-inherit">
 			
            
         
            <a href="#" onclick="editbck()" data-transition="flip" style="position: fixed; background-image: url('images/back.png');
 		 width:15px;" class="ui-btn ui-nodisc-icon ui-corner-all ui-btn-icon-left ui-icon-logo" >&nbsp;</a>
             
-            <h1 class="ui-title" role="heading" aria-level="1">Stumble <span style="font-weight:lighter">legal</span></h1>
+            <h1 class="ui-title" role="heading" aria-level="1">Associates</h1>
 		
         
         <a href="selection.html" data-transition="flip" style="position: fixed; background-image: url('images/toplogo.png');
@@ -211,40 +226,85 @@ window.top.location.href = "courts.html?type="+alphatyp+"&amp;lvl="+alphalvl;
         
 
 
-<h3 style="width:100%; text-align:center">NSW Courts</h3>
+
+
+<div style="width:300px; margin: 0 auto;  text-align:center">
+
+                <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+                    <input type="radio" name="radio-choice-h-6" onClick="associates()" id="radio-choice-h-6b" value="on" checked="checked" class="outlineswitch">
+                    
+                    
+                    
+                    <label for="radio-choice-h-6b"   style="background-color:#0157a3; border-color:#09F; color:#09F; box-shadow: none; -webkit-box-shadow: none; text-shadow: 0 1px 0 #0157a3">All</label>
+                    
+                    
+                    
+                    
+                     <label for="radio-choice-h-6a" style="background-color:#09F; border-color:#09F; color:#fff; box-shadow: none; -webkit-box-shadow: none;">Favorites</label>
+                    
+                    
+                    <input type="radio"  name="radio-choice-h-6" id="radio-choice-h-6a" value="off" class="outlineswitch">
+                   
+                 </fieldset>
+       
+</div>
+<!--<h3 style="width:100%; text-align:center">Associates</h3>-->
 
 
 <div data-role="content">
-		<div class="content-primary">
-			<!--<ul data-role="listview" data-filter="true" data-theme="d">
-				<li><a href="courts-list.html" data-transition="slidefade">Acura</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Audi</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">BMW</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Cadillac</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Chrysler</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Dodge</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Ferrari</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Ford</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">GMC</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Honda</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Hyundai</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Infiniti</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Jeep</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Kia</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Lexus</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Mini</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Nissan</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Porsche</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Subaru</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Toyota</a></li>
-				
-		</ul>-->
+			<div class="content-primary">
+		
         
-     <script type='text/javascript'>
+        
+        
+        
+        	<!--<ul data-role="listview" data-filter="false" >
+				<li data-role="list-divider">A</li>
+				<li><a href="index.html">Adam Kinkaid</a></li>
+				<li><a href="index.html">Alex Wickerham</a></li>
+				<li><a href="index.html">Avery Johnson</a></li>
+				<li data-role="list-divider">B</li>
+				<li><a href="index.html">Bob Cabot</a></li>
+				<li data-role="list-divider">C</li>
+				<li><a href="index.html">Caleb Booth</a></li>
+				<li><a href="index.html">Christopher Adams</a></li>
+				<li><a href="index.html">Culver James</a></li>
+				<li data-role="list-divider">D</li>
+				<li><a href="index.html">David Walsh</a></li>
+				<li><a href="index.html">Drake Alfred</a></li>
+				<li data-role="list-divider">E</li>
+				<li><a href="index.html">Elizabeth Bacon</a></li>
+				<li><a href="index.html">Emery Parker</a></li>
+				<li><a href="index.html">Enid Voldon</a></li>
+				<li data-role="list-divider">F</li>
+				<li><a href="index.html">Francis Wall</a></li>
+				<li data-role="list-divider">G</li>
+				<li><a href="index.html">Graham Smith</a></li>
+				<li><a href="index.html">Greta Peete</a></li>
+				<li data-role="list-divider">H</li>
+				<li><a href="index.html">Harvey Walls</a></li>
+				<li data-role="list-divider">M</li>
+				<li><a href="index.html">Mike Farnsworth</a></li>
+				<li><a href="index.html">Murray Vanderbuilt</a></li>
+				<li data-role="list-divider">N</li>
+				<li><a href="index.html">Nathan Williams</a></li>
+				<li data-role="list-divider">P</li>
+				<li><a href="index.html">Paul Baker</a></li>
+				<li><a href="index.html">Pete Mason</a></li>
+				<li data-role="list-divider">R</li>
+				<li><a href="index.html">Rod Tarker</a></li>
+				<li data-role="list-divider">S</li>
+				<li><a href="index.html">Sawyer Wakefield</a></li>
+			</ul>-->
+            
+            
+            
+            
+            
+             <script type='text/javascript'>
 
-var url = window.location.href;
+/*var url = window.location.href;
 var params = url.split('?');
-//alert(params[1]);
 var ABC=params[1];
 
 
@@ -263,39 +323,39 @@ var alphatype=BBB[1];
 
 var CC = AABBCC[2];
 var CCC = CC.split('=');
-var alphalevel=CCC[1];
+var alphalevel=CCC[1];*/
 
 //alert(alphastart+' '+alphatype)
 
-var globalX; var globalXX;  var arraydataX; var arraydataXX;
-        //$(document).ready(function(){
+//var globalX; var globalXX;  var arraydataX; var arraydataXX;
+       // $(document).ready(function(){
 		function loadit(){
+			
 // var hostserver='http://localhost/stumblelegalapp/server/';
 var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
 /* call the php that has the php array which is json_encoded */
-                $.getJSON(hostserver+'court.php?list='+alphastart+'&typez='+alphatype+'&levelz='+alphalevel+'&r=1', function(data) {
+//?list='+alphastart+'&typez='+alphatype+'&levelz='+alphalevel+'&r=1'
+                $.getJSON(hostserver+'associates.php', function(data) {
                         /* data will hold the php array as a javascript object */
 						var incinfo=0; var arraydata='';
                         $.each(data, function(key, val) {
                                 //$('#data'+incinfo).append(val.first_name);
-								
+								if(val.first_name!=""){
 								arraydata=arraydata+','+val.first_name;
-								
-								incinfo++;
-								
+								incinfo++;}
                         });
 					globalX = incinfo;
 					arraydataX = arraydata;
 					dataReady();
                 });
-        };
+        }
 		
 	loadit();	
 		
 function dataReady() {
-	localStorage['myKey'] = globalX;
-	localStorage['myKey2'] = arraydataX;
-	//alert(localStorage['myKey']);
+	localStorage['myaKey'] = globalX;
+	localStorage['myaKey2'] = arraydataX;
+	//alert(localStorage['myaKey']);
 	}
 	
 	
@@ -306,18 +366,20 @@ function dataReady() {
  </script>   
         
         
-   <ul data-role="listview" data-filter="true" data-theme="d" id="data">     
+   <ul data-role="listview" data-filter="false" data-theme="d" id="data">     
 <script type='text/javascript'>
-	  globalXX = localStorage['myKey']-1;
-	  var arraydataZ = localStorage['myKey2'];
+	  globalXX = localStorage['myaKey']-1;
+	  var arraydataZ = localStorage['myaKey2'];
 	  var arraydataZZ = arraydataZ.split(',');
+	 // alert(arraydataZZ[1]);
 	  var thedataz;
 	  
 	  
 ///////////////////////////////////////////
 	  
 	var alphaz = arraydataZZ[1].charAt(0);
-	var url = window.location.href;
+	
+	/*var url = window.location.href;
 	
 	var params = url.split('?');
 	//alert(params[1]);
@@ -326,15 +388,15 @@ function dataReady() {
 	var AABBCC = ABC.split('&amp;');
 	
 	var AA = AABBCC[0];
-	var AAA = AA.split('=');
-	var alphastart=AAA[1];
+	var AAA = AA.split('=');;*/
+	var alphastart=alphaz;
 	
-
+//alert(alphaz);
 	  
 ///////////////////////////////////////////////	  
 	 if(alphaz!=alphastart){
 
-		//alert(alphastart);
+		alert(alphastart);
 	
 	if(localStorage['counterz']!=2){
 	setTimeout(function() {
@@ -342,40 +404,45 @@ function dataReady() {
 	  }, 1500);
 	}else{
 		
-		document.write('<li><a href="#" data-transition="slidefade" id="data0">no entry found</a></li>');
+document.write('<li><a href="#" data-transition="slidefade" id="data0">no entry found</a></li>');
 		
 		
 		}
 	 localStorage['counterz']++;
 	//parent.window.location = "list.html?s="+alphastart+"&amp;typez="+alphatype+"&amp;lvl="+alphalevel;  
 		
-		
 		}else{
 	 
  
 	for($i=1;$i<=globalXX;$i++){
 		thedataz = arraydataZZ[$i];
-	   document.write('<li><a href="courts-list.html" data-transition="slidefade" id="data'+$i+'">'+thedataz+'</a></li>');
+	   document.write('<li><a href="favorites-list.html" target="_parent" data-transition="slidefade" id="data'+$i+'">'+thedataz+'</a></li>');
 	   }
 		 }
  </script>
 </ul> 
- 
- 
+            
+			</div><!--/content-primary -->		
+            
+            
+            
+            
+            
+            
+</div>
 
 <br style="clear:both">
 
-</div>
-</div>
+
 
 
 <div data-role="footer" data-position="fixed" class="ui-footer ui-bar-a ui-footer-fixed slideup" role="banner" style="height:65px; font-size:27px;  background:url(images/footerbg.png)">
 	
     
     
-     <div style="width:25%; text-align:center; float:left; padding-top:2px; font-size:12px; background:url(images/footeractive.png) no-repeat center top"><a href="courts.html" data-transition="slideup"><button id="saveFileBtn" data-iconpos="center" data-icon="courts" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+    <div style="width:25%; text-align:center; float:left; font-size:12px"><a href="courts.html" data-transition="slideup"><button id="saveFileBtn" data-iconpos="center" data-icon="courts" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
      
-      <div style="width:25%; text-align:center; float:left; font-size:12px"><a href="associates.html" data-transition="slideup"><button id="saveFileBtn" data-iconpos="center" data-icon="associates" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+      <div style="width:25%; text-align:center; float:left; padding-top:2px; font-size:12px; background:url(images/footeractive.png) no-repeat center top"><a href="associates.html" data-transition="slideup"><button id="saveFileBtn" data-iconpos="center" data-icon="associates" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
       
        <div style="width:25%; text-align:center; float:left; font-size:12px"><a href="requests.html" data-transition="slideup"><button id="saveFileBtn" data-iconpos="center" data-icon="requests" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
      

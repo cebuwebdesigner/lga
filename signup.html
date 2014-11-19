@@ -33,6 +33,46 @@
 	.whitetext{text-decoration:none; color:#FFF}
 	.whitetext:active{text-decoration:none; color:#FFF}
     </style>
+    
+    <script>
+	
+	
+var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
+//var hostserver='http://localhost/stumblelegalapp/server/';
+
+function editsave()
+{ 
+
+ var vname = document.getElementById("vname").value;
+ var vposition = document.getElementById("vposition").value;
+ var vfirm = document.getElementById("vfirm").value;
+ var vassociationid = document.getElementById("vassociationid").value;
+ var vlawsocietyno = document.getElementById("vlawsocietyno").value;
+ var vemail = document.getElementById("vemail").value;
+ var vphone = document.getElementById("vphone").value;
+ var vpassword = document.getElementById("vpassword").value;
+
+//alert(vname);
+
+    $.post(hostserver+"sign.php",
+  {
+    name:vname,
+	position:vposition,
+	firm:vfirm,
+	associationid:vassociationid,
+	lawsocietyno:vlawsocietyno,
+	email:vemail,
+	phone:vphone,
+	password:vpassword
+  },
+  function(data,status){
+    alert("Data: " + vname + "\nStatus: " + status);
+  });
+	
+}
+	
+    </script>
+	
 </head>
 <body>
 
@@ -49,15 +89,15 @@
         
         
 <h2 style=" width:100%; text-align:center">Registration</h2>
-<form style="padding:20px" action="selection.html" target="_parent">
-<input type="text" name="name" id="name" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Username">
+<form style="padding:20px" ><!--action="selection.html" target="_parent"-->
+<input type="text" name="name" id="vname" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Username">
 
-<input type="text" name="position" id="name" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Position">
-<input type="text" name="firm" id="name" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Law Firm">
-<input type="text" name="associationid" id="name" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Association Number">
+<input type="text" name="position" id="vposition" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Position">
+<input type="text" name="firm" id="vfirm" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Law Firm">
+<input type="text" name="associationid" id="vassociationid" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Association Number">
 
 
-<input type="text" name="associationid" id="name" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" maxlength="5" placeholder="Law Society Number" onkeydown="return isNumber(event);">
+<input type="text" name="lawsocietyno" id="vlawsocietyno" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" maxlength="5" placeholder="Law Society Number" onkeydown="return isNumber(event);">
 
 <script>
   function isNumber(event) {
@@ -74,15 +114,15 @@
 }
 </script>
 
-<input type="email" name="email" id="name" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Email Address">
-<input type="text" name="phone" id="name" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Phone">
+<input type="email" name="email" id="vemail" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Email Address">
+<input type="text" name="phone" id="vphone" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Phone">
  
 
-<input type="password" name="password" id="name" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Password"> 
+<input type="password" name="password" id="vpassword" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Password"> 
 <input type="password" name="vpassword" id="name" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Retype Password">
 
-
-<input name="" type="submit" value="Submit" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
+ <a href="#" data-role="button"  onclick="editsave()" >SUBMIT</a>
+<!--<input name=""    type="submit" value="Submit"  class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">-->
 	
     <br />
    <div style="width:100%; text-align:center">  <a href="form.html"   data-transition="flip" class="whitetext">already register?</a></div>

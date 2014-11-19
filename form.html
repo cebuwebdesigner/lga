@@ -31,6 +31,74 @@
 
 	}
     </style>
+    
+    
+    <script>
+	
+var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
+	//var hostserver='http://localhost/stumblelegalapp/server/';
+	localStorage['myID'] = '';
+	localStorage['myID2'] = '';
+	function editcheck()
+{ 
+
+ var vname = document.getElementById("username").value;
+ var vpass = document.getElementById("password").value;
+
+//alert(vname);
+
+var globalX; var globalXX;  var arraydataX; var arraydataXX;
+        //$(document).ready(function(){
+		function loadit(){
+// var hostserver='http://localhost/stumblelegalapp/server/';
+//var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
+/* call the php that has the php array which is json_encoded */
+                $.getJSON(hostserver+'log.php?email='+vname+'&pass='+vpass, function(data) {
+                        /* data will hold the php array as a javascript object */
+						var incinfo=0; var arraydata='';
+                        $.each(data, function(key, val) {
+                                //$('#data'+incinfo).append(val.first_name);
+								
+								//arraydata=arraydata+','+val.theid
+								if(val.first_name!=""){
+								arraydata=val.first_name+','+val.theid;
+								}
+								
+								incinfo++;
+								
+                        });
+					globalX = incinfo;
+					if(arraydata==""){arraydata='not valid access';}
+					arraydataX = arraydata;
+					
+					dataReady();
+                });
+        };
+		
+	loadit();	
+		
+function dataReady() {
+	localStorage['myID'] = globalX;
+	localStorage['myID2'] = arraydataX;
+	//alert(localStorage['myID2']);
+	
+	
+	if(localStorage['myID2']=="not valid access"){ alert(localStorage['myID2']); }else{
+
+window.top.location.href = "welcome.html"; 
+}
+
+
+
+}
+	
+
+
+
+
+}
+	
+    </script>
 </head>
 <body>
 
@@ -46,9 +114,13 @@
 		</div>
 
 <form style="padding:20px" action="selection.html" target="_parent" method="post">
-<input type="text" name="name" id="name" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Username"> 
-<input type="password" name="name" id="name" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Password"> 
-<input name="" type="submit" value="Login" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">
+<input type="text" name="name" id="username" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Username"> 
+<input type="password" name="name" id="password" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Password"> 
+
+
+<!--<input name="" type="submit" value="Login" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset">-->
+ <a href="#" data-role="button" onclick="editcheck()" >Login</a>
+
 		<div style="text-align:center">
         
         or 
