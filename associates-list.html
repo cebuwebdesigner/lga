@@ -135,6 +135,7 @@
         background-position: center 0%; !important;
 		background-color: transparent !important;
 
+
         background-size: 70px 59px;
     }
     .ui-btn.ui-icon-settings:hover
@@ -274,8 +275,8 @@ window.top.location.href = "associates.html";
 	
 	function loadit(){
 			
- var hostserver='http://localhost/stumblelegalapp/server/';
-//var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
+ //var hostserver='http://localhost/stumblelegalapp/server/';
+var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
 /* call the php that has the php array which is json_encoded */
 //?list='+alphastart+'&typez='+alphatype+'&levelz='+alphalevel+'&r=1'
 //alert(theid);
@@ -324,10 +325,29 @@ function dataReady() {
 		
 		}
 	
+	
+	function changeImage() {
+
+        if  (document.getElementById("starz").src == "images/star.png")
+        {
+            document.getElementById("starz").src = "images/star-on.png";
+        }
+        else 
+        {
+            document.getElementById("starz").src = "images/star.png";
+        }
+
+    }
 </script>
      
      <div style="padding:20%; background-color:#FFF; color:#999; font-size:12px">
-     <div style="float:left; width:30%; "><img src="images/star.png" width="30px" /></div>
+     <div style="float:left; width:30%; ">
+     
+     
+     <img src="images/star.png" id="starz" width="30px" onclick="changeImage()" />
+     
+     
+     </div>
      <div style="float:left; width:50%">
      <div id="first_name" style="font-size:16px;padding-top:5px; color:#000"></div>
      <div id="law_frm" style="padding-top:15px"></div>
