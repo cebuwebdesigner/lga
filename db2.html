@@ -9,7 +9,7 @@
 <body>
 
 <script type='text/javascript'>
-var globalX; var globalXX;  var arraydataX; var arraydataXX; var gps;
+var globalX; var globalXX;  var arraydataX; var arraydata; var gps;
         //$(document).ready(function(){
 		function loadit(){
 // var hostserver='http://localhost/stumblelegalapp/server/';
@@ -21,7 +21,7 @@ var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
                         $.each(data, function(key, val) {
                                 //$('#data'+incinfo).append(val.first_name);
 								arraydata=val.loc;
-								incinfo++;
+								//incinfo++;
                         });
 					//globalX = incinfo;
 					gps = arraydata;
