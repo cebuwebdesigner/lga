@@ -3,27 +3,47 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Untitled Document</title>
-<!--<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> -->
-<script type='text/javascript' src='//code.jquery.com/jquery-1.9.1.js'></script>
 
-
-<script type='text/javascript'>//<![CDATA[ 
-$(window).load(function(){
-$.get("http://ipinfo.io", function (response) {
-    $("#ip").html("IP: " + response.ip);
-    $("#address").html("Location: " + response.city + ", " + response.region);
-    $("#details").html(JSON.stringify(response, null, 4));
-}, "jsonp");
-});//]]>  
-
-</script>
 </head>
 
 <body>
 
-<div id="ip"></div>
-<div id="address"></div>
-<hr/>Full response: <pre id="details"></pre>
+<script type='text/javascript'>
+var globalX; var globalXX;  var arraydataX; var arraydataXX; var gps;
+        //$(document).ready(function(){
+		function loadit(){
+// var hostserver='http://localhost/stumblelegalapp/server/';
+var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
+/* call the php that has the php array which is json_encoded */
+                $.getJSON(hostserver+'gps.php', function(data) {
+                        /* data will hold the php array as a javascript object */
+						var incinfo=0; var arraydata='';
+                        $.each(data, function(key, val) {
+                                //$('#data'+incinfo).append(val.first_name);
+								arraydata=val.loc;
+								incinfo++;
+                        });
+					//globalX = incinfo;
+					gps = arraydata;
+					dataReady();
+                });
+        };
+		
+	loadit();	
+		
+function dataReady() {
+	//localStorage['myKey'] = globalX;
+	//localStorage['myKey2'] = arraydataX;
+	//alert(localStorage['myKey']);
+	document.write(gps);
+	}
+	
+
+
+
+</script>
+
+
 
 
 </body>
