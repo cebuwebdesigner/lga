@@ -15,7 +15,7 @@ var globalX; var globalXX;  var arraydataX; var arraydata; var gps;
 // var hostserver='http://localhost/stumblelegalapp/server/';
 var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
 /* call the php that has the php array which is json_encoded */
-                $.getJSON(hostserver+'gps.php', function(data) {
+                $.getJSON(hostserver+'gpslonglat.php', function(data) {
                         /* data will hold the php array as a javascript object */
 						var incinfo=0; var arraydata='';
                         $.each(data, function(key, val) {
@@ -44,7 +44,7 @@ function dataReady() {
 </script>
 
 
-
+test gps
 
 </body>
 </html>
