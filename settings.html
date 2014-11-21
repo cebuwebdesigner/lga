@@ -13,6 +13,7 @@
     
     <link rel="stylesheet" href="_assets/css/jqm-demos.css">
 
+     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     
     
 
@@ -216,8 +217,6 @@ function editbck() {
 
 
    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-   
-   
     <script type="text/javascript" charset="utf-8">
 var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
     // Wait for PhoneGap to load
@@ -246,26 +245,26 @@ var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
 	localStorage['mylatKey'] = position.coords.latitude;
 	localStorage['mylongKey2'] = position.coords.longitude;
 							
+	
+	//http://buildwebdesign.com/kryptonite/legalapp/gps.php?id=73&long=123&lat=10
+	
 	var thelatitude = localStorage['mylatKey'];
 	var thelongitude = localStorage['mylongKey2'];
 	var AAA = localStorage['myID2'].split(',');
 	var theid = AAA[0];
 	
-	 $.post(hostserver+"gps.php?id="+theid+"&long="+thelongitude+"&lat="+thelatitude,
+	
+	
+	 $.post(hostserver+"gps.php",
   {
-    name:vname,
-	position:vposition,
-	firm:vfirm,
-	associationid:vassociationid,
-	lawsocietyno:vlawsocietyno,
-	email:vemail,
-	phone:vphone,
-	password:vpassword
+    id:theid,
+	long:thelongitude,
+	lat:thelatitude
   },
   function(data,status){
     if(status=="success"){
-	alert("Hi " + vname+", Your "+status+"fully registered");
-	window.top.location.href = "form.html"; 
+	alert("Hi " + theid+", Your in "+thelongitude+","+thelatitude);
+	//window.top.location.href = "form.html"; 
 	}else{
 		alert("Please check your connection and try again");
 		}
