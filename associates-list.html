@@ -191,8 +191,8 @@ $('.showDetails').bind('click', function() {
 
 
 <script>
-function editbck() {
-    window.history.back()
+function editbck(){
+    window.history.back();
 }
 </script>
 
@@ -328,9 +328,13 @@ function dataReady() {
 	
 	function changeImage() {
 
-        if  (document.getElementById("starz").src == "images/star.png")
+//document.getElementById("favstar").innerHTML = '<img src="images/star.png" id="starz" width="30px"  />';
+
+        if  (document.getElementById("starz").getAttribute('src') == "images/star.png")
         {
-            document.getElementById("starz").src = "images/star-on.png";
+            
+			//alert("star");
+			document.getElementById("starz").src = "images/star-on.png";
         }
         else 
         {
