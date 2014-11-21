@@ -96,6 +96,29 @@
     }
 	
 	
+	 .ui-btn.ui-icon-calendar, .ui-btn.ui-icon-calendar:after
+     {
+        background-repeat: no-repeat !important;
+        /*Remove circle disc*/
+        background-color: rgba(0, 0, 0, 0); !important;
+        background-position: center 0%; !important;
+        background-size: 70px 59px;
+    }
+    .ui-btn.ui-icon-calendar:hover
+     {
+        background-position: center 0%; !important;
+        background-size: 70px 59px;
+    }
+    .ui-icon-calendar{
+        background-image: url(images/calendar.png) !important;
+		background-size: 70px 59px; width:150%; 
+		background-color: transparent !important;
+		border:none;
+		background-repeat:no-repeat;
+		box-shadow: none;
+		-webkit-box-shadow: none;
+
+    }
 	
 
 	
@@ -327,8 +350,8 @@ var alphalevel=CCC[1];*/
        // $(document).ready(function(){
 		function loadit(){
 			
-// var hostserver='http://localhost/stumblelegalapp/server/';
-var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
+ var hostserver='http://localhost/stumblelegalapp/server/';
+//var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
 /* call the php that has the php array which is json_encoded */
 //?list='+alphastart+'&typez='+alphatype+'&levelz='+alphalevel+'&r=1'
                 $.getJSON(hostserver+'associates.php', function(data) {
@@ -368,7 +391,7 @@ function dataReady() {
  </script>   
         
         
-   <ul data-role="listview" data-filter="false" data-autodividers="true"  data-theme="d" id="data">     
+   <ul data-role="listview" data-filter="false" data-autodividers="true" data-theme="d" id="data">     
 <script type='text/javascript'>
 	  globalXX = localStorage['myaKey']-1;
 	  var arraydataZ = localStorage['myaKey2'];
@@ -447,14 +470,16 @@ document.write('<li><a href="#" data-transition="slidefade" id="data0">no entry 
 	
     
     
-    <div style="width:25%; text-align:center; float:left; font-size:12px"><a href="courts.html" data-transition="slideup"><button id="saveFileBtn" data-iconpos="center" data-icon="courts" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+    <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="courts.html" data-transition="slideup"><button id="saveFileBtn" data-iconpos="center" data-icon="courts" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
      
-      <div style="width:25%; text-align:center; float:left; padding-top:2px; font-size:12px; background:url(images/footeractive.png) no-repeat center top"><a href="associates.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="associates" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+      <div style="width:20%; text-align:center; float:left; padding-top:2px; font-size:12px; background:url(images/footeractive.png) no-repeat center top"><a href="associates.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="associates" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
       
-       <div style="width:25%; text-align:center; float:left; font-size:12px"><a href="requests.html" data-transition="slideup"><button id="saveFileBtn" data-iconpos="center" data-icon="requests" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+      <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="calendar.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="calendar" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+      
+       <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="requests.html" data-transition="slideup"><button id="saveFileBtn" data-iconpos="center" data-icon="requests" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
      
     
-    <div style="width:25%; text-align:center; float:left; font-size:12px"><a href="settings.html" data-transition="slideup"><button id="saveFileBtn" data-iconpos="center" data-icon="settings" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+    <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="settings.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="settings" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
     
     
     	</div>
