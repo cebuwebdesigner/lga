@@ -12,8 +12,8 @@
 var globalX; var globalXX;  var arraydataX; var arraydata; var gps;
         //$(document).ready(function(){
 		function loadit(){
-// var hostserver='http://localhost/stumblelegalapp/server/';
-var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
+var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
+// var hostserver='http://buildwebdesign.com/kryptonite/legalapp/'; 
 /* call the php that has the php array which is json_encoded */
                 $.getJSON(hostserver+'gpslonglat.php', function(data) {
                         /* data will hold the php array as a javascript object */
@@ -21,6 +21,7 @@ var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
                         $.each(data, function(key, val) {
                                 //$('#data'+incinfo).append(val.first_name);
 								arraydata=val.loc;
+								document.write(arraydata);
 								//incinfo++;
                         });
 					//globalX = incinfo;
@@ -29,7 +30,7 @@ var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
                 });
         };
 		
-	loadit();	
+	loadit();
 		
 function dataReady() {
 	//localStorage['myKey'] = globalX;

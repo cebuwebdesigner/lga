@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="_assets/css/jqm-demos.css">
 
 
+     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 
 <!--     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
 	<link rel="stylesheet" href="css/themes/default/jquery.mobile-1.4.5.min.css">
@@ -228,6 +229,16 @@ window.top.location.href = "associates.html";
 }
 </script>
 
+<script>
+function favorites()
+{   
+
+window.top.location.href = "favorites.html"; 
+
+
+}
+</script>
+
 </head>
 <body>
 
@@ -262,10 +273,10 @@ window.top.location.href = "associates.html";
                     
                     
                     
-                     <label for="radio-choice-h-6a" style="background-color:#09F; border-color:#09F; color:#fff; box-shadow: none; -webkit-box-shadow: none;">Favorites</label>
+                     <label for="radio-choice-h-6a" style="background-color:#0157a3; border-color:#09F; color:#09F; box-shadow: none; -webkit-box-shadow: none; text-shadow: 0 1px 0 #0157a3">Favorites</label>
                     
                     
-                    <input type="radio"  name="radio-choice-h-6" id="radio-choice-h-6a" value="off" class="outlineswitch">
+                    <input type="radio" onClick="favorites()" name="radio-choice-h-6" id="radio-choice-h-6a" value="off" class="outlineswitch">
                    
                  </fieldset>
        
@@ -291,16 +302,18 @@ window.top.location.href = "associates.html";
 	//var AA = AABBCC[0];
 	//var AAA = AA.split('=');
 	//var alphastart=AAA[1];
-	
+	var vpass = localStorage['myID2'];//document.getElementById("password").value;
+	var params = vpass.split(',');
+	var vpass=params[1];
 	
 function loadit(){
 
- var hostserver='http://localhost/stumblelegalapp/server/';
+ var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
 //var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
 /* call the php that has the php array which is json_encoded */
 //?list='+alphastart+'&typez='+alphatype+'&levelz='+alphalevel+'&r=1'
 //alert(theid);
-                $.getJSON(hostserver+'associates-id.php?id='+theid, function(data) {
+                $.getJSON(hostserver+'associates-id.php?id='+theid+'&myid='+vpass, function(data) {
                         /* data will hold the php array as a javascript object */
 						var incinfo=0; var arraydata='';var arraydataid='';
                         $.each(data, function(key, val) {	
@@ -311,6 +324,12 @@ function loadit(){
 								arraydata3=arraydata3+','+val.user_email;
 								arraydata4=arraydata4+','+val.phonenumber;
 								*/
+								
+								if(val.star==1){
+								document.getElementById("starz").src = "images/star-on.png";
+								}
+								
+								//alert(val.star+'then'+theid+'myid='+vpass);
 								
 								$('#first_name').append(val.first_name);
 								$('#law_frm').append(val.law_frm);
@@ -347,20 +366,68 @@ function dataReady() {
 	
 	
 	function changeImage() {
-
+var thestar;
 //document.getElementById("favstar").innerHTML = '<img src="images/star.png" id="starz" width="30px"  />';
 
         if  (document.getElementById("starz").getAttribute('src') == "images/star.png")
         {
-            
+             
 			//alert("star");
-			
 			document.getElementById("starz").src = "images/star-on.png";
-        }
+			thestar = 1;
+       		 
+		}
         else 
         {
             document.getElementById("starz").src = "images/star.png";
+			thestar = 0;
         }
+
+
+/**/
+
+
+				  
+				  
+				  
+var url = window.location.href;
+	
+	var params = url.split('?');
+	//alert(params[1]);
+	var ABC=params[1];
+	var AAA = ABC.split('=');
+	//alert(AAA[1]);
+	var theid = AAA[1];
+	//var AABBCC = ABC.split('&amp;');
+	
+	//var AA = AABBCC[0];
+	//var AAA = AA.split('=');
+	//var alphastart=AAA[1];
+	var vpass2 = localStorage['myID2'];//document.getElementById("password").value;
+	var params = vpass2.split(',');
+	var vpass2=params[1];
+
+ //alert(vpass2+'rrr'+theid+'rrr'+thestar);
+ 
+ var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
+ 
+ $.post(hostserver+"star.php",
+  {
+    myid:vpass,
+	theid:theid,
+	star:thestar
+  },
+  function(data,status){
+    if(status=="success"){
+	alert("successfully update the status");
+	//window.top.location.href = "form.html"; 
+	}else{
+		alert("Please check your connection and try again");
+		}
+  });
+
+
+
 
     }
 </script>
@@ -410,7 +477,7 @@ function dataReady() {
       <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="calendar.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="calendar" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
       
       
-       <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="requests.html" data-transition="slideup"><button id="saveFileBtn" data-iconpos="center" data-icon="requests" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+       <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="requests-send.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="requests" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
      
     
     <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="settings.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="settings" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>

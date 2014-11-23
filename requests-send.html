@@ -267,7 +267,7 @@ function alll() {
   <div style="width:300px; margin: 0 auto;  text-align:center">
 
                 <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
-                    <input type="radio" name="radio-choice-h-6" onClick="send()" id="radio-choice-h-6b" value="off" checked="checked" class="outlineswitch">
+                    <input type="radio" name="radio-choice-h-6" onClick="send()" id="radio-choice-h-6b" value="on" checked="checked" class="outlineswitch">
            <label for="radio-choice-h-6b"  class="activecontrol" >Send</label>
                     
                     
@@ -281,7 +281,7 @@ function alll() {
                     <label for="radio-choice-h-6c" style="background-color:#0157a3; border-color:#09F; color:#09F; box-shadow: none; -webkit-box-shadow: none; text-shadow: 0 1px 0 #0157a3">All</label>
                     
                     
-                    <input type="radio"  name="radio-choice-h-6" onClick="alll()" id="radio-choice-h-6c" value="on" class="outlineswitch">
+                    <input type="radio"  name="radio-choice-h-6" onClick="alll()" id="radio-choice-h-6c" value="off" class="outlineswitch">
                  </fieldset>
        
 </div>
@@ -314,7 +314,7 @@ function loadit(){
 // var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
 //var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
 /* call the php that has the php array which is json_encoded */
-            $.getJSON(hostserver+'request-all.php?stat='+vname+'&theid='+vpass, function(data) {
+            $.getJSON(hostserver+'request-send.php?stat='+vname+'&theid='+vpass, function(data) {
                         /* data will hold the php array as a javascript object */
 						
 						var incinfo=0; var arraydata=''; var arraydata2=''; var arraydata3='';
