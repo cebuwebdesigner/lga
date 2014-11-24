@@ -235,6 +235,14 @@ function alll() {
    window.top.location.href = "requests-all.html"; 
 }
 </script>
+<script>
+function courtlink()
+{   
+
+window.top.location.href = localStorage['courtlink']; 
+
+}
+</script>
 </head>
 <body>
  <div class="pull-demo-page" data-role="page">
@@ -399,7 +407,7 @@ document.write('<li><a href="request-list.html?id='+theidz+'&amp;stats='+thestat
 	
     
     
-     <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="courts.html" data-transition="slideup"><button id="saveFileBtn" data-iconpos="center" data-icon="courts" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+     <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="#" onClick="courtlink()"><button id="saveFileBtn" data-iconpos="center" data-icon="courts" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
      
       <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="associates.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="associates" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
       
