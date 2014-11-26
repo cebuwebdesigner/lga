@@ -8,60 +8,15 @@
 	<script src="js/jquery-1.11.1.min.js"></script>
   
     
-      <link rel="stylesheet" type="text/css" href="css/jw-jqm-cal.css">
-    
-  
-    
-      <script type='text/javascript' src="js/jw-jqm-cal.js"></script>
-    
-  
-  <style type='text/css'>
-    
-  </style>
-  
 
-
-<script type='text/javascript'>//<![CDATA[ 
-$(function(){
-$(document).on('pageinit', '#index', function(){ 
-    var date = new Date();
-    var d = date.getDate();
-    var m = date.getMonth();
-    var y = date.getFullYear();
     
-    $("#calendar").jqmCalendar({
-        events: [{
-            "summary": "Meet PM",
-            "begin": new Date(y,m, 27 ),
-            "end": new Date(y, m, 28)
-            
-        }, {
-            "summary": "Dinner",
-            "begin": new Date(y, m, d + 3),
-            "end": new Date(y, m, d + 4)
-            
-        }, {
-            "summary": "Lunch with Friends",
-            "begin": new Date(y, m, d + 6),
-            "end": new Date(y, m, d + 7)
-            
-        }, 
-                ],
-                 months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-        days: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
-        startOfWeek: 0
-        
-    });
-});
-});//]]>  
 
 
 
-</script>
+
 <!--<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=no; target-densityDpi=device-dpi"/>-->
 
    
-        <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
         
         
         <link rel="stylesheet" href="themes/stumblelegal.min.css" />
@@ -231,14 +186,138 @@ $(document).on('pageinit', '#index', function(){
 	
 	
     </style>
+        	
   
 
         
     <!--mysettings-->
      <script src="js/iscriptz-function.js"></script>
+     
+     
+     
+     
+     
+
+    <!-- Mobiscroll JS and CSS Includes -->
+    
+    <script src="js/mobiscroll.core.js"></script>
+    <script src="js/mobiscroll.widget.js"></script>
+    <script src="js/mobiscroll.scroller.js"></script>
+
+    <script src="js/mobiscroll.util.datetime.js"></script>
+    <script src="js/mobiscroll.datetimebase.js"></script>
+    <script src="js/mobiscroll.datetime.js"></script>
+    
+
+    <script src="js/mobiscroll.widget.android.js"></script>
+	<script src="js/mobiscroll.wp-light.js"></script>
+
+
+  
+
+    <link href="css/mobiscroll.animation.css" rel="stylesheet" type="text/css" />
+    <link href="css/mobiscroll.icons.css" rel="stylesheet" type="text/css" />
+    <link href="css/mobiscroll.widget.css" rel="stylesheet" type="text/css" />
+    <link href="css/mobiscroll.widget.android.css" rel="stylesheet" type="text/css" />
+     <link href="css/mobiscroll.scroller.css" rel="stylesheet" type="text/css" />
+    <link href="css/mobiscroll.scroller.android.css" rel="stylesheet" type="text/css" />
+    
+       
+   
+
+        <script>
+        $(function () {
+
+            function init() {
+                
+                // Select demo initialization
+                $('#demo_select').mobiscroll().select({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang        // Specify language like: lang: 'pl' or omit setting to use default 
+                });
+                
+             
+                
+                // Date & Time demo initialization
+                $('#demo_datetime').mobiscroll().datetime({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
+                    minDate: new Date(2014,3,10,9,22),  // More info about minDate: http://docs.mobiscroll.com/2-14-0/datetime#!opt-minDate
+                    maxDate: new Date(2016,7,30,15,44),   // More info about maxDate: http://docs.mobiscroll.com/2-14-0/datetime#!opt-maxDate
+                    stepMinute: 5  // More info about stepMinute: http://docs.mobiscroll.com/2-14-0/datetime#!opt-stepMinute
+                });
+                
+              
+                
+            }    
+
+            // -------------------------------------------------------------------
+            // Demo page code START, you can disregard this in your implementation
+            var demo, theme, mode, display, lang;
+            
+            $('.settings').on('change', function() {
+                demo = 'datetime';
+                theme = 'android',
+                mode = 'scroller',
+                display = 'modal',
+                lang = 'en'
+
+                //$('.demo-cont').hide();
+                //$("#demo_cont_" + demo).show();
+                
+                init();
+            });
+
+            $('#demo').trigger('change');
+            // Demo page code END
+            // -------------------------------------------------------------------
+        });
+    </script>
+     
+     <script type="text/javascript">
+	function addtocal(){
+		
+		
+		var vpass3 = localStorage['myID2']; // name and id
+		var courtid = localStorage['courtselected'];
+		//alert(courtid+'!!!!!!'+vpass3);
+		
+		
+		
+		var caldate = document.getElementById("demo_datetime").value;
+		
+		
+		 var hostserver= localStorage['globalurl'];
+		
+		$.post(hostserver+"cal-add.php",
+ 		 {
+			myid:vpass3,
+			courtid:courtid,
+			thedate:caldate
+  		},
+		  function(data,status){
+			if(status=="success"){
+			alert("successfully add to court calendar:"+caldate);
+			//window.top.location.href = "form.html"; 
+			}else{
+				alert("Please check your connection and try again");
+				}
+		  });
+				
+		
+		
+	
+	}
+	
+    </script>
+     
 </head>
     <body>
-        <div data-role="page" id="index">
+        <div data-role="page" id="index" >
             <div data-role="header" data-position="fixed" role="banner" class="ui-header ui-bar-inherit">
 			
            
@@ -255,12 +334,49 @@ $(document).on('pageinit', '#index', function(){
         
         </div>
         
-
+<!--<div style="text-align:right; width:100%"><a href="cal-add.html" style="color:#FFF; font-size:30px; font-weight:bold; text-decoration:none; padding:15px">+</a></div>
 
           
-            <div data-role="content">
+            
                 <div id="calendar"></div>
+            
+     -->
+     
+     
+     <!--content/-->
+<div data-role="content">
+
+<div data-role="fieldcontain" class="demo-cont" id="demo_cont_datetime">
+           
+           
+            
+<input type="text" id="demo_datetime"  style="text-align:center" placeholder="*required date and time" />  
+<label><input name="" type="radio" value="" checked> I PLAN TO BE HERE</label>
+            
+            
+            <center>
+<a href="#" style="width:85%" class="ui-shadow ui-btn ui-corner-all ui-btn-inline " onClick="addtocal()">ADD TO CALENDAR</a>
+</center>
+
+
+        </div>
+    
+        <!-- Demo configurator markup START, disregard this in your implementation -->
+      
+        
+       
+          
+            <div name="demo" id="demo" class="settings">
+                
             </div>
+     
+
+
+</div>
+
+<!--content/-->
+
+
      
         
         

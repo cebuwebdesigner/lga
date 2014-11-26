@@ -35,7 +35,7 @@
     
     <script>
 	
-	var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
+	var hostserver='http://localhost/stumblelegalapp/server/';
 	localStorage['myID'] = '';
 	localStorage['myID2'] = '';
 	function editcheck()
@@ -49,7 +49,7 @@
 var globalX; var globalXX;  var arraydataX; var arraydataXX; var arraydataZ;
         //$(document).ready(function(){
 		function loadit(){
-// var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
+// var hostserver= localStorage['globalurl'];
 //var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
 /* call the php that has the php array which is json_encoded */
                 $.getJSON(hostserver+'log.php?email='+vname+'&pass='+vpass, function(data) {
@@ -101,6 +101,8 @@ window.top.location.href = "welcome.html";
 }
 	
     </script>
+<!--mysettings-->
+     <script src="js/iscriptz-function.js"></script>
 </head>
 <body>
 

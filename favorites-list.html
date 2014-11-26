@@ -213,40 +213,11 @@ $('.showDetails').bind('click', function() {
 </script>
 
 
-<script>
-function editbck() {
-    window.history.back()
-}
-</script>
-
-  <script>
-function associates()
-{   
-
-window.top.location.href = "associates.html"; 
 
 
-}
-</script>
-
-<script>
-function favorites()
-{   
-
-window.top.location.href = "favorites.html"; 
-
-
-}
-</script>
-
-<script>
-function courtlink()
-{   
-
-window.top.location.href = localStorage['courtlink']; 
-
-}
-</script>
+ 
+<!--mysettings-->
+     <script src="js/iscriptz-function.js"></script>
 </head>
 <body>
 
@@ -316,7 +287,7 @@ window.top.location.href = localStorage['courtlink'];
 	
 function loadit(){
 
- var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
+ var hostserver= localStorage['globalurl'];
 //var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
 /* call the php that has the php array which is json_encoded */
 //?list='+alphastart+'&typez='+alphatype+'&levelz='+alphalevel+'&r=1'
@@ -332,6 +303,7 @@ function loadit(){
 								arraydata3=arraydata3+','+val.user_email;
 								arraydata4=arraydata4+','+val.phonenumber;
 								*/
+								
 								if(val.star==1){
 								document.getElementById("starz").src = "images/star-on.png";
 								}
@@ -416,7 +388,7 @@ var url = window.location.href;
 
  //alert(vpass2+'rrr'+theid+'rrr'+thestar);
  
- var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
+ var hostserver= localStorage['globalurl'];
  
  $.post(hostserver+"star.php",
   {

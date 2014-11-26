@@ -193,19 +193,13 @@
 function calendar()
 {   
 
-window.top.location.href = "calendar.html"; 
+window.top.location.href = "cal-court.html"; //add the court id 
 
 
 }
 </script>
-<script>
-function courtlink()
-{   
-
-window.top.location.href = localStorage['courtlink']; 
-
-}
-</script>
+<!--mysettings-->
+     <script src="js/iscriptz-function.js"></script>
 </head>
 <body>
 
@@ -213,7 +207,7 @@ window.top.location.href = localStorage['courtlink'];
 			
            
         
-           <a href="#" onclick="editbck()" data-transition="flip" style="position: fixed; background-image: url('images/back.png');
+           <a href="#" onclick="courtlink()" data-transition="flip" style="position: fixed; background-image: url('images/back.png');
 		 width:15px;" class="ui-btn ui-nodisc-icon ui-corner-all ui-btn-icon-left ui-icon-logo" >&nbsp;</a>
             
             <h1 class="ui-title" role="heading" aria-level="1">Stumble <span style="font-weight:lighter">legal</span></h1>
@@ -241,7 +235,7 @@ window.top.location.href = localStorage['courtlink'];
                     
                      <label for="radio-choice-h-6a" style="background-color:#09F; border-color:#09F; color:#fff; box-shadow: none; -webkit-box-shadow: none;">Close by</label>
                     
-                    <label for="radio-choice-h-6b" onClick="calendar()"  style="background-color:#0157a3; border-color:#09F; color:#09F; box-shadow: none; -webkit-box-shadow: none; text-shadow: 0 1px 0 #0157a3"><a href="calendar.html" target="_parent" style="text-decoration:none">Calendar</a></label>
+                    <label for="radio-choice-h-6b" onClick="calendar()"  style="background-color:#0157a3; border-color:#09F; color:#09F; box-shadow: none; -webkit-box-shadow: none; text-shadow: 0 1px 0 #0157a3"><a href="cal-court.html" target="_parent" style="text-decoration:none">Calendar</a></label>
                     <input type="radio" onClick="calendar()" name="radio-choice-h-6" id="radio-choice-h-6b" value="off" class="outlineswitch">
                    
                  </fieldset>
@@ -254,13 +248,163 @@ window.top.location.href = localStorage['courtlink'];
 
 <div data-role="content">
 		<div class="content-primary">
-			<ul data-role="listview" data-filter="false" data-theme="d">
-				<li><a href="list.html" data-transition="slide">Associates 1</a></li>
-				<li><a href="list.html" data-transition="slide">Associates 2</a></li>
-				<li><a href="list.html" data-transition="slide">Associates 3</a></li>
-				<li><a href="list.html" data-transition="slide">Associates 4</a></li>
-				<li><a href="list.html" data-transition="slide">Associates 5</a></li>		
-		</ul>
+		<!--	<ul data-role="listview" data-filter="false" data-theme="d">
+			
+		</ul>-->
+        
+        
+        
+                    
+             <script type='text/javascript'>
+		
+			
+			// localStorage['imyaKey'] = '';
+			 
+var url = window.location.href;
+var params = url.split('?');
+var ABC=params[1];
+
+var AABBCC = ABC.split('&');
+
+var AA = AABBCC[0];
+var AAA = AA.split('=');
+var alphastart=AAA[1];
+
+var BB = AABBCC[1];
+var BBB = BB.split('=');
+var alphatype=BBB[1];
+
+var CC = AABBCC[2];
+var CCC = CC.split('=');
+localStorage['courtselected']=CCC[1];
+ 
+	
+
+var globalX; var arraydataX; var arraydataidX;	
+ //      $(document).ready(function(){
+function loadit(){
+			
+ var hostserver = localStorage['globalurl'];
+
+//var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
+/* call the php that has the php array which is json_encoded */
+//?list='+alphastart+'&typez='+alphatype+'&levelz='+alphalevel+'&r=1'
+
+             //  $.getJSON(hostserver+'closeby.php?long=144.859674&lat=-35.45456', function(data) {
+  $.getJSON(hostserver+'closeby.php?long='+alphastart+'&lat='+alphatype, function(data) {
+                        /* data will hold the php array as a javascript object */
+						
+					
+			var incinfo=0; var arraydata=''; var arraydataid=''; 	
+			
+			alphastart=12.12; alphatype= 12.12;
+			
+			
+							
+                        $.each(data, function(key, val) {	
+											  
+											  
+											  
+                                //$('#data'+incinfo).append(val.first_name);
+								//if(val.first_name!=""){ 
+								arraydata=arraydata+','+val.first_name;
+								//arraydata=arraydata+','+val.first_name;
+								arraydataid=arraydataid+','+val.idz;
+								//
+								incinfo++;//}
+								
+                        });
+					
+					//alert('long='+alphastart+'&lat='+alphatype);
+					//alert(incinfo);
+					globalX = incinfo; 
+					arraydataX = arraydata; 
+					arraydataidX = arraydataid;
+					
+					dataReady();
+					
+	
+                });
+        };
+		
+	loadit();
+	
+	function dataReady() {
+	localStorage['imyaKey'] = globalX; // alert(localStorage['imyaKey']);
+	localStorage['imyaKey2'] = arraydataX; 
+	localStorage['imyaKey3'] = arraydataidX; 
+	
+	}
+	
+
+//	
+	
+ </script>   
+        
+   <ul data-role="listview" data-filter="false" data-autodividers="true" data-theme="d" id="data">     
+<script type='text/javascript'>
+		 // alert(arraydataYY[1]);
+	 var alphaz = localStorage['imyaKey'];
+	  //	alert(localStorage['imyaKey']);
+///////////////////////////////////////////
+	  
+	//var alphaz = arraydataZZ[1].charAt(0);
+	
+	/*var url = window.location.href;
+	
+	var params = url.split('?');
+	//alert(params[1]);
+	var ABC=params[1];
+	
+	var AABBCC = ABC.split('&amp;');
+	
+	var AA = AABBCC[0];
+	var AAA = AA.split('=');;*/
+	//var alphastart=alphaz;
+	
+	//alphaz='1'; alphastart='1';
+	
+//alert(alphaz);
+	  
+///////////////////////////////////////////////	  
+	 if(alphaz==""){
+
+	
+	
+	if(localStorage['counterz']!=2){
+	setTimeout(function() {
+	  parent.location.reload();
+	  }, 1500);
+	}else{
+		
+document.write('<li><a href="#" data-transition="slidefade" id="data0">no entry found</a></li>');
+		localStorage['counterz']=0;
+		
+		}
+	 localStorage['counterz']++;
+	//parent.window.location = "list.html?s="+alphastart+"&amp;typez="+alphatype+"&amp;lvl="+alphalevel;  
+		
+		}else{
+	 
+      globalXX = localStorage['imyaKey']-1;
+	  var arraydataZ = localStorage['imyaKey2'];
+	  var arraydataZZ = arraydataZ.split(',');
+	  
+	   var arraydataY = localStorage['imyaKey3'];
+	   var arraydataYY = arraydataY.split(',');
+
+
+	for($i=1;$i<=globalXX;$i++){
+		thedataz = arraydataZZ[$i];
+		thedataidz = arraydataYY[$i]; //alert(arraydataYY[$i]);
+	   document.write('<li><a  target="_parent" href="request.html?id='+thedataidz+'" data-transition="slidefade" id="data'+$i+'">'+thedataz+'</a></li>');
+	   }
+	   
+	   localStorage['counterz']=0;
+		 }
+ </script>
+</ul> 
+       
 
 
 <br style="clear:both">

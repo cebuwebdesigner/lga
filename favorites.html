@@ -211,31 +211,10 @@ $('.showDetails').bind('click', function() {
 </script>
 
 
-<script>
-function editbck() {
-    window.history.back()
-}
-</script>
 
 
-  
-    <script>
-function associates()
-{   
-
-window.top.location.href = "associates.html"; 
-
-
-}
-</script>
-<script>
-function courtlink()
-{   
-
-window.top.location.href = localStorage['courtlink']; 
-
-}
-</script>
+<!--mysettings-->
+     <script src="js/iscriptz-function.js"></script>
 </head>
 <body>
 
@@ -363,7 +342,7 @@ var alphalevel=CCC[1];*/
        // $(document).ready(function(){
 		function loadit(){
 			
- var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
+ var hostserver= localStorage['globalurl'];
 //var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
 /* call the php that has the php array which is json_encoded */
 //?list='+alphastart+'&typez='+alphatype+'&levelz='+alphalevel+'&r=1'
@@ -390,9 +369,9 @@ var alphalevel=CCC[1];*/
 	loadit();	
 		
 function dataReady() {
-	localStorage['myaKey'] = globalX;
-	localStorage['myaKey2'] = arraydataX;
-	localStorage['myaKey3'] = arraydataidX;
+	localStorage['fmyaKey'] = globalX;
+	localStorage['fmyaKey2'] = arraydataX;
+	localStorage['fmyaKey3'] = arraydataidX;
 
 	}
 	
@@ -406,11 +385,11 @@ function dataReady() {
         
    <ul data-role="listview" data-filter="false" data-autodividers="false" data-theme="d" id="data">     
 <script type='text/javascript'>
-	  globalXX = localStorage['myaKey']-1;
-	  var arraydataZ = localStorage['myaKey2'];
+	  globalXX = localStorage['fmyaKey']-1;
+	  var arraydataZ = localStorage['fmyaKey2'];
 	  var arraydataZZ = arraydataZ.split(',');
 	  
-	   var arraydataY = localStorage['myaKey3'];
+	   var arraydataY = localStorage['fmyaKey3'];
 	   var arraydataYY = arraydataY.split(',');
 	 // alert(arraydataYY[1]);
 	  var thedataz;

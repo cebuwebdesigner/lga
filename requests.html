@@ -205,44 +205,9 @@ $('.showDetails').bind('click', function() {
 
 </script>
 
-<script>
-function editbck() {
-    window.history.back()
-}
-</script>
 
-
-
-
-<script>
-function send() {
-	
-   window.top.location.href = "requests-send.html"; 
-
-	}
-</script>
-
-
-<script>
-function recieved() {
-   window.top.location.href = "requests-recieved.html";
-}
-</script>
-
-
-<script>
-function alll() {
-   window.top.location.href = "requests-all.html"; 
-}
-</script>
-<script>
-function courtlink()
-{   
-
-window.top.location.href = localStorage['courtlink']; 
-
-}
-</script>
+<!--mysettings-->
+     <script src="js/iscriptz-function.js"></script>
 </head>
 <body>
  <div class="pull-demo-page" data-role="page">
@@ -275,7 +240,7 @@ window.top.location.href = localStorage['courtlink'];
   <div style="width:300px; margin: 0 auto;  text-align:center">
 
                 <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
-                    <input type="radio" name="radio-choice-h-6" onClick="send()" id="radio-choice-h-6b" value="off" checked="checked" class="outlineswitch">
+                    <input type="radio" name="radio-choice-h-6" onClick="requestssend()" id="radio-choice-h-6b" value="off" checked="checked" class="outlineswitch">
            <label for="radio-choice-h-6b"  class="activecontrol" >Send</label>
                     
                     
@@ -283,13 +248,13 @@ window.top.location.href = localStorage['courtlink'];
                      <label for="radio-choice-h-6a"  style="background-color:#0157a3; border-color:#09F; color:#09F; box-shadow: none; -webkit-box-shadow: none; text-shadow: 0 1px 0 #0157a3">Recieved</label>
                     
                     
-                    <input type="radio"  name="radio-choice-h-6" onClick="recieved()" id="radio-choice-h-6a" value="on" class="outlineswitch">
+                    <input type="radio"  name="radio-choice-h-6" onClick="requestsrecieved()" id="radio-choice-h-6a" value="on" class="outlineswitch">
                    
                    
                     <label for="radio-choice-h-6c" style="background-color:#0157a3; border-color:#09F; color:#09F; box-shadow: none; -webkit-box-shadow: none; text-shadow: 0 1px 0 #0157a3">All</label>
                     
                     
-                    <input type="radio"  name="radio-choice-h-6" onClick="alll()" id="radio-choice-h-6c" value="on" class="outlineswitch">
+                    <input type="radio"  name="radio-choice-h-6" onClick="requestsalll()" id="radio-choice-h-6c" value="on" class="outlineswitch">
                  </fieldset>
        
 </div>
@@ -304,7 +269,7 @@ window.top.location.href = localStorage['courtlink'];
                 
                 </li>-->
     <script type='text/javascript'>
-	var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
+	var hostserver='http://localhost/stumblelegalapp/server/';
 	var url = window.location.href;
 	var params = url.split('?');
 	//alert(params[1]);
@@ -319,7 +284,7 @@ window.top.location.href = localStorage['courtlink'];
 var globalX; var globalXX;  var arraydataX; var arraydataXX; var arraydataXXX;
         //$(document).ready(function(){
 function loadit(){
-// var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
+// var hostserver= localStorage['globalurl'];
 //var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
 /* call the php that has the php array which is json_encoded */
             $.getJSON(hostserver+'request-all.php?stat='+vname+'&theid='+vpass, function(data) {

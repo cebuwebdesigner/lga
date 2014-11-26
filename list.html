@@ -181,7 +181,7 @@
     </style>
     
 <script>
-function editbck()
+function editbck2()
 {   
 
 var url = window.location.href;
@@ -205,21 +205,15 @@ var alphalvl=BBB[1];
 
 //courts.html?type=Criminal&amp;lvl=Local
 //type.html?lvl=Criminal
-window.top.location.href = "courts.html?type="+alphatyp+"&amp;lvl="+alphalvl; 
+window.top.location.href = "type.html?lvl="+alphatyp; 
 
 }
 </script>
 
 
 
-<script>
-function courtlink()
-{   
-
-window.top.location.href = localStorage['courtlink']; 
-
-}
-</script>
+<!--mysettings-->
+     <script src="js/iscriptz-function.js"></script>
 </head>
 <body>
 
@@ -227,7 +221,7 @@ window.top.location.href = localStorage['courtlink'];
 			
            
         
-           <a href="#" onclick="editbck()" data-transition="flip" style="position: fixed; background-image: url('images/back.png');
+           <a href="#" onclick="editbck2()" data-transition="flip" style="position: fixed; background-image: url('images/back.png');
 		 width:15px;" class="ui-btn ui-nodisc-icon ui-corner-all ui-btn-icon-left ui-icon-logo" >&nbsp;</a>
             
             <h1 class="ui-title" role="heading" aria-level="1">Stumble <span style="font-weight:lighter">legal</span></h1>
@@ -247,50 +241,24 @@ window.top.location.href = localStorage['courtlink'];
 
 <div data-role="content">
 		<div class="content-primary">
-			<!--<ul data-role="listview" data-filter="true" data-theme="d">
-				<li><a href="courts-list.html" data-transition="slidefade">Acura</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Audi</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">BMW</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Cadillac</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Chrysler</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Dodge</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Ferrari</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Ford</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">GMC</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Honda</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Hyundai</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Infiniti</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Jeep</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Kia</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Lexus</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Mini</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Nissan</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Porsche</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Subaru</a></li>
-				<li><a href="courts-list.html" data-transition="slidefade">Toyota</a></li>
-				
-		</ul>-->
-        
      <script type='text/javascript'>
+	 
+	 localStorage['imyaKey'] = '';
 
 var url = window.location.href;
 var params = url.split('?');
-//alert(params[1]);
 var ABC=params[1];
 
 
 var AABBCC = ABC.split('&amp;');
 
-
 var AA = AABBCC[0];
 var AAA = AA.split('=');
 var alphastart=AAA[1];
 
-
 var BB = AABBCC[1];
 var BBB = BB.split('=');
 var alphatype=BBB[1];
-
 
 var CC = AABBCC[2];
 var CCC = CC.split('=');
@@ -298,25 +266,31 @@ var alphalevel=CCC[1];
 
 //alert(alphastart+' '+alphatype)
 
-var globalX; var globalXX;  var arraydataX; var arraydataXX;
+var globalX; var globalXX;  var arraydataX; var arraydataXX; var arraydataZZZ; var arraydataZZ; var arraydataZZZZ;
         //$(document).ready(function(){
 		function loadit(){
- var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
+ var hostserver= localStorage['globalurl'];
 //var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
 /* call the php that has the php array which is json_encoded */
                 $.getJSON(hostserver+'court.php?list='+alphastart+'&typez='+alphatype+'&levelz='+alphalevel+'&r=1', function(data) {
                         /* data will hold the php array as a javascript object */
-						var incinfo=0; var arraydata='';
+						var incinfo=0; var arraydata=''; var arraylat=''; var arraylong=''; var arraycourt = '';
                         $.each(data, function(key, val) {
                                 //$('#data'+incinfo).append(val.first_name);
 								
 								arraydata=arraydata+','+val.first_name;
+								arraylat=arraylat+','+val.latitude;
+								arraylong=arraylong+','+val.longitude;
+								arraycourt=arraycourt+','+val.courtid;
 								
 								incinfo++;
 								
                         });
 					globalX = incinfo;
 					arraydataX = arraydata;
+					arraydataZZ = arraylat;
+					arraydataZZZ = arraylong;
+					arraydataZZZZ = arraycourt;
 					dataReady();
                 });
         };
@@ -326,6 +300,10 @@ var globalX; var globalXX;  var arraydataX; var arraydataXX;
 function dataReady() {
 	localStorage['myKey'] = globalX;
 	localStorage['myKey2'] = arraydataX;
+	
+	localStorage['mylong'] = arraydataZZ;
+	localStorage['mylat'] = arraydataZZZ;
+	localStorage['mycourt'] = arraydataZZZZ;
 	//alert(localStorage['myKey']);
 	}
 	
@@ -345,6 +323,17 @@ function dataReady() {
 	  var thedataz;
 	  
 	  
+	  
+	   var datalong = localStorage['mylong'];
+	  var arraydatalong = datalong.split(',');
+	  
+	  
+	   var datalat = localStorage['mylat'];
+	  var arraydatalat = datalat.split(',');
+	  
+	  
+	   var datacourt = localStorage['mycourt'];
+	  var arraydatacourt = datacourt.split(',');
 ///////////////////////////////////////////
 	  
 	var alphaz = arraydataZZ[1].charAt(0);
@@ -375,6 +364,7 @@ function dataReady() {
 		
 		document.write('<li><a href="#" data-transition="slidefade" id="data0">no entry found</a></li>');
 		
+		localStorage['counterz']=0;
 		
 		}
 	 localStorage['counterz']++;
@@ -386,9 +376,13 @@ function dataReady() {
  
 	for($i=1;$i<=globalXX;$i++){
 		thedataz = arraydataZZ[$i];
-	   document.write('<li><a href="courts-list.html" data-transition="slidefade" id="data'+$i+'">'+thedataz+'</a></li>');
+	   document.write('<li><a href="courts-list.html?long='+arraydatalong[$i]+'&amp;lat='+arraydatalat[$i]+'&amp;courtid='+arraydatacourt[$i]+'" target="_parent" id="data'+$i+'">'+thedataz+'</a></li>');
 	   }
-		 }
+		
+		localStorage['counterz']=0;
+		
+		
+		}
  </script>
 </ul> 
  

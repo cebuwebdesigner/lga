@@ -215,7 +215,51 @@ $('.showDetails').bind('click', function() {
 });
 });//]]>  
 
+
+function editreq(){ 
+
+				  
+var url = window.location.href;
+	
+	var params = url.split('?');
+	//alert(params[1]);
+	var ABC=params[1];
+	var AAA = ABC.split('=');
+	//alert(AAA[1]);
+	var theid = AAA[1];
+	//var AABBCC = ABC.split('&amp;');
+	
+	//var AA = AABBCC[0];
+	//var AAA = AA.split('=');
+	//var alphastart=AAA[1];
+	var vpass2 = localStorage['myID2'];//document.getElementById("password").value;
+	var params = vpass2.split(',');
+	var vpass2=params[1];
+
+ //alert(vpass2+'rrr'+theid+'rrr'+thestar);
+ var thestat='2';
+ var hostserver= localStorage['globalurl'];
+ 
+ $.post(hostserver+"request-master.php",
+  {
+    myid:vpass,
+	theid:theid,
+	stat:thestat
+  },
+  function(data,status){
+    if(status=="success"){
+	alert("successfully send a request");
+	//window.top.location.href = "form.html"; 
+	}else{
+		alert("Please check your connection and try again");
+		}
+  });
+
+
+}
+
 </script>
+
 
 
 
@@ -316,8 +360,8 @@ function loadit(){
 								
 								$('#first_name').append(val.first_name);
 								$('#law_frm').append(val.law_frm);
-								$('#user_email').append(val.user_email);
-								$('#phonenumber').append(val.phonenumber);
+								/*$('#user_email').append(val.user_email);
+								$('#phonenumber').append(val.phonenumber);*/
 							
 								
 								//alert(val.first_name);
@@ -426,12 +470,12 @@ var url = window.location.href;
      <div style="float:left; width:50%">
      <div id="first_name" style="font-size:16px;padding-top:5px; color:#000"></div>
      <div id="law_frm" style="padding-top:15px"></div>
-     <div id="user_email"></div>
-     <div id="phonenumber"></div>
+    <!-- <div id="user_email"></div>
+     <div id="phonenumber"></div>-->
      </div>
      <br style="clear:both" /><br style="clear:both" /><br style="clear:both" /><br style="clear:both" />
      
-     <a href="#" data-role="button" onclick="editcal()" >View Calendar</a>
+     <a href="#" data-role="button" onclick="editreq()" >Request Service</a>
 	</div>							
      
      

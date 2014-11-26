@@ -212,30 +212,9 @@ $('.showDetails').bind('click', function() {
 </script>
 
 
-<script>
-function editbck() {
-    window.history.back()
-}
-</script>
 
-  <script>
-function associates()
-{   
-
-window.top.location.href = "associates.html"; 
-
-
-}
-</script>
-
-<script>
-function courtlink()
-{   
-
-window.top.location.href = localStorage['courtlink']; 
-
-}
-</script>
+<!--mysettings-->
+     <script src="js/iscriptz-function.js"></script>
 </head>
 <body>
 
@@ -303,7 +282,7 @@ window.top.location.href = localStorage['courtlink'];
 	
 function loadit(){
 
- var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
+ var hostserver= localStorage['globalurl'];
 //var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
 /* call the php that has the php array which is json_encoded */
 //?list='+alphastart+'&typez='+alphatype+'&levelz='+alphalevel+'&r=1'

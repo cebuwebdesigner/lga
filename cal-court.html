@@ -234,14 +234,10 @@ $(document).on('pageinit', '#index', function(){
         	
     
         
-    <script>
-function courtlink()
-{   
+    <!--mysettings-->
+     <script src="js/iscriptz-function.js"></script>
 
-window.top.location.href = localStorage['courtlink']; 
 
-}
-</script>
 </head>
     <body>
         <div data-role="page" id="index">
@@ -265,8 +261,23 @@ window.top.location.href = localStorage['courtlink'];
         <br />
         
     
+<div style="width:300px; margin: 0 auto;  text-align:center">
+
+                <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+                    <input type="radio" onClick="editbck()" name="radio-choice-h-6" id="radio-choice-h-6a" value="off" checked="checked" class="outlineswitch">
+                    
+                     <label for="radio-choice-h-6a" onClick="editbck()"   style="background-color:#0157a3; border-color:#09F; color:#09F; box-shadow: none; -webkit-box-shadow: none; text-shadow: 0 1px 0 #0157a3"><a href="cal-court.html" target="_parent" style="text-decoration:none">Close by</a></label>
+                    
+                    <label for="radio-choice-h-6b"style="background-color:#09F; border-color:#09F; color:#fff; box-shadow: none; -webkit-box-shadow: none;" >Calendar</label>
+                    <input type="radio" name="radio-choice-h-6" id="radio-choice-h-6b" value="on" class="outlineswitch">
+                   
+                 </fieldset>
+       
+</div>
 
 
+
+<div style="text-align:right; width:100%"><a href="cal-add.html" target="_parent" style="color:#FFF; font-size:30px; font-weight:bold; text-decoration:none; padding:15px">+</a></div>
 
 <br style="clear:both" />
             
@@ -280,12 +291,12 @@ window.top.location.href = localStorage['courtlink'];
 	
     
     
-     <div style="width:20%; text-align:center; float:left; padding-top:2px; font-size:12px; "><a href="#" onClick="courtlink()"><button id="saveFileBtn" data-iconpos="center" data-icon="courts" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+     <div style="width:20%; text-align:center; float:left; padding-top:2px; font-size:12px; background:url(images/footeractive.png) no-repeat center top "><a href="#" onClick="courtlink()"><button id="saveFileBtn" data-iconpos="center" data-icon="courts" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
      
       <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="associates.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="associates" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
       
       
-      <div style="width:20%; text-align:center; float:left; font-size:12px; background:url(images/footeractive.png) no-repeat center top"><a href="calendar.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="calendar" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+      <div style="width:20%; text-align:center; float:left; font-size:12px; "><a href="calendar.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="calendar" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
       
       
        <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="requests-send.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="requests" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>

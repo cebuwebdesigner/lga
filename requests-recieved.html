@@ -205,44 +205,8 @@ $('.showDetails').bind('click', function() {
 
 </script>
 
-<script>
-function editbck() {
-    window.history.back()
-}
-</script>
-
-
-
-
-<script>
-function send() {
-	
-   window.top.location.href = "requests-send.html"; 
-
-	}
-</script>
-
-
-<script>
-function recieved() {
-   window.top.location.href = "requests-recieved.html";
-}
-</script>
-
-
-<script>
-function alll() {
-   window.top.location.href = "requests-all.html"; 
-}
-</script>
-<script>
-function courtlink()
-{   
-
-window.top.location.href = localStorage['courtlink']; 
-
-}
-</script>
+<!--mysettings-->
+     <script src="js/iscriptz-function.js"></script>
 </head>
 <body>
  <div class="pull-demo-page" data-role="page">
@@ -264,35 +228,35 @@ window.top.location.href = localStorage['courtlink'];
 
 <!--<h3 style="width:100%; text-align:center" data-position="fixed">Requests</h3>-->
 
-  <div data-iscroll="" data-role="content">
-        
-        <div class="iscroll-pulldown">
-          <span class="iscroll-pull-icon"></span><span class="iscroll-pull-label"></span>
-        </div>
-             
-     
+ 
        <!----------------menu------------------>
   <div style="width:300px; margin: 0 auto;  text-align:center">
 
                 <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
-                    <input type="radio" name="radio-choice-h-6" onClick="send()" id="radio-choice-h-6b" value="on" class="outlineswitch">
+                    <input type="radio" name="radio-choice-h-6" onClick="requestssend()" id="radio-choice-h-6b" value="on" class="outlineswitch">
            <label for="radio-choice-h-6b"  class="activecontrol" style="background-color:#0157a3; border-color:#09F; color:#09F; box-shadow: none; -webkit-box-shadow: none; text-shadow: 0 1px 0 #0157a3" >Send</label>
                     
                     
                    
                      <label for="radio-choice-h-6a"  >Recieved</label>
-                     <input type="radio"  name="radio-choice-h-6" onClick="recieved()" id="radio-choice-h-6a" value="off" checked="checked"  class="outlineswitch">
+                     <input type="radio"  name="radio-choice-h-6" onClick="requestsrecieved()" id="radio-choice-h-6a" value="off" checked="checked"  class="outlineswitch">
                    
                    
                     <label for="radio-choice-h-6c" style="background-color:#0157a3; border-color:#09F; color:#09F; box-shadow: none; -webkit-box-shadow: none; text-shadow: 0 1px 0 #0157a3">All</label>
                     
                     
-                    <input type="radio"  name="radio-choice-h-6" onClick="alll()" id="radio-choice-h-6c" value="on" class="outlineswitch">
+                    <input type="radio"  name="radio-choice-h-6" onClick="requestsalll()" id="radio-choice-h-6c" value="on" class="outlineswitch">
                  </fieldset>
        
 </div>
   	<!--------------/menu--------------------> 
-        <ul data-role="listview"  style="padding-top:20px; "><!--<li><a href="index.html">Acura</a></li>
+     <div data-iscroll="" data-role="content">
+        
+        <div class="iscroll-pulldown">
+          <span class="iscroll-pull-icon"></span><span class="iscroll-pull-label"></span>
+        </div>
+             
+         <ul data-role="listview"  style="padding-top:20px; "><!--<li><a href="index.html">Acura</a></li>
 				<li>
                 <div style="width:50%; float:left"><script>
                 document.write(localStorage['myID2']);
@@ -302,7 +266,7 @@ window.top.location.href = localStorage['courtlink'];
                 
                 </li>-->
     <script type='text/javascript'>
-	var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
+	var hostserver='http://localhost/stumblelegalapp/server/';
 	var url = window.location.href;
 	var params = url.split('?');
 	//alert(params[1]);
@@ -317,7 +281,7 @@ window.top.location.href = localStorage['courtlink'];
 var globalX; var globalXX;  var arraydataX; var arraydataXX; var arraydataXXX;
         //$(document).ready(function(){
 function loadit(){
-// var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
+// var hostserver= localStorage['globalurl'];
 //var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
 /* call the php that has the php array which is json_encoded */
             $.getJSON(hostserver+'request-recieved.php?stat='+vname+'&theid='+vpass, function(data) {
@@ -348,26 +312,26 @@ function loadit(){
 		
 		
 function dataReady() {
-	localStorage['myrID'] = globalX;
-	localStorage['myrID1'] = arraydataX;
-	localStorage['myrID2'] = arraydataXX;
-	localStorage['myrID3'] = arraydataXXX; //alert('hahaha');
+	localStorage['myrIDr'] = globalX;
+	localStorage['myrIDr1'] = arraydataX;
+	localStorage['myrIDr2'] = arraydataXX;
+	localStorage['myrIDr3'] = arraydataXXX; //alert('hahaha');
 	//alert(localStorage['myID2']);
 }
 loadit();
 
-	var globalX = localStorage['myrID'];
+	var globalX = localStorage['myrIDr'];
 	
-	var arraydataX = localStorage['myrID1'];
+	var arraydataX = localStorage['myrIDr1'];
 	var arraydataX1 = arraydataX.split(',');
 
-	var arraydataXX = localStorage['myrID2'];
+	var arraydataXX = localStorage['myrIDr2'];
 	var arraydataXX2 = arraydataXX.split(',');
 
-	var arraydataXXX = localStorage['myrID3'];
+	var arraydataXXX = localStorage['myrIDr3'];
 	var arraydataXXX3 = arraydataXXX.split(',');
 
-	//var arraydataXXX = localStorage['myrID'];
+	//var arraydataXXX = localStorage['myrIDr'];
 	//var arraydataXXX3 = arraydataXXX.split(',');
 
 for($i=1;$i<=globalX;$i++){

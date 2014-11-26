@@ -211,31 +211,9 @@ $('.showDetails').bind('click', function() {
 </script>
 
 
-<script>
-function editbck() {
-    window.history.back()
-}
 </script>
-
-
-  
-    <script>
-function favorites()
-{   
-
-window.top.location.href = "favorites.html"; 
-
-
-}
-</script>
-<script>
-function courtlink()
-{   
-
-window.top.location.href = localStorage['courtlink']; 
-
-}
-</script>
+<!--mysettings-->
+     <script src="js/iscriptz-function.js"></script>
 </head>
 <body>
 
@@ -358,7 +336,7 @@ var alphalevel=CCC[1];*/
        // $(document).ready(function(){
 		function loadit(){
 			
- var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
+ var hostserver= localStorage['globalurl'];
 //var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
 /* call the php that has the php array which is json_encoded */
 //?list='+alphastart+'&typez='+alphatype+'&levelz='+alphalevel+'&r=1'
