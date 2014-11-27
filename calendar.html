@@ -19,7 +19,9 @@
     
   </style>
   
-
+<!--mysettings-->
+     <script src="js/iscriptz-function.js"></script>
+     <script src="js/iscriptz-globalurl.js"></script>
 
 <script type='text/javascript'>//<![CDATA[ 
 $(function(){
@@ -29,7 +31,7 @@ $(document).on('pageinit', '#index', function(){
     var m = date.getMonth();
     var y = date.getFullYear();
     
-    $("#calendar").jqmCalendar({
+   /* $("#calendar").jqmCalendar({
         events: [{
             "summary": "Meet PM",
             "begin": new Date(y,m, 27 ),
@@ -51,7 +53,123 @@ $(document).on('pageinit', '#index', function(){
         days: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
         startOfWeek: 0
         
+    });*/
+   
+    
+  
+	
+   
+    var hostserver= localStorage['globalurl'];
+	//var datahere = '{  "summary": "Meet PM",  "begin": new Date(y,m, 27 ), "end": new Date(y, m, 28)  }, {  "summary": "Dinner", "begin": new Date(y, m, d + 3), "end": new Date(y, m, d + 4) }, {            "summary": "Lunch with Friends","begin": new Date(y, m, d + 6),"end": new Date(y, m, d + 7)        }';
+	function loadit(){
+	 $.getJSON(hostserver+'myfeed.php', function(data) {
+                     
+						var incinfo=0; var arraydata=''; var arraylat=''; var arraylong=''; var arraycourt = '';eventnamearr2=[];eventnamearr=[]; var arraythis;
+						var thesummary; var thebegin; var theend;
+						
+                        $.each(data, function(key, val) {
+                                //$('#data'+incinfo).append(val.first_name);
+								
+								thesummary=val.summary;
+								thebegin=val.begin;
+								theend=val.end;
+								
+								
+								//alert(thesummary+'88888'+thebegin+'88888'+theend);
+								arraythis = {"summary":thesummary,"begin": new Date(val.begin),"end": new Date(val.end) };
+								eventnamearr2.push(arraythis);
+								
+								
+                        }); 
+						eventnamearr = eventnamearr2;
+						dataReady();
+						
+						});
+						
+	 };
+		
+	loadit();	/**/
+						
+						
+						
+		function dataReady() {
+	
+	localStorage['myKeyarr'] = JSON.stringify(eventnamearr);
+	
+	 $("#calendar").jqmCalendar({
+        events: eventnamearr,
+		  months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+        days: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+        startOfWeek: 0
+        
     });
+	
+	// eventnamearr3 = JSON.stringify(eventnamearr);
+	
+	}				
+		
+						
+	/*
+   $('#calendar').jqmCalendar({
+
+
+ 
+
+  events: {
+        url: hostserver+'myfeed.php',
+        type: 'POST',
+        data: {
+            custom_param1: 'something',
+            custom_param2: 'somethingelse'
+        },
+        error: function() {
+            alert('there was an error while fetching events!');
+        },
+        color: 'yellow',   // a non-ajax option
+        textColor: 'black' // a non-ajax option
+    }
+
+	});
+   */
+  /* $loopz = 0;
+   $summary = "Meet PM";
+   $begin="2014-11-27";
+   $end="2014-11-28";
+   
+   $arr[$loopz]["summary"]= $summary;
+   $arr[$loopz]["begin"]= $begin;
+   $arr[$loopz]["end"]= $end;
+   
+   
+   
+     $loopz = 1;
+   $summary = "Dinner";
+   $begin="2014-11-29";
+   $end="2014-11-30";
+
+   $arr[$loopz]["summary"]= $summary;
+   $arr[$loopz]["begin"]= $begin;
+   $arr[$loopz]["end"]= $end;
+   */
+  //JSON.parse()
+	//var eventnamearr = [];
+	// eventnamearr = localStorage["myKeyarr"];	
+	 //alert(eventnamearr);
+	 //eventnamearr3=[];
+	 //eventnamearr3.push(eventnamearr);
+	
+	/*alert(JSON.stringify(localStorage['myKeyarr']));
+	
+	 $("#calendar").jqmCalendar({
+        events: eventnamearr3,
+		  months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+        days: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+        startOfWeek: 0
+        
+    });
+	*/
+	
+	
 });
 });//]]>  
 
@@ -234,8 +352,7 @@ $(document).on('pageinit', '#index', function(){
   
 
         
-    <!--mysettings-->
-     <script src="js/iscriptz-function.js"></script>
+  
 </head>
     <body>
         <div data-role="page" id="index">

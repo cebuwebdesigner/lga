@@ -234,11 +234,11 @@ $('.showDetails').bind('click', function() {
 
                 <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
                     <input type="radio" name="radio-choice-h-6" onClick="requestssend()" id="radio-choice-h-6b" value="on" class="outlineswitch">
-           <label for="radio-choice-h-6b"  class="activecontrol" style="background-color:#0157a3; border-color:#09F; color:#09F; box-shadow: none; -webkit-box-shadow: none; text-shadow: 0 1px 0 #0157a3" >Send</label>
+           <label for="radio-choice-h-6b"  class="activecontrol" style="background-color:#0157a3; border-color:#09F; color:#09F; box-shadow: none; -webkit-box-shadow: none; text-shadow: 0 1px 0 #0157a3" >Sent</label>
                     
                     
                    
-                     <label for="radio-choice-h-6a"  >Recieved</label>
+                     <label for="radio-choice-h-6a"  >Received</label>
                      <input type="radio"  name="radio-choice-h-6" onClick="requestsrecieved()" id="radio-choice-h-6a" value="off" checked="checked"  class="outlineswitch">
                    
                    
@@ -266,7 +266,7 @@ $('.showDetails').bind('click', function() {
                 
                 </li>-->
     <script type='text/javascript'>
-	var hostserver='http://localhost/stumblelegalapp/server/';
+	var hostserver = localStorage['globalurl'];
 	var url = window.location.href;
 	var params = url.split('?');
 	//alert(params[1]);
@@ -345,7 +345,7 @@ for($i=1;$i<=globalX;$i++){
 		case '2': vthestatz='Pending'; break;
 		}
 
-document.write('<li><a href="request-list.html?id='+theidz+'&amp;stats='+thestatz+'" target="_parent" data-transition="slidefade" id="data'+$i+'"><div style="width:50%; float:left">'+thedataz+'</div><div style="width:50%; float:left; text-align:right; font-weight:lighter; font-size:12px;">'+vthestatz+'</div></a></li>');}
+document.write('<li><a href="request-list2.html?id='+theidz+'&amp;stats='+thestatz+'" target="_parent" data-transition="slidefade" id="data'+$i+'"><div style="width:50%; float:left">'+thedataz+'</div><div style="width:50%; float:left; text-align:right; font-weight:lighter; font-size:12px;">'+vthestatz+'</div></a></li>');}
 
     </script>
                 
