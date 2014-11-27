@@ -10,7 +10,7 @@ function associates(){ window.top.location.href = "associates.html"; }
 
 
 
-function favorites(){  window.top.location.href = "favorites.html";}
+function favourites(){  window.top.location.href = "favorites.html";}
 
 
 function requestssend() {   window.top.location.href = "requests-send.html";  }
