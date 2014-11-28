@@ -32,6 +32,17 @@
 	}
 	.whitetext{text-decoration:none; color:#FFF}
 	.whitetext:active{text-decoration:none; color:#FFF}
+	
+	.ui-icon-blank {
+		background-image: url("images/blank.png");
+		background-size: 28px 28px; width:15px; 
+		background-color: transparent !important;
+		border:none;
+		background-repeat:no-repeat;
+		box-shadow: none;
+		-webkit-box-shadow: none;
+
+	}
     </style>
     
 <script type='text/javascript'>
@@ -46,7 +57,7 @@ function editsave()
 
  var vuname = document.getElementById("uname").value;
  var vfname = document.getElementById("fname").value;
- var vposition = document.getElementById("vposition").value;
+// var vposition = document.getElementById("vposition").value;
  var vfirm = document.getElementById("vfirm").value;
  var vassociationid = document.getElementById("vassociationid").value;
  var vlawsocietyno = document.getElementById("vlawsocietyno").value;
@@ -54,12 +65,11 @@ function editsave()
  var vphone = document.getElementById("vphone").value;
  var vpassword = document.getElementById("vpassword").value;
 
-//alert(vname);
+//alert(vname);position:vposition,
 
     $.post(hostserver+"sign.php",
   {
     name:vfname,
-	position:vposition,
 	uname:vuname,
 	firm:vfirm,
 	associationid:vassociationid,
@@ -70,7 +80,7 @@ function editsave()
   },
   function(data,status){
     if(status=="success"){
-	alert("Hi " + vname+", Your "+status+"fully registered");
+	alert("Hi " + vuname+", Your "+status+"fully registered");
 	window.top.location.href = "form.html"; 
 	}else{
 		alert("Please check your connection and try again");
@@ -90,13 +100,16 @@ function editsave()
 
 <div data-role="header" data-position="fixed" role="banner" class="ui-header ui-bar-inherit">
 			
-           
-            <a href="form.html"   data-transition="flip" style="position: fixed; background-image: url("images/toplogo.png");
-		 width:15px;" class="ui-btn ui-nodisc-icon ui-corner-all ui-btn-icon-left ui-icon-logo
-        
-         ">&nbsp;</a>
+        <a href="#" style="position: fixed; background-image: url('images/blank.png');
+		 width:15px; margin-right:-10px" class="ui-btn ui-nodisc-icon ui-corner-all ui-btn-icon-left ui-icon-blank">&nbsp;</a> 
+          
             
             <h1 class="ui-title" role="heading" aria-level="1">Registration<!--Stumble <span style="font-weight:lighter">legal--></span></h1>
+                <a href="form.html" data-transition="flip"  style="position: fixed; background-image: url('images/toplogo.png');
+		 width:15px; margin-right:-10px" class="ui-btn ui-nodisc-icon ui-corner-all ui-btn-icon-right ui-icon-logo">&nbsp;</a>
+            
+
+         
 		</div>
         
         
@@ -104,14 +117,14 @@ function editsave()
 <form style="padding:20px" ><!--action="selection.html" target="_parent"-->
 <h4 style=" width:100%; text-align:center">Personal Information</h4>
 
-<input type="text" name="name" id="fname" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Fullname">
+<input type="text" name="fname" id="fname" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Fullname">
 
 <!--<input type="text" name="position" id="vposition" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Position">-->
 
 
-<input type="text" name="firm" id="vfirm" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Law Firm">
+<input type="text" name="vfirm" id="vfirm" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Law Firm">
 
-<input type="text" name="lawsocietyno" id="vlawsocietyno" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" maxlength="5" placeholder="Law Society Number" onkeydown="return isNumber(event);">
+<input type="text" name="vlawsocietyno" id="vlawsocietyno" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" maxlength="5" placeholder="Law Society Number" onkeydown="return isNumber(event);">
 
 <script>
   function isNumber(event) {
@@ -138,10 +151,10 @@ function editsave()
 
 
 <h4 style=" width:100%; text-align:center">Login Information</h4>
-<input type="text" name="uname" id="vname" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Username">
+<input type="text" name="uname" id="uname" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Username">
 <input type="email" name="email" id="vemail" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Email Address">
 <input type="password" name="password" id="vpassword" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Password"> 
-<input type="password" name="vpassword" id="name" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Retype Password">
+<input type="password" name="vpassword" id="pass" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Retype Password">
 
  <div style="width:100%; text-align:center" onclick="editsave()">
   <br /><a href="#" onclick="editsave()" style="padding:0px; color:#FFF; text-decoration:none; margin:10px auto; width:200px; text-align:center;">SUBMIT</a>

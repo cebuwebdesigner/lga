@@ -63,24 +63,27 @@ var alphastart=AAA[1];
    
     var hostserver= localStorage['globalurl'];
 	//var datahere = '{  "summary": "Meet PM",  "begin": new Date(y,m, 27 ), "end": new Date(y, m, 28)  }, {  "summary": "Dinner", "begin": new Date(y, m, d + 3), "end": new Date(y, m, d + 4) }, {            "summary": "Lunch with Friends","begin": new Date(y, m, d + 6),"end": new Date(y, m, d + 7)        }';
-	alert(alphastart);
+	
 	
 	function loadit(){
 	 $.getJSON(hostserver+'myfeed.php?id='+alphastart, function(data) {
                      
 						var incinfo=0; var arraydata=''; var arraylat=''; var arraylong=''; var arraycourt = '';eventnamearr2=[];eventnamearr=[]; var arraythis;
 						var thesummary; var thebegin; var theend;
-						
+						//alert(alphastart);
                         $.each(data, function(key, val) {
                                 //$('#data'+incinfo).append(val.first_name);
-								
+
 								thesummary=val.summary;
 								thebegin=val.begin;
 								theend=val.end;
 								
 								
 								//alert(thesummary+'88888'+thebegin+'88888'+theend);
-								arraythis = {"summary":thesummary,"begin": new Date(val.begin),"end": new Date(val.end) };
+								arraythis = {"summary":thesummary,"begin": new Date(val.begin),"end": new Date(val.end) }; 
+								
+								
+								
 								eventnamearr2.push(arraythis);
 								
 								
@@ -100,7 +103,7 @@ var alphastart=AAA[1];
 	
 	localStorage['myKeyarr'] = JSON.stringify(eventnamearr);
 	
-	 $("#calendar").jqmCalendar({
+		 $("#calendar").jqmCalendar({
         events: eventnamearr,
 		  months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
         days: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],

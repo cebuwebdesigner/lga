@@ -281,7 +281,7 @@ $('.showDetails').bind('click', function() {
 	var vpass=params[1];
 	//alert(vpass);95
 	
-var globalX; var globalXX;  var arraydataX; var arraydataXX; var arraydataXXX;
+var globalX; var globalXX;  var arraydataX; var arraydataXX; var arraydataXXX;var arraydataXXXX;
         //$(document).ready(function(){
 function loadit(){
 // var hostserver= localStorage['globalurl'];
@@ -290,7 +290,7 @@ function loadit(){
             $.getJSON(hostserver+'request-send.php?stat='+vname+'&theid='+vpass, function(data) {
                         /* data will hold the php array as a javascript object */
 						
-						var incinfo=0; var arraydata=''; var arraydata2=''; var arraydata3='';
+						var incinfo=0; var arraydata=''; var arraydata2=''; var arraydata3='';var arraydata4='';
                         $.each(data, function(key, val) {
                                 //$('#data'+incinfo).append(val.first_name);
 								//reqId associateId requestType
@@ -299,6 +299,7 @@ function loadit(){
 								arraydata=arraydata+','+val.reqId;
 								arraydata2=arraydata2+','+val.associateId;  
 								arraydata3=arraydata3+','+val.requestType;
+								arraydata4=arraydata4+','+val.vdate;
 								
 								incinfo++;
 								
@@ -308,6 +309,7 @@ function loadit(){
 					arraydataX = arraydata;
 					arraydataXX = arraydata2; 
 					arraydataXXX = arraydata3;
+					arraydataXXXX = arraydata4;
 					
 					dataReady();
                 });
@@ -318,7 +320,8 @@ function dataReady() {
 	localStorage['myrIDs'] = globalX;
 	localStorage['myrIDs1'] = arraydataX;
 	localStorage['myrIDs2'] = arraydataXX;
-	localStorage['myrIDs3'] = arraydataXXX; //alert('hahaha');
+	localStorage['myrIDs3'] = arraydataXXX;
+	localStorage['myrIDs4'] = arraydataXXXX;//alert('hahaha');
 	//alert(localStorage['myID2']);
 }
 loadit();
@@ -333,6 +336,9 @@ loadit();
 
 	var arraydataXXX = localStorage['myrIDs3'];
 	var arraydataXXX3 = arraydataXXX.split(',');
+	
+	var arraydataXXXX = localStorage['myrIDs4'];
+	var arraydataXXXX4 = arraydataXXXX.split(',');
 
 	//var arraydataXXX = localStorage['myrIDs'];
 	//var arraydataXXX3 = arraydataXXX.split(',');
@@ -340,6 +346,7 @@ loadit();
 for($i=1;$i<=globalX;$i++){
 		thedataz = arraydataXX2[$i];
 		thestatz = arraydataXXX3[$i];
+		thedate = arraydataXXXX4[$i];
 		theidz = arraydataX1[$i];
 		
 		switch(thestatz){
@@ -348,7 +355,7 @@ for($i=1;$i<=globalX;$i++){
 		case '2': vthestatz='Pending'; break;
 		}
 
-document.write('<li><a href="request-list.html?id='+theidz+'&amp;stats='+thestatz+'" target="_parent" data-transition="slidefade" id="data'+$i+'"><div style="width:50%; float:left">'+thedataz+'</div><div style="width:50%; float:left; text-align:right; font-weight:lighter; font-size:12px;">'+vthestatz+'</div></a></li>');}
+document.write('<li><a href="request-list.html?id='+theidz+'&amp;stats='+thestatz+'" target="_parent" data-transition="slidefade" id="data'+$i+'"><div style="width:50%; float:left">'+thedataz+'<br /><span style="text-align:left; font-weight:lighter; font-size:12px;">'+thedate+'</span></div><div style="width:50%; float:left; text-align:right; font-weight:lighter; font-size:12px;">'+vthestatz+'</div></a></li>');}
 
     </script>
                 

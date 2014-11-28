@@ -301,7 +301,7 @@ function loadit(){
 				
 				*/
 				
-				
+				associaten = val.associateId;
 				
 				thestatz = val.requestType;
 				
@@ -313,7 +313,13 @@ function loadit(){
 				
 				
 								$('#statz').append(vthestatz);
-								$('#message').append(val.message);
+								
+								var msg = val.message;
+								var msgarray = msg.split(' '); //$assocoatexxx has sent a request for $courtaaa
+								var fmsg = 'You been requested to '+associaten+' for '+msgarray[6];
+								$('#message').append(fmsg);
+								
+								
 								$('#associateId').append(val.associateId);
 								
 							
