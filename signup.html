@@ -38,13 +38,14 @@
 	
 	
 //var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
-var hostserver='http://localhost/stumblelegalapp/server/';
+var hostserver=localStorage['globalurl'];
 
 function editsave()
 { 
 
 
- var vname = document.getElementById("vname").value;
+ var vuname = document.getElementById("uname").value;
+ var vfname = document.getElementById("fname").value;
  var vposition = document.getElementById("vposition").value;
  var vfirm = document.getElementById("vfirm").value;
  var vassociationid = document.getElementById("vassociationid").value;
@@ -57,8 +58,9 @@ function editsave()
 
     $.post(hostserver+"sign.php",
   {
-    name:vname,
+    name:vfname,
 	position:vposition,
+	uname:vuname,
 	firm:vfirm,
 	associationid:vassociationid,
 	lawsocietyno:vlawsocietyno,
@@ -89,23 +91,25 @@ function editsave()
 <div data-role="header" data-position="fixed" role="banner" class="ui-header ui-bar-inherit">
 			
            
-            <a href="#" style="position: fixed; background-image: url("images/toplogo.png");
+            <a href="form.html"   data-transition="flip" style="position: fixed; background-image: url("images/toplogo.png");
 		 width:15px;" class="ui-btn ui-nodisc-icon ui-corner-all ui-btn-icon-left ui-icon-logo
         
          ">&nbsp;</a>
             
-            <h1 class="ui-title" role="heading" aria-level="1">Stumble <span style="font-weight:lighter">legal</span></h1>
+            <h1 class="ui-title" role="heading" aria-level="1">Registration<!--Stumble <span style="font-weight:lighter">legal--></span></h1>
 		</div>
         
         
-<h2 style=" width:100%; text-align:center">Registration</h2>
+
 <form style="padding:20px" ><!--action="selection.html" target="_parent"-->
-<input type="text" name="name" id="vname" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Username">
+<h4 style=" width:100%; text-align:center">Personal Information</h4>
 
-<input type="text" name="position" id="vposition" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Position">
+<input type="text" name="name" id="fname" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Fullname">
+
+<!--<input type="text" name="position" id="vposition" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Position">-->
+
+
 <input type="text" name="firm" id="vfirm" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Law Firm">
-<input type="text" name="associationid" id="vassociationid" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Association Number">
-
 
 <input type="text" name="lawsocietyno" id="vlawsocietyno" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" maxlength="5" placeholder="Law Society Number" onkeydown="return isNumber(event);">
 
@@ -124,10 +128,18 @@ function editsave()
 }
 </script>
 
-<input type="email" name="email" id="vemail" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Email Address">
-<input type="text" name="phone" id="vphone" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Phone">
- 
 
+<input type="text" name="associationid" id="vassociationid" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Association Number">
+
+
+
+<input type="text" name="phone" id="vphone" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Phone">
+
+
+
+<h4 style=" width:100%; text-align:center">Login Information</h4>
+<input type="text" name="uname" id="vname" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Username">
+<input type="email" name="email" id="vemail" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Email Address">
 <input type="password" name="password" id="vpassword" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Password"> 
 <input type="password" name="vpassword" id="name" value="" style="text-align:center" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Retype Password">
 
