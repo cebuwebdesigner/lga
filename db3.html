@@ -51,7 +51,15 @@ function queryDB(tx) {
 
 function querySuccess(tx, results) {
  var len = results.rows.length;
- alert(len);
+ 
+ i =0;
+ var thedata = "\nID = " + results.rows.item(i).id +
+ "\ndata1 = " + results.rows.item(i).data1 +
+ "\ndata2 = " + results.rows.item(i).data2 +
+ "\ndata3 = " + results.rows.item(i).data3 + "\n";
+ 
+ 
+ alert(thedata);
  console.log("_______ Success! _______");
 }
 
