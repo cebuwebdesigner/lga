@@ -237,9 +237,12 @@ window.top.location.href = "type.html?lvl="+alphatyp;
 
 <div data-role="content">
 		<div class="content-primary">
-     <script type='text/javascript'>
-	 
-	 localStorage['imyaKey'] = '';
+  
+        
+        
+   <ul data-role="listview" data-filter="true" data-autodividers="true"  data-theme="d" id="data">     
+<script type='text/javascript'>
+
 
 var url = window.location.href;
 var params = url.split('?');
@@ -260,79 +263,51 @@ var CC = AABBCC[2];
 var CCC = CC.split('=');
 var alphalevel=CCC[1];
 
-//alert(alphastart+' '+alphatype)
+//alert(allentry+' '+alphatype+' '+alphalevel);
 
-var globalX; var globalXX;  var arraydataX; var arraydataXX; var arraydataZZZ; var arraydataZZ; var arraydataZZZZ;
-        //$(document).ready(function(){
-		function loadit(){
- var hostserver= localStorage['globalurl'];
-//var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
-/* call the php that has the php array which is json_encoded */
-                $.getJSON(hostserver+'court.php?list='+alphastart+'&typez='+alphatype+'&levelz='+alphalevel+'&r=1', function(data) {
-                        /* data will hold the php array as a javascript object */
-						var incinfo=0; var arraydata=''; var arraylat=''; var arraylong=''; var arraycourt = '';
-                        $.each(data, function(key, val) {
-                                //$('#data'+incinfo).append(val.first_name);
-								
-								arraydata=arraydata+','+val.first_name;
-								arraylat=arraylat+','+val.latitude;
-								arraylong=arraylong+','+val.longitude;
-								arraycourt=arraycourt+','+val.courtid;
-								
-								incinfo++;
-								
-                        });
-					globalX = incinfo;
-					arraydataX = arraydata;
-					arraydataZZ = arraylat;
-					arraydataZZZ = arraylong;
-					arraydataZZZZ = arraycourt;
-					dataReady();
-                });
-        };
-		
-	loadit();	
-		
-function dataReady() {
-	localStorage['myKey'] = globalX;
-	localStorage['myKey2'] = arraydataX;
-	
-	localStorage['mylong'] = arraydataZZ;
-	localStorage['mylat'] = arraydataZZZ;
-	localStorage['mycourt'] = arraydataZZZZ;
-	//alert(localStorage['myKey']);
-	}
-	
-	
-	
-	
+
+switch(alphatype){
+	case "Criminal": 
+	if(alphalevel=="Local"){allentry=localStorage['CRIL']; }
+	if(alphalevel=="District"){allentry=localStorage['CRID']; }
+	if(alphalevel=="Supreme"){allentry=localStorage['CRIS']; }
+	                 break;
+
+	case "Civil": 
+	if(alphalevel=="Local"){allentry=localStorage['CIVL']; }
+	if(alphalevel=="District"){allentry=localStorage['CIVD']; }
+	if(alphalevel=="Supreme"){allentry=localStorage['CIVS']; }
+	                 break;
+
+
+	case "Family": 
+	if(alphalevel=="Local"){allentry=localStorage['FAML']; }
+	if(alphalevel=="District"){allentry=localStorage['FAMD']; }
+	if(alphalevel=="Supreme"){allentry=localStorage['FAMS'];}
+	                 break;
+
+
+	case "Environmental": 
+	if(alphalevel=="Local"){allentry=localStorage['ENVL']; }
+	if(alphalevel=="District"){allentry=localStorage['ENVD']; }
+	if(alphalevel=="Supreme"){allentry=localStorage['ENVS']; }
+	                 break;
+
+
+}
+//////////////////////////////////////////////////////////////////////////////
+
+//alert(allentry);
+
+//
+	  var arraydataZZ = allentry.split(',');
+	  var globalXX = arraydataZZ.length;
 
 		
- </script>   
-        
-        
-   <ul data-role="listview" data-filter="true" data-autodividers="true"  data-theme="d" id="data">     
-<script type='text/javascript'>
-	  globalXX = localStorage['myKey']-1;
-	  var arraydataZ = localStorage['myKey2'];
-	  var arraydataZZ = arraydataZ.split(',');
-	  var thedataz;
-	  
-	  
-	  
-	   var datalong = localStorage['mylong'];
-	  var arraydatalong = datalong.split(',');
-	  
-	  
-	   var datalat = localStorage['mylat'];
-	  var arraydatalat = datalat.split(',');
-	  
-	  
-	   var datacourt = localStorage['mycourt'];
-	  var arraydatacourt = datacourt.split(',');
+//alert(globalXX);
 ///////////////////////////////////////////
 	  
-	var alphaz = arraydataZZ[1].charAt(0);
+/*	var alphaz = arraydataZZ[1].charAt(0);
 	var url = window.location.href;
 	
 	var params = url.split('?');
@@ -343,42 +318,20 @@ function dataReady() {
 	
 	var AA = AABBCC[0];
 	var AAA = AA.split('=');
-	var alphastart=AAA[1];
+	var alphastart=AAA[1];*/
 	
 
-	  
-///////////////////////////////////////////////	  
-	 if(alphaz!=alphastart){
 
-		//alert(alphastart);
-	
-	if(localStorage['counterz']!=2){
-	setTimeout(function() {
-	  parent.location.reload();
-	  }, 1500);
-	}else{
-		
-		document.write('<li><a href="#" data-transition="slidefade" id="data0">no entry found</a></li>');
-		
-		localStorage['counterz']=0;
-		
-		}
-	 localStorage['counterz']++;
-	//parent.window.location = "list.html?s="+alphastart+"&amp;typez="+alphatype+"&amp;lvl="+alphalevel;  
-		
-		
-		}else{
-	 
- 
-	for($i=1;$i<=globalXX;$i++){
-		thedataz = arraydataZZ[$i];
-	   document.write('<li><a href="courts-list.html?long='+arraydatalong[$i]+'!!!lat='+arraydatalat[$i]+'!!!courtid='+arraydatacourt[$i]+'" target="_parent" id="data'+$i+'">'+thedataz+'</a></li>');
+	var arraydatadisply = '';
+	for($i=2;$i<=globalXX;$i++){
+	var arraydataFF = arraydataZZ[$i].split('!!!');
+	   document.write('<li><a href="courts-list.html?long='+arraydataFF[2]+'!!!lat='+arraydataFF[1]+'!!!courtid='+arraydataFF[0]+'" target="_parent" id="data'+$i+'">'+arraydataFF[3]+'</a></li>');
 	   }
 		
-		localStorage['counterz']=0;
+		//localStorage['counterz']=0;
 		
 		
-		}
+		
  </script>
 </ul> 
  
