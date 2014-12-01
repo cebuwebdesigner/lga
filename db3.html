@@ -6,209 +6,71 @@
 <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 <script type="text/javascript" charset="utf-8">
 
-function onDeviceReady() { 
- persistData(data1, data2, data3);
-}
-</script>
-<style type="text/css">
-.buttonClass, h2, p, .inputClass, #output, td {
- font-family: "Helvetica"; color: #000; font-size:1em; 
-}
-h2 {
- font-size:1.3em; font-weight: bold;
-}
-.buttonClass, .inputClass, #output, .buttonDel {
- border-radius:8px; 
- border:#878787 solid 1px; padding:.5em 1em;margin:.5em;
- -webkit-appearance:none;
-} 
-.buttonClass, .inputClass, #output {
- width: 46%;
-} 
-.buttonDel {
- background-color: #faa;
-}
-.buttonClass {
- text-align: center; height: 3em; background-color:#fff;
-}
-.inputClass {
- text-align: left; height: 2em; background-color:#ffe; width:90%; 
-} 
-#output {
- text-align: left; height: auto; background-color:#ffe; width:90%; 
-}
-.segment {
- display:block; border-radius:8px; background-color:#eee;
- border:#878787 solid 1px; padding:1em; margin:.5em;
- -webkit-appearance:none; 
- height: auto; 
-}
-table {
- width:100%;
-}
-td {
- font-size:.8em;
- padding: .5em;
- width:25%;
- border:1px gray solid;
- overflow:auto;
- line-height:1em; 
- border-radius: 4px;
- background-color: #fff;
-}
-.headercell {
- text-align:center;
- font-weight:bold;
-}
-@media screen and (max-width:800px) {
- .buttonClass { width: 100%;}
-}
-</style>
-</head>
-<body>
-<div class="segment">
- <h2>Storage, user-entry DB</h2>
- <input type="button" class="buttonClass" onclick='window.location="index.html"' value="Return">
-
- <form id="userInput" action ="" method="GET"> 
- <input class="inputClass" id="data1" type="text" value="" placeholder="data1"> 
- <input class="inputClass" id="data2" type="text" value="" placeholder="data2"> 
- <input class="inputClass" id="data3" type="text" value="" placeholder="data3"> 
- <br><br>
- <input class="buttonClass" type="button" value="Insert Data" onclick="persistData(this.form)">
- </form>
-
- <p><em>Press and hold on the text to copy and export. To scroll contents, tap in field and wait for keyboard, then scroll.</em></p>
-
-<!-- insert query results here, text-only -->
- <textarea id="output" rows="15" placeholder="Results displayed here"></textarea> 
-
- <input type="button" class="buttonClass" style="background-color: #faa;" onclick='dropDb();' value="Delete Database">
-
-<!-- insert query results here as table rows --> 
- <table><th><tr><td class="headercell">ID</td><td class="headercell">data1</td><td class="headercell">data2</td><td class="headercell">data3</td></tr></th></table>
- <div id="output2"></div>
-
- <input type="button" class="buttonClass" onclick='window.location="http://iphonedevlog.wordpress.com/2014/03/21/cordova-websql-database-with-user-added-data/"' value="View Code on iPhoneDevLog">
-</div>
-
-<script>
-
-/* IMPORTANT! for increased security, add form validation (not used on this page). 
-Perhaps get it from: http://rickharrison.github.io/validate.js/ */
-
-// set form field input
-
-function persistData(data1, data2, data3) {
-// get form entries
- var form = document.getElementById("userInput"); 
- var formdata1 = form.data1.value;
- var formdata2 = form.data2.value;
- var formdata3 = form.data3.value;
-// set value if input was blank
- if (formdata1 === "undefined") { formdata1 = "" }; 
- if (formdata2 === "undefined") { formdata2 = "" };
- if (formdata3 === "undefined") { formdata3 = "" };
-// check form entries on console
- console.log("data1 = " + formdata1); 
- console.log("data2 = " + formdata2);
- console.log("data3 = " + formdata3);
-// key, value pair into localStorage
- localStorage.setItem('formdata1Set', formdata1); 
- localStorage.setItem('formdata2Set', formdata2); 
- localStorage.setItem('formdata3Set', formdata3);
-// set the current time as the id to make it unique id
- var d = new Date();
- var new_id = d.getTime();
- localStorage.setItem('new_idSet', new_id);
-// proceed to next function
- startDB(); 
-}
+dbname= "STABLEAPP";
+//id TEXT NOT NULL, data1 TEXT NULL, data2 TEXT NULL, data3 TEXT NULL
 
 function startDB() {
- var db = window.openDatabase("Database", "1.0", "DEMO", 2000000);
+ var db = window.openDatabase("Database", "1.0", dbname, 2000000);
  db.transaction(populateDB, errorCB, successCB);
 }
 
-// Form the query
 
-function populateDB(tx) {
- var formdata1Get = localStorage.getItem('formdata1Set'); // get data from localStorage
- var formdata2Get = localStorage.getItem('formdata2Set');
- var formdata3Get = localStorage.getItem('formdata3Set');
- var new_idGet = localStorage.getItem('new_idSet');
-// if no data has been entered, show note and stop the process
- if (formdata1Get.length < 1 && formdata2Get.length < 1 && formdata3Get.length < 1) { 
- document.getElementById("output").innerHTML = "\nPLEASE ENTER DATA"; return false; 
- }
- tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id TEXT NOT NULL, data1 TEXT NULL, data2 TEXT NULL, data3 TEXT NULL)'); 
- tx.executeSql('INSERT INTO DEMO (id, data1, data2, data3) VALUES (\"' + new_idGet + '\"' + ', \"' + formdata1Get + '\", \"' + formdata2Get + '\", \"' + formdata3Get + '\")');
- queryDB(tx);
+
+
+
+
+
+
+
+
+function populateDB(tx){
+
+var formdata1Get = 'my data 1'; // get data from localStorage
+var formdata2Get = 'my data 2';
+var formdata3Get = 'my data 3';
+var new_idGet = '1';
+
+
+tx.executeSql('CREATE TABLE IF NOT EXISTS '+dbname+' (id TEXT NOT NULL, data1 TEXT NULL, data2 TEXT NULL, data3 TEXT NULL)'); 
+
+tx.executeSql('INSERT INTO '+dbname+' (id, data1, data2, data3) VALUES (\"' + new_idGet + '\"' + ', \"' + formdata1Get + '\", \"' + formdata2Get + '\", \"' + formdata3Get + '\")');
+
+queryDB(tx);
+
+
+
 }
 
-// Execute the query, grabbing all the data
+
+
+
 
 function queryDB(tx) {
- tx.executeSql("SELECT * FROM DEMO", [], querySuccess, errorCB);
+ tx.executeSql("SELECT * FROM "+dbname, [], querySuccess, errorCB);
 }
 
 function querySuccess(tx, results) {
  var len = results.rows.length;
- console.log("Returned rows = " + results.rows.length);
-// set output, output2 to blank so values are not appended to previous values
- document.getElementById("output").innerHTML = "";
- document.getElementById("output2").innerHTML = "";
-// loop through rows as many times as there are row results
- for (var i = 0; i < len; i++) { 
- var rowid = results.rows.item(i).id;
-// Display the query results within <textarea id="output"></textarea>
- document.getElementById("output").innerHTML += "\nID = " + results.rows.item(i).id +
+ 
+ var i =0;
+ /*var thedata = results.rows.item(i).id;*/
+ var thedata = "\nID = " + results.rows.item(i).id +
  "\ndata1 = " + results.rows.item(i).data1 +
  "\ndata2 = " + results.rows.item(i).data2 +
  "\ndata3 = " + results.rows.item(i).data3 + "\n";
  
-// Display the query results as a table within <div id="output2"></div>
- document.getElementById("output2").innerHTML += "<table><tr><td><button class='buttonDel' onclick='delRecord(\"" + rowid + "\")' value='Delete'>Delete</button><br>" + results.rows.item(i).id + "</td><td>" + results.rows.item(i).data1 + "</td><td>" + results.rows.item(i).data2 + "</td><td>" + results.rows.item(i).data3 + "</td></tr></table>";
- console.log("rowid = " + rowid); 
- }
-// reset form input fields to blank
- var form = document.getElementById("userInput"); 
- form.data1.value = "";
- form.data2.value = "";
- form.data3.value = ""; 
+ 
+ alert(thedata);
+ 
+ console.log("_______ Success! _______");
 }
 
-// Show DB onload (next two functions)
 
-function showDB(tx) {
- var db = window.openDatabase("Database", "1.0", "DEMO", 2000000);
- db.transaction(createDB, errorCB, successCB);
-}
-function createDB(tx) {
- tx.executeSql("SELECT * FROM DEMO", [], querySuccess, errorCB);
-}
 
-// Delete a row in the DB from button
-
-function delRecord(rowid) {
- var db = window.openDatabase("Database", "1.0", "DEMO", 2000000);
- db.transaction(
- function (tx) {
- tx.executeSql("DELETE FROM demo WHERE id = ?", [rowid]);
- }
- ); 
- document.getElementById("output").innerHTML = "";
- document.getElementById("output2").innerHTML = "";
- location.reload(false); // refresh page to show changes
-}
-
-// Transaction success callback
 
 function successCB() {
  console.log("_______ Success! _______");
 }
-
-// Transaction error callback
 
 function errorCB(err) {
  if (err.code == "0") {
@@ -238,29 +100,12 @@ function errorCB(err) {
 }
 
 
-// "drop (delete) database" sequence, next two functions
 
-function dropDb() {
-// erase localStorage
- window.localStorage.clear();
-// erase form fields
- var form = document.getElementById("userInput"); 
- form.data1.value = "";
- form.data2.value = "";
- form.data3.value = "";
- document.getElementById("output").innerHTML = "";
- document.getElementById("output2").innerHTML = "";
-// start the "drop database" sequence
- var db = window.openDatabase("Database", "1.0", "DEMO", 2000000);
- db.transaction(dropDatabase, errorCB, successCB);
-}
-function dropDatabase(tx) {
- tx.executeSql('DROP TABLE IF EXISTS DEMO');
- console.log("_______ Table Dropped! _______");
-}
+startDB();
 
-// Show the DB contents on page load
-showDB(); 
 </script>
+</head>
+<body>
+
 </body>
 </html>
