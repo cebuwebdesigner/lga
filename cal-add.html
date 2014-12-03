@@ -314,7 +314,7 @@
   		},
 		  function(data,status){
 			if(status=="success"){
-			alert("successfully add to court calendar:"+caldate);
+			alert("successfully added to court calendar; "+localStorage['courtname']+","+caldate);
 			//window.top.location.href = "form.html"; 
 			}else{
 				alert("Please check your connection and try again");

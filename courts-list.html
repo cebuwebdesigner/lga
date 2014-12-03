@@ -280,8 +280,12 @@ var alphatype=BBB[1];
 var CC = AABBCC[2];
 var CCC = CC.split('=');
 localStorage['courtselected']=CCC[1];
+
+var DD = AABBCC[3];
+var DDD = DD.split('=');
+localStorage['courtname']=DDD[1];
  
- 
+ //alert(localStorage['courtname']);
  
 var vpass2 = localStorage['myID2'];//document.getElementById("password").value;
 	var params = vpass2.split(',');

@@ -92,13 +92,15 @@ var hostserver= localStorage['globalurl'];
 						var incinfo=0; var arraydata='';var arraydataid=''; var arraylat=''; var arraylong=''; 
                         $.each(data, function(key, val) {	
                                 //$('#data'+incinfo).append(val.first_name);
+								
 								if(val.first_name!=""){
+									if(val.idz!=vpass2){
 								arraydata=arraydata+','+val.first_name;
 								arraylat=arraylat+',-';//val.latitude;
 								arraylong=arraylong+',-';//val.longitude;
 								arraydataid=arraydataid+','+val.idz;
 								//alert(val.idz);
-								incinfo++;}
+								incinfo++;}}
                         });
 					globalX = incinfo;
 					

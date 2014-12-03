@@ -264,7 +264,7 @@ var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
   },
   function(data,status){
     if(status=="success"){
-	alert("Hi " + theid+", Your in "+thelongitude+","+thelatitude);
+	//alert("Hi " + theid+", Your in "+thelongitude+","+thelatitude);
 	//window.top.location.href = "form.html"; 
 	}else{
 		alert("Please check your connection and try again");
@@ -284,12 +284,70 @@ var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
 
 
 
+ //onclick="settings()"
+function settings(){ 
 
+	var thename = document.getElementById("fname").value;
+	var thefirm = document.getElementById("firm").value;
+	var theemail = document.getElementById("email").value;
+	var onoffgps = document.getElementById("thegps").checked;
+	//alert(onoffgps);
+	if(onoffgps==true){var thegps=1;}else{var thegps=0;}
+	
+	var onoffsee1 = document.getElementById("checkbox-h-6a").checked;
+	var tonoffsee2 = document.getElementById("checkbox-h-6b").checked;/**/
+	
+	//if(onoffsee1=='true'){alert(tonoffsee2);}//var thesee1='1';}else{var thesee1='0';}
+	//if(onoffsee2==true){var thesee2='1';}else{var thesee2='0';}
 
+	var vpass2 = localStorage['myID2'];//document.getElementById("password").value;
+	var params = vpass2.split(',');
+	var vpass2=params[1];
+	
+	
+//alert(thesee1+','+thesee2);
+ //alert(vpass2+'rrr'+theid+'rrr'+thestar);
 
+ //var hostserver= localStorage['globalurl'];
  
+ 
+ 	//
+	
+	//alert(thefirm+','+theemail+','+thegps+','+whocansee+','+state);+'****'+thesee1+'****'+thesee2
+ 
+ /*see1:thesee1,
+	see2:thesee2*/
+	var hostserver=localStorage['globalurl'];
+$.post(hostserver+"settings.php",
+  {
+    myid:vpass2,
+	name:thename,
+	firm:thefirm,
+	email:theemail,
+	gps:thegps
+	
+	
+  },
+  function(data,status){
+    if(status=="success"){
+	//alert("successfully updated");
+	//window.top.location.href = "form.html"; 
+	var whocansee='';//onoffsee1+'-'+onoffsee2; 
+	var state;
+	
+	//alert( thefirm+','+theemail+','+thegps+','+whocansee)
+	localStorage['mySettings'] = thefirm+','+theemail+','+thegps+','+whocansee+','+state;
+    localStorage['myID2'] = thename+','+vpass2;
+	}else{
+		alert("Please check your connection and try again");
+		}
+  });
+ /**/
 
-    </script>
+
+}
+</script>
+
 
 <!--mysettings-->
      <script src="js/iscriptz-function.js"></script>
@@ -318,12 +376,6 @@ var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
 <!--<h3 style="width:100%; text-align:center" data-position="fixed">Requests</h3>-->
 
 
-
-        
-       
-        
-        
-        
         
 <form style="padding:20px" action="#" target="_parent" method="post">
 
@@ -333,17 +385,17 @@ var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
 
 <input type="text" name="name" id="firm" value="" style="text-align:left" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Firm"> 
 
-<input type="email" name="name" id="email" value="" style="text-align:left" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Email"> 
+<input type="text" name="name" id="email" value="" style="text-align:left" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Email"> 
 
 <center>
-<a href="#" style="width:85%" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ">UPDATE</a>
+<a href="#" style="width:85%" class="ui-shadow ui-btn ui-corner-all ui-btn-inline " onclick="settings()">UPDATE</a>
 </center>
 </div>
 <img src="images/divider.png" style="width:200%; margin-left:-50%; height:3px" />
 <div>
-<fieldset data-role="controlgroup" data-type="horizontal">
+<fieldset data-role="controlgroup" data-type="horizontal" onClick="settings()">
 				<div style="width:70%; float:left; padding-top:18px">	<legend>GPS</legend></div>
-<div style="width:30%; float:left;"><input name="flip-checkbox-2" type="checkbox" id="gps" data-role="flipswitch" data-on-text="On" data-off-text="Off" data-wrapper-class="custom-label-flipswitch"></div><br style="clear:both">
+<div style="width:30%; float:left;"><input name="flip-checkbox-2"  value="on" type="checkbox" id="thegps" data-role="flipswitch" data-on-text="On" data-off-text="Off" data-wrapper-class="custom-label-flipswitch"></div><br style="clear:both">
 	</fieldset>		
     
    </div>
@@ -351,9 +403,9 @@ var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
 <div> 
 <fieldset data-role="controlgroup" data-iconpos="right">
 					<legend>WHO CAN SEE YOU</legend>
-					<input type="checkbox" name="checkbox-h-6a" id="checkbox-h-6a">
+					<input type="checkbox" name="checkbox-h-6a" id="checkbox-h-6a"  onClick="settings()" >
 					<label for="checkbox-h-6a">Everyone</label>
-					<input type="checkbox" name="checkbox-h-6b" id="checkbox-h-6b">
+					<input type="checkbox" name="checkbox-h-6b" id="checkbox-h-6b" onClick="settings()" >
 					<label for="checkbox-h-6b">Favourites Only</label>
 </fieldset>	
 
@@ -409,6 +461,7 @@ var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
     	</div>
 <script type="text/javascript">
     var vpass = localStorage['myID2'];//document.getElementById("password").value;
+	
 	var params = vpass.split(',');
 	document.getElementById("fname").value=params[0];
        //val.firm+','+val.email+','+val.gps+','+val.whocansee+','+val.location; 
@@ -417,9 +470,9 @@ var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
 	document.getElementById("firm").value=ASET[0];
 	document.getElementById("email").value=ASET[1];
 	//document.getElementById("gps").value=ASET[2];
-	
+	//alert(ASET[2]);
 	if(ASET[2]==1){
-	document.getElementById("gps").checked = true;
+	document.getElementById("thegps").checked = true;
 	}
 	//document.getElementById("gps").checked = true;
 	if(ASET[3]==1){
