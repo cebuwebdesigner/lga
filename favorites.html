@@ -263,185 +263,25 @@ $('.showDetails').bind('click', function() {
         
         
         
-        
-        	<!--<ul data-role="listview" data-filter="false" >
-				<li data-role="list-divider">A</li>
-				<li><a href="index.html">Adam Kinkaid</a></li>
-				<li><a href="index.html">Alex Wickerham</a></li>
-				<li><a href="index.html">Avery Johnson</a></li>
-				<li data-role="list-divider">B</li>
-				<li><a href="index.html">Bob Cabot</a></li>
-				<li data-role="list-divider">C</li>
-				<li><a href="index.html">Caleb Booth</a></li>
-				<li><a href="index.html">Christopher Adams</a></li>
-				<li><a href="index.html">Culver James</a></li>
-				<li data-role="list-divider">D</li>
-				<li><a href="index.html">David Walsh</a></li>
-				<li><a href="index.html">Drake Alfred</a></li>
-				<li data-role="list-divider">E</li>
-				<li><a href="index.html">Elizabeth Bacon</a></li>
-				<li><a href="index.html">Emery Parker</a></li>
-				<li><a href="index.html">Enid Voldon</a></li>
-				<li data-role="list-divider">F</li>
-				<li><a href="index.html">Francis Wall</a></li>
-				<li data-role="list-divider">G</li>
-				<li><a href="index.html">Graham Smith</a></li>
-				<li><a href="index.html">Greta Peete</a></li>
-				<li data-role="list-divider">H</li>
-				<li><a href="index.html">Harvey Walls</a></li>
-				<li data-role="list-divider">M</li>
-				<li><a href="index.html">Mike Farnsworth</a></li>
-				<li><a href="index.html">Murray Vanderbuilt</a></li>
-				<li data-role="list-divider">N</li>
-				<li><a href="index.html">Nathan Williams</a></li>
-				<li data-role="list-divider">P</li>
-				<li><a href="index.html">Paul Baker</a></li>
-				<li><a href="index.html">Pete Mason</a></li>
-				<li data-role="list-divider">R</li>
-				<li><a href="index.html">Rod Tarker</a></li>
-				<li data-role="list-divider">S</li>
-				<li><a href="index.html">Sawyer Wakefield</a></li>
-			</ul>-->
-            
-            
-            
-            
-            
-             <script type='text/javascript'>
-
-/*var url = window.location.href;
-var params = url.split('?');
-var ABC=params[1];
-
-
-var AABBCC = ABC.split('&amp;');
-
-
-var AA = AABBCC[0];
-var AAA = AA.split('=');
-var alphastart=AAA[1];
-
-
-var BB = AABBCC[1];
-var BBB = BB.split('=');
-var alphatype=BBB[1];
-
-
-var CC = AABBCC[2];
-var CCC = CC.split('=');
-var alphalevel=CCC[1];*/
-
-//alert(alphastart+' '+alphatype)
-
-//var globalX; var globalXX;  var arraydataX; var arraydataXX;
-
-	var vpass = localStorage['myID2'];//document.getElementById("password").value;
-	var params = vpass.split(',');
-	var vpass=params[1];
-	//alert(vpass);
-       // $(document).ready(function(){
-		function loadit(){
-			
- var hostserver= localStorage['globalurl'];
-//var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
-/* call the php that has the php array which is json_encoded */
-//?list='+alphastart+'&typez='+alphatype+'&levelz='+alphalevel+'&r=1'
-                $.getJSON(hostserver+'favorites.php?theid='+vpass, function(data) {
-                        /* data will hold the php array as a javascript object */
-						var incinfo=1; var arraydata='';var arraydataid='';
-                        $.each(data, function(key, val) {	
-                                //$('#data'+incinfo).append(val.first_name);
-								if(val.first_name!=""){
-								arraydata=arraydata+','+val.first_name;
-								//arraydata=arraydata+','+val.first_name;
-								arraydataid=arraydataid+','+val.idz;
-								//alert(val.idz);
-								incinfo++;}
-                        });
-					globalX = incinfo;
-					
-					arraydataX = arraydata;
-					arraydataidX = arraydataid;
-					dataReady();
-                });
-        }
-		
-	loadit();	
-		
-function dataReady() {
-	localStorage['fmyaKey'] = globalX;
-	localStorage['fmyaKey2'] = arraydataX;
-	localStorage['fmyaKey3'] = arraydataidX;
-
-	}
-	
-	
-	
-	
-
-		
- </script>   
-        
-        
    <ul data-role="listview" data-filter="false" data-autodividers="false" data-theme="d" id="data">     
 <script type='text/javascript'>
-	  globalXX = localStorage['fmyaKey']-1;
-	  var arraydataZ = localStorage['fmyaKey2'];
-	  var arraydataZZ = arraydataZ.split(',');
-	  
-	   var arraydataY = localStorage['fmyaKey3'];
-	   var arraydataYY = arraydataY.split(',');
-	 // alert(arraydataYY[1]);
-	  var thedataz;
-	  var thedataidz;
-	  
-	  
-///////////////////////////////////////////
-	  
-	var alphaz = arraydataZZ[1].charAt(0);
-	
-	/*var url = window.location.href;
-	
-	var params = url.split('?');
-	//alert(params[1]);
-	var ABC=params[1];
-	
-	var AABBCC = ABC.split('&amp;');
-	
-	var AA = AABBCC[0];
-	var AAA = AA.split('=');;*/
-	var alphastart=alphaz;
-	
-//alert(alphaz);
-	  
-///////////////////////////////////////////////	  
-	 if(alphaz!=alphastart){
 
-		alert(alphastart);
 	
-	if(localStorage['counterz']!=2){
-	setTimeout(function() {
-	  parent.location.reload();
-	  }, 1500);
-	}else{
-		
-document.write('<li><a href="#" data-transition="slidefade" id="data0">no entry found</a></li>');
-		
-		
-		}
-	 localStorage['counterz']++;
-	//parent.window.location = "list.html?s="+alphastart+"&amp;typez="+alphatype+"&amp;lvl="+alphalevel;  
-		
-		}else{
-	 
- 
-	for($i=1;$i<=globalXX;$i++){
-		thedataz = arraydataZZ[$i];
-		thedataidz = arraydataYY[$i]; //alert(arraydataYY[$i]);
-	   document.write('<li><a  target="_parent" href="favorites-list.html?id='+thedataidz+'" data-transition="slidefade" id="data'+$i+'">'+thedataz+'</a></li>');
+	
+	  var allentry=localStorage['allfavourites'];
+//alert(allentry);
+	  var arraydataZZ = allentry.split(',');
+	  var globalXX = arraydataZZ.length;
+	 // alert(arraydataYY[1]);
+
+	  
+	  
+	for($i=2;$i<=globalXX;$i++){
+	var arraydataFF = arraydataZZ[$i].split('!!!');//'+arraydataFF[2]+'!!!lat='+arraydataFF[1]+'!!!courtid='
+	   document.write('<li><a href="associates-list.html?id='+arraydataFF[0]+'" target="_parent" id="data'+$i+'">'+arraydataFF[3]+'</a></li>');
 	   }
-		 }
- </script>
+       
+       </script>
 </ul> 
             
 			</div><!--/content-primary -->		
@@ -464,11 +304,11 @@ document.write('<li><a href="#" data-transition="slidefade" id="data0">no entry 
     
     <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="#" onClick="courtlink()"><button id="saveFileBtn" data-iconpos="center" data-icon="courts" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
      
-      <div style="width:20%; text-align:center; float:left; padding-top:2px; font-size:12px; background:url(images/footeractive.png) no-repeat center top"><a href="associates.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="associates" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+      <div style="width:20%; text-align:center; float:left; padding-top:2px; font-size:12px; background:url(images/footeractive.png) no-repeat center top"><a href="load-associates.html?url=associates.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="associates" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
       
-      <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="calendar.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="calendar" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+      <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="load-mycalendar.html?url=calendar.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="calendar" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
       
-       <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="requests-send.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="requests" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+       <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="load-request.html?url=requests-send.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="requests" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
      
     
     <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="settings.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="settings" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>

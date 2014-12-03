@@ -193,7 +193,8 @@
 function calendar()
 {   
 
-window.top.location.href = "cal-court.html"; //add the court id 
+var therandom = Math.floor((Math.random() * 100) + 1);
+window.top.location.href = "load-courtcalendar.html?url=cal-court.html&amp;ran="+therandom;
 
 
 }
@@ -203,7 +204,7 @@ window.top.location.href = "cal-court.html"; //add the court id
 </head>
 <body>
 
-<div data-role="header" data-position="fixed" role="banner" class="ui-header ui-bar-inherit">
+<div data-role="header"  data-tap-toggle="false"  data-position="fixed" role="banner" class="ui-header ui-bar-inherit">
 			
            
         
@@ -235,7 +236,7 @@ window.top.location.href = "cal-court.html"; //add the court id
                     
                      <label for="radio-choice-h-6a" style="background-color:#09F; border-color:#09F; color:#fff; box-shadow: none; -webkit-box-shadow: none;">Close by</label>
                     
-                    <label for="radio-choice-h-6b" onClick="calendar()"  style="background-color:#0157a3; border-color:#09F; color:#09F; box-shadow: none; -webkit-box-shadow: none; text-shadow: 0 1px 0 #0157a3"><a href="cal-court.html" target="_parent" style="text-decoration:none">Calendar</a></label>
+                    <label for="radio-choice-h-6b" onClick="calendar()"  style="background-color:#0157a3; border-color:#09F; color:#09F; box-shadow: none; -webkit-box-shadow: none; text-shadow: 0 1px 0 #0157a3"><a href="#" onClick="calendar()"  target="_parent" style="text-decoration:none">Calendar</a></label>
                     <input type="radio" onClick="calendar()" name="radio-choice-h-6" id="radio-choice-h-6b" value="off" class="outlineswitch">
                    
                  </fieldset>
@@ -263,7 +264,7 @@ window.top.location.href = "cal-court.html"; //add the court id
 var url = window.location.href;
 var params = url.split('?');
 var ABC=params[1];
-
+localStorage['courtassociate']=ABC;
 var AABBCC = ABC.split('!!!');
 
 
@@ -280,7 +281,11 @@ var CC = AABBCC[2];
 var CCC = CC.split('=');
 localStorage['courtselected']=CCC[1];
  
-	
+ 
+ 
+var vpass2 = localStorage['myID2'];//document.getElementById("password").value;
+	var params = vpass2.split(',');
+	var vpass2=params[1];	
 
 var globalX; var arraydataX; var arraydataidX;	
  //      $(document).ready(function(){
@@ -291,9 +296,9 @@ function loadit(){
 //var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
 /* call the php that has the php array which is json_encoded */
 //?list='+alphastart+'&typez='+alphatype+'&levelz='+alphalevel+'&r=1'
-
+//alert(vpass2);
              //  $.getJSON(hostserver+'closeby.php?long=144.859674&lat=-35.45456', function(data) {
-  $.getJSON(hostserver+'closeby.php?long='+alphastart+'&lat='+alphatype, function(data) {
+  $.getJSON(hostserver+'closeby.php?long='+alphastart+'&lat='+alphatype+'&myid='+vpass2, function(data) {
                         /* data will hold the php array as a javascript object */
 						
 					
@@ -415,18 +420,18 @@ document.write('<li style="text-align:center; color:WHITE; padding-top:20px; wid
 </div>
 
 
-<div data-role="footer" data-position="fixed" class="ui-footer ui-bar-a ui-footer-fixed slideup" role="banner" style="height:65px; font-size:27px; background:url(images/footerbg.png)">
+<div data-role="footer"  data-tap-toggle="false"  data-position="fixed" class="ui-footer ui-bar-a ui-footer-fixed slideup" role="banner" style="height:65px; font-size:27px; background:url(images/footerbg.png)">
 	
     
     
      <div style="width:20%; text-align:center; float:left; padding-top:2px; font-size:12px; background:url(images/footeractive.png) no-repeat center top"><a href="#" onClick="courtlink()"><button id="saveFileBtn" data-iconpos="center" data-icon="courts" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
      
-      <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="associates.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="associates" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+      <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="load-associates.html?url=associates.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="associates" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
       
-       <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="calendar.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="calendar" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+       <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="load-mycalendar.html?url=calendar.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="calendar" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
        
        
-       <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="requests-send.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="requests" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+       <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="load-request.html?url=requests-send.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="requests" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
      
     
     <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="settings.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="settings" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>

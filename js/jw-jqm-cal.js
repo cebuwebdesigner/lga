@@ -206,7 +206,8 @@
                    beginTime  = (( event[plugin.settings.begin] > begin ) ? event[plugin.settings.begin] : begin ).toTimeString().substr(0,5),
                    endTime    = (( event[plugin.settings.end] < end ) ? event[plugin.settings.end] : end ).toTimeString().substr(0,5),
                    timeString = beginTime + "-" + endTime;
-               $("<li>" + ( ( timeString != "00:00-00:00" ) ? timeString : "" ) + " " + summary + "</li>").appendTo($listview);   
+               //" + ( ( timeString != "00:00-00:00" ) ? timeString : "" ) + "
+			   $("<li> " + summary + "</li>").appendTo($listview);   
             }
          }
 

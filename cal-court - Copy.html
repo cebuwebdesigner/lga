@@ -8,15 +8,180 @@
 	<script src="js/jquery-1.11.1.min.js"></script>
   
     
-
+      <link rel="stylesheet" type="text/css" href="css/jw-jqm-cal.css">
     
+  
+    
+      <script type='text/javascript' src="js/jw-jqm-cal.js"></script>
+    
+  
+  <style type='text/css'>
+    
+  </style>
+  
+
+
+<!--mysettings-->
+     <script src="js/iscriptz-function.js"></script>
+     <script src="js/iscriptz-globalurl.js"></script>
+
+<script type='text/javascript'>//<![CDATA[
+$(function(){
+$(document).on('pageinit', '#index', function(){ 
+    var date = new Date();
+    var d = date.getDate();
+    var m = date.getMonth();
+    var y = date.getFullYear();
+    
+   /* $("#calendar").jqmCalendar({
+        events: [{
+            "summary": "Meet PM",
+            "begin": new Date(y,m, 27 ),
+            "end": new Date(y, m, 28)
+            
+        }, {
+            "summary": "Dinner",
+            "begin": new Date(y, m, d + 3),
+            "end": new Date(y, m, d + 4)
+            
+        }, {
+            "summary": "Lunch with Friends",
+            "begin": new Date(y, m, d + 6),
+            "end": new Date(y, m, d + 7)
+            
+        }, 
+                ],
+                 months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+        days: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+        startOfWeek: 0
+        
+    });*/
+   
+    
+  
+	
+   
+    var hostserver= localStorage['globalurl'];
+	//var datahere = '{  "summary": "Meet PM",  "begin": new Date(y,m, 27 ), "end": new Date(y, m, 28)  }, {  "summary": "Dinner", "begin": new Date(y, m, d + 3), "end": new Date(y, m, d + 4) }, {            "summary": "Lunch with Friends","begin": new Date(y, m, d + 6),"end": new Date(y, m, d + 7)        }';
+	function loadit(){
+	 $.getJSON(hostserver+'myfeed.php', function(data) {
+                     
+						var incinfo=0; var arraydata=''; var arraylat=''; var arraylong=''; var arraycourt = '';eventnamearr2=[];eventnamearr=[]; var arraythis;
+						var thesummary; var thebegin; var theend;
+						
+                        $.each(data, function(key, val) {
+                                //$('#data'+incinfo).append(val.first_name);
+								
+								thesummary=val.summary;
+								thebegin=val.begin;
+								theend=val.end;
+								
+								
+								//alert(thesummary+'88888'+thebegin+'88888'+theend);
+								arraythis = {"summary":thesummary,"begin": new Date(val.begin),"end": new Date(val.end) };
+								eventnamearr2.push(arraythis);
+								
+								
+                        }); 
+						eventnamearr = eventnamearr2;
+						dataReady();
+						
+						});
+						
+	 };
+		
+	loadit();	/**/
+						
+						
+						
+		function dataReady() {
+	
+	localStorage['myKeyarr'] = JSON.stringify(eventnamearr);
+	
+	 $("#calendar").jqmCalendar({
+        events: eventnamearr,
+		  months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+        days: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+        startOfWeek: 0
+        
+    });
+	
+	// eventnamearr3 = JSON.stringify(eventnamearr);
+	
+	}				
+		
+						
+	/*
+   $('#calendar').jqmCalendar({
+
+
+ 
+
+  events: {
+        url: hostserver+'myfeed.php',
+        type: 'POST',
+        data: {
+            custom_param1: 'something',
+            custom_param2: 'somethingelse'
+        },
+        error: function() {
+            alert('there was an error while fetching events!');
+        },
+        color: 'yellow',   // a non-ajax option
+        textColor: 'black' // a non-ajax option
+    }
+
+	});
+   */
+  /* $loopz = 0;
+   $summary = "Meet PM";
+   $begin="2014-11-27";
+   $end="2014-11-28";
+   
+   $arr[$loopz]["summary"]= $summary;
+   $arr[$loopz]["begin"]= $begin;
+   $arr[$loopz]["end"]= $end;
+   
+   
+   
+     $loopz = 1;
+   $summary = "Dinner";
+   $begin="2014-11-29";
+   $end="2014-11-30";
+
+   $arr[$loopz]["summary"]= $summary;
+   $arr[$loopz]["begin"]= $begin;
+   $arr[$loopz]["end"]= $end;
+   */
+  //JSON.parse()
+	//var eventnamearr = [];
+	// eventnamearr = localStorage["myKeyarr"];	
+	 //alert(eventnamearr);
+	 //eventnamearr3=[];
+	 //eventnamearr3.push(eventnamearr);
+	
+	/*alert(JSON.stringify(localStorage['myKeyarr']));
+	
+	 $("#calendar").jqmCalendar({
+        events: eventnamearr3,
+		  months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+        days: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+        startOfWeek: 0
+        
+    });
+	*/
+	
+	
+});
+});//]]>  
 
 
 
-
+</script>
 <!--<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=no; target-densityDpi=device-dpi"/>-->
 
    
+      
         
         
         <link rel="stylesheet" href="themes/stumblelegal.min.css" />
@@ -187,150 +352,15 @@
 	
     </style>
         	
-  
-
+    
         
     <!--mysettings-->
      <script src="js/iscriptz-function.js"></script>
-     
-     
-     
-     
-     
-
-    <!-- Mobiscroll JS and CSS Includes -->
-    
-    <script src="js/mobiscroll.core.js"></script>
-    <script src="js/mobiscroll.widget.js"></script>
-    <script src="js/mobiscroll.scroller.js"></script>
-
-    <script src="js/mobiscroll.util.datetime.js"></script>
-    <script src="js/mobiscroll.datetimebase.js"></script>
-    <script src="js/mobiscroll.datetime.js"></script>
-    
-
-    <script src="js/mobiscroll.widget.android.js"></script>
-	<script src="js/mobiscroll.wp-light.js"></script>
 
 
-  
-
-    <link href="css/mobiscroll.animation.css" rel="stylesheet" type="text/css" />
-    <link href="css/mobiscroll.icons.css" rel="stylesheet" type="text/css" />
-    <link href="css/mobiscroll.widget.css" rel="stylesheet" type="text/css" />
-    <link href="css/mobiscroll.widget.android.css" rel="stylesheet" type="text/css" />
-     <link href="css/mobiscroll.scroller.css" rel="stylesheet" type="text/css" />
-    <link href="css/mobiscroll.scroller.android.css" rel="stylesheet" type="text/css" />
-    
-       
-   
-
-        <script>
-        $(function () {
-
-            function init() {
-                
-                // Select demo initialization
-                $('#demo_select').mobiscroll().select({
-                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
-                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
-                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
-                    lang: lang        // Specify language like: lang: 'pl' or omit setting to use default 
-                });
-                
-             
-                
-                // Date & Time demo initialization
-                $('#demo_datetime').mobiscroll().datetime({
-                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
-                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
-                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
-                    lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
-                    minDate: new Date(2014,3,10,9,22),  // More info about minDate: http://docs.mobiscroll.com/2-14-0/datetime#!opt-minDate
-                    maxDate: new Date(2016,7,30,15,44),   // More info about maxDate: http://docs.mobiscroll.com/2-14-0/datetime#!opt-maxDate
-                    stepMinute: 1  // More info about stepMinute: http://docs.mobiscroll.com/2-14-0/datetime#!opt-stepMinute
-                });
-                
-              
-                
-            }    
-
-            // -------------------------------------------------------------------
-            // Demo page code START, you can disregard this in your implementation
-            var demo, theme, mode, display, lang;
-            
-            $('.settings').on('change', function() {
-                demo = 'datetime';
-                theme = 'android',
-                mode = 'scroller',
-                display = 'modal',
-                lang = 'en'
-
-                //$('.demo-cont').hide();
-                //$("#demo_cont_" + demo).show();
-                
-                init();
-            });
-
-            $('#demo').trigger('change');
-            // Demo page code END
-            // -------------------------------------------------------------------
-        });
-    </script>
-     
-     <script type="text/javascript">
-	 
-	// var courtid = localStorage['courtselected'];
-		//alert(courtid+'!!!!!!'+vpass3);
-		//alert(courtid);
-		
-		
-	 
-	function addtocal(){
-		
-		
-		//var vpass3 = localStorage['myID2']; // name and id
-		 var vpass2 = localStorage['myID2'];//document.getElementById("password").value;
-	var params = vpass2.split(',');
-	var vpass2=params[1];
-	//alert(vpass2);
-		var courtid = localStorage['courtselected'];
-		//alert(courtid+'!!!!!!'+vpass3);
-		
-		//alert(courtid);
-		
-		var caldate = document.getElementById("demo_datetime").value;
-		
-		//alert(hostserver);
-		//alert(localStorage['globalurl']);
-		
-		 var hostserver = localStorage['globalurl'];
-		//alert(hostserver);
-		$.post(hostserver+"cal-add.php",
- 		 {
-			myid:vpass2,
-			courtid:courtid,
-			thedate:caldate
-  		},
-		  function(data,status){
-			if(status=="success"){
-			alert("successfully add to court calendar:"+caldate);
-			//window.top.location.href = "form.html"; 
-			}else{
-				alert("Please check your connection and try again");
-				}
-		  });
-				
-		
-		
-	
-	}
-	
-    </script>
-     
 </head>
     <body>
-        <div data-role="page" id="index" >
+        <div data-role="page" id="index">
             <div data-role="header" data-position="fixed" role="banner" class="ui-header ui-bar-inherit">
 			
            
@@ -338,7 +368,7 @@
            <a href="#" onclick="editbck()" data-transition="flip" style="position: fixed; background-image: url('images/back.png');
 		 width:15px;" class="ui-btn ui-nodisc-icon ui-corner-all ui-btn-icon-left ui-icon-logo" >&nbsp;</a>
             
-            <h1 class="ui-title" role="heading" aria-level="1">Calendar<!--Stumble <span style="font-weight:lighter">legal</span>--></h1>
+            <h1 class="ui-title" role="heading" aria-level="1">Court Calendar<!--Stumble <span style="font-weight:lighter">legal</span>--></h1>
 		
         
         <a href="selection.html" data-transition="flip" style="position: fixed; background-image: url('images/toplogo.png');
@@ -347,49 +377,33 @@
         
         </div>
         
-<!--<div style="text-align:right; width:100%"><a href="cal-add.html" style="color:#FFF; font-size:30px; font-weight:bold; text-decoration:none; padding:15px">+</a></div>
-
-          
-            
-                <div id="calendar"></div>
-            
-     -->
-     
-     
-     <!--content/-->
-<div data-role="content">
-
-<div data-role="fieldcontain" class="demo-cont" id="demo_cont_datetime">
-           
-           
-            
-<input type="text" id="demo_datetime"  style="text-align:center" placeholder="*required date and time" />  
-<label><input name="" type="checkbox" value="" > I PLAN TO BE HERE</label>
-            
-            
-            <center>
-<a href="#" style="width:85%" class="ui-shadow ui-btn ui-corner-all ui-btn-inline " onClick="addtocal()">ADD TO CALENDAR</a>
-</center>
-
-
-        </div>
-    
-        <!-- Demo configurator markup START, disregard this in your implementation -->
-      
         
+        <br />
+        
+    
+<div style="width:300px; margin: 0 auto;  text-align:center">
+
+                <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+                    <input type="radio" onClick="editbck()" name="radio-choice-h-6" id="radio-choice-h-6a" value="off" checked="checked" class="outlineswitch">
+                    
+                     <label for="radio-choice-h-6a" onClick="editbck()"   style="background-color:#0157a3; border-color:#09F; color:#09F; box-shadow: none; -webkit-box-shadow: none; text-shadow: 0 1px 0 #0157a3"><a href="cal-court.html" target="_parent" style="text-decoration:none">Close by</a></label>
+                    
+                    <label for="radio-choice-h-6b"style="background-color:#09F; border-color:#09F; color:#fff; box-shadow: none; -webkit-box-shadow: none;" >Calendar</label>
+                    <input type="radio" name="radio-choice-h-6" id="radio-choice-h-6b" value="on" class="outlineswitch">
+                   
+                 </fieldset>
        
-          
-            <div name="demo" id="demo" class="settings">
-                
-            </div>
-     
-
-
 </div>
 
-<!--content/-->
 
 
+<div style="text-align:right; width:100%"><a href="cal-add.html" target="_parent" style="color:#FFF; font-size:30px; font-weight:bold; text-decoration:none; padding:15px">+</a></div>
+
+<br style="clear:both" />
+            
+            <div data-role="content">
+                <div id="calendar"></div>
+            </div>
      
         
         
@@ -399,13 +413,13 @@
     
      <div style="width:20%; text-align:center; float:left; padding-top:2px; font-size:12px; background:url(images/footeractive.png) no-repeat center top "><a href="#" onClick="courtlink()"><button id="saveFileBtn" data-iconpos="center" data-icon="courts" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
      
-      <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="load-associates.html?url=associates.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="associates" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+      <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="associates.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="associates" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
       
       
-      <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="load-mycalendar.html?url=calendar.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="calendar" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+      <div style="width:20%; text-align:center; float:left; font-size:12px; "><a href="calendar.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="calendar" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
       
       
-       <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="load-request.html?url=requests-send.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="requests" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+       <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="requests-send.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="requests" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
      
     
     <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="settings.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="settings" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>

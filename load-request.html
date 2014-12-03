@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+    
+    
+    <!--localStorage['globalurl']-->
+    
+    
+<!--mysettings-->
+     <script src="js/iscriptz-function.js"></script>
+  <!--mysettings-->
+     <script src="js/iscriptz-globalurl.js"></script>
+     
+    
+    <script type="text/javascript">
+
+/*local storage*/
+var allentry='';
+
+if(localStorage['started3']!=0){
+
+
+	localStorage['allrequest'] = '';
+/*localStorage['A']='';
+localStorage['B']='';
+localStorage['C']='';
+localStorage['D']='';
+localStorage['E']='';
+localStorage['F']='';
+localStorage['G']='';
+localStorage['H']='';
+localStorage['I']='';
+localStorage['J']='';
+localStorage['K']='';
+localStorage['L']='';
+localStorage['M']='';
+localStorage['N']='';
+localStorage['O']='';
+localStorage['P']='';
+localStorage['Q']='';
+localStorage['R']='';
+localStorage['S']='';
+localStorage['T']='';
+localStorage['U']='';
+localStorage['V']='';
+localStorage['W']='';
+localStorage['X']='';
+localStorage['Y']='';
+localStorage['Z']='';*/
+
+}
+
+localStorage['started3']=1;
+
+
+
+var url = window.location.href;
+var params = url.split('?url=');
+var ABC=params[1];
+//var BBB = ABC.split('=');
+//.replace("QQQ", "?");
+//alert(theurl)
+//alert(allentry+' '+alphatype+' '+alphalevel);
+var BBB = ABC.split('&amp;');
+var theurl = BBB[0];
+
+allentry=localStorage['allrequest'];
+
+
+
+
+var globalX; var globalXX;  var arraydataX; var arraydataXX; var arraydataXXX; var arraydataXXXX;var arraydataXXXXX;var arraydataXXXXXX;var arraydataXXXXXXX;
+        //$(document).ready(function(){
+
+
+
+
+var vpass2 = localStorage['myID2'];//document.getElementById("password").value;
+	var params = vpass2.split(',');
+	var vpass2=params[1];	
+	//alert(vpass2);
+	
+       // $(document).ready(function(){
+		function loadit(){
+
+var hostserver= localStorage['globalurl']; //alert(localStorage['globalurl']);
+//var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
+/* call the php that has the php array which is json_encoded */
+//?list='+alphastart+'&typez='+alphatype+'&levelz='+alphalevel+'&r=1'
+
+
+                $.getJSON(hostserver+'request-all.php?theid='+vpass2, function(data) {
+                        /* data will hold the php array as a javascript object */
+						var incinfo=0; var arraydata='';var arraydataid=''; 
+						var arraydata2=''; var arraydata3='';  var arraydata4='';  var arraydata5=''; var arraydata6='';  var arraydata7=''; 
+                        $.each(data, function(key, val) {	
+                                //$('#data'+incinfo).append(val.first_name);
+								if(val.reqId!=""){}
+								arraydata=arraydata+','+val.reqId;
+								arraydata2=arraydata2+','+val.userId;  
+								arraydata3=arraydata3+','+val.associateId;  
+								arraydata4=arraydata4+','+val.requestType;
+								arraydata5=arraydata5+','+val.vdate;
+								
+								arraydata6=arraydata6+','+val.userName;  
+								arraydata7=arraydata7+','+val.associateName;  
+								//alert(val.idz);
+								//alert(arraydata);
+								incinfo++;
+                        });
+					globalX = incinfo; //alert(incinfo);
+					
+					arraydataX = arraydata; 
+					arraydataXX = arraydata2;
+					arraydataXXX = arraydata3;
+					arraydataXXXX = arraydata4;
+					arraydataXXXXX = arraydata5;
+					
+					arraydataXXXXXX = arraydata6;
+					arraydataXXXXXXX = arraydata7;
+					
+					dataReady();
+                });
+        }
+
+
+	
+	
+	
+function dataReady() {
+	//localStorage['mycount'] = globalX;
+	//localStorage['associatename'] = arraydataX;
+	//localStorage['associatelong'] = arraydataZZ;
+	//localStorage['associatelat'] = arraydataZZZ;
+	//localStorage['associateid'] = arraydataidX;
+	//alert(arraydataidX);
+	
+	var arrayparreqid = arraydataX.split(','); //req unique id
+	var arrayparuserid = arraydataXX.split(','); //user id
+	var arrayparassoid = arraydataXXX.split(','); //asso id
+	var arraypartype = arraydataXXXX.split(','); //type
+	var arraypardate = arraydataXXXXX.split(','); //date
+	
+	var arrayparusername = arraydataXXXXXX.split(','); //user id
+	var arrayparassoname = arraydataXXXXXXX.split(','); //asso id
+	
+	
+	
+	
+	
+	var loopidz = globalX;
+	//alert(globalX);
+	var allentry2;
+	for(ii=0;ii<=loopidz;ii++){
+	
+	allentry2=allentry2+','+arrayparreqid[ii]+'!!!'+arrayparuserid[ii]+'!!!'+arrayparassoid[ii]+'!!!'+arraypartype[ii]+'!!!'+arraypardate[ii]+'!!!'+arrayparusername[ii]+'!!!'+arrayparassoname[ii];
+	
+	}
+	
+	//alert(allentry2);
+	//localStorage['mycourt'] = splitit[0];//id
+	//localStorage['mylat'] = splitit[1];
+	//localStorage['mylong'] = splitit[2];
+	//localStorage['myKey2']
+	
+	//alert(localStorage['myKey']);
+	
+	localStorage['allrequest'] = allentry2;
+	
+		//alert(allentry2);
+		
+	window.top.location.href = theurl;///////////////////////////////////continue >>>>>>>>>>>>>>>>>>
+		
+	} ///ready function
+
+
+
+
+if(allentry==''){  //alert('load new');
+loadit(); 
+}
+else{ 
+//alert('use old'); 
+//alert(allentry);
+window.top.location.href = theurl;////////////////////////////////////continue >>>>>>>>>>>>>>>>>>
+}
+
+
+//alert(localStorage['CRIL']);
+
+//alert(alphalevel+' '+alphatype)
+
+
+
+</script>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><style type="text/css">
+<!--
+body {
+	background-color: #0157a3;
+}
+-->
+</style></head>
+<body>
+</body>
+</html>

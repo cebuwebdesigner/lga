@@ -96,8 +96,7 @@
     }
 	
 	
-	
- .ui-btn.ui-icon-calendar, .ui-btn.ui-icon-calendar:after
+	 .ui-btn.ui-icon-calendar, .ui-btn.ui-icon-calendar:after
      {
         background-repeat: no-repeat !important;
         /*Remove circle disc*/
@@ -121,6 +120,7 @@
 
     }
 	
+
 	
 	
 		
@@ -157,6 +157,8 @@
         background-color: rgba(0, 0, 0, 0); !important;
         background-position: center 0%; !important;
 		background-color: transparent !important;
+
+
         background-size: 70px 59px;
     }
     .ui-btn.ui-icon-settings:hover
@@ -178,43 +180,66 @@
 	
     </style>
     
-    <script>
-	
-	localStorage['counterz'] = 0;
-function edit(target)
-{   
+<script type="text/javascript">
+/*local storage*/
 
 var url = window.location.href;
 var params = url.split('?');
-//alert(params[1]);
 var ABC=params[1];
 
 
 var AABBCC = ABC.split('&amp;');
 
-
 var AA = AABBCC[0];
 var AAA = AA.split('=');
-var alphatyp=AAA[1];
-
-
+var alphastart=AAA[1];
 
 var BB = AABBCC[1];
 var BBB = BB.split('=');
-var alphalvl=BBB[1];
+var alphatype=BBB[1];
 
-//courts.html?lvl=criminal&amp;type=district
-//list.html?s=B&amp;t=Civil&amp;l=Local
-//http://localhost/stumblelegalapp/list.html?s=A&amp;lvl=Civil&amp;lvl=Local
-window.top.location.href = "list.html?s="+target+"&amp;typez="+alphatyp+"&amp;lvl="+alphalvl; 
+var CC = AABBCC[2];
+var CCC = CC.split('=');
+var alphalevel=CCC[1];
+
+
+
+switch(alphatype){
+	case "Criminal": 
+	if(alphalevel=="Local"){var allentry=localStorage['CRIL']; }
+	if(alphalevel=="District"){var allentry=localStorage['CRID']; }
+	if(alphalevel=="Supreme"){var allentry=localStorage['CRIS']; }
+	                 break;
+
+	case "Civil": 
+	if(alphalevel=="Local"){var allentry=localStorage['CIVL']; }
+	if(alphalevel=="District"){var allentry=localStorage['CIVD']; }
+	if(alphalevel=="Supreme"){var allentry=localStorage['CIVS']; }
+	                 break;
+
+
+	case "Family": 
+	if(alphalevel=="Local"){var allentry=localStorage['FAML']; }
+	if(alphalevel=="District"){var allentry=localStorage['FAMD']; }
+	if(alphalevel=="Supreme"){var allentry=localStorage['FAMS']; }
+	                 break;
+
+
+	case "Environmental": 
+	if(alphalevel=="Local"){var allentry=localStorage['ENVL']; }
+	if(alphalevel=="District"){var allentry=localStorage['ENVD']; }
+	if(alphalevel=="Supreme"){var allentry=localStorage['ENVS']; }
+	                 break;
 
 
 }
-</script>
+	
+	
+/*local storage*/
 
 
 
-<script>
+
 function editbck2()
 {   
 
@@ -227,13 +252,13 @@ var ABC=params[1];
 var AABBCC = ABC.split('&amp;');
 
 
-var AA = AABBCC[0];
+var AA = AABBCC[1];
 var AAA = AA.split('=');
 var alphatyp=AAA[1];
 
 
 
-var BB = AABBCC[1];
+var BB = AABBCC[2];
 var BBB = BB.split('=');
 var alphalvl=BBB[1];
 
@@ -241,9 +266,9 @@ var alphalvl=BBB[1];
 //type.html?lvl=Criminal
 window.top.location.href = "type.html?lvl="+alphatyp; 
 
-
 }
 </script>
+
 
 
 <!--mysettings-->
@@ -251,7 +276,7 @@ window.top.location.href = "type.html?lvl="+alphatyp;
 </head>
 <body>
 
-<div data-role="header" data-position="fixed" role="banner" class="ui-header ui-bar-inherit">
+<div data-role="header" data-tap-toggle="false" data-position="fixed" role="banner" class="ui-header ui-bar-inherit">
 			
            
         
@@ -269,42 +294,233 @@ window.top.location.href = "type.html?lvl="+alphatyp;
         
         
 
-<!--<h3 style="width:100%; text-align:center">NSW Courts</h3>-->
-
-
 <div data-role="content">
 		<div class="content-primary">
-			<ul data-role="listview" data-filter="false" data-theme="d">
-				<li> <a href="#" onclick="edit('A')" >A</a></li>
-				<li> <a href="#" onclick="edit('B')" data-transition="slide">B</a></li>
-				<li> <a href="#" onclick="edit('C')" data-transition="slide">C</a></li>
-				<li> <a href="#" onclick="edit('D')" data-transition="slide">D</a></li>
-				<li> <a href="#" onclick="edit('E')" data-transition="slide">E</a></li>
-				<li> <a href="#" onclick="edit('F')" data-transition="slide">F</a></li>
-				<li> <a href="#" onclick="edit('G')" data-transition="slide">G</a></li>
-				<li> <a href="#" onclick="edit('H')" data-transition="slide">H</a></li>
-				<li> <a href="#" onclick="edit('I')" data-transition="slide">I</a></li>
-				<li> <a href="#" onclick="edit('J')" data-transition="slide">J</a></li>
-				<li> <a href="#" onclick="edit('K')" data-transition="slide">K</a></li>
-				<li> <a href="#" onclick="edit('L')" data-transition="slide">L</a></li>
-				<li> <a href="#" onclick="edit('M')" data-transition="slide">M</a></li>
-				<li> <a href="#" onclick="edit('N')" data-transition="slide">N</a></li>
-				<li> <a href="#" onclick="edit('O')" data-transition="slide">O</a></li>
-				<li> <a href="#" onclick="edit('P')" data-transition="slide">P</a></li>
-				<li> <a href="#" onclick="edit('Q')" data-transition="slide">Q</a></li>
-				<li> <a href="#" onclick="edit('R')" data-transition="slide">R</a></li>
-				<li> <a href="#" onclick="edit('S')" data-transition="slide">S</a></li>
-				<li> <a href="#" onclick="edit('T')" data-transition="slide">T</a></li>
-                <li> <a href="#" onclick="edit('U')" data-transition="slide">U</a></li>
-				<li> <a href="#" onclick="edit('V')" data-transition="slide">V</a></li>
-				<li> <a href="#" onclick="edit('W')" data-transition="slide">W</a></li>
-				<li> <a href="#" onclick="edit('X')" data-transition="slide">X</a></li>
-				<li> <a href="#" onclick="edit('Y')" data-transition="slide">Y</a></li>
-				<li> <a href="#" onclick="edit('Z')" data-transition="slide">Z</a></li>
-			
-				
-		</ul>
+     <script type='text/javascript'>
+	 
+	 localStorage['imyaKey'] = '';
 
+var url = window.location.href;
+var params = url.split('?');
+var ABC=params[1];
+
+
+var AABBCC = ABC.split('&amp;');
+
+var AA = AABBCC[0];
+var AAA = AA.split('=');
+var alphastart=AAA[1];
+
+var BB = AABBCC[1];
+var BBB = BB.split('=');
+var alphatype=BBB[1];
+
+var CC = AABBCC[2];
+var CCC = CC.split('=');
+var alphalevel=CCC[1];
+
+//alert(alphastart+' '+alphatype)
+
+
+
+
+var globalX; var globalXX;  var arraydataX; var arraydataXX; var arraydataZZZ; var arraydataZZ; var arraydataZZZZ;
+        //$(document).ready(function(){
+		function loadit(){
+ var hostserver= localStorage['globalurl'];
+//var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
+/* call the php that has the php array which is json_encoded */
+                $.getJSON(hostserver+'court.php?list='+alphastart+'&typez='+alphatype+'&levelz='+alphalevel+'&r=1', function(data) {
+                        /* data will hold the php array as a javascript object */
+						var incinfo=0; var arraydata=''; var arraylat=''; var arraylong=''; var arraycourt = '';
+                        $.each(data, function(key, val) {
+                                //$('#data'+incinfo).append(val.first_name);
+								
+								arraydata=arraydata+','+val.first_name;
+								arraylat=arraylat+','+val.latitude;
+								arraylong=arraylong+','+val.longitude;
+								arraycourt=arraycourt+','+val.courtid;
+								
+								incinfo++;
+								
+                        });
+					globalX = incinfo;
+					arraydataX = arraydata;
+					arraydataZZ = arraylat;
+					arraydataZZZ = arraylong;
+					arraydataZZZZ = arraycourt;
+					dataReady();
+                });
+        };
+		
+
+
+
+	
+	
+	
+	
+	
+function dataReady() {
+	localStorage['myKey'] = globalX;
+	localStorage['myKey2'] = arraydataX;
+	
+	localStorage['mylong'] = arraydataZZ;
+	localStorage['mylat'] = arraydataZZZ;
+	localStorage['mycourt'] = arraydataZZZZ;
+	
+	
+	var arrayparid = arraydataZZZZ.split(','); //id
+	var allentry2;
+	
+	
+	
+	for(ii=0;ii<=loopidz;ii++){
+	allentry2=allentry2+','+arrayparid[ii]+'!!!'+arrayparlat[ii]+'!!!'+arrayparlong[ii]+'!!!'+arrayparname[ii];
+	}
+	
+	//localStorage['mycourt'] = splitit[0];//id
+	//localStorage['mylat'] = splitit[1];
+	//localStorage['mylong'] = splitit[2];
+	//localStorage['myKey2']
+	
+	//alert(localStorage['myKey']);
+	switch(alphatype){
+	case "Criminal": 
+	if(alphalevel=="Local"){localStorage['CRIL'] = allentry2; }
+	if(alphalevel=="District"){localStorage['CRID'] = allentry2; }
+	if(alphalevel=="Supreme"){localStorage['CRIS'] = allentry2; }
+	                 break;
+
+	case "Civil": 
+	if(alphalevel=="Local"){ localStorage['CIVL'] = allentry2; }
+	if(alphalevel=="District"){ localStorage['CIVD'] = allentry2; }
+	if(alphalevel=="Supreme"){ localStorage['CIVS'] = allentry2; }
+	                 break;
+
+
+	case "Family": 
+	if(alphalevel=="Local"){ localStorage['FAML'] = allentry2; }
+	if(alphalevel=="District"){ localStorage['FAMD'] = allentry2; }
+	if(alphalevel=="Supreme"){ localStorage['FAMS'] = allentry2; }
+	                 break;
+
+
+	case "Environmental": 
+	if(alphalevel=="Local"){ localStorage['ENVL'] = allentry2; }
+	if(alphalevel=="District"){ localStorage['ENVD'] = allentry2; }
+	if(alphalevel=="Supreme"){ localStorage['ENVS'] = allentry2; }
+	                 break;
+
+
+}
+	}
+	
+	
+	
+	
+	
+
+
+
+
+
+	
+if(allentry!=""){
+	
+	var params = allentry.split(',');
+	var loopit = allentry.length;
+
+for(i=0;i<=loopit;i++){
+	
+	var splitit=params[i].split('!!!');
+	
+	localStorage['mycourt'] = splitit[0];//id
+	localStorage['mylat'] = splitit[1];
+	localStorage['mylong'] = splitit[2];
+	localStorage['myKey2'] = splitit[3];//title
+	
+}
+	
+	localStorage['myKey'] = loopit;//loop
+	
+	}else{loadit();}
+		
+ </script>   
+        
+        
+   <ul data-role="listview" data-filter="true" data-autodividers="true"  data-theme="d" id="data">     
+<script type='text/javascript'>
+	  globalXX = localStorage['myKey']-1;
+	  var arraydataZ = localStorage['myKey2'];
+	  var arraydataZZ = arraydataZ.split(',');
+	  var thedataz;
+	  
+	  
+	  
+	   var datalong = localStorage['mylong'];
+	  var arraydatalong = datalong.split(',');
+	  
+	  
+	   var datalat = localStorage['mylat'];
+	  var arraydatalat = datalat.split(',');
+	  
+	  
+	   var datacourt = localStorage['mycourt'];
+	  var arraydatacourt = datacourt.split(',');
+///////////////////////////////////////////
+	  
+	var alphaz = arraydataZZ[1].charAt(0);
+	var url = window.location.href;
+	
+	var params = url.split('?');
+	//alert(params[1]);
+	var ABC=params[1];
+	
+	var AABBCC = ABC.split('&amp;');
+	
+	var AA = AABBCC[0];
+	var AAA = AA.split('=');
+	var alphastart=AAA[1];
+	
+
+	  
+///////////////////////////////////////////////	  
+	 if(alphaz!=alphastart){
+
+		//alert(alphastart);
+	
+	if(localStorage['counterz']!=2){
+	setTimeout(function() {
+	  parent.location.reload();
+	  }, 1500);
+	}else{
+		
+		document.write('<li><a href="#" data-transition="slidefade" id="data0">no entry found</a></li>');
+		
+		localStorage['counterz']=0;
+		
+		}
+	 localStorage['counterz']++;
+	//parent.window.location = "list.html?s="+alphastart+"&amp;typez="+alphatype+"&amp;lvl="+alphalevel;  
+		
+		
+		}else{
+	 
+ 
+	for($i=1;$i<=globalXX;$i++){
+		thedataz = arraydataZZ[$i];
+	   document.write('<li><a href="courts-list.html?long='+arraydatalong[$i]+'!!!lat='+arraydatalat[$i]+'!!!courtid='+arraydatacourt[$i]+'" target="_parent" id="data'+$i+'">'+thedataz+'</a></li>');
+	   }
+		
+		localStorage['counterz']=0;
+		
+		
+		}
+ </script>
+</ul> 
+ 
+ 
 
 <br style="clear:both">
 
@@ -312,7 +528,7 @@ window.top.location.href = "type.html?lvl="+alphatyp;
 </div>
 
 
-<div data-role="footer" data-position="fixed" class="ui-footer ui-bar-a ui-footer-fixed slideup" role="banner" style="height:65px; font-size:27px;  background:url(images/footerbg.png)">
+<div data-role="footer"  data-tap-toggle="false" data-position="fixed" class="ui-footer ui-bar-a ui-footer-fixed slideup" role="banner" style="height:65px; font-size:27px;  background:url(images/footerbg.png)">
 	
     
     
@@ -321,6 +537,7 @@ window.top.location.href = "type.html?lvl="+alphatyp;
       <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="load-associates.html?url=associates.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="associates" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
       
        <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="load-mycalendar.html?url=calendar.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="calendar" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+       
       
        <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="load-request.html?url=requests-send.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="requests" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
      

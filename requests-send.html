@@ -16,7 +16,7 @@
      <link href="stylesheets/jquery.mobile.iscrollview-pull.css" media="screen" rel="stylesheet" type="text/css" />
     <script src="javascripts/iscroll.js" type="text/javascript"></script>
     <script src="javascripts/jquery.mobile.iscrollview.js" type="text/javascript"></script>
-    <script src="javascripts/pull-example.js" type="text/javascript"></script>
+    <script src="javascripts/pull-send.js" type="text/javascript"></script>
     
 
 	<style>
@@ -211,7 +211,7 @@ $('.showDetails').bind('click', function() {
 </head>
 <body>
  <div class="pull-demo-page" data-role="page">
-<div data-role="header" data-position="fixed" role="banner" class="ui-header ui-bar-inherit">
+<div data-role="header"  data-tap-toggle="false"  data-position="fixed" role="banner" class="ui-header ui-bar-inherit">
 			
            
         
@@ -268,99 +268,58 @@ $('.showDetails').bind('click', function() {
                  <div style="width:50%; float:left; text-align:right"></div>
                 
                 </li>-->
-    <script type='text/javascript'>
-	var hostserver = localStorage['globalurl'];
-	var url = window.location.href;
-	var params = url.split('?');
-	//alert(params[1]);
-	var thestat=params[1];
+ <script type='text/javascript'>
+
 	
- 	var vname = thestat;//document.getElementById("username").value;
- 	var vpass = localStorage['myID2'];//document.getElementById("password").value;
-	var params = vpass.split(',');
-	var vpass=params[1];
-	//alert(vpass);95
 	
-var globalX; var globalXX;  var arraydataX; var arraydataXX; var arraydataXXX;var arraydataXXXX;
-        //$(document).ready(function(){
-function loadit(){
-// var hostserver= localStorage['globalurl'];
-//var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
-/* call the php that has the php array which is json_encoded */
-            $.getJSON(hostserver+'request-send.php?stat='+vname+'&theid='+vpass, function(data) {
-                        /* data will hold the php array as a javascript object */
-						
-						var incinfo=0; var arraydata=''; var arraydata2=''; var arraydata3='';var arraydata4='';
-                        $.each(data, function(key, val) {
-                                //$('#data'+incinfo).append(val.first_name);
-								//reqId associateId requestType
-								//arraydata=arraydata+','+val.theid
-								//if(reqId!=""){}
-								arraydata=arraydata+','+val.reqId;
-								arraydata2=arraydata2+','+val.associateId;  
-								arraydata3=arraydata3+','+val.requestType;
-								arraydata4=arraydata4+','+val.vdate;
-								
-								incinfo++;
-								
-                        });
-					globalX = incinfo;
-					if(arraydata==""){arraydata='not valid access';}
-					arraydataX = arraydata;
-					arraydataXX = arraydata2; 
-					arraydataXXX = arraydata3;
-					arraydataXXXX = arraydata4;
-					
-					dataReady();
-                });
-        };
-		
-		
-function dataReady() {
-	localStorage['myrIDs'] = globalX;
-	localStorage['myrIDs1'] = arraydataX;
-	localStorage['myrIDs2'] = arraydataXX;
-	localStorage['myrIDs3'] = arraydataXXX;
-	localStorage['myrIDs4'] = arraydataXXXX;//alert('hahaha');
-	//alert(localStorage['myID2']);
-}
-loadit();
-
-	var globalX = localStorage['myrIDs'];
-	
-	var arraydataX = localStorage['myrIDs1'];
-	var arraydataX1 = arraydataX.split(',');
-
-	var arraydataXX = localStorage['myrIDs2'];
-	var arraydataXX2 = arraydataXX.split(',');
-
-	var arraydataXXX = localStorage['myrIDs3'];
-	var arraydataXXX3 = arraydataXXX.split(',');
-	
-	var arraydataXXXX = localStorage['myrIDs4'];
-	var arraydataXXXX4 = arraydataXXXX.split(',');
-
-	//var arraydataXXX = localStorage['myrIDs'];
-	//var arraydataXXX3 = arraydataXXX.split(',');
-
-for($i=1;$i<=globalX;$i++){
-		thedataz = arraydataXX2[$i];
-		thestatz = arraydataXXX3[$i];
-		thedate = arraydataXXXX4[$i];
-		theidz = arraydataX1[$i];
-		
-		switch(thestatz){
-		case '0': vthestatz='Rejected'; break;
+	  var allentry=localStorage['allrequest'];
+//alert(allentry);
+	  var arraydataZZ = allentry.split(',');
+	  var globalXX = arraydataZZ.length;
+	 // alert(arraydataYY[1]);
+  
+  
+  var vpass2 = localStorage['myID2'];//document.getElementById("password").value;
+	var params = vpass2.split(',');
+	var vpass2=params[1];
+	  
+	 // alert(localStorage['myID2']);
+	  
+	var vthestatz='';
+	for($i=1;$i<=globalXX;$i++){
+	var arraydataFF = arraydataZZ[$i].split('!!!');//'+arraydataFF[2]+'!!!lat='+arraydataFF[1]+'!!!courtid='
+	var thestatz = arraydataFF[3];
+	switch(thestatz){
+		case '0': vthestatz='Decline'; break;
 		case '1': vthestatz='Accept'; break;
 		case '2': vthestatz='Pending'; break;
+		case '3': vthestatz='Cancelled'; break;
 		}
-
-document.write('<li><a href="request-list.html?id='+theidz+'&amp;stats='+thestatz+'" target="_parent" data-transition="slidefade" id="data'+$i+'"><div style="width:50%; float:left">'+thedataz+'<br /><span style="text-align:left; font-weight:lighter; font-size:12px;">'+thedate+'</span></div><div style="width:50%; float:left; text-align:right; font-weight:lighter; font-size:12px;">'+vthestatz+'</div></a></li>');}
-
-    </script>
-                
-                
-                
+	  
+	  
+	 
+	 
+	 
+	 
+	 
+	
+	//alert(vpass2);
+	 // alert(arraydataFF[0])
+	  if(arraydataFF[1]==vpass2){
+		  
+	  document.write('<li><a href="request-list.html?id='+arraydataFF[0]+'&amp;stats='+arraydataFF[3]+'" target="_parent" id="data'+$i+'"><div style="width:50%; float:left">'+arraydataFF[6]+'<br /><span style="text-align:left; font-weight:lighter; font-size:12px;">'+arraydataFF[4]+'</span></div><div style="width:50%; float:left; text-align:right; font-weight:lighter; font-size:12px;">'+vthestatz+'</div></a></li>');
+	  }
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	   }
+       
+       </script>
                 
                 
                 </ul>
@@ -375,19 +334,19 @@ document.write('<li><a href="request-list.html?id='+theidz+'&amp;stats='+thestat
 
 <br style="clear:both" />
 
-<div data-role="footer" data-position="fixed" class="ui-footer ui-bar-a ui-footer-fixed" role="banner" style="height:65px; font-size:27px; background:url(images/footerbg.png)">
+<div data-role="footer"  data-tap-toggle="false"  data-position="fixed" class="ui-footer ui-bar-a ui-footer-fixed" role="banner" style="height:65px; font-size:27px; background:url(images/footerbg.png)">
 	
     
     
      <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="#" onClick="courtlink()"><button id="saveFileBtn" data-iconpos="center" data-icon="courts" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
      
-      <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="associates.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="associates" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+      <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="load-associates.html?url=associates.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="associates" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
       
       
-      <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="calendar.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="calendar" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+      <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="load-mycalendar.html?url=calendar.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="calendar" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
       
       
-       <div style="width:20%; text-align:center; float:left; padding-top:2px; font-size:12px; background:url(images/footeractive.png) no-repeat center top"><a href="requests-send.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="requests" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+       <div style="width:20%; text-align:center; float:left; padding-top:2px; font-size:12px; background:url(images/footeractive.png) no-repeat center top"><a href="load-request.html?url=requests-send.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="requests" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
      
 
     <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="settings.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="settings" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
