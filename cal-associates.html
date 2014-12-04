@@ -57,13 +57,21 @@ $(document).on('pageinit', '#index', function(){
 var params = url.split('?');
 var ABC=params[1];
 
-var AAA = ABC.split('=');
-var alphastart=AAA[1];
+var AAA = ABC.split('&amp;');
+var AA = AAA[0].split('=');
+var alphastart=AA[1];
+
+
+//var BB = AAA[1].split('=');
+//var alphastart=BB[1];
+
+
+//var alphastart=AAA[1];
 	
    
     var hostserver= localStorage['globalurl'];
 	//var datahere = '{  "summary": "Meet PM",  "begin": new Date(y,m, 27 ), "end": new Date(y, m, 28)  }, {  "summary": "Dinner", "begin": new Date(y, m, d + 3), "end": new Date(y, m, d + 4) }, {            "summary": "Lunch with Friends","begin": new Date(y, m, d + 6),"end": new Date(y, m, d + 7)        }';
-	
+	var forname;
 	//alert(alphastart);
 	function loadit(){
 	 $.getJSON(hostserver+'myfeed.php?idassoc='+alphastart, function(data) {
@@ -93,10 +101,8 @@ var alphastart=AAA[1];
                         });
 						
 						
-						var ASN = thesummary.split(' ');
-						var associatename=ASN[0];
-						document.getElementById("associatename").innerHTML = associatename;
 						
+						forname = thesummary;
 						eventnamearr = eventnamearr2;
 						dataReady();
 						
@@ -110,6 +116,14 @@ var alphastart=AAA[1];
 						
 		function dataReady() {
 	
+	
+					    var ASN = forname.split(' plans');
+						var associatename=ASN[0];
+						if(associatename=="TEST"){associatename=localStorage['associatename']; }
+						document.getElementById("associatename").innerHTML = associatename;
+						
+						
+						
 	localStorage['myKeyarr2'] = JSON.stringify(eventnamearr);
 	
 		 $("#calendar").jqmCalendar({

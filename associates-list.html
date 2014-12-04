@@ -296,9 +296,10 @@ function loadit(){
 /* call the php that has the php array which is json_encoded */
 //?list='+alphastart+'&typez='+alphatype+'&levelz='+alphalevel+'&r=1'
 //alert(theid);
+//var arraydatanameX;
                 $.getJSON(hostserver+'associates-id.php?id='+theid+'&myid='+vpass, function(data) {
                         /* data will hold the php array as a javascript object */
-						var incinfo=0; var arraydata='';var arraydataid='';
+						var incinfo=0; var arraydata='';var arraydataid=''; var thenemehere; //var arraydatanameX;
                         $.each(data, function(key, val) {	
                                 //$('#data'+incinfo).append(val.first_name);
 								if(val.first_name!=""){
@@ -318,32 +319,35 @@ function loadit(){
 								$('#law_frm').append(val.law_frm);
 								$('#user_email').append(val.user_email);
 								$('#phonenumber').append(val.phonenumber);
-							
+								thenemehere = val.first_name;
 								
-								//alert(val.first_name);
+								
 								incinfo++;}
                         });
 					globalX = incinfo;
+					arraydatanameX=thenemehere;
 					
-					arraydataX = arraydata;
-					arraydataidX = arraydataid;
+					//arraydataX = arraydata;
+					//arraydataidX = arraydataid;
 					dataReady();
                 });
         }
 		
-	loadit();	
+	
 		
 function dataReady() {
-	localStorage['myaKey'] = globalX;
-	localStorage['myaKey2'] = arraydataX;
-	localStorage['myaKey3'] = arraydataidX;
+	//localStorage['myaKey'] = globalX;
+	//localStorage['myaKey2'] = arraydataX;
+	//localStorage['myaKey3'] = arraydataidX;
+	localStorage['associatename'] = arraydatanameX;
+	//alert(arraydatanameX);
 
 	}
 	
-	
+	loadit();	
 	function editcal(){
 		
-		window.top.location.href = "cal-associates.html?id="+theid; 
+		window.top.location.href = "cal-associates.html?id="+theid+"&amp;name="+localStorage['associatename']+"&amp;r=1"; 
 		
 		}
 	
