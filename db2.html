@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Untitled Document</title>
+
+<!--mysettings-->
+     <script src="js/iscriptz-function.js"></script>
+</head>
+
+<body>
+
+<script type='text/javascript'>
+var globalX; var globalXX;  var arraydataX; var arraydata; var gps;
+        //$(document).ready(function(){
+		function loadit(){
+var hostserver='http://localhost/stumblelegalapp/server/';
+// var hostserver='http://buildwebdesign.com/kryptonite/legalapp/'; 
+/* call the php that has the php array which is json_encoded */
+                $.getJSON(hostserver+'gpslonglat.php', function(data) {
+                        /* data will hold the php array as a javascript object */
+						var incinfo=0; var arraydata='';
+                        $.each(data, function(key, val) {
+                                //$('#data'+incinfo).append(val.first_name);
+								arraydata=val.loc;
+								document.write(arraydata);
+								//incinfo++;
+                        });
+					//globalX = incinfo;
+					gps = arraydata;
+					dataReady();
+                });
+        };
+		
+	loadit();
+		
+function dataReady() {
+	//localStorage['myKey'] = globalX;
+	//localStorage['myKey2'] = arraydataX;
+	//alert(localStorage['myKey']);
+	document.write(gps);
+	}
+	
+
+
+
+</script>
+
+
+test gps
+
+</body>
+</html>

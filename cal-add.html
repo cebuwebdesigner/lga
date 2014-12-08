@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>cal</title>
+  
+	<script src="js/jquery-1.11.1.min.js"></script>
+  
+    
+
+    
+
+
+
+
+<!--<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=no; target-densityDpi=device-dpi"/>-->
+
+   
+        
+        
+        <link rel="stylesheet" href="themes/stumblelegal.min.css" />
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+	<link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css" />
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="_assets/css/jqm-demos.css">
+    
+
+	   <!--  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+         <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+       --> 
+        
+        
+        <style>
+        table { width:100%; border-spacing: 0; }
+        th { text-align:left; }
+        th h3 { margin:.6em 0 .6em .5em; }
+        th, td { vertical-align:top; border-top:1px solid #eee; padding: 1px 3px; background-color:#fcfcfc; }
+        td .ui-btn { margin:.4em 0 .5em 0; }
+        td .ui-btn-inner { padding: .4em 15px; }
+		
+		.ui-icon-logo {
+		background-image: url("images/toplogo.png");
+		background-size: 28px 28px; width:15px; 
+		background-color: transparent !important;
+		border:none;
+		background-repeat:no-repeat;
+		box-shadow: none;
+		-webkit-box-shadow: none;
+
+	}
+	
+	
+	
+	
+	
+	
+	 .ui-btn.ui-icon-courts, .ui-btn.ui-icon-courts:after
+     {
+        background-repeat: no-repeat !important;
+        /*Remove circle disc*/
+        background-color: rgba(0, 0, 0, 0); !important;
+        background-position: center 0%; !important;
+        background-size: 70px 59px;
+    }
+    .ui-btn.ui-icon-courts:hover
+     {
+        background-position: center 0%; !important;
+        background-size: 70px 59px;
+    }
+    .ui-icon-courts{
+        background-image: url(images/courts.png) !important;
+		background-size: 70px 59px; width:120%; 
+		background-color: transparent !important;
+		border:none;
+		background-repeat:no-repeat;
+		box-shadow: none;
+		-webkit-box-shadow: none;
+
+    }
+	
+	
+		 .ui-btn.ui-icon-associates, .ui-btn.ui-icon-associates:after
+     {
+        background-repeat: no-repeat !important;
+        /*Remove circle disc*/
+        background-color: rgba(0, 0, 0, 0); !important;
+        background-position: center 0%; !important;
+        background-size: 70px 59px;
+    }
+    .ui-btn.ui-icon-associates:hover
+     {
+        background-position: center 0%; !important;
+        background-size: 70px 59px;
+    }
+    .ui-icon-associates{
+        background-image: url(images/associates.png) !important;
+		background-size: 70px 59px; width:150%; 
+		background-color: transparent !important;
+		border:none;
+		background-repeat:no-repeat;
+		box-shadow: none;
+		-webkit-box-shadow: none;
+
+    }
+	
+	
+	
+ .ui-btn.ui-icon-calendar, .ui-btn.ui-icon-calendar:after
+     {
+        background-repeat: no-repeat !important;
+        /*Remove circle disc*/
+        background-color: rgba(0, 0, 0, 0); !important;
+        background-position: center 0%; !important;
+        background-size: 70px 59px;
+    }
+    .ui-btn.ui-icon-calendar:hover
+     {
+        background-position: center 0%; !important;
+        background-size: 70px 59px;
+    }
+    .ui-icon-calendar{
+        background-image: url(images/calendar.png) !important;
+		background-size: 70px 59px; width:150%; 
+		background-color: transparent !important;
+		border:none;
+		background-repeat:no-repeat;
+		box-shadow: none;
+		-webkit-box-shadow: none;
+
+    }
+	
+	
+	
+		
+		 .ui-btn.ui-icon-requests, .ui-btn.ui-icon-requests:after
+     {
+        background-repeat: no-repeat !important;
+        /*Remove circle disc*/
+        background-color: rgba(0, 0, 0, 0); !important;
+        background-position: center 0%; !important;
+        background-size: 70px 59px;
+    }
+    .ui-btn.ui-icon-requests:hover
+     {
+        background-position: center 0%; !important;
+        background-size: 70px 59px;
+    }
+    .ui-icon-requests{
+        background-image: url(images/requests.png) !important;
+		background-size: 70px 59px; width:200%; 
+		background-color: transparent !important;
+		border:none;
+		background-repeat:no-repeat;
+		box-shadow: none;
+		-webkit-box-shadow: none;
+
+    }
+	
+	
+	
+	 .ui-btn.ui-icon-settings, .ui-btn.ui-icon-settings:after
+     {
+        background-repeat: no-repeat !important;
+        /*Remove circle disc*/
+        background-color: rgba(0, 0, 0, 0); !important;
+        background-position: center 0%; !important;
+		background-color: transparent !important;
+        background-size: 70px 59px;
+    }
+    .ui-btn.ui-icon-settings:hover
+     {
+        background-position: center 0%; !important;
+        background-size: 70px 59px;
+    }
+    .ui-icon-settings{
+        background-image: url(images/settings.png) !important;
+		background-size: 70px 59px; width:150%; 
+		background-color: transparent !important;
+		border:none; 
+		background-repeat:no-repeat;
+		box-shadow: none;
+		-webkit-box-shadow: none;
+
+    }
+	
+	
+    </style>
+        	
+  
+
+        
+    <!--mysettings-->
+     <script src="js/iscriptz-function.js"></script>
+     
+     
+     
+     
+     
+
+    <!-- Mobiscroll JS and CSS Includes -->
+    
+    <script src="js/mobiscroll.core.js"></script>
+    <script src="js/mobiscroll.widget.js"></script>
+    <script src="js/mobiscroll.scroller.js"></script>
+
+    <script src="js/mobiscroll.util.datetime.js"></script>
+    <script src="js/mobiscroll.datetimebase.js"></script>
+    <script src="js/mobiscroll.datetime.js"></script>
+    
+
+    <script src="js/mobiscroll.widget.android.js"></script>
+	<script src="js/mobiscroll.wp-light.js"></script>
+
+
+  
+
+    <link href="css/mobiscroll.animation.css" rel="stylesheet" type="text/css" />
+    <link href="css/mobiscroll.icons.css" rel="stylesheet" type="text/css" />
+    <link href="css/mobiscroll.widget.css" rel="stylesheet" type="text/css" />
+    <link href="css/mobiscroll.widget.android.css" rel="stylesheet" type="text/css" />
+     <link href="css/mobiscroll.scroller.css" rel="stylesheet" type="text/css" />
+    <link href="css/mobiscroll.scroller.android.css" rel="stylesheet" type="text/css" />
+    
+       
+   
+
+        <script>
+        $(function () {
+
+            function init() {
+                
+                // Select demo initialization
+                $('#demo_select').mobiscroll().select({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang        // Specify language like: lang: 'pl' or omit setting to use default 
+                });
+                
+             
+                
+                // Date & Time demo initialization
+                $('#demo_datetime').mobiscroll().datetime({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
+                    minDate: new Date(2014,3,10,9,22),  // More info about minDate: http://docs.mobiscroll.com/2-14-0/datetime#!opt-minDate
+                    maxDate: new Date(2016,7,30,15,44),   // More info about maxDate: http://docs.mobiscroll.com/2-14-0/datetime#!opt-maxDate
+                    stepMinute: 1  // More info about stepMinute: http://docs.mobiscroll.com/2-14-0/datetime#!opt-stepMinute
+                });
+                
+              
+                
+            }    
+
+            // -------------------------------------------------------------------
+            // Demo page code START, you can disregard this in your implementation
+            var demo, theme, mode, display, lang;
+            
+            $('.settings').on('change', function() {
+                demo = 'datetime';
+                theme = 'android',
+                mode = 'scroller',
+                display = 'modal',
+                lang = 'en'
+
+                //$('.demo-cont').hide();
+                //$("#demo_cont_" + demo).show();
+                
+                init();
+            });
+
+            $('#demo').trigger('change');
+            // Demo page code END
+            // -------------------------------------------------------------------
+        });
+    </script>
+     
+     <script type="text/javascript">
+	 
+	// var courtid = localStorage['courtselected'];
+		//alert(courtid+'!!!!!!'+vpass3);
+		//alert(courtid);
+		
+		
+	 
+	function addtocal(){
+		
+		
+		//var vpass3 = localStorage['myID2']; // name and id
+		 var vpass2 = localStorage['myID2'];//document.getElementById("password").value;
+	var params = vpass2.split(',');
+	var vpass2=params[1];
+	//alert(vpass2);
+		var courtid = localStorage['courtselected'];
+		//alert(courtid+'!!!!!!'+vpass3);
+		
+		//alert(courtid);
+		
+		var caldate = document.getElementById("demo_datetime").value;
+		
+		//alert(hostserver);
+		//alert(localStorage['globalurl']);
+		
+		 var hostserver = localStorage['globalurl'];
+		//alert(hostserver);
+		$.post(hostserver+"cal-add.php",
+ 		 {
+			myid:vpass2,
+			courtid:courtid,
+			thedate:caldate
+  		},
+		  function(data,status){
+			if(status=="success"){
+			alert("successfully added to court calendar; "+localStorage['courtname']+","+caldate);
+			//window.top.location.href = "form.html"; 
+			}else{
+				alert("Please check your connection and try again");
+				}
+		  });
+				
+		
+		
+	
+	}
+	
+    </script>
+     
+</head>
+    <body>
+        <div data-role="page" id="index" >
+            <div data-role="header" data-position="fixed" role="banner" class="ui-header ui-bar-inherit">
+			
+           
+        
+           <a href="#" onclick="editbck()" data-transition="flip" style="position: fixed; background-image: url('images/back.png');
+		 width:15px;" class="ui-btn ui-nodisc-icon ui-corner-all ui-btn-icon-left ui-icon-logo" >&nbsp;</a>
+            
+            <h1 class="ui-title" role="heading" aria-level="1">Calendar<!--Stumble <span style="font-weight:lighter">legal</span>--></h1>
+		
+        
+        <a href="selection.html" data-transition="flip" style="position: fixed; background-image: url('images/toplogo.png');
+		 width:15px; margin-right:-10px" class="ui-btn ui-nodisc-icon ui-corner-all ui-btn-icon-right ui-icon-logo">&nbsp;</a>
+        
+        
+        </div>
+        
+<!--<div style="text-align:right; width:100%"><a href="cal-add.html" style="color:#FFF; font-size:30px; font-weight:bold; text-decoration:none; padding:15px">+</a></div>
+
+          
+            
+                <div id="calendar"></div>
+            
+     -->
+     
+     
+     <!--content/-->
+<div data-role="content">
+
+<div data-role="fieldcontain" class="demo-cont" id="demo_cont_datetime">
+           
+           
+            
+<input type="text" id="demo_datetime"  style="text-align:center" placeholder="*required date and time" />  
+<label><input name="" type="checkbox" value="" > I PLAN TO BE HERE</label>
+            
+            
+            <center>
+<a href="#" style="width:85%" class="ui-shadow ui-btn ui-corner-all ui-btn-inline " onClick="addtocal()">ADD TO CALENDAR</a>
+</center>
+
+
+        </div>
+    
+        <!-- Demo configurator markup START, disregard this in your implementation -->
+      
+        
+       
+          
+            <div name="demo" id="demo" class="settings">
+                
+            </div>
+     
+
+
+</div>
+
+<!--content/-->
+
+
+     
+        
+        
+       <div data-role="footer" data-position="fixed" class="ui-footer ui-bar-a ui-footer-fixed slideup" role="banner" style="height:65px; font-size:27px; background:url(images/footerbg.png)">
+	
+    
+    
+     <div style="width:20%; text-align:center; float:left; padding-top:2px; font-size:12px; background:url(images/footeractive.png) no-repeat center top "><a href="#" onClick="courtlink()"><button id="saveFileBtn" data-iconpos="center" data-icon="courts" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+     
+      <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="load-associates.html?url=associates.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="associates" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+      
+      
+      <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="load-mycalendar.html?url=calendar.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="calendar" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+      
+      
+       <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="load-request.html?url=requests-send.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="requests" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+     
+    
+    <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="settings.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="settings" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+    
+    
+    	</div>
+
+
+           
+    </body>
+</html>   
+  
