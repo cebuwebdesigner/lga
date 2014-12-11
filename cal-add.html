@@ -315,7 +315,11 @@
 		  function(data,status){
 			if(status=="success"){
 			alert("successfully added to court calendar; "+localStorage['courtname']+","+caldate);
-			//window.top.location.href = "form.html"; 
+			//$( "#myPopupDiv" ).popup( "open" );
+			/*var node = document.getElementById("writestats");
+			node.innerHTML = "successfully added to court calendar; "+localStorage['courtname']+","+caldate;
+			*/
+			
 			}else{
 				alert("Please check your connection and try again");
 				}
@@ -330,6 +334,9 @@
      
 </head>
     <body>
+    
+  
+    
         <div data-role="page" id="index" >
             <div data-role="header" data-position="fixed" role="banner" class="ui-header ui-bar-inherit">
 			
