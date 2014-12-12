@@ -91,6 +91,7 @@ var alphatype=BBB[1]; //lat
 var CC = AABBCC[2];
 var CCC = CC.split('=');
 localStorage['courtselected']=CCC[1]; //court
+var thecourtid=CCC[1]; //court
 
 var DD = AABBCC[3];
 var DDD = DD.split('=');
@@ -117,12 +118,14 @@ var hostserver = localStorage['globalurl'];
 //alphastart=12.12; alphatype= 12.12; 
 vpassid=localStorage['courtselected'];
 //alert(hostserver+'closeby.php?lat='+alphastart+'&long='+alphatype+'&myid='+vpassid);
-
- $.getJSON(hostserver+'closeby.php?lat='+alphastart+'&long='+alphatype+'&myid='+vpassid, function(data) {
+//alert(thecourtid);
+ $.getJSON(hostserver+'closeby.php?lat='+alphastart+'&long='+alphatype+'&myid='+vpassid+'&courtid='+thecourtid, function(data) {
                // $.getJSON(hostserver+'associates.php?myid='+vpass2, function(data) {
                         /* data will hold the php array as a javascript object */
 						var incinfo=0; var arraydata='';var arraydataid='';
-                        $.each(data, function(key, val) {	
+                        
+						
+						$.each(data, function(key, val) {	
                                 //$('#data'+incinfo).append(val.first_name);
 								if(val.first_name!=""){
 								if(vpass2!=val.idz){
@@ -133,7 +136,7 @@ vpassid=localStorage['courtselected'];
 								incinfo++;}}
                         });
 					globalX = incinfo;
-					//alert(globalX);
+					
 					arraydataX = arraydata;
 					arraydataidX = arraydataid;
 					dataReady();
@@ -160,6 +163,7 @@ function dataReady() {
 	
 	var loopidz = parseInt(globalX);
 	//alert(arrayparid[1]+'...'+arrayparname[1]);
+	
 	
 	var allentry2=''; //alert(arraydataidX);
 	//"1
