@@ -304,26 +304,54 @@
 	
 	
 var arrycaldate = caldate.split(' ');
-		
-		var arry2caldate = arrycaldate[0].split('/');
-
-var mydate=arry2caldate[2]+'-'+arry2caldate[0]+'-'+arry2caldate[1];	
-
-//alert(mydate);
+var arry2caldate = arrycaldate[0].split('/');
 
 
-var q = new Date();
-var m = q.getMonth();
-var d = q.getDay()+14;
-var y = q.getYear();
+var monthminus1 = arry2caldate[0]-1;//parseInt()-1;
+var mydate2=arry2caldate[2]+'-'+monthminus1+'-'+arry2caldate[1];	
 
-var date = new Date(y,m,d);
+// //0m 1d 2y
+var mydate=new Date(arry2caldate[2],monthminus1,arry2caldate[1]);	
 
+	var today = new Date();
+	today.setDate(today.getDate() + 14);
+    var dd = today.getDate();
+    var mm = today.getMonth(); //January is 0!
+
+    var yyyy = today.getFullYear();
+    if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+    //var today = dd+'/'+mm+'/'+yyyy;
+	
+
+	
+
+var date = new Date(yyyy,mm,dd);
+var date2 = yyyy+'-'+mm+'-'+dd;
 //mydate=new Date('2011-04-11');
-console.log(date);
-console.log(mydate)
+//console.log(date);
+///console.log(mydate)
+//alert(mydate+'='+mydate2+'*******'+date+'='+date2);
 
-if(date>mydate)
+
+
+
+    
+//alert(today)
+	
+	
+	
+
+
+if(date > mydate)
+
+{
+    alert("Accepted date is 2 weeks after the plan date.");
+}	else
 {
     
 	
@@ -357,10 +385,6 @@ if(date>mydate)
 		  });
 				
 }
-else
-{
-    alert("Accepted date is 2 weeks after the plan date.");
-}	
 
 
 
