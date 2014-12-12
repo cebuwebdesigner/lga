@@ -301,14 +301,18 @@ function loadit(){
 /* call the php that has the php array which is json_encoded */
 //?list='+alphastart+'&typez='+alphatype+'&levelz='+alphalevel+'&r=1'
 //alert(vpass2);
+
+//?long=-36.080163!!!lat=146.917881!!!courtid=234!!!courtname=Albury!!!r=1
+//closeby.php?long='+alphastart+'&lat='+alphatype+'&myid='+vpass2
+//alert(hostserver+'closeby.php?long='+alphastart+'&lat='+alphatype+'&myid='+vpass2)
              //  $.getJSON(hostserver+'closeby.php?long=144.859674&lat=-35.45456', function(data) {
-  $.getJSON(hostserver+'closeby.php?long='+alphastart+'&lat='+alphatype+'&myid='+vpass2, function(data) {
+  $.getJSON(hostserver+'closeby.php?lat='+alphastart+'&long='+alphatype+'&myid='+vpass2, function(data) {
                         /* data will hold the php array as a javascript object */
 						
 					
 			var incinfo=0; var arraydata=''; var arraydataid=''; 	
 			
-			alphastart=12.12; alphatype= 12.12;
+			//alphastart=12.12; alphatype= 12.12;
 			
 			
 							
