@@ -301,9 +301,33 @@
 		
 		var caldate = document.getElementById("demo_datetime").value;
 		
-		//alert(hostserver);
-		//alert(localStorage['globalurl']);
+	
+	
+var arrycaldate = caldate.split(' ');
 		
+		var arry2caldate = arrycaldate[0].split('/');
+
+var mydate=arry2caldate[2]+'-'+arry2caldate[0]+'-'+arry2caldate[1];	
+
+//alert(mydate);
+
+
+var q = new Date();
+var m = q.getMonth();
+var d = q.getDay()+14;
+var y = q.getYear();
+
+var date = new Date(y,m,d);
+
+//mydate=new Date('2011-04-11');
+console.log(date);
+console.log(mydate)
+
+if(date>mydate)
+{
+    
+	
+	
 		 var hostserver = localStorage['globalurl'];
 		//alert(hostserver);
 		$.post(hostserver+"cal-add.php",
@@ -332,7 +356,18 @@
 				}
 		  });
 				
-		
+}
+else
+{
+    alert("Accepted date is 2 weeks after the plan date.");
+}	
+
+
+
+
+
+
+
 		
 	
 	}
