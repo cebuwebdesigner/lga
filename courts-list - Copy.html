@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>stumblelegalapp</title>
+	<link rel="stylesheet" href="themes/stumblelegal.min.css" />
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+	<link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css" />
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+    
+    <link rel="stylesheet" href="_assets/css/jqm-demos.css">
+
+
+
+<!--     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+	<link rel="stylesheet" href="css/themes/default/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" href="_assets/css/jqm-demos.css">
+	<script src="js/jquery.js"></script>
+	<script src="_assets/js/index.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>-->
+
+	<style>
+        table { width:100%; border-spacing: 0; }
+        th { text-align:left; }
+        th h3 { margin:.6em 0 .6em .5em; }
+        th, td { vertical-align:top; border-top:1px solid #eee; padding: 1px 3px; background-color:#fcfcfc; }
+        td .ui-btn { margin:.4em 0 .5em 0; }
+        td .ui-btn-inner { padding: .4em 15px; }
+		
+		.ui-icon-logo {
+		background-image: url("images/toplogo.png");
+		background-size: 28px 28px; width:15px; 
+		background-color: transparent !important;
+		border:none;
+		background-repeat:no-repeat;
+		box-shadow: none;
+		-webkit-box-shadow: none;
+
+	}
+	
+	
+	.outlineswitch {
+		background-image: url("images/toplogo.png");
+		background-size: 28px 28px; width:15px; 
+		background-color: transparent !important;
+		border:none;
+		background-repeat:no-repeat;
+		box-shadow: none;
+		-webkit-box-shadow: none;
+
+	}
+	
+	
+	
+	
+	 .ui-btn.ui-icon-courts, .ui-btn.ui-icon-courts:after
+     {
+        background-repeat: no-repeat !important;
+        /*Remove circle disc*/
+        background-color: rgba(0, 0, 0, 0); !important;
+        background-position: center 0%; !important;
+        background-size: 70px 59px;
+    }
+    .ui-btn.ui-icon-courts:hover
+     {
+        background-position: center 0%; !important;
+        background-size: 70px 59px;
+    }
+    .ui-icon-courts{
+        background-image: url(images/courts.png) !important;
+		background-size: 70px 59px; width:120%; 
+		background-color: transparent !important;
+		border:none;
+		background-repeat:no-repeat;
+		box-shadow: none;
+		-webkit-box-shadow: none;
+
+    }
+	
+	
+		 .ui-btn.ui-icon-associates, .ui-btn.ui-icon-associates:after
+     {
+        background-repeat: no-repeat !important;
+        /*Remove circle disc*/
+        background-color: rgba(0, 0, 0, 0); !important;
+        background-position: center 0%; !important;
+        background-size: 70px 59px;
+    }
+    .ui-btn.ui-icon-associates:hover
+     {
+        background-position: center 0%; !important;
+        background-size: 70px 59px;
+    }
+    .ui-icon-associates{
+        background-image: url(images/associates.png) !important;
+		background-size: 70px 59px; width:150%; 
+		background-color: transparent !important;
+		border:none;
+		background-repeat:no-repeat;
+		box-shadow: none;
+		-webkit-box-shadow: none;
+
+    }
+	
+	
+	
+ .ui-btn.ui-icon-calendar, .ui-btn.ui-icon-calendar:after
+     {
+        background-repeat: no-repeat !important;
+        /*Remove circle disc*/
+        background-color: rgba(0, 0, 0, 0); !important;
+        background-position: center 0%; !important;
+        background-size: 70px 59px;
+    }
+    .ui-btn.ui-icon-calendar:hover
+     {
+        background-position: center 0%; !important;
+        background-size: 70px 59px;
+    }
+    .ui-icon-calendar{
+        background-image: url(images/calendar.png) !important;
+		background-size: 70px 59px; width:150%; 
+		background-color: transparent !important;
+		border:none;
+		background-repeat:no-repeat;
+		box-shadow: none;
+		-webkit-box-shadow: none;
+
+    }
+	
+	
+	
+		
+		 .ui-btn.ui-icon-requests, .ui-btn.ui-icon-requests:after
+     {
+        background-repeat: no-repeat !important;
+        /*Remove circle disc*/
+        background-color: rgba(0, 0, 0, 0); !important;
+        background-position: center 0%; !important;
+        background-size: 70px 59px;
+    }
+    .ui-btn.ui-icon-requests:hover
+     {
+        background-position: center 0%; !important;
+        background-size: 70px 59px;
+    }
+    .ui-icon-requests{
+        background-image: url(images/requests.png) !important;
+		background-size: 70px 59px; width:200%; 
+		background-color: transparent !important;
+		border:none;
+		background-repeat:no-repeat;
+		box-shadow: none;
+		-webkit-box-shadow: none;
+
+    }
+	
+	
+	
+	 .ui-btn.ui-icon-settings, .ui-btn.ui-icon-settings:after
+     {
+        background-repeat: no-repeat !important;
+        /*Remove circle disc*/
+        background-color: rgba(0, 0, 0, 0); !important;
+        background-position: center 0%; !important;
+		background-color: transparent !important;
+        background-size: 70px 59px;
+    }
+    .ui-btn.ui-icon-settings:hover
+     {
+        background-position: center 0%; !important;
+        background-size: 70px 59px;
+    }
+    .ui-icon-settings{
+        background-image: url(images/settings.png) !important;
+		background-size: 70px 59px; width:150%; 
+		background-color: transparent !important;
+		border:none; 
+		background-repeat:no-repeat;
+		box-shadow: none;
+		-webkit-box-shadow: none;
+
+    }
+	
+	
+    </style>
+   
+    
+    <script>
+function calendar()
+{   
+
+var therandom = Math.floor((Math.random() * 100) + 1);
+window.top.location.href = "load-courtcalendar.html?url=cal-court.html&amp;ran="+therandom;
+
+
+}
+</script>
+<!--mysettings-->
+     <script src="js/iscriptz-function.js"></script>
+</head>
+<body>
+
+<div data-role="header"  data-tap-toggle="false"  data-position="fixed" role="banner" class="ui-header ui-bar-inherit">
+			
+           
+        
+           <a href="#" onclick="courtlink()" data-transition="flip" style="position: fixed; background-image: url('images/back.png');
+		 width:15px;" class="ui-btn ui-nodisc-icon ui-corner-all ui-btn-icon-left ui-icon-logo" >&nbsp;</a>
+            
+            <h1 class="ui-title" role="heading" aria-level="1">Stumble <span style="font-weight:lighter">legal</span></h1>
+		
+        
+        <a href="selection.html" data-transition="flip" style="position: fixed; background-image: url('images/toplogo.png');
+		 width:15px; margin-right:-10px" class="ui-btn ui-nodisc-icon ui-corner-all ui-btn-icon-right ui-icon-logo">&nbsp;</a>
+        
+        
+        </div>
+        
+         <br />
+
+
+
+
+<!--<div style="width:40%; margin-left:10%; float:left; text-align:center">Close by</div>
+<div style="width:40%; margin-right:10%; float:left; text-align:center"><a href="calendar.html" data-transition="slide">Calendar</a></div>-->
+
+
+<div style="width:300px; margin: 0 auto;  text-align:center">
+
+                <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+                    <input type="radio" name="radio-choice-h-6" id="radio-choice-h-6a" value="on" checked="checked" class="outlineswitch">
+                    
+                     <label for="radio-choice-h-6a" style="background-color:#09F; border-color:#09F; color:#fff; box-shadow: none; -webkit-box-shadow: none;">Close by</label>
+                    
+                    <label for="radio-choice-h-6b" onClick="calendar()"  style="background-color:#0157a3; border-color:#09F; color:#09F; box-shadow: none; -webkit-box-shadow: none; text-shadow: 0 1px 0 #0157a3"><a href="#" onClick="calendar()"  target="_parent" style="text-decoration:none">Calendar</a></label>
+                    <input type="radio" onClick="calendar()" name="radio-choice-h-6" id="radio-choice-h-6b" value="off" class="outlineswitch">
+                   
+                 </fieldset>
+       
+</div>
+
+
+
+<br style="clear:both" />
+
+<div data-role="content">
+		<div class="content-primary">
+		<!--	<ul data-role="listview" data-filter="false" data-theme="d">
+			
+		</ul>-->
+        
+        
+        
+                    
+             <script type='text/javascript'>
+		
+			
+			// localStorage['imyaKey'] = '';
+			 
+var url = window.location.href;
+var params = url.split('?');
+var ABC=params[1];
+localStorage['courtassociate']=ABC;
+var AABBCC = ABC.split('!!!');
+
+
+
+var AA = AABBCC[0];
+var AAA = AA.split('=');
+var alphastart=AAA[1];
+
+var BB = AABBCC[1];
+var BBB = BB.split('=');
+var alphatype=BBB[1];
+
+var CC = AABBCC[2];
+var CCC = CC.split('=');
+localStorage['courtselected']=CCC[1];
+
+var DD = AABBCC[3];
+var DDD = DD.split('=');
+localStorage['courtname']=DDD[1];
+ 
+ //alert(localStorage['courtname']);
+ 
+var vpass2 = localStorage['myID2'];//document.getElementById("password").value;
+	var params = vpass2.split(',');
+	var vpass2=params[1];	
+
+var globalX; var arraydataX; var arraydataidX;	
+ //      $(document).ready(function(){
+function loadit(){
+			
+ var hostserver = localStorage['globalurl'];
+
+//var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
+/* call the php that has the php array which is json_encoded */
+//?list='+alphastart+'&typez='+alphatype+'&levelz='+alphalevel+'&r=1'
+//alert(vpass2);
+
+//?long=-36.080163!!!lat=146.917881!!!courtid=234!!!courtname=Albury!!!r=1
+//closeby.php?long='+alphastart+'&lat='+alphatype+'&myid='+vpass2
+//alert(hostserver+'closeby.php?long='+alphastart+'&lat='+alphatype+'&myid='+vpass2)
+             //  $.getJSON(hostserver+'closeby.php?long=144.859674&lat=-35.45456', function(data) {
+  $.getJSON(hostserver+'closeby.php?lat='+alphastart+'&long='+alphatype+'&myid='+vpass2, function(data) {
+                        /* data will hold the php array as a javascript object */
+						
+					
+			var incinfo=0; var arraydata=''; var arraydataid=''; 	
+
+			//alphastart=12.12; alphatype= 12.12;
+			
+							
+                        $.each(data, function(key, val) {	
+											  
+											  
+											  
+                                //$('#data'+incinfo).append(val.first_name);
+								//if(val.first_name!=""){ 
+								arraydata=arraydata+','+val.first_name;
+								//arraydata=arraydata+','+val.first_name;
+								arraydataid=arraydataid+','+val.idz;
+								//
+								incinfo++;//}
+								
+                        });
+					
+					//alert('long='+alphastart+'&lat='+alphatype);
+					//alert(incinfo);
+					globalX = incinfo; 
+					arraydataX = arraydata; 
+					arraydataidX = arraydataid;
+					
+					dataReady();
+					
+	
+                });
+        };
+		
+	loadit();
+	
+	function dataReady() {
+	localStorage['imyaKey'] = globalX; // alert(localStorage['imyaKey']);
+	localStorage['imyaKey2'] = arraydataX; 
+	localStorage['imyaKey3'] = arraydataidX; 
+	
+	}
+	
+
+//	
+	
+ </script>   
+        
+   <ul data-role="listview" data-filter="false" data-autodividers="true" data-theme="d" id="data">     
+<script type='text/javascript'>
+		 // alert(arraydataYY[1]);
+	 var alphaz = localStorage['imyaKey'];
+	  //	alert(localStorage['imyaKey']);
+///////////////////////////////////////////
+	  
+	//var alphaz = arraydataZZ[1].charAt(0);
+	
+	/*var url = window.location.href;
+	
+	var params = url.split('?');
+	//alert(params[1]);
+	var ABC=params[1];
+	
+	var AABBCC = ABC.split('&amp;');
+	
+	var AA = AABBCC[0];
+	var AAA = AA.split('=');;*/
+	//var alphastart=alphaz;
+	
+	//alphaz='1'; alphastart='1';
+	
+//alert(alphaz);
+	  
+///////////////////////////////////////////////	  
+	 if(alphaz==""){
+
+	
+	
+	if(localStorage['counterz']!=2){
+	setTimeout(function() {
+	  parent.location.reload();
+	  }, 1500);
+	}else{
+		
+document.write('<li style="text-align:center; color:WHITE; padding-top:20px; width:100%; padding-bottom:20px; background-color:#0157a3">no entry found</li>');
+		localStorage['counterz']=0;
+		
+		}
+	 localStorage['counterz']++;
+	//parent.window.location = "list.html?s="+alphastart+"&amp;typez="+alphatype+"&amp;lvl="+alphalevel;  
+		
+		}else{
+	 
+      globalXX = localStorage['imyaKey']-1;
+	  var arraydataZ = localStorage['imyaKey2'];
+	  var arraydataZZ = arraydataZ.split(',');
+	  
+	   var arraydataY = localStorage['imyaKey3'];
+	   var arraydataYY = arraydataY.split(',');
+globalXX++;
+
+	for($i=1;$i<=globalXX;$i++){
+		thedataz = arraydataZZ[$i];
+		thedataidz = arraydataYY[$i]; //alert(arraydataYY[$i]);
+	   document.write('<li><a  target="_parent" href="request.html?id='+thedataidz+'" data-transition="slidefade" id="data'+$i+'">'+thedataz+'</a></li>');
+	   }
+	   
+	   localStorage['counterz']=0;
+		 }
+ </script>
+</ul> 
+       
+
+
+<br style="clear:both">
+
+</div>
+</div>
+
+
+<div data-role="footer"  data-tap-toggle="false"  data-position="fixed" class="ui-footer ui-bar-a ui-footer-fixed slideup" role="banner" style="height:65px; font-size:27px; background:url(images/footerbg.png)">
+	
+    
+    
+     <div style="width:20%; text-align:center; float:left; padding-top:2px; font-size:12px; background:url(images/footeractive.png) no-repeat center top"><a href="#" onClick="courtlink()"><button id="saveFileBtn" data-iconpos="center" data-icon="courts" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+     
+      <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="load-associates.html?url=associates.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="associates" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+      
+       <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="load-mycalendar.html?url=calendar.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="calendar" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+       
+       
+       <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="load-request.html?url=requests-send.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="requests" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+     
+    
+    <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="settings.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="settings" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+    
+    
+    	</div>
+
+</body>
+</html>
