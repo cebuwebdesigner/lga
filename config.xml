@@ -43,9 +43,6 @@ Engr. Oliver M. Gonzales
 		<gap:platform name="ios" />
 		<gap:platform name="android" />
 		<feature name="http://api.phonegap.com/1.0/geolocation"/>
-		<gap:config-file platform="ios" parent="NSLocationAlwaysUsageDescription" overwrite="true">
-		<string>WE RE ABOUT TO SAVE YOU CURRENT LOCATION</string>
-		</gap:config-file>
 		<feature name="http://api.phonegap.com/1.0/notification"/>
 		<!--
 		<gap:plugin name="org.apache.cordova.batterystatus.BatteryListener"  />
