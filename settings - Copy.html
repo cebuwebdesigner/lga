@@ -240,22 +240,24 @@ var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
                             'Heading: '            + position.coords.heading               + '<br />' +
                             'Speed: '              + position.coords.speed                 + '<br />' +
                             'Timestamp: '          + new Date(position.timestamp)          + '<br />';*/
-							
+		
+	
+	
+	
 	localStorage['mylatKey'] = position.coords.latitude;
 	localStorage['mylongKey2'] = position.coords.longitude;
 							
 	
 	//http://buildwebdesign.com/kryptonite/legalapp/gps.php?id=73&long=123&lat=10
 	
-	var thelatitude = localStorage['mylatKey'];
-	var thelongitude = localStorage['mylongKey2'];
+	var thelatitude  = position.coords.latitude;
+	var thelongitude = position.coords.longitude;
+	
 	var AAA = localStorage['myID2'].split(',');
 	var theid = AAA[1];
 	
-	
+
 	alert("Hi " + theid+", Your in "+thelongitude+","+thelatitude);
-	
-	
 	//var theid = AAA[1];
 	
 	 
