@@ -13,12 +13,14 @@
     // PhoneGap is ready
     //
     function onDeviceReady() {
+		alert('function1')
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
     }
 
     // onSuccess Geolocation
     //
     function onSuccess(position) {
+		alert('function2')
         var element = document.getElementById('geolocation');
         element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
                             'Longitude: '          + position.coords.longitude             + '<br />' +
