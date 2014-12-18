@@ -42,8 +42,8 @@ Engr. Oliver M. Gonzales
 		<preference name="disable-cursor" value="false" />
 		<gap:platform name="ios" />
 		<gap:platform name="android" />
+
 		<feature name="http://api.phonegap.com/1.0/geolocation"/>
-		<gap:plugin name="org.apache.cordova.geolocation" version="0.3.7" />
 		<feature name="http://api.phonegap.com/1.0/notification"/>
 		<!--
 		<gap:plugin name="org.apache.cordova.batterystatus.BatteryListener"  />
