@@ -213,31 +213,16 @@ $('.showDetails').bind('click', function() {
 
    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8">
-var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
-    // Wait for PhoneGap to load
-    //
-    document.addEventListener("deviceready", onDeviceReady, false);
-
-    // PhoneGap is ready
-    //
-    function onDeviceReady() {
-        navigator.geolocation.getCurrentPosition(onSuccess, onError);
-    }
-
-    // onSuccess Geolocation
-    //
-    function onSuccess(position) {
-       /* var element = document.getElementById('geolocation');
-        element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
-                            'Longitude: '          + position.coords.longitude             + '<br />' +
-                            'Altitude: '           + position.coords.altitude              + '<br />' +
-                            'Accuracy: '           + position.coords.accuracy              + '<br />' +
-                            'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
-                            'Heading: '            + position.coords.heading               + '<br />' +
-                            'Speed: '              + position.coords.speed                 + '<br />' +
-                            'Timestamp: '          + new Date(position.timestamp)          + '<br />';*/
-							
-	localStorage['mylatKey'] = position.coords.latitude;
+watch_id = navigator.geolocation.watchPosition(function(position){
+   navigator.geolocation.clearWatch(watch_id);
+   //alert(position.coords.latitude + ", " +  position.coords.longitude+"<br>");
+   
+   
+   
+   
+   
+   
+   	localStorage['mylatKey'] = position.coords.latitude;
 	localStorage['mylongKey2'] = position.coords.longitude;
 							
 	
@@ -264,88 +249,19 @@ var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
   },
   function(data,status){
     if(status=="success"){
-	//alert("Hi " + theid+", Your in "+thelongitude+","+thelatitude);
-	//window.top.location.href = "form.html"; 
+	//window.top.location.href = "form.html"; alert("Hi " + theid+", Your in "+thelongitude+","+thelatitude);
 	}else{
 		alert("Please check your connection and try again");
 		}
   });
-	 
-	 
-	 
-    }
-
-    // onError Callback receives a PositionError object
-    //
-    function onError(error) {
-        alert('code: '    + error.code    + '\n' +
-              'message: ' + error.message + '\n');
-    }
-
-
-
- //onclick="settings()"
-function settings(){ 
-
-	var thename = document.getElementById("fname").value;
-	var thefirm = document.getElementById("firm").value;
-	var theemail = document.getElementById("email").value;
-	var onoffgps = document.getElementById("thegps").checked;
-	//alert(onoffgps);
-	if(onoffgps==true){var thegps=1;}else{var thegps=0;}
-	
-	var onoffsee1 = document.getElementById("checkbox-h-6a").checked;
-	var tonoffsee2 = document.getElementById("checkbox-h-6b").checked;/**/
-	
-	//if(onoffsee1=='true'){alert(tonoffsee2);}//var thesee1='1';}else{var thesee1='0';}
-	//if(onoffsee2==true){var thesee2='1';}else{var thesee2='0';}
-
-	var vpass2 = localStorage['myID2'];//document.getElementById("password").value;
-	var params = vpass2.split(',');
-	var vpass2=params[1];
-	
-	
-//alert(thesee1+','+thesee2);
- //alert(vpass2+'rrr'+theid+'rrr'+thestar);
-
- //var hostserver= localStorage['globalurl'];
- 
- 
- 	//
-	
-	//alert(thefirm+','+theemail+','+thegps+','+whocansee+','+state);+'****'+thesee1+'****'+thesee2
- 
- /*see1:thesee1,
-	see2:thesee2*/
-	var hostserver=localStorage['globalurl'];
-$.post(hostserver+"settings.php",
-  {
-    myid:vpass2,
-	name:thename,
-	firm:thefirm,
-	email:theemail,
-	gps:thegps
-	
-	
-  },
-  function(data,status){
-    if(status=="success"){
-	//alert("successfully updated");
-	//window.top.location.href = "form.html"; 
-	var whocansee='';//onoffsee1+'-'+onoffsee2; 
-	var state;
-	
-	//alert( thefirm+','+theemail+','+thegps+','+whocansee)
-	localStorage['mySettings'] = thefirm+','+theemail+','+thegps+','+whocansee+','+state;
-    localStorage['myID2'] = thename+','+vpass2;
-	}else{
-		alert("Please check your connection and try again");
-		}
-  });
- /**/
-
-
-}
+   
+   
+   
+   
+   
+   
+   
+});
 </script>
 
 
