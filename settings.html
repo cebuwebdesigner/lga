@@ -216,8 +216,8 @@ $('.showDetails').bind('click', function() {
 	
 	
 	
-	 var hostserver= localStorage['globalurl'];
-//var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
+	 //var hostserver= localStorage['globalurl'];
+var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
     // Wait for PhoneGap to load
     //
     document.addEventListener("deviceready", onDeviceReady, false);
@@ -253,7 +253,7 @@ $('.showDetails').bind('click', function() {
 	var theid = AAA[1];
 	
 	
-	
+	alert("Hi " + theid+", Your in "+thelongitude+","+thelatitude);
 	
 	
 	//var theid = AAA[1];
@@ -268,7 +268,6 @@ $('.showDetails').bind('click', function() {
   },
   function(data,status){
     if(status=="success"){
-	alert("Hi " + theid+", Your in "+thelongitude+","+thelatitude);
 	//window.top.location.href = "form.html"; 
 	}else{
 		alert("Please check your connection and try again");
