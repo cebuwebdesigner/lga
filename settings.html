@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta content="yes" name="apple-mobile-web-app-capable" />
 	<title>stumblelegalapp</title>
 	<link rel="stylesheet" href="themes/stumblelegal.min.css" />
 	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
@@ -15,7 +15,7 @@
 
      <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     
-    
+
 
 	<style>
         table { width:100%; border-spacing: 0; }
@@ -210,10 +210,13 @@ $('.showDetails').bind('click', function() {
 </script>
 
 
-
-   <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8">
-var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
+	
+	
+	
+	
+	 var hostserver= localStorage['globalurl'];
+//var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
     // Wait for PhoneGap to load
     //
     document.addEventListener("deviceready", onDeviceReady, false);
@@ -286,6 +289,13 @@ var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
 
  //onclick="settings()"
 function settings(){ 
+
+
+
+
+
+
+
 
 	var thename = document.getElementById("fname").value;
 	var thefirm = document.getElementById("firm").value;
@@ -396,7 +406,19 @@ $.post(hostserver+"settings.php",
 <fieldset data-role="controlgroup" data-type="horizontal" onClick="settings()">
 				<div style="width:70%; float:left; padding-top:18px">	<legend>GPS</legend></div>
 <div style="width:30%; float:left;"><input name="flip-checkbox-2"  value="on" type="checkbox" id="thegps" data-role="flipswitch" data-on-text="On" data-off-text="Off" data-wrapper-class="custom-label-flipswitch"></div><br style="clear:both">
-	</fieldset>		
+	</fieldset>	
+    
+    
+    
+    <script>
+	watch_id = navigator.geolocation.watchPosition(function(position){
+   navigator.geolocation.clearWatch(watch_id);
+   document.write(position.coords.latitude + ", " +  position.coords.longitude+"<br>");
+});
+	</script>
+    
+    
+    	
     
    </div>
 <img src="images/divider.png" style="width:200%; margin-left:-50%; height:3px" />
