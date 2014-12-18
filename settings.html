@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta content="yes" name="apple-mobile-web-app-capable" />
-	<title>stumblelegalapp</title>
+   
+   <title>stumblelegalapp</title>
 	<link rel="stylesheet" href="themes/stumblelegal.min.css" />
 	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 	<link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css" />
@@ -244,8 +244,8 @@ watch_id = navigator.geolocation.watchPosition(function(position){
 	 
 	var hostserver=localStorage['globalurl'];
 	
-	alert("Hi " + theid+", Your in "+thelongitude+","+thelatitude);
-/* $.post(hostserver+"gps.php",
+	
+ $.post(hostserver+"gps.php",
   {
     id:theid,
 	long:thelongitude,
@@ -255,11 +255,11 @@ watch_id = navigator.geolocation.watchPosition(function(position){
     if(status=="success"){
 	//var node = document.getElementById("writestats");
    // node.innerHTML = "Hi " + vuname+", Your "+status+"fully registered";
-
+//alert("Hi " + theid+", Your in "+thelongitude+","+thelatitude);
 	}else{
 		alert("Please check your connection and try again");
 		}
-  });*/
+  });
    
    
    
