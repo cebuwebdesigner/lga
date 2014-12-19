@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
-		id        = "com.legalapp.legalApp"
-		versionCode="4"
-		version   = "1.0.2">
+		id        = "com.legalapp.LegalApp"
+		versionCode="3"
+		version   = "1.0.1">
 		<name>Stumble legal App</name>
 		<description>
 Stumble legal App		</description>
