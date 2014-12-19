@@ -2,8 +2,8 @@
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		id        = "com.legalapp.LegalApp"
-		versionCode="3"
-		version   = "1.0.1">
+		versionCode="5"
+		version   = "1.0.5">
 		<name>Stumble legal App</name>
 		<description>
 Stumble legal App		</description>
