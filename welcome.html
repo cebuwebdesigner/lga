@@ -55,39 +55,30 @@ body,td,th {
 
 
  <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-    <script type="text/javascript" charset="utf-8">
-
-    // Wait for PhoneGap to load
-    //
-    document.addEventListener("deviceready", onDeviceReady, false);
-
-    // PhoneGap is ready
-    //
-    function onDeviceReady() {
-		//alert('function1')watchPosition
-       var watchId = navigator.geolocation.getCurrentPosition(onSuccess, onError,{enableHighAccuracy:true,timeout:60000,maximumAge:0});
+  
+	<script type="text/javascript" >
+ 
+    function initGeolocation() {
+ if (navigator && navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+        } else {
+            console.log('Geolocation is not supported');
+        }
+}
+ 
+function errorCallback() {}
+ 
+function successCallback(position) {
+	alert(position.coords.latitude + ',' + position.coords.longitude)
+     /* var mapUrl = "http://maps.google.com/maps/api/staticmap?center=";
+      mapUrl = mapUrl + position.coords.latitude + ',' + position.coords.longitude;
+      mapUrl = mapUrl + '&zoom=15&size=512x512&maptype=roadmap&sensor=false';
+      var imgElement = document.getElementById("static-map");
+      imgElement.src = mapUrl;*/
     }
+</script>
 
-    // onSuccess Geolocation
-    //
-    function onSuccess(position) {
-		/*alert('function2')
-        var element = document.getElementById('geolocation');
-        element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
-                            'Longitude: '          + position.coords.longitude             + '<br />' +
-                            'Altitude: '           + position.coords.altitude              + '<br />' +
-                            'Accuracy: '           + position.coords.accuracy              + '<br />' +
-                            'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
-                            'Heading: '            + position.coords.heading               + '<br />' +
-                            'Speed: '              + position.coords.speed                 + '<br />' +
-                            'Timestamp: '          + new Date(position.timestamp)          + '<br />';*/
-							
-	
-							
-	
-	//http://buildwebdesign.com/kryptonite/legalapp/gps.php?id=73&long=123&lat=10
-	
-	var thelatitude  = position.coords.latitude;
+<!--	var thelatitude  = position.coords.latitude;
 	var thelongitude = position.coords.longitude;
 	localStorage['mylatKey'] = thelatitude;
 	localStorage['mylongKey2'] = thelongitude;
@@ -114,25 +105,12 @@ body,td,th {
 		}
   });
 						 
-		}
+		}-->
 						 
 						 
-						 
-						 
-						 
-						 
-							
-							
-    }
 
-    // onError Callback receives a PositionError object
-    //
-    function onError(error) {
-        alert('code: '    + error.code    + '\n' +
-              'message: ' + error.message + '\n');
-    }
 
-    </script>
+   
 
 
 <!--mysettings-->
