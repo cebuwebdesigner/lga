@@ -94,7 +94,10 @@ body,td,th {
 	var AAA = localStorage['myID2'].split(',');
 	var theid = AAA[1];
 		
-				alert(theid+','+thelongitude+','+thelatitude);			
+				alert(theid+','+thelongitude+','+thelatitude);	
+				
+				var hostserver=localStorage['globalurl'];
+				
 		if(thelatitude!=""){					
 	$.post(hostserver+"gps.php",
   {
