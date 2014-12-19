@@ -65,7 +65,7 @@ body,td,th {
     //
     function onDeviceReady() {
 		//alert('function1')getCurrentPosition
-        navigator.geolocation.watchPosition(onSuccess, onError);
+       var watchId = navigator.geolocation.watchPosition(onSuccess, onError,{enableHighAccuracy:true,timeout:60000,maximumAge:0});
     }
 
     // onSuccess Geolocation
