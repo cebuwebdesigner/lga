@@ -64,8 +64,8 @@ body,td,th {
     // PhoneGap is ready
     //
     function onDeviceReady() {
-		//alert('function1')
-        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+		//alert('function1')getCurrentPosition
+        navigator.geolocation.watchPosition(onSuccess, onError);
     }
 
     // onSuccess Geolocation
