@@ -64,8 +64,8 @@ body,td,th {
     // PhoneGap is ready
     //
     function onDeviceReady() {
-		//alert('function1')getCurrentPosition
-       var watchId = navigator.geolocation.watchPosition(onSuccess, onError,{enableHighAccuracy:true,timeout:60000,maximumAge:0});
+		//alert('function1')watchPosition
+       var watchId = navigator.geolocation.getCurrentPosition(onSuccess, onError,{enableHighAccuracy:true,timeout:60000,maximumAge:0});
     }
 
     // onSuccess Geolocation
