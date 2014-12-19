@@ -47,7 +47,91 @@ body,td,th {
 </style>
 
 
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><!--mysettings-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+
+
+
+
+
+ <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    // Wait for PhoneGap to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // PhoneGap is ready
+    //
+    function onDeviceReady() {
+		//alert('function1')
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    }
+
+    // onSuccess Geolocation
+    //
+    function onSuccess(position) {
+		/*alert('function2')
+        var element = document.getElementById('geolocation');
+        element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
+                            'Longitude: '          + position.coords.longitude             + '<br />' +
+                            'Altitude: '           + position.coords.altitude              + '<br />' +
+                            'Accuracy: '           + position.coords.accuracy              + '<br />' +
+                            'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
+                            'Heading: '            + position.coords.heading               + '<br />' +
+                            'Speed: '              + position.coords.speed                 + '<br />' +
+                            'Timestamp: '          + new Date(position.timestamp)          + '<br />';*/
+							
+	
+							
+	
+	//http://buildwebdesign.com/kryptonite/legalapp/gps.php?id=73&long=123&lat=10
+	
+	var thelatitude  = position.coords.latitude;
+	var thelongitude = position.coords.longitude;
+	localStorage['mylatKey'] = thelatitude;
+	localStorage['mylongKey2'] = thelongitude;
+	var AAA = localStorage['myID2'].split(',');
+	var theid = AAA[1];
+		
+							
+							
+	$.post(hostserver+"gps.php",
+  {
+    id:theid,
+	long:thelongitude,
+	lat:thelatitude
+  },
+  function(data,status){
+    if(status=="success"){
+	//window.top.location.href = "form.html"; 
+	}else{
+		alert("Please check your connection and try again");
+		}
+  });
+						 
+						 
+						 
+						 
+						 
+						 
+						 
+						 
+							
+							
+    }
+
+    // onError Callback receives a PositionError object
+    //
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
+    }
+
+    </script>
+
+
+<!--mysettings-->
      <script src="js/iscriptz-function.js"></script>
 </head>
 <body style="background:url(images/grad.png) #32396d repeat-x top">
