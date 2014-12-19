@@ -243,7 +243,9 @@ var url = window.location.href;
   },
   function(data,status){
     if(status=="success"){
-	alert("request has been sent");
+	//alert("request has been sent");
+	$( "#myPopupDivRS" ).popup( "open" );
+
 	//window.top.location.href = "form.html"; 
 	}else{
 		alert("Please check your connection and try again");
@@ -297,7 +299,8 @@ var url = window.location.href;
   },
   function(data,status){
     if(status=="success"){
-	alert("successfully canceled the request");
+	//alert("successfully canceled the request");
+	$( "#myPopupDivRC" ).popup( "open" );
 	//window.top.location.href = "form.html"; 
 	}else{
 		alert("Please check your connection and try again");
@@ -325,6 +328,14 @@ myElement.style.backgroundColor = "#fff";
      <script src="js/iscriptz-function.js"></script>
 </head>
 <body>
+
+
+<div data-role="popup" id="myPopupDivRS">
+	<p>request has been sent<p>
+</div>
+<div data-role="popup" id="myPopupDivRC">
+	<p>successfully canceled the request<p>
+</div>
 
 <div data-role="header" data-position="fixed" role="banner" class="ui-header ui-bar-inherit">
       

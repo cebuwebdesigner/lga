@@ -315,9 +315,9 @@ function loadit(){
 				
 								$('#statz').append(vthestatz);
 								
-								var msg = val.message;
+								var msg = val.message; var vdatetime = '<br />'+ val.date+' '+val.time;
 								var msgarray = msg.split(' '); //$assocoatexxx has sent a request for $courtaaa
-								var fmsg = 'You been requested to '+associaten+' for '+msgarray[6];
+								var fmsg = 'You been requested to '+associaten+' for '+msgarray[6]+vdatetime;
 								$('#message').append(fmsg);
 								
 								
@@ -413,7 +413,8 @@ var url = window.location.href;
   },
   function(data,status){
     if(status=="success"){
-	alert("successfully reject the request");
+	$( "#myPopupDivR" ).popup( "open" );
+	//alert("successfully reject the request");
 	//window.top.location.href = "form.html"; 
 	var therandom = Math.floor((Math.random() * 100) + 1);
 window.top.location.href = "load-request.html?url=requests-recieved.html&amp;ran="+therandom;
@@ -468,7 +469,8 @@ var url = window.location.href;
   },
   function(data,status){
     if(status=="success"){
-	alert("successfully accept the request");
+	//alert("successfully accept the request");
+	$( "#myPopupDivRA" ).popup( "open" );
 	//window.top.location.href = "form.html"; 
 	
 	var therandom = Math.floor((Math.random() * 100) + 1);
@@ -491,6 +493,14 @@ myElement.style.backgroundColor = "#fff";
 }
 	
 </script>
+
+<div data-role="popup" id="myPopupDivR">
+	<p>successfully reject the request<p>
+</div>
+
+<div data-role="popup" id="myPopupDivRA">
+	<p>successfully accept the request<p>
+</div>
      
      <div style="padding:20%; background-color:#FFF; color:#999; font-size:12px">
     

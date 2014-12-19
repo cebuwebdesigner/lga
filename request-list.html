@@ -290,7 +290,7 @@ function loadit(){
 //alert(theid);
                 $.getJSON(hostserver+'vrequest.php?theid='+theid, function(data) {
                         /* data will hold the php array as a javascript object */
-						var incinfo=0; var arraydata='';var arraydataid='';
+						var incinfo=0; var arraydata='';var arraydataid=''; 
                         $.each(data, function(key, val) {	
                                 //$('#data'+incinfo).append(val.first_name);
 								if(val.first_name!=""){
@@ -317,9 +317,9 @@ function loadit(){
 				
 								$('#statz').append(vthestatz);
 								
-								var msg = val.message;
+								var msg = val.message; var vdatetime = '<br />'+ val.date+' '+val.time;
 								var msgarray = msg.split(' '); //$assocoatexxx has sent a request for $courtaaa
-								var fmsg = 'You been requested to '+associaten+' for '+msgarray[6];
+								var fmsg = 'You been requested to '+associaten+' for '+msgarray[6]+vdatetime;
 								$('#message').append(fmsg);
 								
 								

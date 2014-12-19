@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>User-generated DB (PG Storage Example)</title>
+<title></title>
 <meta name="viewport" content="width=device-width, initial-scale = 1.0, user-scalable = no">
-<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script type="text/javascript" charset="utf-8" src="file:///G|/_app/build_phonegap/lga/cordova.js"></script>
 <script type="text/javascript" charset="utf-8">
 
 dbname= "STABLEAPP";
@@ -13,12 +13,6 @@ function startDB() {
  var db = window.openDatabase("Database", "1.0", dbname, 2000000);
  db.transaction(populateDB, errorCB, successCB);
 }
-
-
-
-
-
-
 
 
 
@@ -33,7 +27,7 @@ var new_idGet = '1';
 
 tx.executeSql('CREATE TABLE IF NOT EXISTS '+dbname+' (id TEXT NOT NULL, data1 TEXT NULL, data2 TEXT NULL, data3 TEXT NULL)'); 
 
-tx.executeSql('INSERT INTO DEMO (id, data1, data2, data3) VALUES (\"' + new_idGet + '\"' + ', \"' + formdata1Get + '\", \"' + formdata2Get + '\", \"' + formdata3Get + '\")');
+tx.executeSql('INSERT INTO '+dbname+' (id, data1, data2, data3) VALUES (\"' + new_idGet + '\"' + ', \"' + formdata1Get + '\", \"' + formdata2Get + '\", \"' + formdata3Get + '\")');
 
 queryDB(tx);
 
@@ -52,17 +46,17 @@ function queryDB(tx) {
 function querySuccess(tx, results) {
  var len = results.rows.length;
  
- i =0;
+ var i =3;
+ /*var thedata = results.rows.item(i).id;*/
  var thedata = "\nID = " + results.rows.item(i).id +
  "\ndata1 = " + results.rows.item(i).data1 +
  "\ndata2 = " + results.rows.item(i).data2 +
  "\ndata3 = " + results.rows.item(i).data3 + "\n";
- 
- 
- alert(thedata);
- console.log("_______ Success! _______");
-}
 
+alert(thedata);
+ 
+// console.log("_______ Success! _______");
+}
 
 
 
