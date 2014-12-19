@@ -243,16 +243,34 @@ var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';
 	
 	//http://buildwebdesign.com/kryptonite/legalapp/gps.php?id=73&long=123&lat=10
 	
-
+	var thelatitude = localStorage['mylatKey'];
+	var thelongitude = localStorage['mylongKey2'];
+	var AAA = localStorage['myID2'].split(',');
+	var theid = AAA[1];
 	
-	alert("Hi " + theid+", Your in "+thelongitude+","+thelatitude);
+	
+	
 	
 	
 	//var theid = AAA[1];
 	
 	 
 	
-
+	 $.post(hostserver+"gps.php",
+  {
+    id:theid,
+	long:thelongitude,
+	lat:thelatitude
+  },
+  function(data,status){
+    if(status=="success"){
+	//alert("Hi " + theid+", Your in "+thelongitude+","+thelatitude);
+	//window.top.location.href = "form.html"; 
+	}else{
+		alert("Please check your connection and try again");
+		}
+  });
+	 
 	 
 	 
     }
