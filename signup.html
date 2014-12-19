@@ -80,9 +80,7 @@ function editsave()
   },
   function(data,status){
     if(status=="success"){
-	var node = document.getElementById("writestats");
-    node.innerHTML = "Hi " + vuname+", Your "+status+"fully registered";
-$( "#myPopupDiv" ).popup( "open" );
+	alert("Hi " + vuname+", Your "+status+"fully registered");
 	window.top.location.href = "form.html"; 
 	}else{
 		alert("Please check your connection and try again");
@@ -99,9 +97,7 @@ $( "#myPopupDiv" ).popup( "open" );
      <script src="js/iscriptz-function.js"></script>
 </head>
 <body>
-<div data-role="popup" id="myPopupDiv">
-	<p id="writestats"><p>
-</div>
+
 <div data-role="header" data-position="fixed" role="banner" class="ui-header ui-bar-inherit">
 			
         <a href="#" style="position: fixed; background-image: url('images/blank.png');

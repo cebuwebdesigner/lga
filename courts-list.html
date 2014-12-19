@@ -252,27 +252,168 @@ window.top.location.href = "load-courtcalendar.html?url=cal-court.html&amp;ran="
 		<!--	<ul data-role="listview" data-filter="false" data-theme="d">
 			
 		</ul>-->
- 
         
-      <ul data-role="listview" data-filter="false" data-autodividers="true" data-theme="d" id="data">     
+        
+        
+                    
+             <script type='text/javascript'>
+		
+			
+			// localStorage['imyaKey'] = '';
+			 
+var url = window.location.href;
+var params = url.split('?');
+var ABC=params[1];
+localStorage['courtassociate']=ABC;
+var AABBCC = ABC.split('!!!');
+
+
+
+var AA = AABBCC[0];
+var AAA = AA.split('=');
+var alphastart=AAA[1];
+
+var BB = AABBCC[1];
+var BBB = BB.split('=');
+var alphatype=BBB[1];
+
+var CC = AABBCC[2];
+var CCC = CC.split('=');
+localStorage['courtselected']=CCC[1];
+
+var DD = AABBCC[3];
+var DDD = DD.split('=');
+localStorage['courtname']=DDD[1];
+ 
+ //alert(localStorage['courtname']);
+ 
+var vpass2 = localStorage['myID2'];//document.getElementById("password").value;
+	var params = vpass2.split(',');
+	var vpass2=params[1];	
+
+var globalX; var arraydataX; var arraydataidX;	
+ //      $(document).ready(function(){
+function loadit(){
+			
+ var hostserver = localStorage['globalurl'];
+
+//var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
+/* call the php that has the php array which is json_encoded */
+//?list='+alphastart+'&typez='+alphatype+'&levelz='+alphalevel+'&r=1'
+//alert(vpass2);
+             //  $.getJSON(hostserver+'closeby.php?long=144.859674&lat=-35.45456', function(data) {
+  $.getJSON(hostserver+'closeby.php?long='+alphastart+'&lat='+alphatype+'&myid='+vpass2, function(data) {
+                        /* data will hold the php array as a javascript object */
+						
+					
+			var incinfo=0; var arraydata=''; var arraydataid=''; 	
+			
+			alphastart=12.12; alphatype= 12.12;
+			
+			
+							
+                        $.each(data, function(key, val) {	
+											  
+											  
+											  
+                                //$('#data'+incinfo).append(val.first_name);
+								//if(val.first_name!=""){ 
+								arraydata=arraydata+','+val.first_name;
+								//arraydata=arraydata+','+val.first_name;
+								arraydataid=arraydataid+','+val.idz;
+								//
+								incinfo++;//}
+								
+                        });
+					
+					//alert('long='+alphastart+'&lat='+alphatype);
+					//alert(incinfo);
+					globalX = incinfo; 
+					arraydataX = arraydata; 
+					arraydataidX = arraydataid;
+					
+					dataReady();
+					
+	
+                });
+        };
+		
+	loadit();
+	
+	function dataReady() {
+	localStorage['imyaKey'] = globalX; // alert(localStorage['imyaKey']);
+	localStorage['imyaKey2'] = arraydataX; 
+	localStorage['imyaKey3'] = arraydataidX; 
+	
+	}
+	
+
+//	
+	
+ </script>   
+        
+   <ul data-role="listview" data-filter="false" data-autodividers="true" data-theme="d" id="data">     
 <script type='text/javascript'>
+		 // alert(arraydataYY[1]);
+	 var alphaz = localStorage['imyaKey'];
+	  //	alert(localStorage['imyaKey']);
+///////////////////////////////////////////
+	  
+	//var alphaz = arraydataZZ[1].charAt(0);
+	
+	/*var url = window.location.href;
+	
+	var params = url.split('?');
+	//alert(params[1]);
+	var ABC=params[1];
+	
+	var AABBCC = ABC.split('&amp;');
+	
+	var AA = AABBCC[0];
+	var AAA = AA.split('=');;*/
+	//var alphastart=alphaz;
+	
+	//alphaz='1'; alphastart='1';
+	
+//alert(alphaz);
+	  
+///////////////////////////////////////////////	  
+	 if(alphaz==""){
 
 	
 	
-	  var allentry=localStorage['closebyassociate'];
-//alert(allentry);
-	  var arraydataZZ = allentry.split(',');
-	  var globalXX = arraydataZZ.length;
-	 // alert(arraydataYY[1]);
+	if(localStorage['counterz']!=2){
+	setTimeout(function() {
+	  parent.location.reload();
+	  }, 1500);
+	}else{
+		
+document.write('<li style="text-align:center; color:WHITE; padding-top:20px; width:100%; padding-bottom:20px; background-color:#0157a3">no entry found</li>');
+		localStorage['counterz']=0;
+		
+		}
+	 localStorage['counterz']++;
+	//parent.window.location = "list.html?s="+alphastart+"&amp;typez="+alphatype+"&amp;lvl="+alphalevel;  
+		
+		}else{
+	 
+      globalXX = localStorage['imyaKey']-1;
+	  var arraydataZ = localStorage['imyaKey2'];
+	  var arraydataZZ = arraydataZ.split(',');
+	  
+	   var arraydataY = localStorage['imyaKey3'];
+	   var arraydataYY = arraydataY.split(',');
 
-	  
-	  
+
 	for($i=1;$i<=globalXX;$i++){
-	var arraydataFF = arraydataZZ[$i].split('!!!');//'+arraydataFF[2]+'!!!lat='+arraydataFF[1]+'!!!courtid='
-	   document.write('<li><a href="request.html?id='+arraydataFF[0]+'" target="_parent" id="data'+$i+'">'+arraydataFF[3]+'</a></li>');
+		thedataz = arraydataZZ[$i];
+		thedataidz = arraydataYY[$i]; //alert(arraydataYY[$i]);
+	   document.write('<li><a  target="_parent" href="request.html?id='+thedataidz+'" data-transition="slidefade" id="data'+$i+'">'+thedataz+'</a></li>');
 	   }
-       
-       </script>
+	   
+	   localStorage['counterz']=0;
+		 }
+ </script>
 </ul> 
        
 

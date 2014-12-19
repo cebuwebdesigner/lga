@@ -21,11 +21,8 @@
 /*local storage*/
 var allentry='';
 
-
-if(localStorage['started2b']!=1){
+if(localStorage['started5']!=1){
 	localStorage['allfavourites'] = '';
-	localStorage['associatename'] = '';
-	localStorage['associateid'] = '';
 	
 /*localStorage['A']='';
 localStorage['B']='';
@@ -55,7 +52,7 @@ localStorage['Y']='';
 localStorage['Z']='';*/
 }
 
-localStorage['started2b']=1;
+localStorage['started5']=1;
 
 
 
@@ -66,7 +63,7 @@ var ABC=params[1];
 var theurl = ABC.replace("QQQ", "?");
 //alert(theurl)
 //alert(allentry+' '+alphatype+' '+alphalevel);
-allentry='';//localStorage['allassociate'];
+allentry=localStorage['allfavourites'];
 
 
 
@@ -88,21 +85,18 @@ var hostserver= localStorage['globalurl'];
 //var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
 /* call the php that has the php array which is json_encoded */
 //?list='+alphastart+'&typez='+alphatype+'&levelz='+alphalevel+'&r=1'
-//alert(hostserver+'favorites.php?myid='+vpass2);
-                $.getJSON(hostserver+'favorites.php?myid='+vpass2, function(data) {
+                $.getJSON(hostserver+'favorites.php?theid='+vpass2, function(data) {
                         /* data will hold the php array as a javascript object */
 						var incinfo=0; var arraydata='';var arraydataid=''; var arraylat=''; var arraylong=''; 
                         $.each(data, function(key, val) {	
                                 //$('#data'+incinfo).append(val.first_name);
-								
 								if(val.first_name!=""){
-									if(val.idz!=vpass2){
 								arraydata=arraydata+','+val.first_name;
 								arraylat=arraylat+',-';//val.latitude;
 								arraylong=arraylong+',-';//val.longitude;
 								arraydataid=arraydataid+','+val.idz;
 								//alert(val.idz);
-								incinfo++;}}
+								incinfo++;}
                         });
 					globalX = incinfo;
 					

@@ -301,61 +301,9 @@
 		
 		var caldate = document.getElementById("demo_datetime").value;
 		
-	
-	
-var arrycaldate = caldate.split(' ');
-var arry2caldate = arrycaldate[0].split('/');
-
-
-var monthminus1 = arry2caldate[0]-1;//parseInt()-1;
-var mydate2=arry2caldate[2]+'-'+monthminus1+'-'+arry2caldate[1];	
-
-// //0m 1d 2y
-var mydate=new Date(arry2caldate[2],monthminus1,arry2caldate[1]);	
-
-	var today = new Date();
-	today.setDate(today.getDate() + 14);
-    var dd = today.getDate();
-    var mm = today.getMonth(); //January is 0!
-
-    var yyyy = today.getFullYear();
-    if(dd<10){
-        dd='0'+dd
-    } 
-    if(mm<10){
-        mm='0'+mm
-    } 
-    //var today = dd+'/'+mm+'/'+yyyy;
-	
-
-	
-
-var date = new Date(yyyy,mm,dd);
-var date2 = yyyy+'-'+mm+'-'+dd;
-//mydate=new Date('2011-04-11');
-//console.log(date);
-///console.log(mydate)
-//alert(mydate+'='+mydate2+'*******'+date+'='+date2);
-
-
-
-
-    
-//alert(today)
-	
-	
-	
-
-
-if(date > mydate)
-
-{
-    alert("Accepted date is 2 weeks after the plan date.");
-}	else
-{
-    
-	
-	
+		//alert(hostserver);
+		//alert(localStorage['globalurl']);
+		
 		 var hostserver = localStorage['globalurl'];
 		//alert(hostserver);
 		$.post(hostserver+"cal-add.php",
@@ -367,31 +315,13 @@ if(date > mydate)
 		  function(data,status){
 			if(status=="success"){
 			alert("successfully added to court calendar; "+localStorage['courtname']+","+caldate);
-			
-			 /*navigator.notification.alert(
-            'successfully added to court calendar; '+localStorage['courtname']+','+caldate,  // message
-            alertDismissed,         // callback
-            'Calendar',            // title
-            'Done'                  // buttonName
-        );*/
-			//$( "#myPopupDiv" ).popup( "open" );
-			/*var node = document.getElementById("writestats");
-			node.innerHTML = "successfully added to court calendar; "+localStorage['courtname']+","+caldate;
-			*/
-			
+			//window.top.location.href = "form.html"; 
 			}else{
 				alert("Please check your connection and try again");
 				}
 		  });
 				
-}
-
-
-
-
-
-
-
+		
 		
 	
 	}
@@ -400,9 +330,6 @@ if(date > mydate)
      
 </head>
     <body>
-    
-  
-    
         <div data-role="page" id="index" >
             <div data-role="header" data-position="fixed" role="banner" class="ui-header ui-bar-inherit">
 			
