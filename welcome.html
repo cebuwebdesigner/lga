@@ -60,7 +60,8 @@ body,td,th {
  
     function initGeolocation() {
  if (navigator && navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+            navigator.geolocation.getCurrentPosition(successCallback, errorCallback,
+                                         {enableHighAccuracy:true, timeout:60000, maximumAge:600000});
         } else {
             console.log('Geolocation is not supported');
         }
@@ -75,22 +76,16 @@ function successCallback(position) {
       mapUrl = mapUrl + '&zoom=15&size=512x512&maptype=roadmap&sensor=false';
       var imgElement = document.getElementById("static-map");
       imgElement.src = mapUrl;*/
-    }
-</script>
-
-<!--	var thelatitude  = position.coords.latitude;
+	  
+/*	  var thelatitude  = position.coords.latitude;
 	var thelongitude = position.coords.longitude;
 	localStorage['mylatKey'] = thelatitude;
 	localStorage['mylongKey2'] = thelongitude;
 	var AAA = localStorage['myID2'].split(',');
 	var theid = AAA[1];
-		
-				alert(theid+','+thelongitude+','+thelatitude);	
+	var hostserver=localStorage['globalurl'];
 				
-				var hostserver=localStorage['globalurl'];
-				
-		if(thelatitude!=""){
-			alert('checking...');
+	if(thelatitude!=""){
 	$.post(hostserver+"gps.php",
   {
     id:theid,
@@ -104,8 +99,19 @@ function successCallback(position) {
 		alert("Please check your connection and try again");
 		}
   });
-						 
-		}-->
+}
+		
+		*/
+		
+		
+		
+		
+		
+	  
+    }
+</script>
+
+<!--	-->
 						 
 						 
 
@@ -116,7 +122,7 @@ function successCallback(position) {
 <!--mysettings-->
      <script src="js/iscriptz-function.js"></script>
 </head>
-<body style="background:url(images/grad.png) #32396d repeat-x top">
+<body style="background:url(images/grad.png) #32396d repeat-x top" onload="javascript:initGeolocation()">
 
 <center>
 <h2 style="padding-top:135px">WELCOME</h2><br />to<br />
