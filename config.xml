@@ -99,7 +99,7 @@ Engr. Oliver M. Gonzales
 		<gap:splash src="splash/640c.png" gap:platform="ios" width="640" height="1136" />
 
 
-
+<gap:plugin name="org.apache.cordova.geolocation" version="0.3.2" />
 
 <gap:config-file platform="ios" parent="NSLocationAlwaysUsageDescription" overwrite="true">
         <string></string>
