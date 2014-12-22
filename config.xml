@@ -160,5 +160,15 @@ Otherwise, you can provide specific domains:
 -->
     <!-- <access origin="http://127.0.0.1*" /> -->               <!-- allow local pages only -->
     <!--<access origin="*"/>                                 allow access to any domain -->
+	<gap:config-file platform="ios" parent="NSLocationAlwaysUsageDescription" overwrite="false">
+        <string></string>
+</gap:config-file>
+
+
+<gap:config-file platform="ios" parent="NSLocationWhenInUseUsageDescription" overwrite="false">
+        <string></string>
+</gap:config-file>
+	
+	
 
 </widget>
