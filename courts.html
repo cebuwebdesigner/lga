@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>stumblelegalapp</title>
+	<link rel="stylesheet" href="themes/stumblelegal.min.css" />
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+	<link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css" />
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+    
+    <link rel="stylesheet" href="_assets/css/jqm-demos.css">
+
+
+
+<!--     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+	<link rel="stylesheet" href="css/themes/default/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" href="_assets/css/jqm-demos.css">
+	<script src="js/jquery.js"></script>
+	<script src="_assets/js/index.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>-->
+
+	<style>
+        table { width:100%; border-spacing: 0; }
+        th { text-align:left; }
+        th h3 { margin:.6em 0 .6em .5em; }
+        th, td { vertical-align:top; border-top:1px solid #eee; padding: 1px 3px; background-color:#fcfcfc; }
+        td .ui-btn { margin:.4em 0 .5em 0; }
+        td .ui-btn-inner { padding: .4em 15px; }
+		
+		.ui-icon-logo {
+		background-image: url("images/toplogo.png");
+		background-size: 28px 28px; width:15px; 
+		background-color: transparent !important;
+		border:none;
+		background-repeat:no-repeat;
+		box-shadow: none;
+		-webkit-box-shadow: none;
+
+	}
+	
+	
+	
+	
+	
+	
+	 .ui-btn.ui-icon-courts, .ui-btn.ui-icon-courts:after
+     {
+        background-repeat: no-repeat !important;
+        /*Remove circle disc*/
+        background-color: rgba(0, 0, 0, 0); !important;
+        background-position: center 0%; !important;
+        background-size: 70px 59px;
+    }
+    .ui-btn.ui-icon-courts:hover
+     {
+        background-position: center 0%; !important;
+        background-size: 70px 59px;
+    }
+    .ui-icon-courts{
+        background-image: url(images/courts.png) !important;
+		background-size: 70px 59px; width:120%; 
+		background-color: transparent !important;
+		border:none;
+		background-repeat:no-repeat;
+		box-shadow: none;
+		-webkit-box-shadow: none;
+
+    }
+	
+	
+		 .ui-btn.ui-icon-associates, .ui-btn.ui-icon-associates:after
+     {
+        background-repeat: no-repeat !important;
+        /*Remove circle disc*/
+        background-color: rgba(0, 0, 0, 0); !important;
+        background-position: center 0%; !important;
+        background-size: 70px 59px;
+    }
+    .ui-btn.ui-icon-associates:hover
+     {
+        background-position: center 0%; !important;
+        background-size: 70px 59px;
+    }
+    .ui-icon-associates{
+        background-image: url(images/associates.png) !important;
+		background-size: 70px 59px; width:150%; 
+		background-color: transparent !important;
+		border:none;
+		background-repeat:no-repeat;
+		box-shadow: none;
+		-webkit-box-shadow: none;
+
+    }
+	
+	
+	
+ .ui-btn.ui-icon-calendar, .ui-btn.ui-icon-calendar:after
+     {
+        background-repeat: no-repeat !important;
+        /*Remove circle disc*/
+        background-color: rgba(0, 0, 0, 0); !important;
+        background-position: center 0%; !important;
+        background-size: 70px 59px;
+    }
+    .ui-btn.ui-icon-calendar:hover
+     {
+        background-position: center 0%; !important;
+        background-size: 70px 59px;
+    }
+    .ui-icon-calendar{
+        background-image: url(images/calendar.png) !important;
+		background-size: 70px 59px; width:150%; 
+		background-color: transparent !important;
+		border:none;
+		background-repeat:no-repeat;
+		box-shadow: none;
+		-webkit-box-shadow: none;
+
+    }
+	
+	
+	
+		
+		 .ui-btn.ui-icon-requests, .ui-btn.ui-icon-requests:after
+     {
+        background-repeat: no-repeat !important;
+        /*Remove circle disc*/
+        background-color: rgba(0, 0, 0, 0); !important;
+        background-position: center 0%; !important;
+        background-size: 70px 59px;
+    }
+    .ui-btn.ui-icon-requests:hover
+     {
+        background-position: center 0%; !important;
+        background-size: 70px 59px;
+    }
+    .ui-icon-requests{
+        background-image: url(images/requests.png) !important;
+		background-size: 70px 59px; width:200%; 
+		background-color: transparent !important;
+		border:none;
+		background-repeat:no-repeat;
+		box-shadow: none;
+		-webkit-box-shadow: none;
+
+    }
+	
+	
+	
+	 .ui-btn.ui-icon-settings, .ui-btn.ui-icon-settings:after
+     {
+        background-repeat: no-repeat !important;
+        /*Remove circle disc*/
+        background-color: rgba(0, 0, 0, 0); !important;
+        background-position: center 0%; !important;
+		background-color: transparent !important;
+        background-size: 70px 59px;
+    }
+    .ui-btn.ui-icon-settings:hover
+     {
+        background-position: center 0%; !important;
+        background-size: 70px 59px;
+    }
+    .ui-icon-settings{
+        background-image: url(images/settings.png) !important;
+		background-size: 70px 59px; width:150%; 
+		background-color: transparent !important;
+		border:none; 
+		background-repeat:no-repeat;
+		box-shadow: none;
+		-webkit-box-shadow: none;
+
+    }
+	
+	
+    </style>
+    
+    <script>
+	
+	localStorage['counterz'] = 0;
+function edit(target)
+{   
+
+var url = window.location.href;
+var params = url.split('?');
+//alert(params[1]);
+var ABC=params[1];
+
+
+var AABBCC = ABC.split('&amp;');
+
+
+var AA = AABBCC[0];
+var AAA = AA.split('=');
+var alphatyp=AAA[1];
+
+
+
+var BB = AABBCC[1];
+var BBB = BB.split('=');
+var alphalvl=BBB[1];
+
+//courts.html?lvl=criminal&amp;type=district
+//list.html?s=B&amp;t=Civil&amp;l=Local
+//http://localhost/stumblelegalapp/list.html?s=A&amp;lvl=Civil&amp;lvl=Local
+window.top.location.href = "list.html?s="+target+"&amp;typez="+alphatyp+"&amp;lvl="+alphalvl; 
+
+
+}
+</script>
+
+
+
+<script>
+function editbck2()
+{   
+
+var url = window.location.href;
+var params = url.split('?');
+//alert(params[1]);
+var ABC=params[1];
+
+
+var AABBCC = ABC.split('&amp;');
+
+
+var AA = AABBCC[0];
+var AAA = AA.split('=');
+var alphatyp=AAA[1];
+
+
+
+var BB = AABBCC[1];
+var BBB = BB.split('=');
+var alphalvl=BBB[1];
+
+//courts.html?type=Criminal&amp;lvl=Local
+//type.html?lvl=Criminal
+window.top.location.href = "type.html?lvl="+alphatyp; 
+
+
+}
+</script>
+
+
+<!--mysettings-->
+     <script src="js/iscriptz-function.js"></script>
+</head>
+<body>
+
+<div data-role="header" data-position="fixed" role="banner" class="ui-header ui-bar-inherit">
+			
+           
+        
+           <a href="#" onclick="editbck2()" data-transition="flip" style="position: fixed; background-image: url('images/back.png');
+		 width:15px;" class="ui-btn ui-nodisc-icon ui-corner-all ui-btn-icon-left ui-icon-logo" >&nbsp;</a>
+            
+            <h1 class="ui-title" role="heading" aria-level="1">NSW Courts<!--Stumble <span style="font-weight:lighter">legal</span>--></h1>
+		
+        
+        <a href="selection.html" data-transition="flip" style="position: fixed; background-image: url('images/toplogo.png');
+		 width:15px; margin-right:-10px" class="ui-btn ui-nodisc-icon ui-corner-all ui-btn-icon-right ui-icon-logo">&nbsp;</a>
+        
+        
+        </div>
+        
+        
+
+<!--<h3 style="width:100%; text-align:center">NSW Courts</h3>-->
+
+
+<div data-role="content">
+		<div class="content-primary">
+			<ul data-role="listview" data-filter="false" data-theme="d">
+				<li> <a href="#" onclick="edit('A')" >A</a></li>
+				<li> <a href="#" onclick="edit('B')" data-transition="slide">B</a></li>
+				<li> <a href="#" onclick="edit('C')" data-transition="slide">C</a></li>
+				<li> <a href="#" onclick="edit('D')" data-transition="slide">D</a></li>
+				<li> <a href="#" onclick="edit('E')" data-transition="slide">E</a></li>
+				<li> <a href="#" onclick="edit('F')" data-transition="slide">F</a></li>
+				<li> <a href="#" onclick="edit('G')" data-transition="slide">G</a></li>
+				<li> <a href="#" onclick="edit('H')" data-transition="slide">H</a></li>
+				<li> <a href="#" onclick="edit('I')" data-transition="slide">I</a></li>
+				<li> <a href="#" onclick="edit('J')" data-transition="slide">J</a></li>
+				<li> <a href="#" onclick="edit('K')" data-transition="slide">K</a></li>
+				<li> <a href="#" onclick="edit('L')" data-transition="slide">L</a></li>
+				<li> <a href="#" onclick="edit('M')" data-transition="slide">M</a></li>
+				<li> <a href="#" onclick="edit('N')" data-transition="slide">N</a></li>
+				<li> <a href="#" onclick="edit('O')" data-transition="slide">O</a></li>
+				<li> <a href="#" onclick="edit('P')" data-transition="slide">P</a></li>
+				<li> <a href="#" onclick="edit('Q')" data-transition="slide">Q</a></li>
+				<li> <a href="#" onclick="edit('R')" data-transition="slide">R</a></li>
+				<li> <a href="#" onclick="edit('S')" data-transition="slide">S</a></li>
+				<li> <a href="#" onclick="edit('T')" data-transition="slide">T</a></li>
+                <li> <a href="#" onclick="edit('U')" data-transition="slide">U</a></li>
+				<li> <a href="#" onclick="edit('V')" data-transition="slide">V</a></li>
+				<li> <a href="#" onclick="edit('W')" data-transition="slide">W</a></li>
+				<li> <a href="#" onclick="edit('X')" data-transition="slide">X</a></li>
+				<li> <a href="#" onclick="edit('Y')" data-transition="slide">Y</a></li>
+				<li> <a href="#" onclick="edit('Z')" data-transition="slide">Z</a></li>
+			
+				
+		</ul>
+
+
+<br style="clear:both">
+
+</div>
+</div>
+
+
+<div data-role="footer" data-position="fixed" class="ui-footer ui-bar-a ui-footer-fixed slideup" role="banner" style="height:65px; font-size:27px;  background:url(images/footerbg.png)">
+	
+    
+    
+     <div style="width:20%; text-align:center; float:left; padding-top:2px; font-size:12px; background:url(images/footeractive.png) no-repeat center top"><a href="#" onClick="courtlink()"><button id="saveFileBtn" data-iconpos="center" data-icon="courts" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+     
+      <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="load-associates.html?url=associates.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="associates" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+      
+       <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="load-mycalendar.html?url=calendar.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="calendar" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+      
+       <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="load-request.html?url=requests-send.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="requests" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+     
+    
+    <div style="width:20%; text-align:center; float:left; font-size:12px"><a href="settings.html" target="_parent"><button id="saveFileBtn" data-iconpos="center" data-icon="settings" style="font-size:27px; margin-top:1px"><br />&nbsp;<br />&nbsp;<br /></button></a></div>
+    
+    
+    	</div>
+
+</body>
+</html>

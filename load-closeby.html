@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+    
+    
+    <!--localStorage['globalurl']-->
+    
+    
+<!--mysettings-->
+     <script src="js/iscriptz-function.js"></script>
+  <!--mysettings-->
+     <script src="js/iscriptz-globalurl.js"></script>
+     
+    
+    <script type="text/javascript">
+	
+	
+	
+	
+	
+
+/*local storage*/
+var allentry='';
+
+if(localStorage['started33cc']!=1){
+	localStorage['closebyassociate'] = '';
+	localStorage['associatename2'] = '';
+	localStorage['associateid2'] = '';
+	
+/*localStorage['A']='';
+localStorage['B']='';
+localStorage['C']='';
+localStorage['D']='';
+localStorage['E']='';
+localStorage['F']='';
+localStorage['G']='';
+localStorage['H']='';
+localStorage['I']='';
+localStorage['J']='';
+localStorage['K']='';
+localStorage['L']='';
+localStorage['M']='';
+localStorage['N']='';
+localStorage['O']='';
+localStorage['P']='';
+localStorage['Q']='';
+localStorage['R']='';
+localStorage['S']='';
+localStorage['T']='';
+localStorage['U']='';
+localStorage['V']='';
+localStorage['W']='';
+localStorage['X']='';
+localStorage['Y']='';
+localStorage['Z']='';*/
+}
+
+localStorage['started']=1;
+
+
+//load-associates.html?url=courts-list.htmlQQQlong=-33.856613!!!lat=151.177322!!!courtid=237!!!courtname=Balmain!!!r=1
+
+var url = window.location.href;
+var params = url.split('?url=');
+var theurlQ=params[1];
+var theurl=theurlQ.replace("QQQ", "?");
+//alert(theurl);
+
+
+
+var url = window.location.href;
+var params = url.split('QQQ'); //long=-33.856613!!!lat=151.177322!!!courtid=237!!!courtname=Balmain!!!r=1
+var ABC=params[1];
+//localStorage['courtassociate']=ABC;
+var AABBCC = ABC.split('!!!');
+
+
+
+var AA = AABBCC[0];
+var AAA = AA.split('=');
+var alphastart=AAA[1]; //long
+
+var BB = AABBCC[1];
+var BBB = BB.split('=');
+var alphatype=BBB[1]; //lat
+
+var CC = AABBCC[2];
+var CCC = CC.split('=');
+localStorage['courtselected']=CCC[1]; //court
+var thecourtid=CCC[1]; //court
+
+var DD = AABBCC[3];
+var DDD = DD.split('=');
+localStorage['courtname']=DDD[1]; //courtname
+ 
+
+ 
+
+allentry='';//localStorage['closebyassociate'];
+var globalX; var globalXX;  var arraydataX; var arraydataXX; var arraydataZZZ; var arraydataZZ; var arraydataZZZZ;
+
+var vpass2 = localStorage['myID2'];//document.getElementById("password").value;
+	var params = vpass2.split(',');
+	var vpass2=params[1];	
+
+       // $(document).ready(function(){
+		function loadit(){
+
+var hostserver = localStorage['globalurl'];
+//var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
+/* call the php that has the php array which is json_encoded */
+//?list='+alphastart+'&typez='+alphatype+'&levelz='+alphalevel+'&r=1'
+
+//alphastart=12.12; alphatype= 12.12; 
+vpassid=localStorage['courtselected'];
+//alert(hostserver+'closeby.php?lat='+alphastart+'&long='+alphatype+'&myid='+vpassid);
+//alert(thecourtid);
+ $.getJSON(hostserver+'closeby.php?lat='+alphastart+'&long='+alphatype+'&myid='+vpassid+'&courtid='+thecourtid, function(data) {
+               // $.getJSON(hostserver+'associates.php?myid='+vpass2, function(data) {
+                        /* data will hold the php array as a javascript object */
+						var incinfo=0; var arraydata='';var arraydataid='';
+                        
+						
+						$.each(data, function(key, val) {	
+                                //$('#data'+incinfo).append(val.first_name);
+								if(val.first_name!=""){
+								if(vpass2!=val.idz){
+								arraydata=arraydata+','+val.first_name;
+								//arraydata=arraydata+','+val.first_name;
+								arraydataid=arraydataid+','+val.idz;
+								//alert(vpass2);
+								incinfo++;}}
+                        });
+					globalX = incinfo;
+					
+					arraydataX = arraydata;
+					arraydataidX = arraydataid;
+					dataReady();
+                });
+        }
+
+
+	
+	
+	
+function dataReady() {
+	//localStorage['mycount'] = globalX;
+	localStorage['associatename2'] = arraydataX;
+	//localStorage['associatelong'] = arraydataZZ;
+	//localStorage['associatelat'] = arraydataZZZ;
+	localStorage['associateid2'] = arraydataidX;
+	
+	
+	var arrayparid = arraydataidX.split(','); //id
+	//var arrayparlat = arraydataZZZ.split(','); //lat
+	//var arrayparlong = arraydataZZ.split(','); //long
+	var arrayparname = arraydataX.split(','); //cname
+	
+	
+	var loopidz = parseInt(globalX);
+	//alert(arrayparid[1]+'...'+arrayparname[1]);
+	
+	
+	var allentry2=''; //alert(arraydataidX);
+	//"1
+	//loopidz++; alert(loopidz);
+	
+	for(ii=1;ii<=loopidz;ii++){	
+	allentry2=allentry2+','+arrayparid[ii]+'!!! !!! !!!'+arrayparname[ii];
+	}
+	
+	
+	//localStorage['mycourt'] = splitit[0];//id
+	//localStorage['mylat'] = splitit[1];
+	//localStorage['mylong'] = splitit[2];
+	//localStorage['myKey2']
+	
+	
+	
+	localStorage['closebyassociate'] = allentry2;
+	
+		
+		window.top.location.href = theurl;
+	//+'.html';///////////////////////////////////continue >>>>>>>>>>>>>>>>>>
+		
+	} ///ready function
+
+
+
+
+if(allentry==''){ 
+loadit();  
+//alert('load new');
+}
+else{ 
+//alert('use old'); 
+window.top.location.href = theurl;
+//window.top.location.href = theurl+'.html';////////////////////////////////////continue >>>>>>>>>>>>>>>>>>
+}
+
+//alert(localStorage['closebyassociate']);
+//alert(localStorage['CRIL']);
+
+//alert(alphalevel+' '+alphatype)
+
+
+
+</script>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><style type="text/css">
+<!--
+body {
+	background-color: #0157a3;
+}
+-->
+</style></head>
+<body>
+</body>
+</html>

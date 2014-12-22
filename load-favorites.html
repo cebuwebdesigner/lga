@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+    
+    
+    <!--localStorage['globalurl']-->
+    
+    
+<!--mysettings-->
+     <script src="js/iscriptz-function.js"></script>
+  <!--mysettings-->
+     <script src="js/iscriptz-globalurl.js"></script>
+     
+    
+    <script type="text/javascript">
+
+/*local storage*/
+var allentry='';
+
+
+if(localStorage['started2b']!=1){
+	localStorage['allfavourites'] = '';
+	localStorage['associatename'] = '';
+	localStorage['associateid'] = '';
+	
+/*localStorage['A']='';
+localStorage['B']='';
+localStorage['C']='';
+localStorage['D']='';
+localStorage['E']='';
+localStorage['F']='';
+localStorage['G']='';
+localStorage['H']='';
+localStorage['I']='';
+localStorage['J']='';
+localStorage['K']='';
+localStorage['L']='';
+localStorage['M']='';
+localStorage['N']='';
+localStorage['O']='';
+localStorage['P']='';
+localStorage['Q']='';
+localStorage['R']='';
+localStorage['S']='';
+localStorage['T']='';
+localStorage['U']='';
+localStorage['V']='';
+localStorage['W']='';
+localStorage['X']='';
+localStorage['Y']='';
+localStorage['Z']='';*/
+}
+
+localStorage['started2b']=1;
+
+
+
+var url = window.location.href;
+var params = url.split('?url=');
+var ABC=params[1];
+//var BBB = ABC.split('=');
+var theurl = ABC.replace("QQQ", "?");
+//alert(theurl)
+//alert(allentry+' '+alphatype+' '+alphalevel);
+allentry='';//localStorage['allassociate'];
+
+
+
+
+var globalX; var globalXX;  var arraydataX; var arraydataXX; var arraydataZZZ; var arraydataZZ; var arraydataZZZZ;
+        //$(document).ready(function(){
+
+
+
+var vpass2 = localStorage['myID2'];//document.getElementById("password").value;
+	var params = vpass2.split(',');
+	var vpass2=params[1];	
+	//alert(vpass2);
+	
+       // $(document).ready(function(){
+		function loadit(){
+
+var hostserver= localStorage['globalurl'];
+//var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
+/* call the php that has the php array which is json_encoded */
+//?list='+alphastart+'&typez='+alphatype+'&levelz='+alphalevel+'&r=1'
+//alert(hostserver+'favorites.php?myid='+vpass2);
+                $.getJSON(hostserver+'favorites.php?myid='+vpass2, function(data) {
+                        /* data will hold the php array as a javascript object */
+						var incinfo=0; var arraydata='';var arraydataid=''; var arraylat=''; var arraylong=''; 
+                        $.each(data, function(key, val) {	
+                                //$('#data'+incinfo).append(val.first_name);
+								
+								if(val.first_name!=""){
+									if(val.idz!=vpass2){
+								arraydata=arraydata+','+val.first_name;
+								arraylat=arraylat+',-';//val.latitude;
+								arraylong=arraylong+',-';//val.longitude;
+								arraydataid=arraydataid+','+val.idz;
+								//alert(val.idz);
+								incinfo++;}}
+                        });
+					globalX = incinfo;
+					
+					arraydataX = arraydata; 
+					arraydataidX = arraydataid;
+					arraydataZZ = arraylat;
+					arraydataZZZ = arraylong;
+					dataReady();
+                });
+        }
+
+
+	
+	
+	
+function dataReady() {
+	//localStorage['mycount'] = globalX;
+	//localStorage['associatename'] = arraydataX;
+	//localStorage['associatelong'] = arraydataZZ;
+	//localStorage['associatelat'] = arraydataZZZ;
+	//localStorage['associateid'] = arraydataidX;
+	//alert(arraydataidX);
+	
+	var arrayparid = arraydataidX.split(','); //id
+	var arrayparlat = arraydataZZZ.split(','); //lat
+	var arrayparlong = arraydataZZ.split(','); //long
+	var arrayparname = arraydataX.split(','); //cname
+	
+	
+	
+	
+	
+	var loopidz = globalX;
+	//alert(globalX);
+	var allentry2;
+	for(ii=0;ii<=loopidz;ii++){
+	
+	allentry2=allentry2+','+arrayparid[ii]+'!!!'+arrayparlat[ii]+'!!!'+arrayparlong[ii]+'!!!'+arrayparname[ii];
+	
+	}
+	
+	//alert(allentry2);
+	//localStorage['mycourt'] = splitit[0];//id
+	//localStorage['mylat'] = splitit[1];
+	//localStorage['mylong'] = splitit[2];
+	//localStorage['myKey2']
+	
+	//alert(localStorage['myKey']);
+	
+	localStorage['allfavourites'] = allentry2;
+	
+		
+		
+	window.top.location.href = theurl;///////////////////////////////////continue >>>>>>>>>>>>>>>>>>
+		
+	} ///ready function
+
+
+
+
+if(allentry==''){ 
+loadit();  //alert('load new');
+}
+else{ 
+///alert('use old'); 
+//alert(allentry);
+window.top.location.href = theurl;////////////////////////////////////continue >>>>>>>>>>>>>>>>>>
+}
+
+
+//alert(localStorage['CRIL']);
+
+//alert(alphalevel+' '+alphatype)
+
+
+
+</script>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><style type="text/css">
+<!--
+body {
+	background-color: #0157a3;
+}
+-->
+</style></head>
+<body>
+</body>
+</html>
