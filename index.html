@@ -10,7 +10,7 @@
     </head>
     <body>
         <div class="app">
-            <h1>Apache Cordova</h1>
+           
             <div id="deviceready" class="blink">
                 <p class="event listening">Connecting to Device</p>
                 <p class="event received">Device is Ready</p>
@@ -18,5 +18,42 @@
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        
+        
+             
+	<script type="text/javascript" >
+ 
+  function initGeolocation() {
+ if (navigator && navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(successCallback, errorCallback,
+                                         {enableHighAccuracy:true, timeout:60000, maximumAge:600000});
+        } else {
+            console.log('Geolocation is not supported');
+        }
+}
+ 
+function errorCallback() {}
+ 
+function successCallback(position) {
+	alert(position.coords.latitude + ',' + position.coords.longitude)
+    }
+	
+	
+	initGeolocation();/*  */
+</script>
+
+
+
     </body>
 </html>
+
+   
+
+
+						 
+						 
+
+
+   
+
+
