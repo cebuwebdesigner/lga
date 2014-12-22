@@ -46,7 +46,7 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-		var optionz = { timeout: 90000, enableHighAccuracy: true };
+		var optionz = { timeout: 30000, enableHighAccuracy: true };
         //navigator.geolocation.getCurrentPosition(GetPosition, PositionError, options);//{ maximumAge: 30000, timeout: 6000});
         navigator.geolocation.getCurrentPosition(this.onLocationFound, this.onLocationError, optionz);
     },
