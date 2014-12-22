@@ -1,8 +1,51 @@
 <!DOCTYPE html>
 <html>
-<head><script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-   <script src="js/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" >
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>stumblelegalapp</title>
+	<link rel="shortcut icon" href="favicon.ico">
+   	
+
+
+	<script src="js/jquery.js"></script>
+	
+
+<style type="text/css">
+	.containerlogo {
+    height: 500px;
+    text-align: center;  /* align the inline(-block) elements horizontally */
+    font: 0/0 a;         /* remove the gap between inline(-block) elements */
+}
+
+.containerlogo:before {    /* create a full-height inline block pseudo=element */
+    content: ' ';
+    display: inline-block;
+    vertical-align: middle;  /* vertical alignment of the inline element */
+    height: 100%;
+}
+
+#element {
+    display: inline-block;
+    vertical-align: middle;  /* vertical alignment of the inline element */
+    font: 56px/1 Arial sans-serif;        /* <-- reset the font property */
+}
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #FFF;
+}
+</style>
+
+
+
+
+
+ <script src="js/iscriptz-globalurl.js"></script>	
+
+
+ <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+  
+	<script type="text/javascript" >
  
     function initGeolocation() {
  if (navigator && navigator.geolocation) {
@@ -13,23 +56,56 @@
         }
 }
  
-function errorCallback() {
-	
-	alert('ertrorfound');
-	
-	}
+function errorCallback() {}
  
 function successCallback(position) {
-	
-	alert(position.coords.latitude + ',' + position.coords.longitude);
+	alert(position.coords.latitude + ',' + position.coords.longitude)
+     /* var mapUrl = "http://maps.google.com/maps/api/staticmap?center=";
+      mapUrl = mapUrl + position.coords.latitude + ',' + position.coords.longitude;
+      mapUrl = mapUrl + '&zoom=15&size=512x512&maptype=roadmap&sensor=false';
+      var imgElement = document.getElementById("static-map");
+      imgElement.src = mapUrl;*/
+	  
   
+		
+	/*		*/
+		
+		
+	  
     }
 	
 	
 	initGeolocation();
-	
 </script>
+
+<!--	-->
+						 
+						 
+
+
+   
+
+
+<!--mysettings-->
+     <script src="js/iscriptz-function.js"></script>
 </head>
 <body style="background:url(images/grad.png) #32396d repeat-x top" onload="javascript:initGeolocation()">
+
+<!--<key>NSLocationWhenInUseUsageDescription</key>
+<string></string>-->
+
+<center>
+<h2 style="padding-top:135px">WELCOME</h2><br />to<br />
+<div class="containerlogo2">
+    <img id="element" src="images/logo.png" width="40%" /> 
+</div>
+
+</center>
+
+<!--<div style="padding: 20px 0; width:100%; text-align:center; color:#FFF; font-size:300%; height:500px">
+
+
+</div>-->
+
 </body>
 </html>
