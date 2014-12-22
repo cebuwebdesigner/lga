@@ -70,14 +70,14 @@ body,td,th {
 function errorCallback() {}
  
 function successCallback(position) {
-	alert(position.coords.latitude + ',' + position.coords.longitude)
+	//alert(position.coords.latitude + ',' + position.coords.longitude)
      /* var mapUrl = "http://maps.google.com/maps/api/staticmap?center=";
       mapUrl = mapUrl + position.coords.latitude + ',' + position.coords.longitude;
       mapUrl = mapUrl + '&zoom=15&size=512x512&maptype=roadmap&sensor=false';
       var imgElement = document.getElementById("static-map");
       imgElement.src = mapUrl;*/
 	  
-/*	  var thelatitude  = position.coords.latitude;
+  var thelatitude  = position.coords.latitude;
 	var thelongitude = position.coords.longitude;
 	localStorage['mylatKey'] = thelatitude;
 	localStorage['mylongKey2'] = thelongitude;
@@ -101,14 +101,14 @@ function successCallback(position) {
   });
 }
 		
-		*/
-		
-		
-		
+	/*		*/
 		
 		
 	  
     }
+	
+	
+	initGeolocation();
 </script>
 
 <!--	-->
@@ -123,6 +123,9 @@ function successCallback(position) {
      <script src="js/iscriptz-function.js"></script>
 </head>
 <body style="background:url(images/grad.png) #32396d repeat-x top" onload="javascript:initGeolocation()">
+
+<!--<key>NSLocationWhenInUseUsageDescription</key>
+<string></string>-->
 
 <center>
 <h2 style="padding-top:135px">WELCOME</h2><br />to<br />
