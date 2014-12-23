@@ -17,6 +17,24 @@
         });
     },5500);
 });
+	
+	
+	
+	
+	
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+console.log(navigator.notification);
+}
+
+function alertDismissed() {
+    // do something
+}
+navigator.notification.alert('WELCOME', alertDismissed, 'Add to Calandar', 'Done')
+	   
+
+
+
 
 </script>
 
@@ -59,7 +77,7 @@
 
 
 <div class="containerlogo">
-    <img id="element" src="images/logo.png" width="40%" /> 
+    <img id="element" src="images/logo.png" onClick="alertDismissed()" width="40%" /> 
 </div>
 
 
