@@ -207,8 +207,10 @@ var alphalvl=BBB[1];
 
 //courts.html?type=Criminal&amp;lvl=Local
 //type.html?lvl=Criminal
-window.top.location.href = "type.html?lvl="+alphatyp; 
-
+switch(alphatyp){
+case "Family": window.top.location.href = "type.html?lvl=Family"; break;
+case "Environmental": window.top.location.href = "type.html?lvl=Environmental"; break;
+default: window.top.location.href = "type.html?lvl="+alphatyp; 
 }
 </script>
 
