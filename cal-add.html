@@ -281,8 +281,44 @@
             // -------------------------------------------------------------------
         });
     </script>
+   
+   
+   
+
+   
+   
+   
      
-     <script type="text/javascript">
+     <script type="text/javascript" charset="utf-8">
+	 
+	 
+	 
+	  // Wait for device API libraries to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // device APIs are available
+    //
+    function onDeviceReady() {
+        // Empty
+    }
+
+    // alert dialog dismissed
+        function alertDismissed() {
+            // do something
+        }
+
+    // Show a custom alertDismissed
+    //
+    function showAlert(msg) {
+        navigator.notification.alert(
+            msg,  // message
+            alertDismissed,         // callback
+            'CALENDAR',            // title
+            'Done'                  // buttonName
+        );
+    }
+
 	 
 	// var courtid = localStorage['courtselected'];
 		//alert(courtid+'!!!!!!'+vpass3);
@@ -372,9 +408,9 @@ if(date > mydate)
 			if(status=="success"){
 			
 			
-				
 			
-			alert("successfully added to court calendar; "+localStorage['courtname']+","+caldate);
+			showAlert("successfully added to court calendar; "+localStorage['courtname']+","+caldate)
+			//alert();
 			
 			 /*navigator.notification.alert(
             'successfully added to court calendar; '+localStorage['courtname']+','+caldate,  // message
