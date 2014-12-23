@@ -226,7 +226,11 @@
    
 
         <script>
-        $(function () {
+       
+	   
+
+	   
+	   $(function () {
 
             function init() {
                 
@@ -366,7 +370,22 @@ if(date > mydate)
   		},
 		  function(data,status){
 			if(status=="success"){
-			alert("successfully added to court calendar; "+localStorage['courtname']+","+caldate);
+			
+			
+			
+				   document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+    console.log(navigator.notification);
+}
+
+var messagez = 'successfully added to court calendar; '+localStorage['courtname']+','+caldate;
+	   
+	   navigator.notification.alert(messagez, alertDismissed, 'Add to Calandar', 'Done')
+	   
+	   
+			
+			
+			//alert();
 			
 			 /*navigator.notification.alert(
             'successfully added to court calendar; '+localStorage['courtname']+','+caldate,  // message
