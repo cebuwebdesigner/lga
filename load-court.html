@@ -113,12 +113,12 @@ function loadit(){
 						var incinfo=0; var arraydata=''; var arraylat=''; var arraylong=''; var arraycourt = '';
                         $.each(data, function(key, val) {
                                 //$('#data'+incinfo).append(val.first_name);
-								if(val.first_name!='null'){
+								
 								arraydata=arraydata+','+val.first_name;
 								arraylat=arraylat+','+val.latitude;
 								arraylong=arraylong+','+val.longitude;
 								arraycourt=arraycourt+','+val.courtid;
-								incinfo++;}
+								incinfo++;
 								
                         });
 					globalX = incinfo;
