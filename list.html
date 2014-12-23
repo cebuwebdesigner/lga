@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="_assets/css/jqm-demos.css">
 
 
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    
 
 <!--     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
 	<link rel="stylesheet" href="css/themes/default/jquery.mobile-1.4.5.min.css">
@@ -241,8 +243,8 @@ window.top.location.href = "type.html?lvl="+alphatyp;
         
         
    <ul data-role="listview" data-filter="true" data-autodividers="true"  data-theme="d" id="data">     
-<script type='text/javascript'>
 
+<script type="text/javascript" charset="utf-8">
 
 var url = window.location.href;
 var params = url.split('?');
@@ -322,11 +324,44 @@ switch(alphatype){
 	
 
 
-	var arraydatadisply = ''; if(globalXX==2){ alert('no entry found'); }
+
+
+
+
+    // Wait for device API libraries to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // device APIs are available
+    //
+    function onDeviceReady() {
+        // Empty
+    }
+
+    // alert dialog dismissed
+        function alertDismissed() {
+            // do something
+        }
+
+    // Show a custom alertDismissed
+    //
+    function showAlert() {
+        navigator.notification.alert(
+            'no entry found',  // message
+            alertDismissed,         // callback
+            'LIST',            // title
+            'Done'                  // buttonName
+        );
+    }
+
+ 
+ 
+
+	var arraydatadisply = ''; if(globalXX==2){  showAlert(); }
 	for($i=2;$i<=globalXX;$i++){
 	var arraydataFF = arraydataZZ[$i].split('!!!');
 	  
-	  if(arraydataFF[3]!=null){
+	  if(arraydataFF[3]!='null'){
 	  document.write('<li><a href="load-closeby.html?url=courts-list.htmlQQQlong='+arraydataFF[2]+'!!!lat='+arraydataFF[1]+'!!!courtid='+arraydataFF[0]+'!!!courtname='+arraydataFF[3]+'!!!r=1" target="_parent" id="data'+$i+'">'+arraydataFF[3]+'</a></li>');
 	}
 	  
