@@ -409,7 +409,13 @@ if(date > mydate)
 			
 			
 			
-			showAlert("successfully added to court calendar; "+localStorage['courtname']+","+caldate)
+			//showAlert("successfully added to court calendar; "+localStorage['courtname']+","+caldate)
+			navigator.notification.alert(
+            'ADDED',  // message
+            alertDismissed,         // callback
+            'CALENDAR',            // title
+            'Done'                  // buttonName
+        	);
 			//alert();
 			
 			 /*navigator.notification.alert(
