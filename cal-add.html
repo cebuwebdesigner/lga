@@ -287,13 +287,38 @@
 
    
    
-   
+        <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
      
      <script type="text/javascript" charset="utf-8">
 	 
 	 
 	 
-	
+	  // Wait for device API libraries to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // device APIs are available
+    //
+    function onDeviceReady() {
+        // Empty
+    }
+
+    // alert dialog dismissed
+        function alertDismissed() {
+            // do something
+        }
+
+    // Show a custom alertDismissed
+    //
+    function showAlert(msg) {
+        navigator.notification.alert(
+            msg,  // message
+            alertDismissed,         // callback
+            'TITLE',            // title
+            'Done'                  // buttonName
+        );
+    }
+
 	 
 	// var courtid = localStorage['courtselected'];
 		//alert(courtid+'!!!!!!'+vpass3);
@@ -382,30 +407,9 @@ if(date > mydate)
 		  function(data,status){
 			if(status=="success"){
 			
-			  // Wait for device API libraries to load
-    //
-    document.addEventListener("deviceready", onDeviceReady, false);
-
-    // device APIs are available
-    //
-    function onDeviceReady() {
-        // Empty
-    }
-
-    // alert dialog dismissed
-        function alertDismissed() {
-            // do something
-        }
-
-   
 			
-			//showAlert("successfully added to court calendar; "+localStorage['courtname']+","+caldate)
-			navigator.notification.alert(
-            'ADDED',  // message
-            alertDismissed,         // callback
-            'CALENDAR',            // title
-            'Done'                  // buttonName
-        	);
+			
+			showAlert("successfully added to court calendar; "+localStorage['courtname']+","+caldate)
 			//alert();
 			
 			 /*navigator.notification.alert(
