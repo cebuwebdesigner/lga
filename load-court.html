@@ -79,14 +79,18 @@ switch(alphatype){
 
 
 	case "Family": 
-	if(alphalevel=="Local"||alphalevel==""){allentry=localStorage['FAML']; }
+	if(alphalevel=="Local"||alphalevel==""){allentry=localStorage['FAML']; 
+	 localStorage['courtlink'] = "list.html?s=A&amp;type=Family";
+	}
 	if(alphalevel=="District"){allentry=localStorage['FAMD']; }
 	if(alphalevel=="Supreme"){allentry=localStorage['FAMS'];}
 	                 break;
 
 
 	case "Environmental": 
-	if(alphalevel=="Local"||alphalevel==""){allentry=localStorage['ENVL']; }
+	if(alphalevel=="Local"||alphalevel==""){allentry=localStorage['ENVL']; 
+	 localStorage['courtlink'] = "list.html?s=A&amp;type=Environmental";
+	 }
 	if(alphalevel=="District"){allentry=localStorage['ENVD']; }
 	if(alphalevel=="Supreme"){allentry=localStorage['ENVS']; }
 	                 break;
@@ -179,14 +183,14 @@ function dataReady() {
 
 
 	case "Family": 
-	if(alphalevel=="Local"){ localStorage['FAML'] = allentry2; }
+	if(alphalevel=="Local"||alphalevel==""){ localStorage['FAML'] = allentry2; }
 	if(alphalevel=="District"){ localStorage['FAMD'] = allentry2; }
 	if(alphalevel=="Supreme"){ localStorage['FAMS'] = allentry2; }
 	                 break;
 
 
 	case "Environmental": 
-	if(alphalevel=="Local"){ localStorage['ENVL'] = allentry2;  }
+	if(alphalevel=="Local"||alphalevel==""){ localStorage['ENVL'] = allentry2;  }
 	if(alphalevel=="District"){ localStorage['ENVD'] = allentry2; }
 	if(alphalevel=="Supreme"){ localStorage['ENVS'] = allentry2; }
 	                 break;
