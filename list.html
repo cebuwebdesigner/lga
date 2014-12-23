@@ -326,38 +326,10 @@ switch(alphatype){
 
 
 
-
-
-    // Wait for device API libraries to load
-    //
-    document.addEventListener("deviceready", onDeviceReady, false);
-
-    // device APIs are available
-    //
-    function onDeviceReady() {
-        // Empty
-    }
-
-    // alert dialog dismissed
-        function alertDismissed() {
-            // do something
-        }
-
-    // Show a custom alertDismissed
-    //
-    function showAlert() {
-        navigator.notification.alert(
-            'no entry found',  // message
-            alertDismissed,         // callback
-            'LIST',            // title
-            'Done'                  // buttonName
-        );
-    }
-
  
  
 
-	var arraydatadisply = ''; if(globalXX==2){  showAlert(); }
+	var arraydatadisply = ''; if(globalXX==2){ alert('no entry found');  }
 	for($i=2;$i<=globalXX;$i++){
 	var arraydataFF = arraydataZZ[$i].split('!!!');
 	  
