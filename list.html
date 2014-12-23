@@ -283,14 +283,14 @@ switch(alphatype){
 
 
 	case "Family": 
-	if(alphalevel=="Local"){allentry=localStorage['FAML']; }
+	if(alphalevel=="Local"||alphalevel==""){allentry=localStorage['FAML']; }
 	if(alphalevel=="District"){allentry=localStorage['FAMD']; }
 	if(alphalevel=="Supreme"){allentry=localStorage['FAMS'];}
 	                 break;
 
 
 	case "Environmental": 
-	if(alphalevel=="Local"){allentry=localStorage['ENVL']; }
+	if(alphalevel=="Local"||alphalevel==""){allentry=localStorage['ENVL']; }
 	if(alphalevel=="District"){allentry=localStorage['ENVD']; }
 	if(alphalevel=="Supreme"){allentry=localStorage['ENVS']; }
 	                 break;

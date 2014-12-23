@@ -79,8 +79,8 @@ switch(alphatype){
 
 
 	case "Family": 
-	if(alphalevel=="Local"||alphalevel==""){allentry=localStorage['FAML']; 
-	 localStorage['courtlink'] = "list.html?s=A&amp;type=Family";
+	if(alphalevel=="Family"){allentry=localStorage['FAML']; 
+	 localStorage['courtlink'] = "list.html?s=A&amp;type=Family&amp;lvl=Local"; 
 	}
 	if(alphalevel=="District"){allentry=localStorage['FAMD']; }
 	if(alphalevel=="Supreme"){allentry=localStorage['FAMS'];}
@@ -88,8 +88,8 @@ switch(alphatype){
 
 
 	case "Environmental": 
-	if(alphalevel=="Local"||alphalevel==""){allentry=localStorage['ENVL']; 
-	 localStorage['courtlink'] = "list.html?s=A&amp;type=Environmental";
+	if(alphalevel=="Environmental"){allentry=localStorage['ENVL']; 
+	 localStorage['courtlink'] = "list.html?s=A&amp;type=Environmental&amp;lvl=Local"; 
 	 }
 	if(alphalevel=="District"){allentry=localStorage['ENVD']; }
 	if(alphalevel=="Supreme"){allentry=localStorage['ENVS']; }

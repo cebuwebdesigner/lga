@@ -60,35 +60,7 @@
      
      
      <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-    <script type="text/javascript" charset="utf-8">
-
-    // Wait for device API libraries to load
-    //
-    document.addEventListener("deviceready", onDeviceReady, false);
-
-    // device APIs are available
-    //
-    function onDeviceReady() {
-        // Empty
-    }
-
-    // alert dialog dismissed
-        function alertDismissed() {
-            // do something
-        }
-
-    // Show a custom alertDismissed
-    //
-    function showAlert() {
-        navigator.notification.alert(
-            'WELCOME',  // message
-            alertDismissed,         // callback
-            'TITLE',            // title
-            'Done'                  // buttonName
-        );
-    }
-
-    </script>
+   
     
    <!-- <a href="#" onclick="showAlert(); return false;">dialog</a>-->
 </head>
@@ -127,22 +99,22 @@
 <br style="clear:both">
 
 
-<!--<div style="width:40%; padding:5%; float:left; text-align:center">
-<a href="type.html?lvl=Family" target="_parent" data-transition="pop" ><img src="images/family.png" width="80%" /></a>
+<div style="width:40%; padding:5%; float:left; text-align:center">
+<a href="type2.html?lvl=Family" target="_parent" data-transition="pop" ><img src="images/family.png" width="80%" /></a>
 </div>
 
 <div style="width:40%; padding:5%; float:left; text-align:center">
-<a href="type.html?lvl=Environmental" target="_parent" data-transition="pop" ><img src="images/environmental.png" width="80%" /></a>
+<a href="type2.html?lvl=Environmental" target="_parent" data-transition="pop" ><img src="images/environmental.png" width="80%" /></a>
+</div>
+
+
+<!--<div style="width:40%; padding:5%; float:left; text-align:center"  >
+<a href="#" data-transition="pop" ><img   onclick="edit2('Family')" src="images/family.png" width="80%" /></a>
+</div>
+
+<div style="width:40%; padding:5%; float:left; text-align:center" >
+<a href="#"  data-transition="pop" ><img onclick="edit2('Environmental')" src="images/environmental.png" width="80%" /></a>
 </div>-->
-
-
-<div style="width:40%; padding:5%; float:left; text-align:center">
-<a href="load-court.html?lvl=Family" target="_parent" data-transition="pop" ><img src="images/family.png" width="80%" /></a>
-</div>
-
-<div style="width:40%; padding:5%; float:left; text-align:center">
-<a href="load-court.html?lvl=Environmental" target="_parent" data-transition="pop" ><img src="images/environmental.png" width="80%" /></a>
-</div>
 
 
 
