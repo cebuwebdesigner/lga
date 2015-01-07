@@ -4,12 +4,30 @@
 <title>User-generated DB (PG Storage Example)</title>
 <meta name="viewport" content="width=device-width, initial-scale = 1.0, user-scalable = no">
 <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+
+
 <script type="text/javascript" charset="utf-8">
 
+function onDeviceReady() { 
+ persistData(data1, data2, data3);
+}
+</script>
+
+</head>
+<body>
+<textarea id="output" rows="15" placeholder="Results displayed here"></textarea> 
+
+
+
+<script type="text/javascript" charset="utf-8">
 var dbname= "STABLEAPP2";
+
+
 //id TEXT NOT NULL, data1 TEXT NULL, data2 TEXT NULL, data3 TEXT NULL
 
 function startDB() {
+	
+	
  var db = window.openDatabase("Database", "1.0", dbname, 2000000);
  db.transaction(populateDB, errorCB, successCB);
 }
@@ -18,24 +36,19 @@ function startDB() {
 
 
 
-function populateDB(tx){
-
-var formdata1Get = 'my data 1'; // get data from localStorage
-var formdata2Get = 'my data 2';
-var formdata3Get = 'my data 3';
-var new_idGet = '1';
-
-
-tx.executeSql('CREATE TABLE IF NOT EXISTS '+dbname+' (id TEXT NOT NULL, data1 TEXT NULL, data2 TEXT NULL, data3 TEXT NULL)'); 
-
-tx.executeSql('INSERT INTO DEMO (id, data1, data2, data3) VALUES (\"' + new_idGet + '\"' + ', \"' + formdata1Get + '\", \"' + formdata2Get + '\", \"' + formdata3Get + '\")');
-
-queryDB(tx);
-
-
-
+function populateDB(tx) {
+ var formdata1Get = 'formdata1Set'; // get data from localStorage
+ var formdata2Get = 'formdata2Set';
+ var formdata3Get = 'formdata3Set';
+ var new_idGet = localStorage.getItem('new_idSet');
+// if no data has been entered, show note and stop the process
+ if (formdata1Get.length < 1 && formdata2Get.length < 1 && formdata3Get.length < 1) { 
+ document.getElementById("output").innerHTML = "\nPLEASE ENTER DATA"; return false; 
+ }
+ tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id TEXT NOT NULL, data1 TEXT NULL, data2 TEXT NULL, data3 TEXT NULL)'); 
+ tx.executeSql('INSERT INTO DEMO (id, data1, data2, data3) VALUES (\"' + new_idGet + '\"' + ', \"' + formdata1Get + '\", \"' + formdata2Get + '\", \"' + formdata3Get + '\")');
+ queryDB(tx);
 }
-
 
 
 
@@ -53,10 +66,15 @@ for (var i = 0; i < len; i++) {
  "\ndata1 = " + results.rows.item(i).data1 +
  "\ndata2 = " + results.rows.item(i).data2 +
  "\ndata3 = " + results.rows.item(i).data3 + "\n";*/
-document.getElementById("output").innerHTML += "\nID = " + results.rows.item(i).id +
+
+  var rowid = results.rows.item(i).id;
+// Display the query results within <textarea id="output"></textarea>
+ document.getElementById("output").innerHTML += "\nID = " + results.rows.item(i).id +
  "\ndata1 = " + results.rows.item(i).data1 +
  "\ndata2 = " + results.rows.item(i).data2 +
  "\ndata3 = " + results.rows.item(i).data3 + "\n";
+
+ 
 }
  
  alert(thedata);
@@ -99,18 +117,38 @@ function errorCB(err) {
 
 
 
-
-function onDeviceReady() { 
- //persistData(data1, data2, data3);
- startDB();
+function persistData(data1, data2, data3) {
+// get form entries
+ var form = document.getElementById("userInput"); 
+ var formdata1 = form.data1.value;
+ var formdata2 = form.data2.value;
+ var formdata3 = form.data3.value;
+// set value if input was blank
+ if (formdata1 === "undefined") { formdata1 = "" }; 
+ if (formdata2 === "undefined") { formdata2 = "" };
+ if (formdata3 === "undefined") { formdata3 = "" };
+// check form entries on console
+ console.log("data1 = " + formdata1); 
+ console.log("data2 = " + formdata2);
+ console.log("data3 = " + formdata3);
+// key, value pair into localStorage
+ localStorage.setItem('formdata1Set', formdata1); 
+ localStorage.setItem('formdata2Set', formdata2); 
+ localStorage.setItem('formdata3Set', formdata3);
+// set the current time as the id to make it unique id
+ var d = new Date();
+ var new_id = d.getTime();
+ localStorage.setItem('new_idSet', new_id);
+// proceed to next function
+ startDB(); 
 }
 
 
 
 
+
+
+
 </script>
-</head>
-<body>
-<textarea id="output" rows="15" placeholder="Results displayed here"></textarea> 
 </body>
 </html>
