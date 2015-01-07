@@ -28,9 +28,9 @@ Perhaps get it from: http://rickharrison.github.io/validate.js/ */
 function persistData(data1, data2, data3) {
 // get form entries
 // var form = document.getElementById("userInput"); 
- var formdata1 = 'testA';
- var formdata2 = 'testB';
- var formdata3 = 'testC';
+ var formdata1 = 'newA';
+ var formdata2 = 'newB';
+ var formdata3 = 'newC';
 // set value if input was blank
  if (formdata1 === "undefined") { formdata1 = "" }; 
  if (formdata2 === "undefined") { formdata2 = "" };
@@ -67,15 +67,19 @@ function populateDB(tx) {
  if (formdata1Get.length < 1 && formdata2Get.length < 1 && formdata3Get.length < 1) { 
  document.getElementById("output").innerHTML = "\nPLEASE ENTER DATA"; return false; 
  }
- tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id TEXT NOT NULL, data1 TEXT NULL, data2 TEXT NULL, data3 TEXT NULL)'); 
- tx.executeSql('INSERT INTO DEMO (id, data1, data2, data3) VALUES (\"' + new_idGet + '\"' + ', \"' + formdata1Get + '\", \"' + formdata2Get + '\", \"' + formdata3Get + '\")');
+ tx.executeSql('CREATE TABLE IF NOT EXISTS STUMBLEAPP (id TEXT NOT NULL, data1 TEXT NULL, data2 TEXT NULL, data3 TEXT NULL)'); 
+ 
+ 
+ if(localStorage['datastored']==""){
+ tx.executeSql('INSERT INTO STUMBLEAPP (id, data1, data2, data3) VALUES (\"' + new_idGet + '\"' + ', \"' + formdata1Get + '\", \"' + formdata2Get + '\", \"' + formdata3Get + '\")');}
+ 
  queryDB(tx);
 }
 
 // Execute the query, grabbing all the data
 
 function queryDB(tx) {
- tx.executeSql("SELECT * FROM DEMO", [], querySuccess, errorCB);
+ tx.executeSql("SELECT * FROM STUMBLEAPP", [], querySuccess, errorCB);
 }
 
 function querySuccess(tx, results) {
@@ -84,7 +88,7 @@ function querySuccess(tx, results) {
 // set output, output2 to blank so values are not appended to previous values
 
 // loop through rows as many times as there are row results
-var documentHTML;
+var documentHTML='';
  for (var i = 0; i < len; i++) { 
  var rowid = results.rows.item(i).id;
 // Display the query results within <textarea id="output"></textarea>
@@ -97,7 +101,7 @@ var documentHTML;
 
  console.log("rowid = " + rowid); 
  }
- 
+ localStorage['datastored']=documentHTML;
  alert(documentHTML);
 // reset form input fields to blank
 }
@@ -109,7 +113,7 @@ function showDB(tx) {
  db.transaction(createDB, errorCB, successCB);
 }
 function createDB(tx) {
- tx.executeSql("SELECT * FROM DEMO", [], querySuccess, errorCB);
+ tx.executeSql("SELECT * FROM STUMBLEAPP", [], querySuccess, errorCB);
 }
 
 // Delete a row in the DB from button
@@ -118,7 +122,7 @@ function delRecord(rowid) {
  var db = window.openDatabase("Database", "1.0", "STUMBLEAPP", 2000000);
  db.transaction(
  function (tx) {
- tx.executeSql("DELETE FROM demo WHERE id = ?", [rowid]);
+ tx.executeSql("DELETE FROM STUMBLEAPP WHERE id = ?", [rowid]);
  }
  ); 
 
@@ -178,13 +182,15 @@ function dropDb() {
  db.transaction(dropDatabase, errorCB, successCB);
 }
 function dropDatabase(tx) {
- tx.executeSql('DROP TABLE IF EXISTS DEMO');
+ tx.executeSql('DROP TABLE IF EXISTS STUMBLEAPP');
  console.log("_______ Table Dropped! _______");
 }
 
 // Show the DB contents on page load
 showDB(); 
+dropDb();
 persistData();
+
 </script>
 </body>
 </html>
