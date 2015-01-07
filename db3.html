@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale = 1.0, user-scalable = no">
 <script type="text/javascript" charset="utf-8" src="cordova.js"></script><!--  -->
 <script type="text/javascript" charset="utf-8">
-localStorage['dbstored']='1';
+
 function onDeviceReady() { 
  persistData(data1, data2, data3);
 
@@ -77,7 +77,7 @@ function populateDB(tx) {
  tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id TEXT NOT NULL, data1 TEXT NULL, data2 TEXT NULL, data3 TEXT NULL)'); 
 
 
-if(localStorage['dbstored']!=""){
+if(localStorage['mySettings']!=""){
 tx.executeSql('INSERT INTO DEMO (id, data1, data2, data3) VALUES (\"' + new_idGet + '\"' + ', \"' + formdata1Get + '\", \"' + formdata2Get + '\", \"' + formdata3Get + '\")'); }
 
 
