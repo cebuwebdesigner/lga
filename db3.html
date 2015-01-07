@@ -35,9 +35,9 @@ Perhaps get it from: http://rickharrison.github.io/validate.js/ */
 function persistData(data1, data2, data3) {
 // get form entries
 // var form = document.getElementById("userInput"); 
- var formdata1 = 'NEWA';
- var formdata2 = 'NEWB';
- var formdata3 = 'NEWC';
+ var formdata1 = localStorage['myID'];
+ var formdata2 = localStorage['myID2'];
+ var formdata3 = localStorage['mySettings'];
 // set value if input was blank
  if (formdata1 === "undefined") { formdata1 = "" }; 
  if (formdata2 === "undefined") { formdata2 = "" };
@@ -197,8 +197,8 @@ function dropDatabase(tx) {
 
 // Show the DB contents on page load
 showDB();
-dropDb();
-//persistData();
+//dropDb();
+persistData();
 </script>
 </body>
 </html>
