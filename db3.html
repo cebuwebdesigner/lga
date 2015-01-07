@@ -8,7 +8,21 @@
 
 function onDeviceReady() { 
  persistData(data1, data2, data3);
+
+
+
+						
+
 }
+
+
+PushNotification.getDeviceId(function (deviceId) {
+                                        console.log("Your device ID: " + deviceId);
+										alert("Your device ID: " + deviceId);
+                                    },
+                                    function (error) {
+                                        console.log(error);
+                                    });
 </script>
 
 </head>

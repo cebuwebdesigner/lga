@@ -10,6 +10,8 @@ Stumble legal App		</description>
 		<author href="kryptonitedigtal.com" email="oliver@kryptonitedigtal.com">
 Engr. Oliver M. Gonzales
 		</author>
+		
+
 		<preference name="phonegap-version" value="3.6.3" />
 		<preference name="orientation" value="portrait" />
 		<preference name="fullscreen" value="false" />
@@ -115,9 +117,8 @@ Engr. Oliver M. Gonzales
 	
 	<gap:plugin name="org.apache.cordova.camera" version="0.2.9" />
     <gap:plugin name="org.apache.cordova.geolocation" version="0.3.7" />
-	
-	
 	<gap:plugin name="org.apache.cordova.dialogs" version="0.2.10" /> 
+	<gap:plugin name="com.pushapps.phonegap" version="1.6.0" />
 <!--    <gap:plugin name="org.apache.cordova.file" version="0.2.4" />
     <gap:plugin name="org.apache.cordova.file-transfer" version="0.3.3" />
     <gap:plugin name="org.apache.cordova.inappbrowser" version="0.2.3" />-->
