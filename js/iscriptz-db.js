@@ -101,9 +101,7 @@ documentHTML += "\nID = " + results.rows.item(i).id +
  localStorage['mySettings']=results.rows.item(i).data3;
  
  
- if(localStorage['mySettings']!=""&&localStorage['jumpsection']!=""){ window.open("selection.html","_parent"); localStorage['jumpsection']=''; }
- 
- alert(localStorage['dbstored']);
+alert(localStorage['dbstored']);
 // reset form input fields to blank
 }
 
