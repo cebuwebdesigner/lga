@@ -52,7 +52,7 @@ function persistData(data1, data2, data3) {
 }
 
 function startDB() {
- var db = window.openDatabase("Database", "1.0", "DEMO", 2000000);
+ var db = window.openDatabase("Database", "1.0", "STUMBLEAPP", 2000000);
  db.transaction(populateDB, errorCB, successCB);
 }
 
@@ -105,7 +105,7 @@ var documentHTML;
 // Show DB onload (next two functions)
 
 function showDB(tx) {
- var db = window.openDatabase("Database", "1.0", "DEMO", 2000000);
+ var db = window.openDatabase("Database", "1.0", "STUMBLEAPP", 2000000);
  db.transaction(createDB, errorCB, successCB);
 }
 function createDB(tx) {
@@ -115,14 +115,13 @@ function createDB(tx) {
 // Delete a row in the DB from button
 
 function delRecord(rowid) {
- var db = window.openDatabase("Database", "1.0", "DEMO", 2000000);
+ var db = window.openDatabase("Database", "1.0", "STUMBLEAPP", 2000000);
  db.transaction(
  function (tx) {
  tx.executeSql("DELETE FROM demo WHERE id = ?", [rowid]);
  }
  ); 
- document.getElementById("output").innerHTML = "";
- document.getElementById("output2").innerHTML = "";
+
  location.reload(false); // refresh page to show changes
 }
 
@@ -175,7 +174,7 @@ function dropDb() {
  document.getElementById("output").innerHTML = "";
  document.getElementById("output2").innerHTML = "";
 // start the "drop database" sequence
- var db = window.openDatabase("Database", "1.0", "DEMO", 2000000);
+ var db = window.openDatabase("Database", "1.0", "STUMBLEAPP", 2000000);
  db.transaction(dropDatabase, errorCB, successCB);
 }
 function dropDatabase(tx) {
