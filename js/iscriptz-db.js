@@ -20,11 +20,21 @@ function populateDB(tx){
 var formdata1Get = 'my data 1'; // get data from localStorage
 var formdata2Get = 'my data 2';
 var formdata3Get = 'my data 3';
-var new_idGet = '0';
+
 
 
 tx.executeSql('CREATE TABLE IF NOT EXISTS '+dbname+' (id TEXT NOT NULL, data1 TEXT NULL, data2 TEXT NULL, data3 TEXT NULL)'); 
 
+var new_idGet = 0;
+tx.executeSql('INSERT INTO DEMO (id, data1, data2, data3) VALUES (\"' + new_idGet + '\"' + ', \"' + formdata1Get + '\", \"' + formdata2Get + '\", \"' + formdata3Get + '\")');
+
+
+var formdata1Get = 'my data 1b'; // get data from localStorage
+var formdata2Get = 'my data 2b';
+var formdata3Get = 'my data 3b';
+
+
+var new_idGet = '1';
 tx.executeSql('INSERT INTO DEMO (id, data1, data2, data3) VALUES (\"' + new_idGet + '\"' + ', \"' + formdata1Get + '\", \"' + formdata2Get + '\", \"' + formdata3Get + '\")');
 
 queryDB(tx);
@@ -44,13 +54,13 @@ function queryDB(tx) {
 function querySuccess(tx, results) {
  var len = results.rows.length;
  
- i =0;
+ var i =0;
  var thedata = "\nID = " + results.rows.item(i).id +
  "\ndata1 = " + results.rows.item(i).data1 +
  "\ndata2 = " + results.rows.item(i).data2 +
  "\ndata3 = " + results.rows.item(i).data3 + "\n";
  
- 
+  alert(i);
  alert(thedata);
  console.log("_______ Success! _______");
 }
