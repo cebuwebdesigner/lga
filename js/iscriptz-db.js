@@ -9,24 +9,27 @@ function startDB() {
 
 
 
+
+
+
+
+
+
 function populateDB(tx){
 
-var formdata1Get = localStorage['myID']; // get data from localStorage
-var formdata2Get = localStorage['myID2'];
-var formdata3Get = localStorage['mySettings'];
+var formdata1Get = 'my data 1'; // get data from localStorage
+var formdata2Get = 'my data 2';
+var formdata3Get = 'my data 3';
 var new_idGet = '1';
 
 
 tx.executeSql('CREATE TABLE IF NOT EXISTS '+dbname+' (id TEXT NOT NULL, data1 TEXT NULL, data2 TEXT NULL, data3 TEXT NULL)'); 
 
-
-
-if(localStorage['myID2']!=""){
-tx.executeSql('INSERT INTO '+dbname+' (id, data1, data2, data3) VALUES (\"' + new_idGet + '\"' + ', \"' + formdata1Get + '\", \"' + formdata2Get + '\", \"' + formdata3Get + '\")');}
-
-
+tx.executeSql('INSERT INTO DEMO (id, data1, data2, data3) VALUES (\"' + new_idGet + '\"' + ', \"' + formdata1Get + '\", \"' + formdata2Get + '\", \"' + formdata3Get + '\")');
 
 queryDB(tx);
+
+
 
 }
 
@@ -41,28 +44,17 @@ function queryDB(tx) {
 function querySuccess(tx, results) {
  var len = results.rows.length;
  
- var i =3;
- /*var thedata = results.rows.item(i).id;*/
+ i =0;
  var thedata = "\nID = " + results.rows.item(i).id +
  "\ndata1 = " + results.rows.item(i).data1 +
  "\ndata2 = " + results.rows.item(i).data2 +
  "\ndata3 = " + results.rows.item(i).data3 + "\n";
-
-var theinfo = results.rows.item(i).data1;
-alert(thedata);
-
-localStorage['myID'] = results.rows.item(i).data1; // get data from localStorage
-localStorage['myID2'] = results.rows.item(i).data2;
-localStorage['mySettings'] = results.rows.item(i).data3;
-
-
-
-
-
-//if(theinfo==""){window.open("intro.html","_parent");}else{window.open("selection.html","_parent");}
-// console.log("_______ Success! _______");
-
+ 
+ 
+ alert(thedata);
+ console.log("_______ Success! _______");
 }
+
 
 
 
@@ -73,7 +65,6 @@ function successCB() {
 function errorCB(err) {
  if (err.code == "0") {
  console.log("0 - UNKNOWN_ERR: The transaction failed for reasons unrelated to the database itself and not covered by any other error code.");
-// window.open("intro.html","_parent");
  }
  if (err.code == "1") {
  console.log("1 - DATABASE_ERR: The statement failed for database reasons not covered by any other error code.");
@@ -96,7 +87,6 @@ function errorCB(err) {
  if (err.code == "7") {
  console.log("7 - TIMEOUT_ERR: A lock for the transaction could not be obtained in a reasonable time.");
  }
- //alert(err.code);
 }
 
 
