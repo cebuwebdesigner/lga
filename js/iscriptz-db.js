@@ -93,7 +93,17 @@ documentHTML += "\nID = " + results.rows.item(i).id +
  console.log("rowid = " + rowid); 
  }
  localStorage['dbstored'] = documentHTML;
- alert(localStorage['dbstored']);
+ 
+ 
+ 
+ localStorage['myID']=results.rows.item(i).data1;
+ localStorage['myID2']=results.rows.item(i).data2;
+ localStorage['mySettings']=results.rows.item(i).data3;
+ 
+ 
+ if(localStorage['mySettings']!=""&&localStorage['jumpsection']!=""){ window.open("selection.html","_parent"); localStorage['jumpsection']='jumpit'; }
+ 
+ //alert(localStorage['dbstored']);
 // reset form input fields to blank
 }
 
