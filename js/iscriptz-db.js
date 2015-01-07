@@ -73,7 +73,7 @@ function successCB() {
 function errorCB(err) {
  if (err.code == "0") {
  console.log("0 - UNKNOWN_ERR: The transaction failed for reasons unrelated to the database itself and not covered by any other error code.");
- window.open("intro.html","_parent");
+// window.open("intro.html","_parent");
  }
  if (err.code == "1") {
  console.log("1 - DATABASE_ERR: The statement failed for database reasons not covered by any other error code.");
