@@ -6,13 +6,18 @@
 <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 <script type="text/javascript" charset="utf-8">
 
-dbname= "STABLEAPP2";
+dbname= "STABLEAPP";
 //id TEXT NOT NULL, data1 TEXT NULL, data2 TEXT NULL, data3 TEXT NULL
 
 function startDB() {
  var db = window.openDatabase("Database", "1.0", dbname, 2000000);
  db.transaction(populateDB, errorCB, successCB);
 }
+
+
+
+
+
 
 
 
