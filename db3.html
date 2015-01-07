@@ -6,7 +6,7 @@
 <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 <script type="text/javascript" charset="utf-8">
 
-dbname= "STABLEAPP2";
+var dbname= "STABLEAPP2";
 //id TEXT NOT NULL, data1 TEXT NULL, data2 TEXT NULL, data3 TEXT NULL
 
 function startDB() {
@@ -46,14 +46,18 @@ function queryDB(tx) {
 
 function querySuccess(tx, results) {
  var len = results.rows.length;
-  alert(len);
- 
- var i =0;
- var thedata = "\nID = " + results.rows.item(i).id +
+ // alert(len);
+  var thedata ='';
+for (var i = 0; i < len; i++) { 
+/* thedata = thedata+"\nID = " + results.rows.item(i).id +
+ "\ndata1 = " + results.rows.item(i).data1 +
+ "\ndata2 = " + results.rows.item(i).data2 +
+ "\ndata3 = " + results.rows.item(i).data3 + "\n";*/
+document.getElementById("output").innerHTML += "\nID = " + results.rows.item(i).id +
  "\ndata1 = " + results.rows.item(i).data1 +
  "\ndata2 = " + results.rows.item(i).data2 +
  "\ndata3 = " + results.rows.item(i).data3 + "\n";
- 
+}
  
  alert(thedata);
  //console.log("_______ Success! _______");
@@ -95,11 +99,18 @@ function errorCB(err) {
 
 
 
-startDB();
+
+function onDeviceReady() { 
+ //persistData(data1, data2, data3);
+ startDB();
+}
+
+
+
 
 </script>
 </head>
 <body>
-
+<textarea id="output" rows="15" placeholder="Results displayed here"></textarea> 
 </body>
 </html>
