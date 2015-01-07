@@ -59,7 +59,7 @@ localStorage['mySettings'] = results.rows.item(i).data3;
 
 
 
-if(theinfo==""){window.open("intro.html","_parent");}else{window.open("selection.html","_parent");}
+//if(theinfo==""){window.open("intro.html","_parent");}else{window.open("selection.html","_parent");}
 // console.log("_______ Success! _______");
 
 }
