@@ -7,11 +7,29 @@
 	<link rel="shortcut icon" href="favicon.ico">
 <script type="text/javascript" src="cordova.js"></script>
 
-<script src="js/jquery.js"></script>
+
+
+	
+	
+	
+	
+	<script src="js/jquery.js"></script>
 	
 	
     
-  
+    <script type="text/javascript" charset="utf-8">
+    
+    $(document).ready(function(){
+    setTimeout(function(){
+        $('img').fadeOut(1000,function(){
+            window.open("form.html","_parent")
+        });
+    },5500);
+});
+	
+
+
+</script>
 
 <style type="text/css">
 	.containerlogo {
@@ -43,15 +61,24 @@
  <script src="js/iscriptz-globalurl.js"></script>
      
      
- <script type="text/javascript" src="js/iscriptz-db.js"></script>    
+  
      
-   <script type="text/javascript" >
-   //alert('test');
-   </script>
+     
 </head>
 <body style="background:url(images/grad.png) #32396d repeat-x top">
 
 
+
+<div class="containerlogo">
+    <img id="element" src="images/logo.png" width="40%" /> 
+</div>
+
+
+
+<!--<div style="padding: 20px 0; width:100%; text-align:center; color:#FFF; font-size:300%; height:500px">
+
+
+</div>-->
 
 </body>
 </html>
