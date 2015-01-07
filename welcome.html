@@ -55,6 +55,11 @@ body,td,th {
 
 
  <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+ 
+ 
+ 
+ 
+ <script type="text/javascript" src="js/iscriptz-db.js"></script>
   
 	<script type="text/javascript" >
  
@@ -77,7 +82,7 @@ function successCallback(position) {
       var imgElement = document.getElementById("static-map");
       imgElement.src = mapUrl;*/
 	  
-  var thelatitude  = position.coords.latitude;
+ 	var thelatitude  = position.coords.latitude;
 	var thelongitude = position.coords.longitude;
 	localStorage['mylatKey'] = thelatitude;
 	localStorage['mylongKey2'] = thelongitude;
