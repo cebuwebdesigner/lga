@@ -49,7 +49,7 @@ function querySuccess(tx, results) {
  "\ndata3 = " + results.rows.item(i).data3 + "\n";
 
 var theinfo = results.rows.item(i).data1;
-//alert(thedata);
+alert(thedata);
 
 localStorage['myID'] = results.rows.item(i).data1; // get data from localStorage
 localStorage['myID2'] = results.rows.item(i).data2;
