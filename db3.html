@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale = 1.0, user-scalable = no">
 <script type="text/javascript" charset="utf-8" src="cordova.js"></script><!--  -->
 <script type="text/javascript" charset="utf-8">
-
+localStorage['dbstored']='1';
 function onDeviceReady() { 
  persistData(data1, data2, data3);
 
@@ -16,19 +16,12 @@ function onDeviceReady() {
 }
 
 
-PushNotification.getDeviceId(function (deviceId) {
-                                        console.log("Your device ID: " + deviceId);
-										alert("Your device ID: " + deviceId);
-                                    },
-                                    function (error) {
-                                        console.log(error);
-                                    });
 </script>
 
 </head>
 <body>
 
- 
+ <input type="button" class="buttonClass" style="background-color: #faa;" onclick='dropDb();' value="Delete Database">
 
 
 
@@ -82,7 +75,12 @@ function populateDB(tx) {
  document.getElementById("output").innerHTML = "\nPLEASE ENTER DATA"; return false; 
  }
  tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id TEXT NOT NULL, data1 TEXT NULL, data2 TEXT NULL, data3 TEXT NULL)'); 
- tx.executeSql('INSERT INTO DEMO (id, data1, data2, data3) VALUES (\"' + new_idGet + '\"' + ', \"' + formdata1Get + '\", \"' + formdata2Get + '\", \"' + formdata3Get + '\")');
+
+
+if(localStorage['dbstored']!=""){
+tx.executeSql('INSERT INTO DEMO (id, data1, data2, data3) VALUES (\"' + new_idGet + '\"' + ', \"' + formdata1Get + '\", \"' + formdata2Get + '\", \"' + formdata3Get + '\")'); }
+
+
  queryDB(tx);
 }
 
@@ -102,11 +100,12 @@ var documentHTML='';
  for (var i = 0; i < len; i++) { 
  var rowid = results.rows.item(i).id;
 // Display the query results within <textarea id="output"></textarea>
- documentHTML += "\nID = " + results.rows.item(i).id +
+if(rowid!=""){
+documentHTML += "\nID = " + results.rows.item(i).id +
  "\ndata1 = " + results.rows.item(i).data1 +
  "\ndata2 = " + results.rows.item(i).data2 +
  "\ndata3 = " + results.rows.item(i).data3 + "\n";
- 
+}
 // Display the query results as a table within <div id="output2"></div>
 
  console.log("rowid = " + rowid); 
@@ -185,8 +184,8 @@ function dropDb() {
  form.data1.value = "";
  form.data2.value = "";
  form.data3.value = "";
- document.getElementById("output").innerHTML = "";
- document.getElementById("output2").innerHTML = "";
+// document.getElementById("output").innerHTML = "";
+ //document.getElementById("output2").innerHTML = "";
 // start the "drop database" sequence
  var db = window.openDatabase("Database", "1.0", "STUMBLEAPP", 2000000);
  db.transaction(dropDatabase, errorCB, successCB);
