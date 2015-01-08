@@ -95,11 +95,10 @@ documentHTML += "\nID = " + results.rows.item(i).id +
  localStorage['dbstored'] = documentHTML;
  
  
- 
+
  localStorage['myID']=results.rows.item(i).data1;
  localStorage['myID2']=results.rows.item(i).data2;
- localStorage['mySettings']=results.rows.item(i).data3;
- 
+ if(localStorage['myID2']!=""){ localStorage['mySettings']=results.rows.item(i).data3; }
  
 //alert(localStorage['dbstored']);
 // reset form input fields to blank
