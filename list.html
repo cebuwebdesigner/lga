@@ -208,12 +208,12 @@ var alphalvl=BBB[1];
 //courts.html?type=Criminal&amp;lvl=Local
 //type.html?lvl=Criminal
 switch(alphatyp){
-//case "Family": window.top.location.href = "selection.html"; break;
+case "Family": window.top.location.href = "type3.html"; break;
 case "Environmental": window.top.location.href = "selection.html"; break;
  
 }
-//alphatyp!="Family"&&
-if(alphatyp!="Environmental"){
+//
+if(alphatyp!="Family"&&alphatyp!="Environmental"){
 window.top.location.href = "type.html?lvl="+alphatyp;
 }
 
