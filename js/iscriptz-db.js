@@ -101,7 +101,7 @@ documentHTML += "\nID = " + results.rows.item(i).id +
  localStorage['mySettings']=results.rows.item(i).data3;
  
  
-alert(localStorage['dbstored']);
+//alert(localStorage['dbstored']);
 // reset form input fields to blank
 }
 

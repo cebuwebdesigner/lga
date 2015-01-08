@@ -440,7 +440,15 @@ $.post(hostserver+"settings.php",
 <img src="images/divider.png" style="width:200%; margin-left:-50%; height:3px" />
 <div>
 <center>
-<a href="form.html" target="_parent" style="width:90%" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ">LOGOUT</a>
+<script>
+function logiut() {
+	localStorage['myID'] = '';
+	localStorage['myID2'] = '';
+ 	localStorage['mySettings'] = '';
+	window.top.location.href = "form.html";
+	}
+</script>
+<a href="#" onclick="logiut()"  style="width:90%" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ">LOGOUT</a>
 </center>
 </form>
 
