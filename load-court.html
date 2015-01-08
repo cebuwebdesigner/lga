@@ -79,20 +79,21 @@ switch(alphatype){
 
 
 	case "Family": 
-	if(alphalevel=="Family"){allentry=localStorage['FAML']; 
-	 localStorage['courtlink'] = "list.html?s=A&amp;type=Family&amp;lvl=Local"; 
-	}
-	if(alphalevel=="District"){allentry=localStorage['FAMD']; }
+	if(alphalevel=="Family%20Court"){allentry=localStorage['FAML']; }
+	if(alphalevel=="Federal%20Magistrate%20Court"){allentry=localStorage['FAMD']; }
 	if(alphalevel=="Supreme"){allentry=localStorage['FAMS'];}
+	
 	                 break;
 
 
 	case "Environmental": 
-	if(alphalevel=="Environmental"){allentry=localStorage['ENVL']; 
+	//if(alphatype=="Environmental"){
+	 allentry=localStorage['ENVL']; 
 	 localStorage['courtlink'] = "list.html?s=A&amp;type=Environmental&amp;lvl=Local"; 
-	 }
-	if(alphalevel=="District"){allentry=localStorage['ENVD']; }
-	if(alphalevel=="Supreme"){allentry=localStorage['ENVS']; }
+	
+	// }
+	//if(alphalevel=="District"){allentry=localStorage['ENVD']; }
+	//if(alphalevel=="Supreme"){allentry=localStorage['ENVS']; }
 	                 break;
 
 
@@ -112,6 +113,7 @@ function loadit(){
  var hostserver= localStorage['globalurl'];
 //var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
 /* call the php that has the php array which is json_encoded */
+                    //alert(hostserver+'court.php?list='+alphastart+'&typez='+alphatype+'&levelz='+alphalevel+'&r=1');
                 $.getJSON(hostserver+'court.php?list='+alphastart+'&typez='+alphatype+'&levelz='+alphalevel+'&r=1', function(data) {
                         /* data will hold the php array as a javascript object */
 						var incinfo=0; var arraydata=''; var arraylat=''; var arraylong=''; var arraycourt = '';
@@ -125,7 +127,7 @@ function loadit(){
 								incinfo++;
 								
                         });
-					globalX = incinfo;
+					globalX = incinfo; //alert(globalX)
 					arraydataX = arraydata;
 					arraydataZZ = arraylat;
 					arraydataZZZ = arraylong;
@@ -183,16 +185,17 @@ function dataReady() {
 
 
 	case "Family": 
-	if(alphalevel=="Local"||alphalevel==""){ localStorage['FAML'] = allentry2; }
-	if(alphalevel=="District"){ localStorage['FAMD'] = allentry2; }
+	if(alphalevel=="Family%20Court"){ localStorage['FAML'] = allentry2; }
+	if(alphalevel=="Federal%20Magistrate%20Court"){ localStorage['FAMD'] = allentry2; }
 	if(alphalevel=="Supreme"){ localStorage['FAMS'] = allentry2; }
 	                 break;
 
 
 	case "Environmental": 
-	if(alphalevel=="Local"||alphalevel==""){ localStorage['ENVL'] = allentry2;  }
-	if(alphalevel=="District"){ localStorage['ENVD'] = allentry2; }
-	if(alphalevel=="Supreme"){ localStorage['ENVS'] = allentry2; }
+	//if(alphalevel=="Local"||alphalevel==""){  }
+	localStorage['ENVL'] = allentry2; 
+	//if(alphalevel=="District"){ localStorage['ENVD'] = allentry2; }
+	//if(alphalevel=="Supreme"){ localStorage['ENVS'] = allentry2; }
 	                 break;
 
 
