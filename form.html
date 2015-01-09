@@ -58,9 +58,10 @@
 	var ASET = settingsvalue.split(',');
 	//document.getElementById("firm").value=ASET[0];
 	//document.getElementById("email").value=ASET[1];
-	var thejump = 0;
-    if(params[0]==""){ window.open("form.html","_parent"); thejump=1;}
-	if(params[0]==null){ window.open("form.html","_parent"); thejump=1;}
+	// window.open("form.html","_parent");window.open("form.html","_parent");
+    var thejump=0;
+	if(params[0]==""){ thejump=1;}
+	if(params[0]==null){ thejump=1;}
 	
 	if(thejump==0){
 	if(localStorage['mySettings']!=""){ window.open("selection.html","_parent"); }
