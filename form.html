@@ -50,14 +50,12 @@
     <script>
 	
 	
-	var vpass = localStorage['myID2'];//document.getElementById("password").value;
-	var params = vpass.split(',');
-	var thejump=0;
-	if(params[0]==""){ thejump=1;}
-	if(params[0]==null){ thejump=1;}
+
+	var thejump = '0';
+	if(localStorage['myID2']==""){ thejump='1';}
 	
-	if(thejump==0){
-	if(localStorage['mySettings']!=""){ window.open("selection.html","_parent"); }
+	if(thejump == '0'){
+		if(localStorage['mySettings']!=""){ window.open("selection.html","_parent"); }
 	}
 	
 	
