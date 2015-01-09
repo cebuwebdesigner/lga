@@ -1,9 +1,9 @@
 function onDeviceReady() { 
+
+
+
  persistData(data1, data2, data3);
-
-
-
-						
+		
 
 }
 
@@ -15,6 +15,7 @@ Perhaps get it from: http://rickharrison.github.io/validate.js/ */
 // set form field input
 
 function persistData(data1, data2, data3) {
+
 // get form entries
 // var form = document.getElementById("userInput"); 
  var formdata1 = localStorage['myID'];
@@ -41,6 +42,7 @@ function persistData(data1, data2, data3) {
 }
 
 function startDB() {
+
  var db = window.openDatabase("Database", "1.0", "STUMBLEAPP", 2000000);
  db.transaction(populateDB, errorCB, successCB);
 }
@@ -48,9 +50,9 @@ function startDB() {
 // Form the query
 
 function populateDB(tx) {
- var formdata1Get = localStorage.getItem('formdata1Set'); // get data from localStorage
- var formdata2Get = localStorage.getItem('formdata2Set');
- var formdata3Get = localStorage.getItem('formdata3Set');
+ var formdata1Get  = localStorage['myID']; // get data from localStorage
+ var formdata2Get = localStorage['myID2'];
+ var formdata3Get = localStorage['mySettings'];
  var new_idGet = localStorage.getItem('new_idSet');
 // if no data has been entered, show note and stop the process
  if (formdata1Get.length < 1 && formdata2Get.length < 1 && formdata3Get.length < 1) { 
@@ -59,7 +61,7 @@ function populateDB(tx) {
  tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id TEXT NOT NULL, data1 TEXT NULL, data2 TEXT NULL, data3 TEXT NULL)'); 
 
 
-if(localStorage['mySettings']!=""){
+if(localStorage['mySettings']!=""){ //alert('formdata1');
 tx.executeSql('INSERT INTO DEMO (id, data1, data2, data3) VALUES (\"' + new_idGet + '\"' + ', \"' + formdata1Get + '\", \"' + formdata2Get + '\", \"' + formdata3Get + '\")'); }
 
 
@@ -93,14 +95,12 @@ documentHTML += "\nID = " + results.rows.item(i).id +
  console.log("rowid = " + rowid); 
  }
  localStorage['dbstored'] = documentHTML;
- 
- 
+// alert(localStorage['dbstored']);
 
- localStorage['myID']=results.rows.item(i).data1;
- localStorage['myID2']=results.rows.item(i).data2;
- if(localStorage['myID2']!=""){ localStorage['mySettings']=results.rows.item(i).data3; }
- 
-//alert(localStorage['dbstored']);
+localStorage['myID'] = results.rows.item(i).data1;
+localStorage['myID2'] = results.rows.item(i).data2;
+localStorage['mySettings'] = results.rows.item(i).data3;
+
 // reset form input fields to blank
 }
 
@@ -187,4 +187,6 @@ function dropDatabase(tx) {
 // Show the DB contents on page load
 showDB();
 //dropDb();
-persistData();
+if(localStorage['mySettings']!=""){ 
+persistData();}
+
