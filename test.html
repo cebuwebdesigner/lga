@@ -22,18 +22,18 @@
 var allentry='';
 
 if(localStorage['started']!=1){
-localStorage['CRIL']='';
-localStorage['CRID']='';
-localStorage['CRIS']='';
-localStorage['CIVL']='';
-localStorage['CIVD']='';
-localStorage['CIVS']='';
-localStorage['FAML']='';
-localStorage['FAMD']='';
-localStorage['FAMS']='';
-localStorage['ENVL']='';
-localStorage['ENVD']='';
-localStorage['ENVS']='';
+localStorage['CRIL2']='';
+localStorage['CRID2']='';
+localStorage['CRIS2']='';
+localStorage['CIVL2']='';
+localStorage['CIVD2']='';
+localStorage['CIVS2']='';
+localStorage['FAML2']='';
+localStorage['FAMD2']='';
+localStorage['FAMS2']='';
+localStorage['ENVL2']='';
+localStorage['ENVD2']='';
+localStorage['ENVS2']='';
 }
 
 localStorage['started']=1;
@@ -64,29 +64,29 @@ alert(allentry+' '+alphatype+' '+alphalevel);
 
 switch(alphatype){
 	case "Criminal": 
-	if(alphalevel=="Local"){allentry=localStorage['CRIL']; }
-	if(alphalevel=="District"){allentry=localStorage['CRID']; }
-	if(alphalevel=="Supreme"){allentry=localStorage['CRIS']; }
+	if(alphalevel=="Local"){allentry=localStorage['CRIL2']; }
+	if(alphalevel=="District"){allentry=localStorage['CRID2']; }
+	if(alphalevel=="Supreme"){allentry=localStorage['CRIS2']; }
 	                 break;
 
 	case "Civil": 
-	if(alphalevel=="Local"){allentry=localStorage['CIVL']; }
-	if(alphalevel=="District"){allentry=localStorage['CIVD']; }
-	if(alphalevel=="Supreme"){allentry=localStorage['CIVS']; }
+	if(alphalevel=="Local"){allentry=localStorage['CIVL2']; }
+	if(alphalevel=="District"){allentry=localStorage['CIVD2']; }
+	if(alphalevel=="Supreme"){allentry=localStorage['CIVS2']; }
 	                 break;
 
 
 	case "Family": 
-	if(alphalevel=="Local"){allentry=localStorage['FAML']; }
-	if(alphalevel=="District"){allentry=localStorage['FAMD']; }
-	if(alphalevel=="Supreme"){allentry=localStorage['FAMS'];}
+	if(alphalevel=="Local"){allentry=localStorage['FAML2']; }
+	if(alphalevel=="District"){allentry=localStorage['FAMD2']; }
+	if(alphalevel=="Supreme"){allentry=localStorage['FAMS2'];}
 	                 break;
 
 
 	case "Environmental": 
-	if(alphalevel=="Local"){allentry=localStorage['ENVL']; }
-	if(alphalevel=="District"){allentry=localStorage['ENVD']; }
-	if(alphalevel=="Supreme"){allentry=localStorage['ENVS']; }
+	if(alphalevel=="Local"){allentry=localStorage['ENVL2']; }
+	if(alphalevel=="District"){allentry=localStorage['ENVD2']; }
+	if(alphalevel=="Supreme"){allentry=localStorage['ENVS2']; }
 	                 break;
 
 
@@ -166,29 +166,29 @@ function dataReady() {
 	//alert(localStorage['myKey']);
 	switch(alphatype){
 	case "Criminal": 
-	if(alphalevel=="Local"){localStorage['CRIL'] = allentry2; }
-	if(alphalevel=="District"){localStorage['CRID'] = allentry2; }
-	if(alphalevel=="Supreme"){localStorage['CRIS'] = allentry2; }
+	if(alphalevel=="Local"){localStorage['CRIL2'] = allentry2; }
+	if(alphalevel=="District"){localStorage['CRID2'] = allentry2; }
+	if(alphalevel=="Supreme"){localStorage['CRIS2'] = allentry2; }
 	                 break;
 
 	case "Civil": 
-	if(alphalevel=="Local"){ localStorage['CIVL'] = allentry2; }
-	if(alphalevel=="District"){ localStorage['CIVD'] = allentry2; }
-	if(alphalevel=="Supreme"){ localStorage['CIVS'] = allentry2; }
+	if(alphalevel=="Local"){ localStorage['CIVL2'] = allentry2; }
+	if(alphalevel=="District"){ localStorage['CIVD2'] = allentry2; }
+	if(alphalevel=="Supreme"){ localStorage['CIVS2'] = allentry2; }
 	                 break;
 
 
 	case "Family": 
-	if(alphalevel=="Local"){ localStorage['FAML'] = allentry2; }
-	if(alphalevel=="District"){ localStorage['FAMD'] = allentry2; }
-	if(alphalevel=="Supreme"){ localStorage['FAMS'] = allentry2; }
+	if(alphalevel=="Local"){ localStorage['FAML2'] = allentry2; }
+	if(alphalevel=="District"){ localStorage['FAMD2'] = allentry2; }
+	if(alphalevel=="Supreme"){ localStorage['FAMS2'] = allentry2; }
 	                 break;
 
 
 	case "Environmental": 
-	if(alphalevel=="Local"){ localStorage['ENVL'] = allentry2;  }
-	if(alphalevel=="District"){ localStorage['ENVD'] = allentry2; }
-	if(alphalevel=="Supreme"){ localStorage['ENVS'] = allentry2; }
+	if(alphalevel=="Local"){ localStorage['ENVL2'] = allentry2;  }
+	if(alphalevel=="District"){ localStorage['ENVD2'] = allentry2; }
+	if(alphalevel=="Supreme"){ localStorage['ENVS2'] = allentry2; }
 	                 break;
 
 
@@ -201,7 +201,7 @@ function dataReady() {
 if(allentry==''){ loadit();  alert('load new');  }else{ alert('use old'); }
 
 alert(allentry)
-//alert(localStorage['CRIL']);
+//alert(localStorage['CRIL2']);
 
 //alert(alphalevel+' '+alphatype)
 

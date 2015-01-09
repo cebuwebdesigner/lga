@@ -278,29 +278,29 @@ var alphalevel=CCC[1];
 
 switch(alphatype){
 	case "Criminal": 
-	if(alphalevel=="Local"){allentry=localStorage['CRIL']; }
-	if(alphalevel=="District"){allentry=localStorage['CRID']; }
-	if(alphalevel=="Supreme"){allentry=localStorage['CRIS']; }
+	if(alphalevel=="Local"){allentry=localStorage['CRIL2']; }
+	if(alphalevel=="District"){allentry=localStorage['CRID2']; }
+	if(alphalevel=="Supreme"){allentry=localStorage['CRIS2']; }
 	                 break;
 
 	case "Civil": 
-	if(alphalevel=="Local"){allentry=localStorage['CIVL']; }
-	if(alphalevel=="District"){allentry=localStorage['CIVD']; }
-	if(alphalevel=="Supreme"){allentry=localStorage['CIVS']; }
+	if(alphalevel=="Local"){allentry=localStorage['CIVL2']; }
+	if(alphalevel=="District"){allentry=localStorage['CIVD2']; }
+	if(alphalevel=="Supreme"){allentry=localStorage['CIVS2']; }
 	                 break;
 
 
 	case "Family": 
-	if(alphalevel=="Family%20Court"){allentry=localStorage['FAML'];}
-	if(alphalevel=="Federal%20Magistrate%20Court"){allentry=localStorage['FAMD'];}
-	if(alphalevel=="Supreme"){allentry=localStorage['FAMS'];}
+	if(alphalevel=="Family%20Court"){allentry=localStorage['FAML2'];}
+	if(alphalevel=="Federal%20Magistrate%20Court"){allentry=localStorage['FAMD2'];}
+	if(alphalevel=="Supreme"){allentry=localStorage['FAMS2'];}
 	
 
 
 	case "Environmental": 
-	if(alphalevel=="Local"||alphalevel==""){allentry=localStorage['ENVL']; }
-	if(alphalevel=="District"){allentry=localStorage['ENVD']; }
-	if(alphalevel=="Supreme"){allentry=localStorage['ENVS']; }
+	if(alphalevel=="Local"||alphalevel==""){allentry=localStorage['ENVL2']; }
+	if(alphalevel=="District"){allentry=localStorage['ENVD2']; }
+	if(alphalevel=="Supreme"){allentry=localStorage['ENVS2']; }
 	                 break;
 
 
@@ -308,7 +308,7 @@ switch(alphatype){
 //////////////////////////////////////////////////////////////////////////////
 
 if(alphatype=="Family"&&alphalevel=="Supreme"){
-var allentry=localStorage['FAMS'];
+var allentry=localStorage['FAMS2'];
 //alert(allentry);
 }
 
