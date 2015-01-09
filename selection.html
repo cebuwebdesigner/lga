@@ -61,6 +61,11 @@
      
      <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
          <script type="text/javascript" src="js/iscriptz-db.js"></script>
+         
+          <script type="text/javascript">
+         if(localStorage['mySettings']==""){ window.open("form.html","_parent"); }
+         </script>
+         
         <!-- <script type="text/javascript" src="js/iscriptz-db.js"></script>
  <a href="#" onclick="showAlert(); return false;">dialog</a>-->
 </head>
