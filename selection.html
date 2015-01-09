@@ -63,7 +63,16 @@
          <script type="text/javascript" src="js/iscriptz-db.js"></script>
          
           <script type="text/javascript">
-         if(localStorage['myID2']==""){ window.open("form.html","_parent"); }
+		   var vpass = localStorage['myID2'];//document.getElementById("password").value;
+	
+	var params = vpass.split(',');
+	//document.getElementById("fname").value=params[0];
+	var settingsvalue = localStorage['mySettings'];
+	var ASET = settingsvalue.split(',');
+	//document.getElementById("firm").value=ASET[0];
+	//document.getElementById("email").value=ASET[1];
+	
+         if(params[0]==""){ window.open("form.html","_parent"); }
          </script>
          
         <!-- <script type="text/javascript" src="js/iscriptz-db.js"></script>
