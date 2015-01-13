@@ -31,3 +31,5 @@ function onDeviceReady() {
 
 StatusBar.backgroundColorByName("black");
 StatusBar.backgroundColorByHexString("#000000");
+
+window.StatusBar.overlaysWebView(false);
