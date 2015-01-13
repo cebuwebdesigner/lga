@@ -118,35 +118,15 @@ Engr. Oliver M. Gonzales
 	<gap:plugin name="org.apache.cordova.camera" version="0.2.9" />
     <gap:plugin name="org.apache.cordova.geolocation" version="0.3.7" />
 	<gap:plugin name="org.apache.cordova.dialogs" version="0.2.10" /> 
-	<gap:plugin name="com.pushapps.phonegap" version="1.6.0" />
+
+
 	
-	 <feature name="StatusBar">
-            <param name="ios-package" value="CDVStatusBar" onload="true" />
-        </feature>
-	
-<!--    <gap:plugin name="org.apache.cordova.file" version="0.2.4" />
+<!--   	<gap:plugin name="com.pushapps.phonegap" version="1.6.0" />
+	 <gap:plugin name="org.apache.cordova.file" version="0.2.4" />
     <gap:plugin name="org.apache.cordova.file-transfer" version="0.3.3" />
     <gap:plugin name="org.apache.cordova.inappbrowser" version="0.2.3" />-->
 	
 
-<gap:config-file platform="ios" parent="requestAlwaysAuthorization" overwrite="false">
-        <string></string>
-</gap:config-file>
-
-
-<gap:config-file platform="ios" parent="requestWhenInUseAuthorization" overwrite="false">
-        <string></string>
-</gap:config-file>
-
-
-<gap:config-file platform="ios" parent="NSLocationAlwaysUsageDescription" overwrite="false">
-        <string></string>
-</gap:config-file>
-
-
-<gap:config-file platform="ios" parent="NSLocationWhenInUseUsageDescription" overwrite="false">
-        <string></string>
-</gap:config-file>
 
 
 
