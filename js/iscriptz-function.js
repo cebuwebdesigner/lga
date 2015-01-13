@@ -16,6 +16,4 @@ function favourites(){  window.top.location.href = "load-favorites.html?url=favo
 function requestssend() {   window.parent.location.href = "load-request.html?url=requests-send.html";  }
 function requestsrecieved() {   window.parent.location.href = "load-request.html?url=requests-recieved.html"; }
 function requestsalll() {   window.parent.location.href = "load-request.html?url=requests-all.html";  }
-
-
 function closeby() {   window.top.location.href = 'courts-list.html?'+localStorage['courtassociate'];  }
