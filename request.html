@@ -232,13 +232,14 @@ var url = window.location.href;
  var thestat='2';
  var hostserver= localStorage['globalurl'];
  var thecourt = localStorage['courtselected'];
- 
+ var caldate = document.getElementById("demo_datetime").value;
  $.post(hostserver+"request-master.php",
   {
     myid:vpass2,
 	theid:theid,
 	stat:thestat,
-	court:thecourt
+	court:thecourt,
+	caldate:caldate
   },
   function(data,status){
     if(status=="success"){
