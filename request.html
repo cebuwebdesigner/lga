@@ -183,138 +183,7 @@
 }
 	
     </style>
-    <script type='text/javascript'>//<![CDATA[ 
-$(window).load(function(){
-$('.scrollToSelected').bind('click', function() {
-    var view = $(this).attr('id');
-    var list = view.split('-');
-    var elem = $("#"+list[1]);
-    
-    // not sure if this is offset or position
-    var position = elem.position(); 
-    var offset   = elem.offset();
-    
-    //alert('left: '+position.left + ", top: " + position.top);
-    //alert('left: '+offset.left + ", top: " + offset.top);
-    
-    $.mobile.silentScroll(position.top);
-    //$.mobile.silentScroll(offset.top);
-    
-});
-
-$('.showDetails').bind('click', function() {
-    $.mobile.changePage( "#details", { transition: "slideup"} );
-});
-});//]]>  
-
-
-function editreq(){ 
-
-				  
-var url = window.location.href;
-	
-	var params = url.split('?');
-	//alert(params[1]);
-	var ABC=params[1];
-	var AAA = ABC.split('=');
-	//alert(AAA[1]);
-	var theid = AAA[1];
-	//var AABBCC = ABC.split('&amp;');
-	
-	//var AA = AABBCC[0];
-	//var AAA = AA.split('=');
-	//var alphastart=AAA[1];
-	var vpass2 = localStorage['myID2'];//document.getElementById("password").value;
-	var params = vpass2.split(',');
-	var vpass2=params[1];
-
- //alert(vpass2+'rrr'+theid+'rrr'+thestar);
- var thestat='2';
- var hostserver= localStorage['globalurl'];
- var thecourt = localStorage['courtselected'];
- var caldate = document.getElementById("demo_datetime").value;
- $.post(hostserver+"request-master.php",
-  {
-    myid:vpass2,
-	theid:theid,
-	stat:thestat,
-	court:thecourt,
-	caldate:caldate
-  },
-  function(data,status){
-    if(status=="success"){
-	//alert("request has been sent");
-	$( "#myPopupDivRS" ).popup( "open" );
-
-	//window.top.location.href = "form.html"; 
-	}else{
-		alert("Please check your connection and try again");
-		}
-  });
-
-
-
-//reqcancel 
-
-var myElement = document.querySelector(".reqcancel");
-myElement.style.backgroundColor = "#fff";
-
-var myElement = document.querySelector(".reqservice");
-myElement.style.backgroundColor = "#ccc";
-
-}
-
-
-function cancelreq(){ 
-
-				  
-var url = window.location.href;
-	
-	var params = url.split('?');
-	//alert(params[1]);
-	var ABC=params[1];
-	var AAA = ABC.split('=');
-	//alert(AAA[1]);
-	var theid = AAA[1];
-	//var AABBCC = ABC.split('&amp;');
-	
-	//var AA = AABBCC[0];
-	//var AAA = AA.split('=');
-	//var alphastart=AAA[1];
-	var vpass2 = localStorage['myID2'];//document.getElementById("password").value;
-	var params = vpass2.split(',');
-	var vpass2=params[1];
-
- //alert(vpass2+'rrr'+theid+'rrr'+thestar);
- var thestat='0';
- var hostserver= localStorage['globalurl'];
- var thecourt = localStorage['courtselected'];
- 
- $.post(hostserver+"request-master.php",
-  {
-    myid:vpass2,
-	theid:theid,
-	stat:thestat,
-	court:thecourt
-  },
-  function(data,status){
-    if(status=="success"){
-	//alert("successfully canceled the request");
-	$( "#myPopupDivRC" ).popup( "open" );
-	//window.top.location.href = "form.html"; 
-	}else{
-		alert("Please check your connection and try again");
-		}
-  });
-
-var myElement = document.querySelector(".reqcancel");
-myElement.style.backgroundColor = "#ccc";
-
-var myElement = document.querySelector(".reqservice");
-myElement.style.backgroundColor = "#fff";
-
-}
-</script>
+   
 
 
 
@@ -387,7 +256,7 @@ myElement.style.backgroundColor = "#fff";
                     display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
                     lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
                     minDate: new Date(2014,1,10,9,22),  // More info about minDate: http://docs.mobiscroll.com/2-14-0/datetime#!opt-minDate
-                    maxDate: new Date(2016,7,30,15,44),   // More info about maxDate: http://docs.mobiscroll.com/2-14-0/datetime#!opt-maxDate
+                    maxDate: new Date(2017,7,30,15,44),   // More info about maxDate: http://docs.mobiscroll.com/2-14-0/datetime#!opt-maxDate
                     stepMinute: 1  // More info about stepMinute: http://docs.mobiscroll.com/2-14-0/datetime#!opt-stepMinute
                 });
                 
@@ -421,7 +290,214 @@ myElement.style.backgroundColor = "#fff";
    
    
 
-   
+    <script type='text/javascript'>//<![CDATA[ 
+$(window).load(function(){
+$('.scrollToSelected').bind('click', function() {
+    var view = $(this).attr('id');
+    var list = view.split('-');
+    var elem = $("#"+list[1]);
+    
+    // not sure if this is offset or position
+    var position = elem.position(); 
+    var offset   = elem.offset();
+    
+    //alert('left: '+position.left + ", top: " + position.top);
+    //alert('left: '+offset.left + ", top: " + offset.top);
+    
+    $.mobile.silentScroll(position.top);
+    //$.mobile.silentScroll(offset.top);
+    
+});
+
+$('.showDetails').bind('click', function() {
+    $.mobile.changePage( "#details", { transition: "slideup"} );
+});
+});//]]>  
+
+
+function editreq(){ 
+
+				  
+var url = window.location.href;
+	
+	var params = url.split('?');
+	//alert(params[1]);
+	var ABC=params[1];
+	var AAA = ABC.split('=');
+	//alert(AAA[1]);
+	var theid = AAA[1];
+	//var AABBCC = ABC.split('&amp;');
+	
+	//var AA = AABBCC[0];
+	//var AAA = AA.split('=');
+	//var alphastart=AAA[1];
+	var vpass2 = localStorage['myID2'];//document.getElementById("password").value;
+	var params = vpass2.split(',');
+	var vpass2=params[1];
+
+ //alert(vpass2+'rrr'+theid+'rrr'+thestar);
+ var thestat='2';
+ var hostserver= localStorage['globalurl'];
+ var thecourt = localStorage['courtselected'];
+ var caldate = document.getElementById("demo_datetime").value;
+
+
+
+
+
+
+
+
+
+
+
+
+var arrycaldate = caldate.split(' ');
+var arry2caldate = arrycaldate[0].split('/');
+
+
+var monthminus1 = arry2caldate[0]-1;//parseInt()-1;
+var mydate2=arry2caldate[2]+'-'+monthminus1+'-'+arry2caldate[1];	
+
+// //0m 1d 2y
+var mydate=new Date(arry2caldate[2],monthminus1,arry2caldate[1]);	
+
+	var today = new Date();
+	today.setDate(today.getDate() + 14);
+    var dd = today.getDate();
+    var mm = today.getMonth(); //January is 0!
+
+    var yyyy = today.getFullYear();
+    if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+    //var today = dd+'/'+mm+'/'+yyyy;
+	
+
+	
+
+var date = new Date(yyyy,mm,dd);
+var date2 = yyyy+'-'+mm+'-'+dd;
+//mydate=new Date('2011-04-11');
+//console.log(date);
+///console.log(mydate)
+//alert(mydate+'='+mydate2+'*******'+date+'='+date2);
+
+
+
+
+    
+//alert(today)
+	
+	
+	
+
+
+if(date > mydate)
+
+{
+    alert("Plan date should be set 2 weeks prior");
+}	else
+{
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+$.post(hostserver+"request-master.php",
+  {
+    myid:vpass2,
+	theid:theid,
+	stat:thestat,
+	court:thecourt,
+	caldate:caldate
+  },
+  function(data,status){
+    if(status=="success"){
+	//alert("request has been sent");
+	$( "#myPopupDivRS" ).popup( "open" );
+
+	//window.top.location.href = "form.html"; 
+	}else{
+		alert("Please check your connection and try again");
+		}
+  });
+
+
+
+//reqcancel 
+
+var myElement = document.querySelector(".reqcancel");
+myElement.style.backgroundColor = "#fff";
+
+var myElement = document.querySelector(".reqservice");
+myElement.style.backgroundColor = "#ccc";
+
+}}
+
+
+function cancelreq(){ 
+
+				  
+var url = window.location.href;
+	
+	var params = url.split('?');
+	//alert(params[1]);
+	var ABC=params[1];
+	var AAA = ABC.split('=');
+	//alert(AAA[1]);
+	var theid = AAA[1];
+	//var AABBCC = ABC.split('&amp;');
+	
+	//var AA = AABBCC[0];
+	//var AAA = AA.split('=');
+	//var alphastart=AAA[1];
+	var vpass2 = localStorage['myID2'];//document.getElementById("password").value;
+	var params = vpass2.split(',');
+	var vpass2=params[1];
+
+ //alert(vpass2+'rrr'+theid+'rrr'+thestar);
+ var thestat='0';
+ var hostserver= localStorage['globalurl'];
+ var thecourt = localStorage['courtselected'];
+ 
+ $.post(hostserver+"request-master.php",
+  {
+    myid:vpass2,
+	theid:theid,
+	stat:thestat,
+	court:thecourt
+  },
+  function(data,status){
+    if(status=="success"){
+	//alert("successfully canceled the request");
+	$( "#myPopupDivRC" ).popup( "open" );
+	//window.top.location.href = "form.html"; 
+	}else{
+		alert("Please check your connection and try again");
+		}
+  });
+
+var myElement = document.querySelector(".reqcancel");
+myElement.style.backgroundColor = "#ccc";
+
+var myElement = document.querySelector(".reqservice");
+myElement.style.backgroundColor = "#fff";
+
+}
+</script>
    
         <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
      
@@ -475,96 +551,6 @@ myElement.style.backgroundColor = "#fff";
 		
 		//alert(courtid);
 		
-		var caldate = document.getElementById("demo_datetime").value;
-		
-	
-	
-var arrycaldate = caldate.split(' ');
-var arry2caldate = arrycaldate[0].split('/');
-
-
-var monthminus1 = arry2caldate[0]-1;//parseInt()-1;
-var mydate2=arry2caldate[2]+'-'+monthminus1+'-'+arry2caldate[1];	
-
-// //0m 1d 2y
-var mydate=new Date(arry2caldate[2],monthminus1,arry2caldate[1]);	
-
-	var today = new Date();
-	today.setDate(today.getDate() + 14);
-    var dd = today.getDate();
-    var mm = today.getMonth(); //January is 0!
-
-    var yyyy = today.getFullYear();
-    if(dd<10){
-        dd='0'+dd
-    } 
-    if(mm<10){
-        mm='0'+mm
-    } 
-    //var today = dd+'/'+mm+'/'+yyyy;
-	
-
-	
-
-var date = new Date(yyyy,mm,dd);
-var date2 = yyyy+'-'+mm+'-'+dd;
-//mydate=new Date('2011-04-11');
-//console.log(date);
-///console.log(mydate)
-//alert(mydate+'='+mydate2+'*******'+date+'='+date2);
-
-
-
-
-    
-//alert(today)
-	
-	
-	
-
-
-if(date > mydate)
-
-{
-    alert("Plan date should be set 2 weeks prior");
-}	else
-{
-    
-	
-	
-		 var hostserver = localStorage['globalurl'];
-		//alert(hostserver);
-		$.post(hostserver+"cal-add.php",
- 		 {
-			myid:vpass2,
-			courtid:courtid,
-			thedate:caldate
-  		},
-		  function(data,status){
-			if(status=="success"){
-			
-			
-			
-			showAlert("successfully added to court calendar; "+localStorage['courtname']+","+caldate)
-			//alert();
-			
-			 /*navigator.notification.alert(
-            'successfully added to court calendar; '+localStorage['courtname']+','+caldate,  // message
-            alertDismissed,         // callback
-            'Calendar',            // title
-            'Done'                  // buttonName
-        );*/
-			//$( "#myPopupDiv" ).popup( "open" );
-			/*var node = document.getElementById("writestats");
-			node.innerHTML = "successfully added to court calendar; "+localStorage['courtname']+","+caldate;
-			*/
-			
-			}else{
-				alert("Please check your connection and try again");
-				}
-		  });
-				
-}
 
 
 
