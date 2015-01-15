@@ -483,7 +483,16 @@ var url = window.location.href;
   function(data,status){
     if(status=="success"){
 	//alert("successfully canceled the request");
-	$( "#myPopupDivRC" ).popup( "open" );
+	
+	//$( "#myPopupDivRC" ).popup( "open" );
+	switch(data){
+		case "invalid1": $( "#myPopupDivRI" ).popup( "open" ); break;
+		case "invalid2": $( "#myPopupDivRII" ).popup( "open" ); break;
+		case "invalid2": $( "#myPopupDivRIII" ).popup( "open" ); break;
+		default: $( "#myPopupDivRC" ).popup( "open" );
+		}
+	
+	
 	//window.top.location.href = "form.html"; 
 	}else{
 		alert("Please check your connection and try again");
@@ -503,6 +512,7 @@ myElement.style.backgroundColor = "#fff";
      
      <script type="text/javascript" charset="utf-8">
 	 
+     
 	 
 	 
 	  // Wait for device API libraries to load
@@ -574,7 +584,21 @@ myElement.style.backgroundColor = "#fff";
 	<p>successfully canceled the request<p>
 </div>
 
-<div data-role="header" data-position="fixed" role="banner" class="ui-header ui-bar-inherit">  <div style=" width:100%; height:10px">&nbsp;</div>  
+<div data-role="popup" id="myPopupDivRI">
+	<p>Already Been Added<p>
+</div>
+
+<div data-role="popup" id="myPopupDivRII">
+	<p>This Associate is Already Plan on this Court<p>
+</div>
+<div data-role="popup" id="myPopupDivRIII">
+	<p>This Associate is Already Plan on other Court<p>
+</div>
+
+
+<div data-role="header"  data-tap-toggle="false"  data-position="fixed" role="banner" class="ui-header ui-bar-inherit">
+
+ <div style=" width:100%; height:10px">&nbsp;</div>  
       
            <a href="#" onclick="editbck()" data-transition="flip" style="position: fixed; background-image: url('images/back.png');
 		 width:15px;margin-top:13px" class="ui-btn ui-nodisc-icon ui-corner-all ui-btn-icon-left ui-icon-logo" >&nbsp;</a>
@@ -812,7 +836,7 @@ var url = window.location.href;
 
 
 
-<div data-role="footer" data-position="fixed" class="ui-footer ui-bar-a ui-footer-fixed slideup" role="banner" style="height:65px; font-size:27px;  background:url(images/footerbg.png)">
+<div data-role="footer"  data-tap-toggle="false"  data-position="fixed" class="ui-footer ui-bar-a ui-footer-fixed slideup" role="banner" style="height:65px; font-size:27px; background:url(images/footerbg.png)">
 	
     
     
