@@ -427,7 +427,13 @@ $.post(hostserver+"request-master.php",
   function(data,status){
     if(status=="success"){
 	//alert("request has been sent");
-	$( "#myPopupDivRS" ).popup( "open" );
+	switch(data){
+		case "invalid1": $( "#myPopupDivRI" ).popup( "open" ); break;
+		case "invalid2": $( "#myPopupDivRII" ).popup( "open" ); break;
+		case "invalid2": $( "#myPopupDivRIII" ).popup( "open" ); break;
+		default: $( "#myPopupDivRS" ).popup( "open" );
+		}
+	
 
 	//window.top.location.href = "form.html"; 
 	}else{
@@ -485,12 +491,8 @@ var url = window.location.href;
 	//alert("successfully canceled the request");
 	
 	//$( "#myPopupDivRC" ).popup( "open" );
-	switch(data){
-		case "invalid1": $( "#myPopupDivRI" ).popup( "open" ); break;
-		case "invalid2": $( "#myPopupDivRII" ).popup( "open" ); break;
-		case "invalid2": $( "#myPopupDivRIII" ).popup( "open" ); break;
-		default: $( "#myPopupDivRC" ).popup( "open" );
-		}
+	 $( "#myPopupDivRC" ).popup( "open" );
+		
 	
 	
 	//window.top.location.href = "form.html"; 
