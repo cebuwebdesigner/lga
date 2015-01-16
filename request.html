@@ -415,7 +415,10 @@ if(date > mydate)
 
 
 
-
+var caldate = document.getElementById("demo_datetime").value;
+if(caldate==""){
+	$( "#myPopupDivRCC" ).popup( "open" );
+	}else{
 $.post(hostserver+"request-master.php",
   {
     myid:vpass2,
@@ -451,11 +454,12 @@ myElement.style.backgroundColor = "#fff";
 var myElement = document.querySelector(".reqservice");
 myElement.style.backgroundColor = "#ccc";
 
-}}
+}}}
 
 
 function cancelreq(){ 
 
+document.getElementById("demo_datetime").value='';
 				  
 var url = window.location.href;
 	
@@ -580,21 +584,23 @@ myElement.style.backgroundColor = "#fff";
 
 
 <div data-role="popup" id="myPopupDivRS">
-	<p>request has been sent<p>
+	<p>Request has been sent<p>
 </div>
 <div data-role="popup" id="myPopupDivRC">
-	<p>successfully canceled the request<p>
+	<p>Successfully canceled the request<p>
 </div>
-
+<div data-role="popup" id="myPopupDivRCC">
+	<p>Date required to continue<p>
+</div>
 <div data-role="popup" id="myPopupDivRI">
 	<p>Already Been Added<p>
 </div>
 
 <div data-role="popup" id="myPopupDivRII">
-	<p>This Associate has Plan on this Court<p>
+	<p>This Associate has Planned on this Court<p>
 </div>
 <div data-role="popup" id="myPopupDivRIII">
-	<p>This Associate has Plan on this Date<p>
+	<p>This Associate has Planned on this Date<p>
 </div>
 
 
