@@ -86,9 +86,9 @@ $(document).on('pageinit', '#index', function(){
 									if(tobearray!=null){
 									
 									
-									
+									//"<a href='plan.html'>"++"</a>"
 									arraydatahere = tobearray.split('!!!');
-									arraythis = {"summary":"<a href='plan.html'>"+arraydatahere[0]+"</a>","begin": new Date(arraydatahere[1]),"end": new Date(arraydatahere[2]) };
+									arraythis = {"summary":arraydatahere[0],"begin": new Date(arraydatahere[1]),"end": new Date(arraydatahere[2]) };
 									eventnamearr.push(arraythis);
 									
 									}
