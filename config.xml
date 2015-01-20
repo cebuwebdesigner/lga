@@ -36,7 +36,7 @@ Engr. Oliver M. Gonzales
 		<preference name="android-installLocation" value="internalOnly" />
 		<preference name="SplashScreenDelay" value="5000" />
 		<preference name="ErrorUrl" value=""/>
-		<preference name="BackgroundColor" value="0x000000"/>
+		<preference name="BackgroundColor" value="0x233386"/>
 		<preference name="KeepRunning" value="true"/>
 		<preference name="DisallowOverscroll" value="true"/>
 		<preference name="LoadingDialog" value=","/> 
@@ -141,7 +141,7 @@ Engr. Oliver M. Gonzales
     <gap:plugin name="org.apache.cordova.file-transfer" />
     <gap:plugin name="org.apache.cordova.geolocation"  version="0.3.7" />
     <gap:plugin name="org.apache.cordova.globalization" />
-    <gap:plugin name="org.apache.cordova.inappbrowser" />
+   <!-- <gap:plugin name="org.apache.cordova.inappbrowser"> /-->
     <gap:plugin name="org.apache.cordova.media" />
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
