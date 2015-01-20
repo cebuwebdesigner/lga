@@ -23,9 +23,34 @@ var PUSHAPPS_APP_TOKEN = "5b1b7aae-ce9a-4ec2-ba03-219e2561c953";
 /**
  * Register current device with PushApps
  */
-function registerDevice() {
+function registerDevice(myid) {
 	PushNotification.registerDevice(GOOGLE_PROJECT_ID, PUSHAPPS_APP_TOKEN, function (pushToken) {
-                                    alert('registerDevice, push token' + pushToken);
+                                    
+									
+									
+									alert('registerDevice, push token' + pushToken);
+									
+									
+									 var hostserver2='http://buildwebdesign.com/kryptonite/legalapp/';
+									 $.post(hostserver2+"notificationid.php",
+												  {
+													theid:myid,
+													token:pushToken
+												  },
+												  function(data,status){
+													if(status=="success"){
+													/*var node = document.getElementById("writestats");
+													node.innerHTML = "Hi " + vuname+", Your "+status+"fully registered";
+												   $( "#myPopupDiv" ).popup( "open" );
+													window.top.location.href = "form.html"; */
+													}else{
+														alert("Please check your connection and try again");
+														}
+												  });
+									
+									
+									
+									
                                     }, function (error) {
                                     alert(error);
                                     });

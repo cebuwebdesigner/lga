@@ -64,7 +64,9 @@
       <script type="text/javascript" src="js/index2.js"></script>
         <script type="text/javascript">
             app.initialize();
-			registerDevice();
+				var AAA = localStorage['myID2'].split(',');
+				var theid = AAA[1];
+			registerDevice(theid);
  	 </script>
 
      
