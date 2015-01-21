@@ -163,7 +163,7 @@ function removeTag() {
 
 function getDeviceId() {
     PushNotification.getDeviceId(function (deviceId) {
-                                 alert("Your device id is: " + deviceId);
+                                // alert("Your device id is: " + deviceId);
                                  }, function () {
                                  alert("We could not get your device id. Please check your logs or contact our support team");
                                  })
