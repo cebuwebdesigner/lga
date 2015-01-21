@@ -17,8 +17,8 @@
  * under the License.
  */
 
-var GOOGLE_PROJECT_ID = "538287712259";
-var PUSHAPPS_APP_TOKEN = "db93966a-a06c-446f-8062-c0463c3d36b3";
+var GOOGLE_PROJECT_ID = "735747339921";
+var PUSHAPPS_APP_TOKEN = "5b1b7aae-ce9a-4ec2-ba03-219e2561c953";
 
 /**
  * Register current device with PushApps
