@@ -413,11 +413,13 @@ var url = window.location.href;
   },
   function(data,status){
     if(status=="success"){
+	//alert("successfully accept the request");
 	$( "#myPopupDivR" ).popup( "open" );
-	//alert("successfully reject the request");
 	//window.top.location.href = "form.html"; 
+	
 	var therandom = Math.floor((Math.random() * 100) + 1);
-window.top.location.href = "load-request.html?url=requests-recieved.html&amp;ran="+therandom;
+ window.top.location.href = "load-request.html?url=requests-recieved.html&amp;ran="+therandom;
+	
 	}else{
 		alert("Please check your connection and try again");
 		}
@@ -428,10 +430,6 @@ myElement.style.backgroundColor = "#ccc";
 
 var myElement = document.querySelector(".reqservice");
 myElement.style.backgroundColor = "#fff";
-
-
-
-
 
 }
 
