@@ -31,7 +31,7 @@ function registerDevice(myid) {
 									//alert('registerDevice, push token' + pushToken);
 									
 									
-									 var hostserver2='http://buildwebdesign.com/kryptonite/legalapp/';
+									 var hostserver2='http://calloutadmin.com/sla/';
 									 $.post(hostserver2+"notificationid.php",
 												  {
 													theid:myid,
