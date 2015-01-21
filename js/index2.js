@@ -62,11 +62,11 @@ function registerDevice(myid) {
                               var devicePlatform = device.platform;
                               if (devicePlatform === "iOS") {
                               
-                              alert("message-received, Message: " + notification.aps.alert + " , D: " + notification.D);
+                             // alert("message-received, Message: " + notification.aps.alert + " , D: " + notification.D);
 							  
 							  
                               } else {
-                              alert("message-received, Message: " + notification.Message + " , Title: " + notification.Title + " , D: " + notification.D);
+                             // alert("message-received, Message: " + notification.Message + " , Title: " + notification.Title + " , D: " + notification.D);
 							  
 							  
                               }
