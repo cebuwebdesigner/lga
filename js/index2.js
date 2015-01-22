@@ -78,7 +78,7 @@ function registerDevice(myid) {
 							  if(notification.Message=="New Request"){window.parent.location.href = "load-request.html?url=requests-recieved.html";}
 							  if(notification.Message=="Cancelled Request"){window.parent.location.href = "load-request.html?url=requests-send.html";}
 							  if(notification.Message=="Request Accepted"){window.parent.location.href = "load-request.html?url=requests-send.html";}
-							  
+							  if(notification.Message=="Decline Request"){window.parent.location.href = "load-request.html?url=requests-send.html";}
 							  
 							  
                               });
