@@ -19,7 +19,12 @@
     <script type="text/javascript">
 	
 	
+	var vpass2 = localStorage['myID2'];//document.getElementById("password").value;
+	var params = vpass2.split(',');
+	var vpass2=params[1];
 	
+
+	 var hostserver = localStorage['globalurl'];
 	
 	$.post(hostserver+"clear-notification.php",
  		 {
