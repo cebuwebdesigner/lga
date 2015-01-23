@@ -74,7 +74,7 @@ function registerDevice(myid) {
 							  
 							  
 							  
-							   	document.getElementById('badge2').style.visibility="visible";
+							   	//document.getElementById('badge2').style.visibility="visible";
 								
 							  if(notification.Message=="New Request"){window.parent.location.href = "load-request.html?url=requests-recieved.html";}
 							  if(notification.Message=="Cancelled Request"){window.parent.location.href = "load-request.html?url=requests-send.html";}

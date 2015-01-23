@@ -18,3 +18,5 @@ function requestsrecieved() {   window.parent.location.href = "load-request.html
 function requestsalll() {   window.parent.location.href = "load-request.html?url=requests-all.html";  }
 function closeby() {   window.top.location.href = 'courts-list.html?'+localStorage['courtassociate'];  }
 
+
+
