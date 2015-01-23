@@ -17,6 +17,32 @@
      
     
     <script type="text/javascript">
+	
+	
+	
+	
+	$.post(hostserver+"clear-notification.php",
+ 		 {
+			userid:vpass2
+  		},
+		  function(data,status){
+			if(status=="success"){
+			
+			if(data>0){
+			//document.getElementById('badge2').style.visibility="visible"; 
+		  // $( ".badge" ).html( data );
+			}else{		
+			    //document.getElementById('badge2').style.visibility="hidden"; 
+			 }
+		   
+		   }else{
+				alert("Please check your connection and try again");
+				}
+		  });
+	
+	
+	
+	
 
 /*local storage*/
 var allentry='';
