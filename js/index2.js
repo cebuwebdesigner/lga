@@ -62,11 +62,11 @@ function registerDevice(myid) {
                               var devicePlatform = device.platform;
                               if (devicePlatform === "iOS") {
                               
-                             // alert("message-received, Message: " + notification.aps.alert + " , D: " + notification.D);
+                              alert("message-received, Message: " + notification.aps.alert + " , D: " + notification.D);
 							  
 							  
                               } else {
-                             // alert("message-received, Message: " + notification.Message + " , Title: " + notification.Title + " , D: " + notification.D);
+                              alert("message-received, Message: " + notification.Message + " , Title: " + notification.Title + " , D: " + notification.D);
 							  
 							  
                               }
@@ -74,7 +74,8 @@ function registerDevice(myid) {
 							  
 							  
 							  
-							   						  
+							   	document.getElementById('badge2').style.visibility="visible";
+								
 							  if(notification.Message=="New Request"){window.parent.location.href = "load-request.html?url=requests-recieved.html";}
 							  if(notification.Message=="Cancelled Request"){window.parent.location.href = "load-request.html?url=requests-send.html";}
 							  if(notification.Message=="Request Accepted"){window.parent.location.href = "load-request.html?url=requests-send.html";}
@@ -91,7 +92,7 @@ function registerDevice(myid) {
 function unregisterDevice() {
 	document.removeEventListener('pushapps.message-received');
 	PushNotification.unRegisterDevice(function () {
-                                      alert("Your device was unregistered from PushApps");
+                                      alert("Your device was unregistered");
                                       }, function () {
                                       console.log("error");
                                       alert("Error unregistering your device");
