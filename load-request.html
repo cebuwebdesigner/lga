@@ -26,6 +26,7 @@
 
 	 var hostserver = localStorage['globalurl'];
 	//alert(hostserver+' '+vpass2);
+	localStorage['popnotific']=0;
 	$.post(hostserver+"clear-notification.php",
  		 {
 			userid:vpass2
