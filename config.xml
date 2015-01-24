@@ -3,7 +3,7 @@
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		id        = "com.legalapp.legalApp"
 		versionCode="6"
-		version   = "1.0.7">
+		version   = "1.0.6">
 		<name>Stumble legal App</name>
 		<description>
 Stumble legal App		</description>
