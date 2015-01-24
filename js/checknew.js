@@ -20,6 +20,7 @@ time=setInterval(function(){
 		   document.getElementById('badge2').style.visibility="visible"; 
 		   $( ".badge" ).html( data );
 			localStorage['popnotific']=1;
+			localStorage['popnotificcount']=data;
 		   }else{
 			   
 			    document.getElementById('badge2').style.visibility="hidden"; 
@@ -37,6 +38,7 @@ time=setInterval(function(){
 
 if(localStorage['popnotific']==1){
 	 document.getElementById('badge2').style.visibility="visible"; 
+	 $( ".badge" ).html(localStorage['popnotificcount']);
 	}
 //var e = $('<div style="display:block; float:left;width:'+width+'px; height:'+height+'px; margin-top:'+positionY+'px;margin-left:'+positionX+'px;border:1px dashed #CCCCCC;"></div>');
 //$('#box').append(e); e.attr('id', 'myid');
