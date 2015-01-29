@@ -1,3 +1,5 @@
+
+	
 var hostserver= localStorage['globalurl'];
     // Wait for PhoneGap to load
     //
