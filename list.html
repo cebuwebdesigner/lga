@@ -235,7 +235,83 @@ window.top.location.href = "type.html?lvl="+alphatyp;
 
 
 <style type="text/css">
-.badge {  background: #BA070F;  color: #fff;  padding: 1px 7px;  position: absolute;  right: 4px;  top: -12px;  z-index: 999;  border-radius: .8em;  border: 2px solid #fff; margin-right:20%; visibility:hidden}</style><script type="text/javascript" charset="utf-8" src="js/checkgps.js"></script>
+.badge {  background: #BA070F;  color: #fff;  padding: 1px 7px;  position: absolute;  right: 4px;  top: -12px;  z-index: 999;  border-radius: .8em;  border: 2px solid #fff; margin-right:20%; visibility:hidden}</style> <script type="text/javascript" charset="utf-8">
+	
+	
+	
+	
+	 //var hostserver= localStorage['globalurl'];
+var hostserver= localStorage['globalurl'];
+    // Wait for PhoneGap to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // PhoneGap is ready
+    //
+    function onDeviceReady() {
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    }
+
+    // onSuccess Geolocation
+    //
+    function onSuccess(position) {
+       /* var element = document.getElementById('geolocation');
+        element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
+                            'Longitude: '          + position.coords.longitude             + '<br />' +
+                            'Altitude: '           + position.coords.altitude              + '<br />' +
+                            'Accuracy: '           + position.coords.accuracy              + '<br />' +
+                            'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
+                            'Heading: '            + position.coords.heading               + '<br />' +
+                            'Speed: '              + position.coords.speed                 + '<br />' +
+                            'Timestamp: '          + new Date(position.timestamp)          + '<br />';*/
+		
+	
+	
+	
+	localStorage['mylatKey'] = position.coords.latitude;
+	localStorage['mylongKey2'] = position.coords.longitude;
+							
+	
+	//http://buildwebdesign.com/kryptonite/legalapp/gps.php?id=73&long=123&lat=10
+	
+	var thelatitude  = position.coords.latitude;
+	var thelongitude = position.coords.longitude;
+	
+	var AAA = localStorage['myID2'].split(',');
+	var theid = AAA[1];
+	
+
+	//alert("Hi " + theid+", Your in "+thelongitude+","+thelatitude);
+	//var theid = AAA[1];
+	
+	 
+	
+	 $.post(hostserver+"gps.php",
+  {
+    id:theid,
+	long:thelongitude,
+	lat:thelatitude
+  },
+  function(data,status){
+    if(status=="success"){
+	//window.top.location.href = "form.html"; 
+	}else{
+		alert("Please check your connection and try again");
+		}
+  });
+	 
+	 
+	 
+    }
+
+    // onError Callback receives a PositionError object
+    //
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
+    }
+
+</script>
 </head>
 <body>
 
