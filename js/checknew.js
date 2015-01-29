@@ -2,6 +2,87 @@ time=setInterval(function(){
 
 
 
+
+
+function initGeolocation() {
+ if (navigator && navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(successCallback, errorCallback,
+                                         {enableHighAccuracy:true, timeout:60000, maximumAge:600000});
+        } else {
+            console.log('Geolocation is not supported');
+        }
+}
+ 
+function errorCallback() {}
+ 
+function successCallback(position) {
+	//alert(position.coords.latitude + ',' + position.coords.longitude)
+     /* var mapUrl = "http://maps.google.com/maps/api/staticmap?center=";
+      mapUrl = mapUrl + position.coords.latitude + ',' + position.coords.longitude;
+      mapUrl = mapUrl + '&zoom=15&size=512x512&maptype=roadmap&sensor=false';
+      var imgElement = document.getElementById("static-map");
+      imgElement.src = mapUrl;*/
+	  
+ 	var thelatitude  = position.coords.latitude;
+	var thelongitude = position.coords.longitude;
+	localStorage['mylatKey'] = thelatitude;
+	localStorage['mylongKey2'] = thelongitude;
+	var AAA = localStorage['myID2'].split(',');
+	var theid = AAA[1];
+	var hostserver=localStorage['globalurl'];
+				
+	if(thelatitude!=""){
+	$.post(hostserver+"gps.php",
+  {
+    id:theid,
+	long:thelongitude,
+	lat:thelatitude
+  },
+  function(data,status){
+    if(status=="success"){
+	//window.top.location.href = "form.html"; 
+	}else{
+		alert("Please check your connection and try again");
+		}
+  });
+}
+		
+	/*		*/
+		
+		
+	  
+    }
+	
+	
+	initGeolocation();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	var vpass2 = localStorage['myID2'];//document.getElementById("password").value;
 	var params = vpass2.split(',');
 	var vpass2=params[1];
