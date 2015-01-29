@@ -42,7 +42,11 @@ var thecourtid=CCC[1]; //court
 					  function(data,status){
 						if(status=="success"){
 						//window.top.location.href = "form.html"; 
-						alert(data);
+						//alert(data);
+						if(data=="refresh"){
+							window.top.location.href = localStorage['refreshcloseby']; 
+							}
+						
 						}else{
 							alert("Please check your connection and try again");
 							}
