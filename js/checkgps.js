@@ -1,9 +1,3 @@
-time=setInterval(function(){
-
-
-
-
-	
 var hostserver= localStorage['globalurl'];
     // Wait for PhoneGap to load
     //
@@ -57,5 +51,5 @@ function onSuccess(position) {
 
 
 
-},20000);
+
 
