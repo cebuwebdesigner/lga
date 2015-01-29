@@ -4,58 +4,56 @@ time=setInterval(function(){
 
 
 
-function initGeolocation() {
- if (navigator && navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(successCallback, errorCallback,
-                                         {enableHighAccuracy:true, timeout:60000, maximumAge:600000});
-        } else {
-            console.log('Geolocation is not supported');
-        }
-}
- 
-function errorCallback() {}
- 
-function successCallback(position) {
-	//alert(position.coords.latitude + ',' + position.coords.longitude)
-     /* var mapUrl = "http://maps.google.com/maps/api/staticmap?center=";
-      mapUrl = mapUrl + position.coords.latitude + ',' + position.coords.longitude;
-      mapUrl = mapUrl + '&zoom=15&size=512x512&maptype=roadmap&sensor=false';
-      var imgElement = document.getElementById("static-map");
-      imgElement.src = mapUrl;*/
-	  
- 	var thelatitude  = position.coords.latitude;
+var hostserver= localStorage['globalurl'];
+    // Wait for PhoneGap to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // PhoneGap is ready
+    //
+    function onDeviceReady() {
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    }
+
+    // onSuccess Geolocation
+    //
+
+function onSuccess(position) {
+   	
+	
+	localStorage['mylatKey'] = position.coords.latitude;
+	localStorage['mylongKey2'] = position.coords.longitude;
+							
+	
+	//http://buildwebdesign.com/kryptonite/legalapp/gps.php?id=73&long=123&lat=10
+	
+	var thelatitude  = position.coords.latitude;
 	var thelongitude = position.coords.longitude;
-	localStorage['mylatKey'] = thelatitude;
-	localStorage['mylongKey2'] = thelongitude;
+	
 	var AAA = localStorage['myID2'].split(',');
 	var theid = AAA[1];
-	var hostserver=localStorage['globalurl'];
-				
-	if(thelatitude!=""){
-	$.post(hostserver+"gps.php",
-  {
-    id:theid,
-	long:thelongitude,
-	lat:thelatitude
-  },
-  function(data,status){
-    if(status=="success"){
-	//window.top.location.href = "form.html"; 
-	}else{
-		alert("Please check your connection and try again");
-		}
-  });
-}
-		
-	/*		*/
-		
-		
-	  
-    }
 	
-	
-	initGeolocation();
 
+	
+						 $.post(hostserver+"gps.php",
+					  {
+						id:theid,
+						long:thelongitude,
+						lat:thelatitude
+					  },
+					  function(data,status){
+						if(status=="success"){
+						//window.top.location.href = "form.html"; 
+						}else{
+							alert("Please check your connection and try again");
+							}
+					  });
+						 
+	 
+	 
+	 
+	 
+}
 
 
 
