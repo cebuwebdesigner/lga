@@ -42,7 +42,7 @@ var thecourtid=CCC[1]; //court
 					  function(data,status){
 						if(status=="success"){
 						//window.top.location.href = "form.html"; 
-						//alert(totalassociate+" "+data);
+						alert(totalassociate+" "+data);
 						if(data=="refresh"){
 							window.top.location.href = localStorage['refreshcloseby']; 
 							}
