@@ -25,12 +25,13 @@ localStorage['courtselected']=CCC[1]; //court
 var thecourtid=CCC[1]; //court
 
 
- var hostserver = localStorage['globalurl'];
-	var totalassociate = localStorage['totassociat'];
+    var hostserver = localStorage['globalurl'];
+	
 	var AAA = localStorage['myID2'].split(',');
 	var theid = AAA[1];
-	
 
+var totalassociate = localStorage['totassociat'];
+//alert(theid+"!!!"+thecourtid+"!!!"+alphastart+"!!!"+alphatype+"!!!"+totalassociate);
 	
 					$.post(hostserver+"realtimegps.php",
 					  {  myid:theid,
@@ -40,9 +41,12 @@ var thecourtid=CCC[1]; //court
 						total:totalassociate
 					  },
 					  function(data,status){
+						  //alert("test here");
 						if(status=="success"){
 						//window.top.location.href = "form.html"; 
-						alert(totalassociate+" "+data);
+						
+						//alert(data);
+						//alert(localStorage['refreshcloseby']);
 						if(data=="refresh"){
 							window.top.location.href = localStorage['refreshcloseby']; 
 							}
