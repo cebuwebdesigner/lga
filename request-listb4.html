@@ -347,14 +347,15 @@ var hostserver= localStorage['globalurl'];
 	var params = url.split('?');
 	//alert(params[1]);
 	var ABC=params[1];
-	var AAA = ABC.split('=');
+	//var AAA = ABC.split('=');
 	//alert(AAA[1]);
-	var theid = AAA[1];
-	//var AABBCC = ABC.split('&amp;');
+	//var theid = AAA[1];
+	var AABBCC = ABC.split('&');
 	
-	//var AA = AABBCC[0];
-	//var AAA = AA.split('=');
-	//var alphastart=AAA[1];
+	var AA = AABBCC[0];
+	var AAA = AA.split('=');
+	var theid=AAA[1];
+	//alert(theid);
 	
 	
 function loadit(){
@@ -378,16 +379,16 @@ function loadit(){
 				
 				*/
 				
-				associaten = val.associateId;
+				associaten = val.userId;
 				
 				thestatz = val.requestType;
 				
 				switch(thestatz){
-		case '0': vthestatz='DECLINE'; break;
+		case '0': vthestatz='REJECTED'; break;
 		case '1': vthestatz='ACCEPTED'; break;
 		case '2': vthestatz='PENDING'; break;
 		case '3': vthestatz='CANCEL'; break;
-		case '4': vthestatz='COMPLETE'; break;
+		case '4': vthestatz='COMPLETED'; break;
 		}
 				
 				
@@ -395,7 +396,7 @@ function loadit(){
 								
 								var msg = val.message; var vdatetime = '<br />on '+ val.date+' at '+val.time;
 								var msgarray = msg.split(' '); //$assocoatexxx has sent a request for $courtaaa
-								var fmsg = 'You been requested '+associaten+' to be at '+msgarray[6]+vdatetime;
+								var fmsg = 'You\'ve been requested '+associaten+' to be at '+msgarray[6]+vdatetime;
 								$('#message').append(fmsg);
 								
 								
@@ -449,9 +450,9 @@ function dataReady() {
             document.getElementById("starz").src = "images/star.png";
         }
 
-
-
-    }
+   
+  
+   }
 	
 	
 	
@@ -491,10 +492,10 @@ var url = window.location.href;
   },
   function(data,status){
     if(status=="success"){
-	alert("successfully reject the request");
+	alert("successfully canceled the request");
 	//window.top.location.href = "form.html"; 
-	var therandom = Math.floor((Math.random() * 100) + 1);
-window.top.location.href = "load-request.html?url=requests-recieved.html&amp;ran="+therandom;
+	 	var therandom = Math.floor((Math.random() * 100) + 1);
+	 window.top.location.href = "load-request.html?url=requests-send.html&amp;ran="+therandom;
 	}else{
 		alert("Please check your connection and try again");
 		}
@@ -508,64 +509,8 @@ myElement.style.backgroundColor = "#fff";
 
 
 
-
-
-}
-
-function completereq(){ 
-
-				  
-var url = window.location.href;
-	
-	var params = url.split('?');
-	//alert(params[1]);
-	var ABC=params[1];
-	var AAA = ABC.split('=');
-	//alert(AAA[1]);
-	var theid = AAA[1];
-	//var AABBCC = ABC.split('&amp;');
-	
-	//var AA = AABBCC[0];
-	//var AAA = AA.split('=');
-	//var alphastart=AAA[1];
-	var vpass2 = localStorage['myID2'];//document.getElementById("password").value;
-	var params = vpass2.split(',');
-	var vpass2=params[1];
-
- //alert(vpass2+'rrr'+theid+'rrr'+thestar);
- var thestat='22';
- var hostserver= localStorage['globalurl'];
- var thecourt = localStorage['courtselected'];
- 
- $.post(hostserver+"request-master.php",
-  {
-    myid:vpass2,
-	theid:theid,
-	stat:thestat,
-	court:thecourt
-  },
-  function(data,status){
-    if(status=="success"){
-	alert("Successfully mark as job completed");
-	//window.top.location.href = "form.html"; 
-	
-	var therandom = Math.floor((Math.random() * 100) + 1);
- window.top.location.href = "load-request.html?url=requests-recieved.html&amp;ran="+therandom;
-	
-	}else{
-		alert("Please check your connection and try again");
-		}
-  });
-
-var myElement = document.querySelector(".reqcancel");
-myElement.style.backgroundColor = "#ccc";
-
-var myElement = document.querySelector(".reqservice");
-myElement.style.backgroundColor = "#fff";
-
-
-
-
+  
+   
 }
 	
 </script>
@@ -589,8 +534,7 @@ myElement.style.backgroundColor = "#fff";
     
      </div>
      <br style="clear:both" /><br style="clear:both" /><br style="clear:both" /><br style="clear:both" />
-     <a href="#" data-role="button" onclick="completereq()" >Mark as Job Complete</a><br style="clear:both" />
-     <!--<a href="#" data-role="button" onclick="acceptreq()" >Accept</a>
+    <!-- <a href="#" data-role="button" onclick="cancelreq()" >Cancel</a>
      <a href="#" data-role="button" onclick="editcal()" >Mark as Job Complete</a>-->
 	</div>							
      
