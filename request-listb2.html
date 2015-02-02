@@ -396,7 +396,8 @@ function loadit(){
 								
 								var msg = val.message; var vdatetime = '<br />on '+ val.date+' at '+val.time;
 								var msgarray = msg.split(' '); //$assocoatexxx has sent a request for $courtaaa
-								var fmsg = 'has attended your request '+msgarray[6]+vdatetime;
+								var lastmsg = msgarray.length-1;
+								var fmsg = 'has attended your request '+msgarray[lastmsg]+vdatetime;
 								//var fmsg = 'You been requested to '+associaten+' for '+msgarray[6]+vdatetime;
 								$('#message').append(fmsg);
 								
