@@ -82,8 +82,9 @@ $(document).on('pageinit', '#index', function(){
 								
 								
 								//arraydataFF=[];
+								globalXX--;
 								var tobearray=''; var arraydatahere;
-								for($i=2;$i<=globalXX;$i++){
+								for($i=2;$i<globalXX;$i++){
 									tobearray = arraydataZZ[$i];
 									
 									if(tobearray!=null){
@@ -128,10 +129,6 @@ $(document).on('pageinit', '#index', function(){
 						
 						//dataReady();
 						
-						
-						
-						
-		
 
 						
 						
@@ -473,13 +470,41 @@ var hostserver= localStorage['globalurl'];
         alert('code: '    + error.code    + '\n' +
               'message: ' + error.message + '\n');
     }
+	
+	
+	function getthisdate(valdate){
+		
+		var newdate = valdate.split(" ");
+		//alert(newdate[1]);
+		
+		switch(newdate[1]){
+			case "Jan": newdateday = '01'; break; 
+			case "Feb": newdateday = '02'; break; 
+			case "Mar": newdateday = '03'; break; 
+			case "Apr": newdateday = '04'; break; 
+			case "May": newdateday = '05'; break; 
+			case "Jun": newdateday = '06'; break; 
+			case "Jul": newdateday = '07'; break; 
+			case "Aug": newdateday = '08'; break; 
+			case "Sep": newdateday = '09'; break; 
+			case "Oct": newdateday = '10'; break; 
+			case "Nov": newdateday = '11'; break; 
+			case "Dec": newdateday = '12'; break; 
+			
+			}
+		valdate = newdateday+'/'+newdate[2]+'/'+newdate[3];
+		localStorage['dateselected'] = valdate+' 9:00 AM';
+		//alert(valdate);
+		//alert(valdate)//;
+		
+		}
 
 </script>
 </head>
     <body>
         <div data-role="page" id="index">
             <div data-role="header" data-position="fixed" role="banner" class="ui-header ui-bar-inherit">  <div style=" width:100%; height:10px">&nbsp;</div>  
-			
+			 
            
         
            <a href="#" onClick="closeby()"  data-transition="flip" style="position: fixed; background-image: url('images/back.png');

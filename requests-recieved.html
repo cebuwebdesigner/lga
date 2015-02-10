@@ -283,9 +283,16 @@ var hostserver= localStorage['globalurl'];
               'message: ' + error.message + '\n');
     }
 
+
+
+
 </script>
 </head>
 <body>
+
+
+
+
  <div class="pull-demo-page" data-role="page">
 <div data-role="header"  data-tap-toggle="false"  data-position="fixed" role="banner" class="ui-header ui-bar-inherit">
 			<div style=" width:100%; height:10px">&nbsp;</div>
@@ -403,7 +410,10 @@ var hostserver= localStorage['globalurl'];
                 
                 
                 </ul>
-        
+       <div data-role="popup" id="myPopupDivR">
+	<p>Successfully mark as job completed<p>
+</div>
+ 
         <!--<div class="iscroll-pullup">
           <span class="iscroll-pull-icon"></span><span class="iscroll-pull-label" data-iscroll-loading-text="Custom loading text" data-iscroll-pulled-text="Custom pulled text">Custom reset text</span>
         </div>-->
@@ -434,5 +444,13 @@ var hostserver= localStorage['globalurl'];
      </div>
     	</div>
 <script type="text/javascript" charset="utf-8" src="js/checknew.js"></script>   
+
+<script type="text/javascript"> 
+//localStorage['markjobascomplete']="pop";
+//
+if(localStorage['markjobascomplete']=="pop"){//alert(localStorage['markjobascomplete']);
+	$( "#myPopupDivR" ).popup( "open" ); //localStorage['markjobascomplete']="";
+	}
+</script>
 </body>
 </html>

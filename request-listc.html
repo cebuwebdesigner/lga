@@ -547,7 +547,11 @@ var url = window.location.href;
   },
   function(data,status){
     if(status=="success"){
-	alert("Successfully mark as job completed");
+		
+	
+	//alert("Successfully mark as job completed"); 
+	localStorage['markjobascomplete']="pop"; 
+	
 	//window.top.location.href = "form.html"; 
 	
 	var therandom = Math.floor((Math.random() * 100) + 1);
@@ -568,6 +572,8 @@ myElement.style.backgroundColor = "#fff";
 
 
 }
+
+
 	
 </script>
      

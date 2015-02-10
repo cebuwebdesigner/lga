@@ -241,7 +241,8 @@
                     lang: lang        // Specify language like: lang: 'pl' or omit setting to use default 
                 });
                 
-             
+				
+              //new Date(year, month, day, hours, minutes, seconds, milliseconds); 
                 
                 // Date & Time demo initialization
                 $('#demo_datetime').mobiscroll().datetime({
@@ -249,8 +250,9 @@
                     mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
                     display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
                     lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
-                    minDate: new Date(2014,1,10,9,22),  // More info about minDate: http://docs.mobiscroll.com/2-14-0/datetime#!opt-minDate
-                    maxDate: new Date(2016,7,30,15,44),   // More info about maxDate: http://docs.mobiscroll.com/2-14-0/datetime#!opt-maxDate
+					minDate: new Date(),  // More info about minDate: http://docs.mobiscroll.com/2-14-0/datetime#!opt-minDate
+                    maxDate: new Date(3015,7,30,15,44),   // More info about maxDate: http://docs.mobiscroll.com/2-14-0/datetime#!opt-maxDate
+					invalid:[ { start: '00:00', end: '08:59' }, { start: '16:00', end: '23:59' }],
                     stepMinute: 1  // More info about stepMinute: http://docs.mobiscroll.com/2-14-0/datetime#!opt-stepMinute
                 });
                 
@@ -279,6 +281,13 @@
             // Demo page code END
             // -------------------------------------------------------------------
         });
+	   
+	   
+	   
+	   
+	   
+	   
+	  
     </script>
    
    
@@ -481,7 +490,7 @@ var hostserver= localStorage['globalurl'];
 	
 	//http://buildwebdesign.com/kryptonite/legalapp/gps.php?id=73&long=123&lat=10
 	
-	var thelatitude  = position.coords.latitude;
+	var thelatitude  = position.coords.latitude; 
 	var thelongitude = position.coords.longitude;
 	
 	var AAA = localStorage['myID2'].split(',');
@@ -517,6 +526,9 @@ var hostserver= localStorage['globalurl'];
         alert('code: '    + error.code    + '\n' +
               'message: ' + error.message + '\n');
     }
+
+
+
 
 </script>
 </head>
@@ -557,7 +569,7 @@ var hostserver= localStorage['globalurl'];
            
            
             
-<input type="text" id="demo_datetime"  style="text-align:center" placeholder="*required date and time" />  
+<input type="text" id="demo_datetime" value=""  style="text-align:center" placeholder="*required date and time" />  
 <label><input name="" type="checkbox" value="" > I PLAN TO BE HERE</label>
             
             
@@ -609,6 +621,12 @@ var hostserver= localStorage['globalurl'];
 
 
            
-  <script type="text/javascript" charset="utf-8" src="js/checknew.js"></script>   </body>
+  <script type="text/javascript" charset="utf-8" src="js/checknew.js"></script>   
+  
+<script  type="text/javascript">
+  document.getElementById("demo_datetime").value = localStorage['dateselected'];
+</script>
+
+  </body>
 </html>   
   
