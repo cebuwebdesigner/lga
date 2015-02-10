@@ -894,7 +894,25 @@ var url = window.location.href;
      <br style="clear:both" /><br style="clear:both" /><br style="clear:both" /><br style="clear:both" />
     <div data-role="fieldcontain" class="demo-cont" id="demo_cont_datetime">
              
-<input type="text" id="demo_datetime"  style="text-align:center" placeholder="*required date and time" />
+<input type="text" id="demo_datetime"  style="text-align:center" value="" placeholder="*required date and time" />
+
+
+  
+<script  type="text/javascript">
+
+var d = new Date();
+var n = d.getDate();
+var m = d.getMonth();
+var y = d.getFullYear();
+//valdate = m+'/'+n+'/'+y;
+  document.getElementById("demo_datetime").value = m+'/'+n+'/'+y+' 9:00 AM';	
+ // document.getElementById("demo_datetime").value = //localStorage['dateselected'];
+
+</script>
+
+
+
+
 <br>
 
   <div name="demo" id="demo" class="settings">
