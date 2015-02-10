@@ -97,14 +97,22 @@
       }
       
       function addCell($row, date, hidden, selected) {
-         var $td = $("<td class='ui-body-" + plugin.settings.theme + "'/>").appendTo($row),
-             $a = $("<a href='#' class='ui-btn ui-btn-up-" + plugin.settings.theme + "'/>")
+		// var datetobe = date.getDate().toString();
+		 //var thedatearray = valdate.split(" ");
+		/*var theyear = new Date(valdate).getFullYear();
+		var themonth = new Date(valdate).getMonth();
+		var theday = new Date(valdate).getDay();*/ 
+	
+		//var vadate = datetobe;//themth+'/'+thedr+'/'+theyr;
+		 
+         var $td = $("<td class='ui-body-" + plugin.settings.theme + "'/  >").appendTo($row),
+             $a = $("<a href='#' onclick=\"getthisdate('"+date+"');\" class='ui-btn ui-btn-up-" + plugin.settings.theme + "'/>")
                   .html(date.getDate().toString())
                   .data('date', date)
                   .click(cellClickHandler)
                   .appendTo($td);
 
-         if ( selected ) $a.click();
+         if ( selected ) $a.click();  
          
          if ( hidden ) {
              $td.addClass("hidden");
