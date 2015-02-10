@@ -251,12 +251,13 @@
                 
                 // Date & Time demo initialization
                 $('#demo_datetime').mobiscroll().datetime({
-                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                   theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
                     mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
                     display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
                     lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
-                    minDate: new Date(2014,1,10,9,22),  // More info about minDate: http://docs.mobiscroll.com/2-14-0/datetime#!opt-minDate
-                    maxDate: new Date(2017,7,30,15,44),   // More info about maxDate: http://docs.mobiscroll.com/2-14-0/datetime#!opt-maxDate
+					minDate: new Date(),  // More info about minDate: http://docs.mobiscroll.com/2-14-0/datetime#!opt-minDate
+                    maxDate: new Date(3015,7,30,15,44),   // More info about maxDate: http://docs.mobiscroll.com/2-14-0/datetime#!opt-maxDate
+					invalid:[ { start: '00:00', end: '08:59' }, { start: '16:00', end: '23:59' }],
                     stepMinute: 1  // More info about stepMinute: http://docs.mobiscroll.com/2-14-0/datetime#!opt-stepMinute
                 });
                 
