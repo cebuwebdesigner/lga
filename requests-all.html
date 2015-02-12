@@ -390,25 +390,25 @@ var hostserver= localStorage['globalurl'];
 	  
 	  if(arraydataFF[1]==vpass2){
 		  
-		  statforward = 'SENT'; pointurl = 'request-list.html'; theindex = 6;
+		  statforward = 'SENT'; pointurl = 'request-list'; theindex = 6;
 		  
 		   				if(thestatz=='4'){var thelink='request-listb2';}else{var thelink='request-listr';}
 					 	if(thestatz=='3'){var thelink='request-listb';}
 					 	if(thestatz=='2'){var thelink='request-list3';}
 					  	if(thestatz=='1'){var thelink='request-listb';}
 					   	if(thestatz=='0'){var thelink='request-listb3';}
-		  pointurl = thelink;
+		  pointurl = thelink+'.html';
 		  $colorit="#f0eab4";//yellow
 		 
 	  }else{
-		  statforward = 'RECEIVED'; pointurl = 'request-listr.html';  theindex = 5; 
+		  statforward = 'RECEIVED'; pointurl = 'request-listr';  theindex = 5; 
 		  
 		  				if(thestatz=='1'){var thelink='request-listc';}else{var thelink='request-listr';}
 						if(thestatz=='2'){var thelink='request-listr2';}
 						if(thestatz=='3'){var thelink='request-listb4';}
 						if(thestatz=='4'){var thelink='request-listb4';}
 						 if(thestatz=='0'){var thelink='request-listb33';}
-		   pointurl = thelink;
+		   pointurl = thelink+'.html';
 		   $colorit="#eebe92";//orrange
 		 
 	  }
