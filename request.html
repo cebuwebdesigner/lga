@@ -902,10 +902,10 @@ var url = window.location.href;
 
 var d = new Date();
 var n = d.getDate();
-var m = d.getMonth();
+var m = d.getMonth(); m=m+1;
 var y = d.getFullYear();
 //valdate = m+'/'+n+'/'+y;
-  document.getElementById("demo_datetime").value = m+'/'+n+'/'+y+' 9:00 AM';	
+  document.getElementById("demo_datetime").value = n+'/'+m+'/'+y+' 9:00 AM';	
  // document.getElementById("demo_datetime").value = //localStorage['dateselected'];
 
 </script>
