@@ -11,8 +11,8 @@
             stepSecond: 1,
             separator: ' ',
             // Localization
-            dateFormat: 'mm/dd/yy',
-            dateOrder: 'mmddy',
+            dateFormat: 'dd/mm/yy',
+            dateOrder: 'ddmmy',
             timeWheels: 'hhiiA',
             timeFormat: 'hh:ii A',
             dayText: 'Day',

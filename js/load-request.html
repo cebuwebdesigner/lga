@@ -17,13 +17,46 @@
      
     
     <script type="text/javascript">
+	
+	
+	var vpass2 = localStorage['myID2'];//document.getElementById("password").value;
+	var params = vpass2.split(',');
+	var vpass2=params[1];
+	
+
+	 var hostserver = localStorage['globalurl'];
+	//alert(hostserver+' '+vpass2);
+	localStorage['popnotific']=0;
+	$.post(hostserver+"clear-notification.php",
+ 		 {
+			userid:vpass2
+  		},
+		  function(data,status){
+			if(status=="success"){
+			
+			if(data>0){
+			//document.getElementById('badge2').style.visibility="visible"; 
+		  // $( ".badge" ).html( data );
+			}else{		
+			    //document.getElementById('badge2').style.visibility="hidden"; 
+			 }
+		   
+		   }else{
+				alert("Please check your connection and try again");
+				}
+		  });
+	
+	
+	
+	
 
 /*local storage*/
 var allentry='';
 
-if(localStorage['started4']!=0){
-	localStorage['allcallendar'] = '';
-	
+if(localStorage['started3']!=0){
+
+
+	localStorage['allrequest'] = '';
 /*localStorage['A']='';
 localStorage['B']='';
 localStorage['C']='';
@@ -50,9 +83,10 @@ localStorage['W']='';
 localStorage['X']='';
 localStorage['Y']='';
 localStorage['Z']='';*/
+
 }
 
-localStorage['started4']=1;
+localStorage['started3']=1;
 
 
 
@@ -60,16 +94,20 @@ var url = window.location.href;
 var params = url.split('?url=');
 var ABC=params[1];
 //var BBB = ABC.split('=');
-var theurl = ABC;//.replace("QQQ", "?");
+//.replace("QQQ", "?");
 //alert(theurl)
+//alert(allentry+' '+alphatype+' '+alphalevel);
+var BBB = ABC.split('&amp;');
+var theurl = BBB[0];
 
-allentry=localStorage['allcallendar'];
+allentry=localStorage['allrequest'];
 
 
 
 
-var globalX; var globalXX;  var arraydataX; var arraydataXX; var arraydataXXX; var arraydataZZZ; var arraydataZZ; var arraydataZZZZ;
+var globalX; var globalXX;  var arraydataX; var arraydataXX; var arraydataXXX; var arraydataXXXX;var arraydataXXXXX;var arraydataXXXXXX;var arraydataXXXXXXX;
         //$(document).ready(function(){
+
 
 
 
@@ -81,35 +119,42 @@ var vpass2 = localStorage['myID2'];//document.getElementById("password").value;
        // $(document).ready(function(){
 		function loadit(){
 
-var hostserver= localStorage['globalurl'];
+var hostserver= localStorage['globalurl']; //alert(localStorage['globalurl']);
 //var hostserver='http://buildwebdesign.com/kryptonite/legalapp/';  
 /* call the php that has the php array which is json_encoded */
 //?list='+alphastart+'&typez='+alphatype+'&levelz='+alphalevel+'&r=1'
-                $.getJSON(hostserver+'myfeed.php', function(data) {
+
+
+                $.getJSON(hostserver+'request-all.php?theid='+vpass2, function(data) {
                         /* data will hold the php array as a javascript object */
-						var incinfo=0; var arraydata=''; var thesummary=''; var thebegin=''; var theend=''; 
+						var incinfo=0; var arraydata='';var arraydataid=''; 
+						var arraydata2=''; var arraydata3='';  var arraydata4='';  var arraydata5=''; var arraydata6='';  var arraydata7=''; 
                         $.each(data, function(key, val) {	
                                 //$('#data'+incinfo).append(val.first_name);
-								thesummary=thesummary+','+val.summary;
-								thebegin=thebegin+','+val.begin;
-								theend=theend+','+val.end;
+								if(val.reqId!=""){}
+								arraydata=arraydata+','+val.reqId;
+								arraydata2=arraydata2+','+val.userId;  
+								arraydata3=arraydata3+','+val.associateId;  
+								arraydata4=arraydata4+','+val.requestType;
+								arraydata5=arraydata5+','+val.vdate;
 								
-								
-								//alert(thesummary+'88888'+thebegin+'88888'+theend);
-								//arraythis = {"summary":thesummary,"begin": new Date(val.begin),"end": new Date(val.end) };
-								
-								
-								//eventnamearr2.push(arraythis);
+								arraydata6=arraydata6+','+val.userName;  
+								arraydata7=arraydata7+','+val.associateName;  
+								//alert(val.idz);
+								//alert(arraydata);
 								incinfo++;
-																
                         });
-						globalX = incinfo; //alert(incinfo);
-					arraydataX = thesummary; 
-					arraydataXX = thebegin;
-					arraydataXXX = theend;
+					globalX = incinfo; //alert(incinfo);
 					
+					arraydataX = arraydata; 
+					arraydataXX = arraydata2;
+					arraydataXXX = arraydata3;
+					arraydataXXXX = arraydata4;
+					arraydataXXXXX = arraydata5;
 					
-					//eventnamearr = eventnamearr2;
+					arraydataXXXXXX = arraydata6;
+					arraydataXXXXXXX = arraydata7;
+					
 					dataReady();
                 });
         }
@@ -126,9 +171,14 @@ function dataReady() {
 	//localStorage['associateid'] = arraydataidX;
 	//alert(arraydataidX);
 	
-	var arrayparsummary = arraydataX.split(','); //thesummary
-	var arrayparbegin = arraydataXX.split(','); //thebegin
-	var arrayparend = arraydataXXX.split(','); //theend
+	var arrayparreqid = arraydataX.split(','); //req unique id
+	var arrayparuserid = arraydataXX.split(','); //user id
+	var arrayparassoid = arraydataXXX.split(','); //asso id
+	var arraypartype = arraydataXXXX.split(','); //type
+	var arraypardate = arraydataXXXXX.split(','); //date
+	
+	var arrayparusername = arraydataXXXXXX.split(','); //user id
+	var arrayparassoname = arraydataXXXXXXX.split(','); //asso id
 	
 	
 	
@@ -139,7 +189,7 @@ function dataReady() {
 	var allentry2;
 	for(ii=0;ii<=loopidz;ii++){
 	
-	allentry2=allentry2+','+arrayparsummary[ii]+'!!!'+arrayparbegin[ii]+'!!!'+arrayparend[ii];
+	allentry2=allentry2+','+arrayparreqid[ii]+'!!!'+arrayparuserid[ii]+'!!!'+arrayparassoid[ii]+'!!!'+arraypartype[ii]+'!!!'+arraypardate[ii]+'!!!'+arrayparusername[ii]+'!!!'+arrayparassoname[ii];
 	
 	}
 	
@@ -151,7 +201,7 @@ function dataReady() {
 	
 	//alert(localStorage['myKey']);
 	
-	localStorage['allcallendar'] = allentry2;
+	localStorage['allrequest'] = allentry2;
 	
 		//alert(allentry2);
 		
@@ -162,8 +212,8 @@ function dataReady() {
 
 
 
-if(allentry==''){ 
-loadit();  //alert('load new');
+if(allentry==''){  //alert('load new');
+loadit(); 
 }
 else{ 
 //alert('use old'); 
@@ -267,7 +317,6 @@ var hostserver= localStorage['globalurl'];
 
 </script>
 </head>
-<body><div style="margin-top:300px; width:100%; text-align:center">
-<img src="images/loader.gif"  /></div>
+<body>
 </body>
 </html>

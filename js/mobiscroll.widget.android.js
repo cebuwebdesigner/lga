@@ -1,7 +1,7 @@
 (function ($) {
 
     $.mobiscroll.themes.android = {
-        dateOrder: 'Mddyy',
+        dateOrder: 'ddMyy',
         mode: 'clickpick',
         height: 50,
         showLabel: false,

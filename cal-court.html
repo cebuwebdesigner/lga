@@ -490,9 +490,8 @@ var hostserver= localStorage['globalurl'];
 			case "Oct": newdateday = '10'; break; 
 			case "Nov": newdateday = '11'; break; 
 			case "Dec": newdateday = '12'; break; 
-			
 			}
-		valdate = newdateday+'/'+newdate[2]+'/'+newdate[3];
+		valdate = newdate[2]+'/'+newdateday+'/'+newdate[3];
 		localStorage['dateselected'] = valdate+' 9:00 AM';
 		//alert(valdate);
 		//alert(valdate)//;
