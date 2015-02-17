@@ -351,7 +351,38 @@ var hostserver= localStorage['globalurl'];
 	//alert(AAA[1]);
 	var theid = AAA[1];
 	//var AABBCC = ABC.split('&amp;');
+	/////////////////////////////////////////////////////////////////////////
 	
+	
+	
+	  var allentry=localStorage['allrequest'];
+//alert(allentry);
+	  var arraydataZZ = allentry.split(',');
+	  var globalXX = arraydataZZ.length;
+	  
+	  
+	  var overwrite; var overwriteindex;
+	  
+	 
+	 
+	 for($i=1;$i<=globalXX;$i++){
+		var arraydataFF = arraydataZZ[$i].split('!!!');
+		
+		if(arraydataFF[0]==theid){
+overwrite = arraydataZZ[0]+'!!!'+arraydataZZ[1]+'!!!'+arraydataZZ[2]+'!!!'+arraydataZZ[3]+'!!!'+arraydataZZ[4]+'!!!'+arraydataZZ[5]+'!!!'+arraydataZZ[6]+'!!!'+1;
+overwriteindex = $i;
+			}
+		
+	  }
+	  
+	  
+	  arraydataZZ[overwriteindex] = overwrite;
+	  
+	  localStorage['allrequest'] = arraydataZZ.join(',');
+	  
+	  
+	  ////////////////////////////////////////////////////////////////////////////////
+	  
 	//var AA = AABBCC[0];
 	//var AAA = AA.split('=');
 	//var alphastart=AAA[1];

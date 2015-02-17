@@ -356,6 +356,40 @@ var hostserver= localStorage['globalurl'];
 	var AAA = AA.split('=');
 	var theid=AAA[1];
 	//alert(theid);
+	
+	
+	/////////////////////////////////////////////////////////////////////////
+	
+	
+	
+	  var allentry=localStorage['allrequest'];
+//alert(allentry);
+	  var arraydataZZ = allentry.split(',');
+	  var globalXX = arraydataZZ.length;
+	  
+	  
+	  var overwrite; var overwriteindex;
+	  
+	 
+	 
+	 for($i=1;$i<=globalXX;$i++){
+		var arraydataFF = arraydataZZ[$i].split('!!!');
+		
+		if(arraydataFF[0]==theid){
+overwrite = arraydataZZ[0]+'!!!'+arraydataZZ[1]+'!!!'+arraydataZZ[2]+'!!!'+arraydataZZ[3]+'!!!'+arraydataZZ[4]+'!!!'+arraydataZZ[5]+'!!!'+arraydataZZ[6]+'!!!'+1;
+overwriteindex = $i;
+			}
+		
+	  }
+	  
+	  
+	  arraydataZZ[overwriteindex] = overwrite;
+	  
+	  localStorage['allrequest'] = arraydataZZ.join(',');
+	  
+	  
+	  ////////////////////////////////////////////////////////////////////////////////
+	  
 	var EEE = localStorage['myID2'].split(',');
 	var myid = EEE[1];
 	
