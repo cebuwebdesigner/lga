@@ -476,7 +476,7 @@ var url = window.location.href;
 	
 	
 	
-	/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
 	
 	
 	
@@ -486,24 +486,32 @@ var url = window.location.href;
 	  var globalXX = arraydataZZ.length;
 	  
 	  
-	  var overwrite; var overwriteindex;
+	  var overwrite;  var arraydataKK;
 	  
 	 
 	 
 	 for($i=1;$i<=globalXX;$i++){
 		var arraydataFF = arraydataZZ[$i].split('!!!');
 		
+		
 		if(arraydataFF[0]==theid){
-overwrite = arraydataFF[0]+'!!!'+arraydataFF[1]+'!!!'+arraydataFF[2]+'!!!'+arraydataFF[3]+'!!!'+arraydataFF[4]+'!!!'+arraydataFF[5]+'!!!'+arraydataFF[6]+'!!!1';
-overwriteindex = $i;
-			}
+			
+arraydataKK = arraydataKK+','+arraydataFF[0]+'!!!'+arraydataFF[1]+'!!!'+arraydataFF[2]+'!!!'+arraydataFF[3]+'!!!'+arraydataFF[4]+'!!!'+arraydataFF[5]+'!!!'+arraydataFF[6]+'!!!1';
+
+			}else{
+				
+			arraydataKK = arraydataKK+','+arraydataZZ[$i];
+			
+				}
+			
+			
 		
 	  }
 	  
 	  
-	  arraydataZZ[overwriteindex] = overwrite;
 	  
-	  localStorage['allrequest'] = arraydataZZ.join(',');
+	  
+	  localStorage['allrequest'] = arraydataKK;
 	  
 	  
 	  ////////////////////////////////////////////////////////////////////////////////
