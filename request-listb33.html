@@ -357,6 +357,8 @@ var hostserver= localStorage['globalurl'];
 	var theid=AAA[1];
 	//alert(theid);
 	
+	var EEE = localStorage['myID2'].split(',');
+	var myid = EEE[1];
 	
 function loadit(){
 
@@ -365,7 +367,7 @@ function loadit(){
 /* call the php that has the php array which is json_encoded */
 //?list='+alphastart+'&typez='+alphatype+'&levelz='+alphalevel+'&r=1'
 //alert(theid);
-                $.getJSON(hostserver+'vrequest.php?theid='+theid, function(data) {
+                $.getJSON(hostserver+'vrequest.php?theid='+theid+'&myid='+myid, function(data) {
                         /* data will hold the php array as a javascript object */
 						var incinfo=0; var arraydata='';var arraydataid='';
                         $.each(data, function(key, val) {	
