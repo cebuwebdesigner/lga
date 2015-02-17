@@ -291,13 +291,17 @@ var hostserver= localStorage['globalurl'];
               'message: ' + error.message + '\n');
     }
 
+  function editbck2() {
+	var therandom = Math.floor((Math.random() * 100) + 1);
+	window.top.location.href = "load-request.html?url=requests-send.html&amp;ran="+therandom;
+  }
 </script>
 </head>
 <body>
 
 <div data-role="header" data-position="fixed" role="banner" class="ui-header ui-bar-inherit">  <div style=" width:100%; height:10px">&nbsp;</div>  
       
-           <a href="#" onclick="editbck()" data-transition="flip" style="position: fixed; background-image: url('images/back.png');
+           <a href="#" onclick="editbck2()" data-transition="flip" style="position: fixed; background-image: url('images/back.png');
 		 width:15px;margin-top:13px" class="ui-btn ui-nodisc-icon ui-corner-all ui-btn-icon-left ui-icon-logo" >&nbsp;</a>
             
             <h1 class="ui-title" role="heading" aria-level="1">Request</h1>
@@ -358,45 +362,7 @@ var hostserver= localStorage['globalurl'];
 	
 	
 	
-/////////////////////////////////////////////////////////////////////////
-	
-	
-	
-	  var allentry=localStorage['allrequest'];
-//alert(allentry);
-	  var arraydataZZ = allentry.split(',');
-	  var globalXX = arraydataZZ.length;
-	  
-	  
-	  var overwrite;  var arraydataKK;
-	  
-	 
-	 
-	 for($i=1;$i<=globalXX;$i++){
-		var arraydataFF = arraydataZZ[$i].split('!!!');
-		
-		
-		if(arraydataFF[0]==theid){
-			
-arraydataKK = arraydataKK+','+arraydataFF[0]+'!!!'+arraydataFF[1]+'!!!'+arraydataFF[2]+'!!!'+arraydataFF[3]+'!!!'+arraydataFF[4]+'!!!'+arraydataFF[5]+'!!!'+arraydataFF[6]+'!!!1';
 
-			}else{
-				
-			arraydataKK = arraydataKK+','+arraydataZZ[$i];
-			
-				}
-			
-			
-		
-	  }
-	  
-	  
-	  
-	  
-	  localStorage['allrequest'] = arraydataKK;
-	  
-	  
-	  ////////////////////////////////////////////////////////////////////////////////
 	  
 	//alert(theid);
 	var EEE = localStorage['myID2'].split(',');
