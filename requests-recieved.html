@@ -293,7 +293,7 @@ var hostserver= localStorage['globalurl'];
 
 
 
- <div class="pull-demo-page" data-role="page">
+<div class="pull-demo-page" data-role="page">
 <div data-role="header"  data-tap-toggle="false"  data-position="fixed" role="banner" class="ui-header ui-bar-inherit">
 			<div style=" width:100%; height:10px">&nbsp;</div>
            
@@ -317,19 +317,23 @@ var hostserver= localStorage['globalurl'];
   <div style="width:300px; margin: 0 auto;  text-align:center">
 
                 <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
-                    <input type="radio" name="radio-choice-h-6" onClick="requestssend()" id="radio-choice-h-6b" value="on" class="outlineswitch">
-           <label for="radio-choice-h-6b"  class="activecontrol" style="background-color:#0157a3; border-color:#09F; color:#09F; box-shadow: none; -webkit-box-shadow: none; text-shadow: 0 1px 0 #0157a3" >Sent</label>
-                    
-                    
+               
+
+<label for="radio-choice-h-6a" style="background-color:#0157a3; border-color:#09F; color:#09F; box-shadow: none; -webkit-box-shadow: none; text-shadow: 0 1px 0 #0157a3">All</label>
+ <input type="radio"  name="radio-choice-h-6" onClick="requestsalll()" id="radio-choice-h-6a" value="on" class="outlineswitch">
+ 
+ 
                    
-                     <label for="radio-choice-h-6a"  >Received</label>
-                     <input type="radio"  name="radio-choice-h-6" onClick="requestsrecieved()" id="radio-choice-h-6a" value="off" checked="checked"  class="outlineswitch">
+ <label for="radio-choice-h-6b"  >Received</label>
+<input type="radio"  name="radio-choice-h-6" onClick="requestsrecieved()" id="radio-choice-h-6b" value="off" checked="checked"  class="outlineswitch">
                    
                    
-                    <label for="radio-choice-h-6c" style="background-color:#0157a3; border-color:#09F; color:#09F; box-shadow: none; -webkit-box-shadow: none; text-shadow: 0 1px 0 #0157a3">All</label>
+
+<input type="radio" name="radio-choice-h-6" onClick="requestssend()" id="radio-choice-h-6c" value="on" class="outlineswitch">
+ <label for="radio-choice-h-6c"  class="activecontrol" style="background-color:#0157a3; border-color:#09F; color:#09F; box-shadow: none; -webkit-box-shadow: none; text-shadow: 0 1px 0 #0157a3" >Sent</label>
                     
-                    
-                    <input type="radio"  name="radio-choice-h-6" onClick="requestsalll()" id="radio-choice-h-6c" value="on" class="outlineswitch">
+      
+ 
                  </fieldset>
        
 </div>
@@ -391,6 +395,10 @@ var hostserver= localStorage['globalurl'];
 	//alert(vpass2);
 	  
 	  if(arraydataFF[2]==vpass2){
+		  
+		   var openstatz = arraydataFF[7]; 
+		  if(openstatz==1){ openstatz='bolder';} else { openstatz='lighter';}
+		  
 	  document.write('<li style="border-radius:10px;"><a href="'+thelink+'.html?id='+arraydataFF[0]+'&amp;stats='+arraydataFF[3]+'" target="_parent" id="data'+$i+'"><div style="width:50%; float:left">'+arraydataFF[5]+'<br /><span style="text-align:left; font-weight:lighter; font-size:12px;">'+arraydataFF[4]+'</span></div><div style="width:50%; float:left; text-align:right; font-weight:lighter; font-size:12px;">'+vthestatz+'</div></a></li>');
 	  }
 	  

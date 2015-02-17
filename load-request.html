@@ -128,7 +128,7 @@ var hostserver= localStorage['globalurl']; //alert(localStorage['globalurl']);
                 $.getJSON(hostserver+'request-all.php?theid='+vpass2, function(data) {
                         /* data will hold the php array as a javascript object */
 						var incinfo=0; var arraydata='';var arraydataid=''; 
-						var arraydata2=''; var arraydata3='';  var arraydata4='';  var arraydata5=''; var arraydata6='';  var arraydata7=''; 
+						var arraydata2=''; var arraydata3='';  var arraydata4='';  var arraydata5=''; var arraydata6='';  var arraydata7='';  var arraydata8=''; 
                         $.each(data, function(key, val) {	
                                 //$('#data'+incinfo).append(val.first_name);
 								if(val.reqId!=""){}
@@ -139,7 +139,8 @@ var hostserver= localStorage['globalurl']; //alert(localStorage['globalurl']);
 								arraydata5=arraydata5+','+val.vdate;
 								
 								arraydata6=arraydata6+','+val.userName;  
-								arraydata7=arraydata7+','+val.associateName;  
+								arraydata7=arraydata7+','+val.associateName; 
+								arraydata8=arraydata8+','+val.isopen;
 								//alert(val.idz);
 								//alert(arraydata);
 								incinfo++;
@@ -154,6 +155,7 @@ var hostserver= localStorage['globalurl']; //alert(localStorage['globalurl']);
 					
 					arraydataXXXXXX = arraydata6;
 					arraydataXXXXXXX = arraydata7;
+					arraydataXXXXXXXX = arraydata8;
 					
 					dataReady();
                 });
@@ -170,7 +172,7 @@ function dataReady() {
 	//localStorage['associatelat'] = arraydataZZZ;
 	//localStorage['associateid'] = arraydataidX;
 	//alert(arraydataidX);
-	
+
 	var arrayparreqid = arraydataX.split(','); //req unique id
 	var arrayparuserid = arraydataXX.split(','); //user id
 	var arrayparassoid = arraydataXXX.split(','); //asso id
@@ -179,8 +181,7 @@ function dataReady() {
 	
 	var arrayparusername = arraydataXXXXXX.split(','); //user id
 	var arrayparassoname = arraydataXXXXXXX.split(','); //asso id
-	
-	
+	var arrayparisopen = arraydataXXXXXXXX.split(','); //asso id
 	
 	
 	
@@ -189,7 +190,7 @@ function dataReady() {
 	var allentry2;
 	for(ii=0;ii<=loopidz;ii++){
 	
-	allentry2=allentry2+','+arrayparreqid[ii]+'!!!'+arrayparuserid[ii]+'!!!'+arrayparassoid[ii]+'!!!'+arraypartype[ii]+'!!!'+arraypardate[ii]+'!!!'+arrayparusername[ii]+'!!!'+arrayparassoname[ii];
+	allentry2=allentry2+','+arrayparreqid[ii]+'!!!'+arrayparuserid[ii]+'!!!'+arrayparassoid[ii]+'!!!'+arraypartype[ii]+'!!!'+arraypardate[ii]+'!!!'+arrayparusername[ii]+'!!!'+arrayparassoname[ii]+'!!!'+arrayparisopen[ii];
 	
 	}
 	

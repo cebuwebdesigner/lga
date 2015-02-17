@@ -313,21 +313,18 @@ var hostserver= localStorage['globalurl'];
   <div style="width:300px; margin: 0 auto;  text-align:center">
 
                 <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
-                    <input type="radio" name="radio-choice-h-6" onClick="requestssend()" id="radio-choice-h-6b" value="on" checked="checked" class="outlineswitch">
-           <label for="radio-choice-h-6b"  class="activecontrol" >Sent</label>
+ 
+ 
+ <label for="radio-choice-h-6a" style="background-color:#0157a3; border-color:#09F; color:#09F; box-shadow: none; -webkit-box-shadow: none; text-shadow: 0 1px 0 #0157a3">All</label>
+<input type="radio"  name="radio-choice-h-6" onClick="requestsalll()" id="radio-choice-h-6a" value="off" class="outlineswitch">  
+
+<label for="radio-choice-h-6b"  style="background-color:#0157a3; border-color:#09F; color:#09F; box-shadow: none; -webkit-box-shadow: none; text-shadow: 0 1px 0 #0157a3">Received</label>
+<input type="radio"  name="radio-choice-h-6" onClick="requestsrecieved()" id="radio-choice-h-6b" value="on" class="outlineswitch">
+                 
+<input type="radio" name="radio-choice-h-6" onClick="requestssend()" id="radio-choice-h-6c" value="on" checked="checked" class="outlineswitch"> 
+<label for="radio-choice-h-6c"  class="activecontrol" >Sent</label>
                     
-                    
-                   
-                     <label for="radio-choice-h-6a"  style="background-color:#0157a3; border-color:#09F; color:#09F; box-shadow: none; -webkit-box-shadow: none; text-shadow: 0 1px 0 #0157a3">Received</label>
-                    
-                    
-                    <input type="radio"  name="radio-choice-h-6" onClick="requestsrecieved()" id="radio-choice-h-6a" value="on" class="outlineswitch">
-                   
-                   
-                    <label for="radio-choice-h-6c" style="background-color:#0157a3; border-color:#09F; color:#09F; box-shadow: none; -webkit-box-shadow: none; text-shadow: 0 1px 0 #0157a3">All</label>
-                    
-                    
-                    <input type="radio"  name="radio-choice-h-6" onClick="requestsalll()" id="radio-choice-h-6c" value="off" class="outlineswitch">
+        
                  </fieldset>
        
 </div>
@@ -365,7 +362,7 @@ var hostserver= localStorage['globalurl'];
 	var vthestatz='';
 	for($i=1;$i<=globalXX;$i++){
 	var arraydataFF = arraydataZZ[$i].split('!!!');//'+arraydataFF[2]+'!!!lat='+arraydataFF[1]+'!!!courtid='
-	var thestatz = arraydataFF[3];
+	var thestatz = arraydataFF[3]; 
 	switch(thestatz){
 		case '0': vthestatz='Decline'; break;
 		case '1': vthestatz='Accepted'; break;
@@ -385,7 +382,10 @@ var hostserver= localStorage['globalurl'];
 	 // alert(arraydataFF[0])
 	  if(arraydataFF[1]==vpass2){
 		  
-	  document.write('<li style="border-radius:10px;"><a href="'+thelink+'.html?id='+arraydataFF[0]+'&amp;stats='+arraydataFF[3]+'" target="_parent" id="data'+$i+'"><div style="width:50%; float:left">'+arraydataFF[6]+'<br /><span style="text-align:left; font-weight:lighter; font-size:12px;">'+arraydataFF[4]+'</span></div><div style="width:50%; float:left; text-align:right; font-weight:lighter; font-size:12px;">'+vthestatz+'</div></a></li>');
+		  var openstatz = arraydataFF[7]; 
+		  if(openstatz==1){ openstatz='bolder';} else { openstatz='lighter';}
+		  
+	  document.write('<li style="border-radius:10px;  font-weight:'+openstatz+';"><a href="'+thelink+'.html?id='+arraydataFF[0]+'&amp;stats='+arraydataFF[3]+'" target="_parent" id="data'+$i+'"><div style="width:50%; float:left">'+arraydataFF[6]+'<br /><span style="text-align:left; font-weight:'+openstatz+'; font-size:12px;">'+arraydataFF[4]+'</span></div><div style="width:50%; float:left; text-align:right; font-weight:lighter; font-size:12px;">'+vthestatz+'</div></a></li>');
 	  }
 	  
 	  
