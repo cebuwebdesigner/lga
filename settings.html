@@ -308,8 +308,8 @@ function settings(){
 	//alert(onoffgps);
 	if(onoffgps==true){var thegps=1;}else{var thegps=0;}
 	
-	var onoffsee1 = document.getElementById("checkbox-h-6a").checked;
-	var onoffsee2 = document.getElementById("checkbox-h-6b").checked;/**/
+	var onoffsee1 = document.getElementByName("checkbox-h-6a").checked;
+	var onoffsee2 = document.getElementByName("checkbox-h-6b").checked;/**/
 	
 	var thesee2=1;
 	if(onoffsee1==false){
@@ -428,9 +428,9 @@ $.post(hostserver+"settings.php",
 <div> 
 <fieldset data-role="controlgroup" data-iconpos="right">
 					<legend>WHO CAN SEE YOU</legend>
-					<input type="checkbox" name="checkbox-h-6a" id="checkbox-h-6a"  onClick="settings()" >
+					<input type="checkbox" name="checkbox-h-6a" id="whoseeyou"  onClick="settings()" >
 					<label for="checkbox-h-6a">Everyone</label>
-					<input type="checkbox" name="checkbox-h-6b" id="checkbox-h-6b" onClick="settings()" >
+					<input type="checkbox" name="checkbox-h-6b" id="whoseeyou" onClick="settings()" >
 					<label for="checkbox-h-6b">Favourites Only</label>
 </fieldset>	
 
@@ -457,6 +457,14 @@ function logiut() {
 	
 	window.top.location.href = "form.html";
 	}
+	
+$("#whoseeyou input:checkbox").change(function() {
+    if( this.checked ) {
+        var checkname = $(this).attr("name");
+        $("input:checkbox[name='" + checkname + "']").removeAttr("checked");
+        this.checked = true;
+    }
+});
 </script>
 <a href="#" onclick="logiut()"  style="width:90%" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ">LOGOUT</a>
 </center>
@@ -512,9 +520,9 @@ function logiut() {
 	}
 	//document.getElementById("gps").checked = true;
 	if(ASET[3]==1){
-	document.getElementById("checkbox-h-6a").checked = true;}
+	document.getElementByName("checkbox-h-6a").checked = true;}
 	else
-	{document.getElementById("checkbox-h-6b").checked = true;}
+	{document.getElementByName("checkbox-h-6b").checked = true;}
 	
 	//document.getElementById("location").value=ASET[4];
 	
