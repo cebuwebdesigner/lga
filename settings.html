@@ -309,8 +309,14 @@ function settings(){
 	if(onoffgps==true){var thegps=1;}else{var thegps=0;}
 	
 	var onoffsee1 = document.getElementById("checkbox-h-6a").checked;
-	var tonoffsee2 = document.getElementById("checkbox-h-6b").checked;/**/
+	var onoffsee2 = document.getElementById("checkbox-h-6b").checked;/**/
 	
+	var thesee2=1;
+	if(onoffsee1==false){
+				if(onoffsee2==true){
+				   var thesee2='0';
+				}
+		}
 	//if(onoffsee1=='true'){alert(tonoffsee2);}//var thesee1='1';}else{var thesee1='0';}
 	//if(onoffsee2==true){var thesee2='1';}else{var thesee2='0';}
 
@@ -338,7 +344,8 @@ $.post(hostserver+"settings.php",
 	name:thename,
 	firm:thefirm,
 	email:theemail,
-	gps:thegps
+	gps:thegps,
+	whocansee:thesee2
 	
 	
   },
@@ -346,11 +353,11 @@ $.post(hostserver+"settings.php",
     if(status=="success"){
 	//alert("successfully updated");
 	//window.top.location.href = "form.html"; 
-	var whocansee='';//onoffsee1+'-'+onoffsee2; 
+	//var whocansee='';//onoffsee1+'-'+onoffsee2; 
 	var state;
 	
 	//alert( thefirm+','+theemail+','+thegps+','+whocansee)
-	localStorage['mySettings'] = thefirm+','+theemail+','+thegps+','+whocansee+','+state;
+	localStorage['mySettings'] = thefirm+','+theemail+','+thegps+','+thesee2+','+state;
     localStorage['myID2'] = thename+','+vpass2;
 	}else{
 		alert("Please check your connection and try again");
