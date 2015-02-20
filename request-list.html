@@ -406,9 +406,18 @@ function loadit(){
 				
 								$('#statz').append(vthestatz);
 								
-								var msg = val.message; var vdatetime = '<br />'+ val.date+' at '+val.time;
+								//var msg = val.message; var vdatetime = '<br />'+ val.date+' at '+val.time;
+								var msg = val.message; var vdatetime = ' for a matter on '+ val.date+'<br />at '+val.time;
+								
+								
 								var msgarray = msg.split(' '); //$assocoatexxx has sent a request for $courtaaa
-								var fmsg = 'You\'ve been requested by '+associaten+' for '+msgarray[6]+vdatetime;
+								
+								
+								//var fmsg = 'You\'ve been requested by '+associaten+' for '+msgarray[6]+vdatetime;
+								var fmsg = 'You have requested '+associaten+' to be at the '+msgarray[6]+vdatetime;
+								
+								
+								
 								$('#message').append(fmsg);
 								
 								

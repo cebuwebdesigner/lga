@@ -407,10 +407,19 @@ function loadit(){
 				
 								$('#statz').append(vthestatz);
 								
-								var msg = val.message; var vdatetime = '<br />on '+ val.date+' at '+val.time;
+								//var msg = val.message; var vdatetime = '<br />on '+ val.date+' at '+val.time;
+								var msg = val.message; var vdatetime = ' for a matter on '+ val.date+'<br />at '+val.time;
+								
+								
 								var msgarray = msg.split(' '); //$assocoatexxx has sent a request for $courtaaa
 								var lastmsg = msgarray.length-1;
-								var fmsg = 'You have requested '+associaten+' to be at '+msgarray[lastmsg]+' for a matter'+vdatetime;
+								
+								
+								var fmsg = 'You have requested '+associaten+' to be at the '+msgarray[lastmsg]+''+vdatetime;
+								//“You have requested Adam Watt to be at the COURT NAME (Downing Centre Local Court, for example) for a matter on 31-01-2015 (the date order should be day-month-year). 
+								 
+								
+								
 								$('#message').append(fmsg);
 								
 								
