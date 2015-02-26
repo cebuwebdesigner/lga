@@ -409,8 +409,9 @@ function loadit(){
 								
 								var msgarray = msg.split(' '); //$assocoatexxx has sent a request for $courtaaa + Sherry has sent a request for ZebuCourt
 								var lastmsg = msgarray.length-1;
+								var msgcourt = msg.split('request for');	
 								//var fmsg = 'You have requested '+associaten+' to be at '+msgarray[lastmsg]+' for a matter'+vdatetime;
-								var fmsg = 'You have requested '+associaten+' to be at the'+msgarray[lastmsg]+''+vdatetime;
+								var fmsg = 'You have requested '+associaten+' to be at the'+msgcourt[1]+''+vdatetime;
 								
 								//var fmsg = 'You been requested to '+associaten+' for '+msgarray[6]+vdatetime;
 									//“You have requested Adam Watt to be at the COURT NAME (Downing Centre Local Court, for example) for a matter on 31-01-2015 (the date order should be day-month-year). 
