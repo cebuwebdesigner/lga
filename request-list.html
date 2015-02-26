@@ -408,7 +408,9 @@ function loadit(){
 								
 								//var msg = val.message; var vdatetime = '<br />'+ val.date+' at '+val.time;
 								var msg = val.message; var vdatetime = ' for a matter on '+ val.date+'<br />at '+val.time;
-								
+								if(val.time==""){
+								var vdatetime = ' for a matter on '+ val.date;
+								}
 								
 								var msgarray = msg.split(' '); //$assocoatexxx has sent a request for $courtaaa
 								

@@ -245,7 +245,7 @@
               //new Date(year, month, day, hours, minutes, seconds, milliseconds); 
                 
                 // Date & Time demo initialization
-                $('#demo_datetime').mobiscroll().datetime({
+                $('#demo_dateonly').mobiscroll().date({
                     theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
                     mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
                     display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
@@ -347,8 +347,15 @@
 		
 		//alert(courtid);
 		
-		var caldate = document.getElementById("demo_datetime").value;
-		
+		//var caldate = document.getElementById("demo_datetime").value;
+		var caldateonly = document.getElementById("demo_dateonly").value;
+
+		var caltimeonly = document.getElementById("demo_timeonly").value;
+
+		var caldate = caldateonly+" "+caltimeonly;
+
+
+
 	
 	
 var arrycaldate = caldate.split(' ');
@@ -569,7 +576,67 @@ var hostserver= localStorage['globalurl'];
            
            
             
-<input type="text" id="demo_datetime" value=""  style="text-align:center" placeholder="*required date and time" />  
+<!--<input type="text" id="demo_datetime" value=""  style="text-align:center" placeholder="*required date and time" /> --> 
+<div class="ui-field-contain">          
+<input type="text" id="demo_dateonly"  style="text-align:center; " value="" placeholder="*required date" style="font-size:15px" /></div>
+
+
+
+<div class="ui-field-contain">
+<select name="select-native-2"  data-mini="true"  id="demo_timeonly">
+        <option value="">Optional Time</option>
+        <option value="09:30 AM">09:30 AM</option>
+        <option value="09:45 AM">09:45 AM</option>
+        <option value="10:00 AM">10:00 AM</option>
+        <option value="10:15 AM">10:15 AM</option>
+       <option value="10:30 AM">10:30 AM</option>
+        <option value="10:45 AM">10:45 AM</option>
+        <option value="11:00 AM">11:00 AM</option>
+        <option value="11:15 AM">11:15 AM</option>
+         <option value="11:30 AM">11:30 AM</option>
+        <option value="11:45 AM">11:45 AM</option>
+        <option value="12:00 AM">12:00 AM</option>
+        <option value="12:15 AM">12:15 AM</option>
+       <option value="12:30 AM">12:30 AM</option>
+        <option value="12:45 AM">12:45 AM</option>
+        <option value="01:00 PM">01:00 PM</option>
+        <option value="01:15 PM">01:15 PM</option>
+        <option value="01:30 PM">01:30 PM</option>
+        <option value="01:45 PM">01:45 PM</option>
+        <option value="02:00 PM">02:00 PM</option>
+        <option value="02:15 PM">02:15 PM</option>
+       <option value="02:30 PM">02:30 PM</option>
+        <option value="02:45 PM">02:45 PM</option>
+        <option value="03:00 PM">03:00 PM</option>
+        <option value="03:15 PM">03:15 PM</option>
+        <option value="03:30 PM">03:30 PM</option>
+        <option value="03:45 PM">03:45 PM</option>
+        <option value="04:00 PM">04:00 PM</option>
+       
+    </select>
+</div>
+
+
+<br style="clear:both" />
+  
+<script  type="text/javascript">
+
+
+
+var d = new Date();
+var n = d.getDate();
+var m = d.getMonth(); m=m+1;
+var y = d.getFullYear();
+//valdate = m+'/'+n+'/'+y;
+  //document.getElementById("demo_datetime").value = n+'/'+m+'/'+y+' 9:00 AM';	
+  
+   document.getElementById("demo_dateonly").value = n+'/'+m+'/'+y;
+   
+    //document.getElementById("demo_timeonly").value = '9:00 AM';
+ // document.getElementById("demo_datetime").value = //localStorage['dateselected'];
+
+</script>
+
 <label><input name="" type="checkbox" value="" > I PLAN TO BE HERE</label>
             
             
@@ -624,7 +691,7 @@ var hostserver= localStorage['globalurl'];
   <script type="text/javascript" charset="utf-8" src="js/checknew.js"></script>   
   
 <script  type="text/javascript">
-  document.getElementById("demo_datetime").value = localStorage['dateselected'];
+  document.getElementById("demo_dateonly").value = localStorage['dateselected'];
 </script>
 
   </body>

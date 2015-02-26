@@ -407,7 +407,12 @@ function loadit(){
 				
 								$('#statz').append(vthestatz);
 								
-								var msg = val.message; var vdatetime = ' for a matter on '+ val.date+'<br />at '+val.time;
+								var msg = val.message; 
+								var vdatetime = ' for a matter on '+ val.date+'<br />at '+val.time;
+								if(val.time==""){
+								var vdatetime = ' for a matter <br />on '+ val.date;
+								}
+								
 								var msgarray = msg.split(' '); //$assocoatexxx has sent a request for $courtaaa
 								var lastmsg = msgarray.length-1;
 								
