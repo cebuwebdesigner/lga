@@ -257,8 +257,8 @@
                     lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
 					minDate: new Date(),  // More info about minDate: http://docs.mobiscroll.com/2-14-0/datetime#!opt-minDate
                     maxDate: new Date(3015,7,30,15,44),   // More info about maxDate: http://docs.mobiscroll.com/2-14-0/datetime#!opt-maxDate
-					invalid:[ { start: '00:00', end: '08:59' }, { start: '16:00', end: '23:59' }],
-                    stepMinute: 1  // More info about stepMinute: http://docs.mobiscroll.com/2-14-0/datetime#!opt-stepMinute
+					//invalid:[ { start: '00:00', end: '08:59' }, { start: '16:00', end: '23:59' }],
+                    //stepMinute: 1  // More info about stepMinute: http://docs.mobiscroll.com/2-14-0/datetime#!opt-stepMinute
                 });
                 
               
@@ -342,13 +342,20 @@ var url = window.location.href;
  var thestat='2';
  var hostserver= localStorage['globalurl'];
  var thecourt = localStorage['courtselected'];
- var caldate = document.getElementById("demo_datetime").value;
+ 
+ 
+ 
+ //var caldate = document.getElementById("demo_datetime").value;
+
+var caldateonly = document.getElementById("demo_dateonly").value;
+
+var caltimeonly = document.getElementById("demo_timeonly").value;
+
+var caldate = caldateonly+" "+caltimeonly;
 
 
 
-
-
-
+//alert(caldate);
 
 
 
@@ -424,6 +431,7 @@ var caltimeonly = document.getElementById("demo_timeonly").value;
 
 var caldate = caldateonly+" "+caltimeonly;
 
+//alert(caldate);
 
 if(caldate==""){
 	$( "#myPopupDivRCC" ).popup( "open" );
@@ -468,7 +476,7 @@ myElement.style.backgroundColor = "#ccc";
 
 function cancelreq(){ 
 
-document.getElementById("demo_datetime").value='';
+document.getElementById("demo_timeonly").value='';
 				  
 var url = window.location.href;
 	
