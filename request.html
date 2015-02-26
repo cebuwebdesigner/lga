@@ -272,7 +272,7 @@
             var demo, theme, mode, display, lang;
             
             $('.settings').on('change', function() {
-                demo = 'datetime';
+                demo = 'date';
                 theme = 'android',
                 mode = 'scroller',
                 display = 'modal',
@@ -318,6 +318,7 @@ $('.showDetails').bind('click', function() {
 });//]]>  
 
 
+
 function editreq(){ 
 
 				  
@@ -355,7 +356,7 @@ var caldate = caldateonly+" "+caltimeonly;
 
 
 
-//alert(caldate);
+
 
 
 
@@ -920,7 +921,7 @@ var url = window.location.href;
 <input type="text" id="demo_timeonly"  style="text-align:center; " value="" placeholder="optional time" />-->
 
 <div class="ui-field-contain">
-<select name="select-native-2" id="select-native-2" data-mini="true"  id="demo_timeonly">
+<select name="select-native-2"  data-mini="true"  id="demo_timeonly">
         <option value="">Optional Time</option>
         <option value="09:30 AM">09:30 AM</option>
         <option value="09:45 AM">09:45 AM</option>
@@ -983,6 +984,7 @@ var y = d.getFullYear();
                 
             </div>
      
+
 
      <a href="#" data-role="button" onclick="editreq()"  class="reqservice">Request Service</a>
      <br />
