@@ -414,7 +414,10 @@ function loadit(){
 								//var msg = val.message; var vdatetime = '<br />on '+ val.date+' at '+val.time;
 								var msg = val.message; var vdatetime = ' for a matter on '+ val.date+'<br />at '+val.time;
 								if(val.time==""){
-								var vdatetime = ' for a matter on '+ val.date;
+								vdatetime = ' for a matter on '+ val.date;
+								}
+                                if(val.time==" "){
+								vdatetime = ' for a matter on '+ val.date;
 								}
 								
 								var msgarray = msg.split(' '); //$assocoatexxx has sent a request for $courtaaa
